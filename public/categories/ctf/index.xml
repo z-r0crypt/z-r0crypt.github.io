@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ctf on Security Notes</title>
+    <link>/categories/ctf/</link>
+    <description>Recent content in Ctf on Security Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 22:10:36 -0500</lastBuildDate>
+    
+	<atom:link href="/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Microcorruption CTF - Tutorial</title>
+      <link>/blog/2019/11/25/microcorruption-ctf---tutorial/</link>
+      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
+      
+      <guid>/blog/2019/11/25/microcorruption-ctf---tutorial/</guid>
+      <description>Introduction In this post I will share my learnings and research work done during microcorruption CTF challenge.
+What is Microcorruption? It&amp;rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.
+You&amp;rsquo;ll use the debugger to reverse-engineer the code for each level.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Security Notes</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Security Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Nov 2019 22:10:36 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Assembly</title>
+      <link>/tags/assembly/</link>
+      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/assembly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Awae</title>
+      <link>/tags/awae/</link>
+      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/awae/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptography</title>
+      <link>/tags/cryptography/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ctf</title>
+      <link>/tags/ctf/</link>
+      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploit</title>
+      <link>/tags/exploit/</link>
+      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/exploit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microcorruption</title>
+      <link>/tags/microcorruption/</link>
+      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/microcorruption/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Offensive Security</title>
+      <link>/tags/offensive-security/</link>
+      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/offensive-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oswe</title>
+      <link>/tags/oswe/</link>
+      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/oswe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prg</title>
+      <link>/tags/prg/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>/tags/prg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reverse Engineering</title>
+      <link>/tags/reverse-engineering/</link>
+      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/reverse-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stream Cipher</title>
+      <link>/tags/stream-cipher/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>/tags/stream-cipher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>/tags/web/</link>
+      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      
+      <guid>/tags/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

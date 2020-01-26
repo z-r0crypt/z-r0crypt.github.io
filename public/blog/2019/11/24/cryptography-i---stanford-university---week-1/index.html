@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Cryptography I - Stanford University - Week 1 &middot; Z-r0crypt</title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/poole-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-overrides.css">
+  <link rel="stylesheet" href="/css/hyde-x.css">
+  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Your default page description">
+  <meta name="keywords" content="Exploit, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-153171451-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body class="theme-base-08">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Z-r0crypt</h1>
+      <p class="lead">Security Enthusiast</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/post/">Posts</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/tags/">Tags</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="z-r0crypt"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="vbtr"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      <a href="zer0crypt"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2020 <a href="/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Cryptography I - Stanford University - Week 1</h1>
+    <span class="post-date">Nov 24, 2019
+    
+    <br/>
+    <a class="label" href="/categories/cryptography">Cryptography</a>
+    </span>
+    
+
+<p>Week 2:</p>
+
+<hr />
+
+<h1 id="crypto-notes-stanford-week-2">Crypto notes - Stanford - Week 2</h1>
+
+<ol>
+<li><a href="#block-ciphers">Block Ciphers</a>
+
+<ul>
+<li><a href="#pseudo-random-function-prf">Pseudo Random Function (PRF)</a></li>
+<li><a href="#pseudo-random-permutation-prp">Pseudo Random Permutation (PRP)</a></li>
+<li><a href="#secure-prf">Secure PRF</a></li>
+<li><a href="#prf-gives-us-a-prg-prf--prg">PRF =&gt; PRG</a></li>
+</ul></li>
+<li><a href="#des-data-encryption-standard">Data Encryption Standard</a>
+
+<ul>
+<li>[]()</li>
+<li>[]()
+<br />
+<br /></li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2 id="block-ciphers">Block Ciphers</h2>
+
+<p>A block cipher maps n bits of inputs to n bits of output.
+Examples :
+- 3DES: n=64bits, k=168 bits
+- AES: n=128bits, k = 128,192,256 bits</p>
+
+<p>Block ciphers are typically built by iteration with a round function R(k, m). It takes as input the round key k and the message m. The key k is expanded into &lsquo;round keys&rsquo; k1, k2, &hellip; kn. The message m is then encoded using R that stands for round function, which takes one of the round keys, and the current state of the message /mi/. This sequence of steps is applied iteratively until we reach /kn/, and the concatenation of the output of R is our cipher text.</p>
+
+<p><img src="./images/blockcipher.jpg" alt="" /></p>
+
+<p>Different ciphers have different amount of rounds. For 3DES it&rsquo;s 48, and for AES-128 it is 10.</p>
+
+<p>Block ciphers are rather slow compared to stream ciphers. The longer the key, the slower they are. However we can do many things with block ciphers that we couldn&rsquo;t do with stream ciphers.</p>
+
+<h3 id="pseudo-random-function-prf">Pseudo Random Function (PRF)</h3>
+
+<p>A PRF is defined over (K, X, Y) {key-space K, input-space X and output-space Y} with <code>F: K x X -&gt; Y</code> such that there exists an efficient algorithm to evaluate F(k,x).</p>
+
+<p>Note: A PRF doesn’t need to be revertible.</p>
+
+<h3 id="pseudo-random-permutation-prp">Pseudo Random Permutation (PRP)</h3>
+
+<p>A PRP (block cipher) is defined over (K,X) with <code>E: K x X -&gt; X</code> such that:
+- Exists efficient and deterministic algorithm to evaluate E(k,x)
+- The function E(k, ・) is one-to-one.
+- Exists an efficient inversion algorithm D(k,y)</p>
+
+<p>Examples:
+- 3DES: K x X -&gt; X where X = {0,1}^64 , K = {0,1}^168
+- AES: K x X -&gt; X where K = X = {0,1}^128</p>
+
+<p>Any block cipher or PRP is also a PRF : A PRP is a PRF where X = Y and is efficiently invertible.</p>
+
+<h3 id="secure-prf">Secure PRF</h3>
+
+<p>Let F: K x X -&gt; Y be a PRF
+- Funs[X,Y]: the set of all functions from X to Y
+- S_{F} = { F(k,・) s.t. k ∈ K} ⊆ Funs[X,Y]</p>
+
+<p>Intuition: A PRF is secure if a random function in Fun[X,Y] is indistinguishable from a random function in S_F.</p>
+
+<h3 id="prf-gives-us-a-prg-prf-prg">PRF gives us a PRG (PRF =&gt; PRG)</h3>
+
+<p>Let <code>F: K x {0,1}^n -&gt; {0,1}^n</code> be a secure PRF. Then the following <code>G: K -&gt; {0,1}^{nt}</code> is a secure PRG: <code>G(k) = F(k,0) || F(k,1) || … || F(k,t)</code></p>
+
+<p>Key property: parallelizable</p>
+
+<p>Security from PRF property: F(k,・) indistinguishable from a random function f(・)</p>
+
+<p><em>Summary:</em>
+<em>- Block cipher basically maps n-bits of input to n bit of outputs</em>
+<em>- Built by Iteration</em></p>
+
+<h2 id="des-data-encryption-standard">DES (Data Encryption Standard)</h2>
+
+<ul>
+<li>Early 1970: Horst Feistel designs Lucifer at IBM.
+<code>key-len = 128 bits, block-len = 128 bits.</code></li>
+<li>1973: NBS (old name of NIST) asks for block cipher proposals. IBM submits variant of Lucifer.</li>
+<li>1976: NBS adopts DES as a federal standard.
+<code>key-len = 56 bits. block-len = 64 bits.</code>
+Note: This is yet another example where standard bureaus do weaken cryptography.</li>
+<li>1997: DES broken by exhaustive search</li>
+<li>2000: NIST adopts Rijndael as AES (Advanced Encryption Standard) to replace DES.</li>
+</ul>
+
+<p>Widely deployed in banking (ACH) and commerce.</p>
+
+<h3 id="des-core-idea-feistel-network">DES: Core Idea - Feistel Network</h3>
+
+<p>Given functions <code>f_1, …, f_d: {0,1}^n -&gt; {0,1}^n</code>
+Goal: build invertible function <code>F:{0,1}^{2n} -&gt; {0,1}^{2n}</code></p>
+
+<ul>
+<li>Feistel network is a series of steps that follow the structure:
+
+<ul>
+<li>We start with R_0 for the first Right Bit, L_0 for the first
+Left Bit, and f_1 for the first function.</li>
+<li>We get L_1 from applying f_1 to R_0, and R_1 from XOR&rsquo;ing L_0
+with the output of f_1(R_0).</li>
+<li>We keep applying the same process until we reach R_d-1, L_d-1
+and fd, and the output of the process (the function F) is Rd and Ld.</li>
+<li>We claim that for all arbitrary functions f_1 to f_d, the
+outlined functiond F is invertible.</li>
+<li>We can proove this by constructing the inverse of the process:
+
+<ul>
+<li>The inverse of one round of input is:
+
+<ul>
+<li>R_i = L_i+1, L_i = f_i+1(L_i+1) XOR R_i+1</li>
+</ul></li>
+<li>By repeating this step from d to 0, we have completed the inverse.</li>
+<li>Because the process is so similar, this is very attractive
+because the hardware that encrypts can be used f</li>
+</ul></li>
+<li>Used in many block ciphers, although not in AES.</li>
+</ul></li>
+</ul>
+
+<p><img src="./images/des.jpg" alt="" /></p>
+
+<p>A Feistel Network mapping a 2n bit input to 2n bit output:
+Encryption
+L<em>i = R</em>{i-1}
+R_i =  L_i XOR f<em>i (R</em>{i-1})
+Decryption
+L<em>i = f</em>{i+1} (L<em>{i+1}) XOR R</em>{i+1}
+R<em>i = L</em>{i+1}</p>
+
+<p><img src="./images/construct-inverse.png" alt="" /></p>
+
+<p>Feistal networks are a general method for building invertible functions (block ciphers) from arbitrary functions. And it’s used in many block ciphers but not AES.</p>
+
+<p>The Luby-Rackoff Theorem proves that if you take a secure PRF and let it go through 3 rounds of a Feistal network, the result is a secure PRP. Formally
+f: K x {0,1}^n -&gt; {0,1}^n a secure PRF =&gt; 3-round Feistel F: K^3 x {0,1}^{2n} -&gt; {0,1}^{2n} is a secure PRP.</p>
+
+<h3 id="des-is-a-16-round-feistel-network">DES is a 16 round Feistel network</h3>
+
+<p><code>f_1, … , f_1: {0,1}^32 -&gt; {0,1}^32, f_i (x) = F{k_i, x}</code> where k_i is a round key from the key expansion.</p>
+
+<p>We start with a 64-bit input that gets fed into a Initial Permutation, that mixes the input bits around, this then gets fed into the 16-round Feistel network, which gets fed into Final Permutation that undoes the shuffling around of IP. We are left with a 64-bit output.</p>
+
+<p>For decryption, the algorithm is the same but you use the round keys in reverse-order.</p>
+
+<h4 id="the-function-f-k-i-x">The Function F(k_i, x):</h4>
+
+<ul>
+<li>takes a 32-bit value x and a 48-bit round key k_i.</li>
+<li>x gets expanded into 48 bits by duplicating and mixing</li>
+<li>This expanded x gets xor&rsquo;ed with the round key</li>
+<li>The resulting 48-bits are split into eight slots of 6-bits, that get fed into eight &ldquo;S-boxes&rdquo;.</li>
+<li>S-boxes spit out 4-bit values based on lookup tables</li>
+<li>The resulting 32-bit value goes into yet another permutator, where it gets mixed and matched around.</li>
+<li>Essentially by using different round keys, we get different, arbitrary round functions.</li>
+</ul>
+
+<p><img src="./images/f.png" alt="F function" /></p>
+
+<h4 id="s-boxes">S-boxes</h4>
+
+<p>function {0,1}^6 &ndash;&gt; {0,1}^4</p>
+
+<p>S-boxes are implemented as lookup tables.</p>
+
+<p>Example: a bad S-box choice
+   - There are good and bad versions of S-boxes.
+   - Mainly we don&rsquo;t want the S-boxes to be calculated via a linear function, because this would mean that all that DES does is xor&rsquo;ing and moving bits around.
+   - If DES was wholly linear, this would mean that it&rsquo;s not fully random.
+   - <strong>Choosing the S-boxes</strong> at random would not be enough to make them secure, as the chances of them being linear would be too high. The key could be recovered after about 2^24 outputs.</p>
+
+<p>So what are the creators of DES advising to make S boxes lookup tables?
+   - No output bit should be close to a linear function of the input bits
+   - S-boxes are 4 to 1 maps.
+   - …</p>
+
+<h3 id="exhaustive-search-on-des">Exhaustive search on DES</h3>
+
+<p>Goal: given a few input/output pairs (m_i, c_i = E(k, m_i)), find key k.</p>
+
+<p><em>Lemma:</em> Suppose DES is an <strong>ideal cipher</strong> (2^56 random invertible functions). Then for all m,c there is at most one key k such that c = DES(k,m).</p>
+
+<p>With two input-output pairs, the probability that the key is unique is very close to one for both DES and AES. Hence, two input/output pairs are enough for exhaustive key search.</p>
+
+<p><strong>DES Challenge</strong>
+RSA issued a challenge to break DES exhaustively:
+- 1997: Internet Distributed Search = 3 months
+- 1998: EFF machine (deep crack) = 3 days
+- 1999: combined search = 22 hours
+- 2006: COPACOBANA (FPGA) = 7 Days (cheap!)</p>
+
+<p>Conclusion of the challenge was ==&gt; 56-bit ciphers should not be used!!</p>
+
+<h3 id="strengthening-des-against-ex-search">Strengthening DES against ex. search</h3>
+
+<p>How do we make DES more expensive to do exhaustive search? More rounds!</p>
+
+<h4 id="method-1-triple-des">Method 1: Triple DES.</h4>
+
+<p>Triple DES is also 3x slower for encryption :(</p>
+
+<p>The key-size of 3DES is 3*56 bits = 168 bits but does not provide 168 bits security only 118 bits. -&gt; Meet in the middle attack</p>
+
+<p><strong>Why not 2DES</strong>
+For 2DES: exhaustive search is formulated as finding (k_1,k_2) such that E(k_1, E(k_2, M)) = C. A meet-in-the-middle attack is E(k_2, m) = D(k_1,c)</p>
+
+<p>Step 1: Build table of pairs (k0…kN ; E(k0, M)…E(KN, M)
+Step 2: For all k ∈ {0,1}^56: test if D(k,C) is in 2nd column.
+Step 3: If found, then E(k^i, M) = D(k,c) =&gt; (k^i, k) = (k_2, k1)</p>
+
+<p>Running time = Time = 2* 2^56  * log 2^56 &lt; 2^63 &lt;&lt; 2^112</p>
+
+<p>Same attack on 3DES: Time = 2^(118), space = 2^56</p>
+
+<h4 id="method-2-desx">Method 2: DESX</h4>
+
+<p>E: K x {0,1}^n —&gt; {0,1}^n a block cipher. EX((k,1,k2,k3), m) = k_1 XOR E(k_2, m XOR k_3)
+key-length = 184 bits. Attack known in 2^120.</p>
+
+<h3 id="attacks-on-the-implementation-of-the-block-ciphers">Attacks on the implementation of the block ciphers</h3>
+
+<h4 id="side-channel-attacks">Side channel attacks</h4>
+
+<ul>
+<li>Measure time to do enc/dec</li>
+<li>Measuer power for enc/dec</li>
+<li>Measuring noise, time, power consumption for encryption and decryption.</li>
+</ul>
+
+<h4 id="fault-attacks">Fault attacks</h4>
+
+<ul>
+<li>Computing errors in the last round expose the secret key k.</li>
+<li>If you can cause the hardware that decrypts/encrypts to malfunction (i.e. by heating), you might be able to get access to the cipher before the last round of the encryption process, and this can reveal the key.</li>
+</ul>
+
+<h4 id="conclusion-on-implementation-attacks">Conclusion on implementation attacks</h4>
+
+<ul>
+<li>Don’t even implement these primitives yourself!
+<br />
+<br /></li>
+</ul>
+
+<h3 id="attacks-on-block-ciphers">Attacks on block ciphers</h3>
+
+<h4 id="linear-and-differential-attacks-linear-cryptanalysis">Linear and differential attacks (Linear cryptanalysis)</h4>
+
+<p>Given many inp/out pairs, can recover key in less time than exhaustive search (2^56 for DES)</p>
+
+<p>Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = <sup>1</sup>&frasl;<sub>2</sub> + epsilon</p>
+
+<p>For DES, epsilon = 1/(2^(21)) ~= 0.0000000477 because the fifth S-Box is too close to a linear function.</p>
+
+<p><strong>How can we attack it to find key bits?</strong></p>
+
+<p>Given 1/epsilon^2 random (m, c=DES(k, m) ) pairs then
+   k[l_1, … , l_u] = MAJ [ m[i_1 , … , i_r] XOR c[j_j, …,j_v] ] with probability &gt;= 97.7%.</p>
+
+<p><strong>Linear Attacks</strong></p>
+
+<ul>
+<li>For DES, with 2^42 inp/out pairs, you can find k[l_i, …, l_u] in time 2^42.</li>
+<li>Roughly speaking: you can find 14 = 2 +12(from the 5th S-box) key bits this way in time 2^42.</li>
+<li>we can do exhaustive search in the remain bits and find the remaining 56-14=42 bits in time 2^42. Then we can brute force the rest via exhaustive search, giving us total attack time of ~= 2^43 (&lt;&lt; 2^56)</li>
+</ul>
+
+<p><strong>Lesson:</strong> A tiny bit of linearity in S_5 lead to a 2^42 time attack! NEVER DESIGN YOUR OWN BLOCK CIPHER.</p>
+
+<h4 id="quantum-attacks">Quantum  attacks</h4>
+
+<p>If you could build a quantum computer, a generic search problem that would be solved in O( |X| ), can be solved in O( |X|^(<sup>1</sup>&frasl;<sub>2</sub>) ) whatever the function is.</p>
+
+<p>This would cut down the search space: With DES: ~= 2^28, with AES-128 ~= 2^64, which would still be not secure.</p>
+
+<p>Examples:
+- DES = 2^28
+- AES-128 = 2^64
+- AES-256 = 2^128</p>
+
+<h3 id="aes">AES</h3>
+
+<h4 id="history">History</h4>
+
+<ul>
+<li>1997: NIST publishes request for proposal</li>
+<li>1998: 15 submissions (5 claimed attacks)</li>
+<li>1999: NIST chooses 5 finalists</li>
+<li>2000: NIST chooses Rijndael as AES (designed in Belgium)</li>
+</ul>
+
+<p>Key sizes = 128, 192, 256 bits. Larger keys: slower but thought to be more secure.</p>
+
+<p>Block size = 128 bits</p>
+
+<h4 id="design">Design</h4>
+
+<p>AES is a substitution-permutation network. In a Feistal network, half of the bits are not changed in every round. In a subs-perm network, all bits are changed on every round.</p>
+
+<p>AES-128 schematic</p>
+
+<p><img src="http://cl.ly/Tc1N/Screen%20Shot%202014-01-28%20at%2014.36.28.png" alt="AES-128" /></p>
+
+<p>AES operates on 128 bits, a 4x4 matrix, each cell containing a byte. Then we XOR with the first round key, apply the round function, x10 and then we get the output. The keys are coming from the 16 bytes AES key using key expansion.</p>
+
+<p><img src="http://cl.ly/TbLk/Screen%20Shot%202014-01-28%20at%2014.36.35.png" alt="AES-128-RoundFunctions" /></p>
+
+<p>Overview of the round function:
+- Byte substitution: one byte S-Box (256 byte table). We take the current cell as an index into the lookup table, and the value is the output.
+- Shift row step: We shift the second row from 1 position, third row by 2 positions and last row by 3 positions.
+- Mix column: We apply a linear transformation to each of the communes independently.</p>
+
+<h4 id="how-to-use-aes">How to use AES</h4>
+
+<p>If you want to send an implementation over a network. Don’t send precomputed table but algorithm to compute it. And then compute them upon receival.</p>
+
+<p>AES is implemented in hardware. aesenc, aesenclast: one round of aes. aeskeygenassist, perform key expansion. 14 times faster than software.</p>
+
+<h4 id="attacks-on-aes">Attacks on AES</h4>
+
+<p>Best key recovery attack: four times better than exhaustive search. 128key =&gt; 126 key.</p>
+
+<p>Related key attack on AES-256: If related keys =&gt; 2^99 security! <em>Importance to choose keys at random</em>.</p>
+
+<h3 id="building-block-ciphers-from-prg">Building block ciphers from PRG</h3>
+
+<p>Can we build a PRF from a PRG?</p>
+
+<p>Let’s start with a PRG G such that G:K -&gt; K^2 be a secure PRG.</p>
+
+<p>Define 1-bit PRF F:Kx{0,1} -&gt; K as F(k, x in {0,1}) = G(k)[x]</p>
+
+<p>If G is a secure PRG, then F is a secure PRF on {0,1}^n =&gt; Not used in expanded mode due to performance reasons.</p>
+
+<p>Thanks to the Luby-Rackoff theorem, we know that we can thus make a secure PRP with a 3-round Feistal network.</p>
+
+<h3 id="notes-and-review">Notes and review</h3>
+
+<p>A block cipher maps n bits of input to n bits of output.</p>
+
+<p>PRF -&gt; function, X -&gt; Y, doesn’t have to be the same.
+PRP -&gt; One to one revertible function. Domain X=Y. Key concept to build a block cipher.</p>
+
+<p>Any secure PRP is also a secure PRF if |X| is sufficiently large.</p>
+
+<p>Lemma: Let E be a PRP over (K,X) then for any q-query adversary A: |Adv<em>{PRF} [A,E] - Adv</em>{PRF} [A,E] | &lt; q^2 / 2|X|
+When X is large, the ratio will be negligible.</p>
+
+<p>From now on, we consider AES or 3DES as secure PRPs.</p>
+
+<h3 id="security-for-one-time-key">Security for one-time key</h3>
+
+<p>Let’s start with a threat model (one-time keys) defined as follows:
+- Adversary’s power: Adv sees only one cipher text
+- Adversary’s goal: Learn info about PT from CT (semantic security)</p>
+
+<p>Reminder: semantic security for a one-time key. The attacker, if given c_0 and c_1 and m_0 and m<em>1 can’t know which one is the result of what message.
+Adv</em>{SS} [A, OTP] = | Pr[ EXP(0)=1 ] - Pr[ EXP(1) = 1 ] |</p>
+
+<h3 id="security-for-many-time-key">Security for many-time key</h3>
+
+<p>Why? Many applications: Filesystems or IPSec, encrypts a lot of traffic with the same key.</p>
+
+<p>When we use a key more than once, the adversary sees many cipher texts with the same key.</p>
+
+<p>Adversary power: chosen-plaintext attack, the attacker can obtain the encryption of arbitrary messages of his choice (How does it work IRL? You can email someone, email will be stored encrypted on disk and boom you have m and c).</p>
+
+<p>Adversary goal: Break semantic security</p>
+
+<p>Semantic-security for many-time key is defined exactly as semantic security for a one-time key but he can repeat any of the messages in the challenge that the attacker can choose. ==&gt; Chosen Plaintext attack.</p>
+
+<p>All the deterministic encryption schemes we’ve seen before are broken under CPA.</p>
+
+<p>So how do we fix this?</p>
+
+<p>1) Randomized encryption: encrypting same message twice gives different cipher text. Ciphertext must be longer than plaintext. size(CT) = size (PT) + “#random bits”</p>
+
+<p>2) Nonce-based encryption. We define a <strong>nonce</strong> as a value that changes from message to message. The pair (k, n) should NEVER be used more than once. The nonce can conveniently be a counter (if in-order and reliable transmission channel, no need to transmit nonce). If same key used by multiple machines, the nonce space needs to be very big and picked at random (easier to implement a “stateless” protocol)</p>
+
+<h3 id="modes-of-operation">Modes of operation</h3>
+
+<p>Goal: Build a secure encryption from a secure PRP</p>
+
+<h3 id="ecb-electronic-code-book-one-time-key">ECB (Electronic Code Book) - One time key</h3>
+
+<p>ECB is badly broken. It works by breaking down the message into n blocks of size of the block cipher and then encrypt each of the parts individually. Issue, the attacker learns when a two segments have the same value. (if m_1 = m_2 -&gt; c_1 = c_2)</p>
+
+<p>ECB is not semantically secure.
+<img src="http://cl.ly/Tdm9/Screen%20Shot%202014-01-30%20at%2011.28.png" alt="ECB’s advantage is 1!" /></p>
+
+<h3 id="deterministic-counter-mode-from-a-prf-f-eg-aes-one-time-key">Deterministic counter mode from a PRF F (eg. AES) - One time key</h3>
+
+<p>E_{DETCTR} (k,m) = We build a stream cipher from a PRF.</p>
+
+<p><img src="http://cl.ly/Te5t/Screen%20Shot%202014-01-30%20at%2011.37.39.png" alt="Deterministic Counter Mode" /></p>
+
+<h3 id="cbc-cipher-block-chaining-with-a-random-iv-many-time-key-cpa-security">CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)</h3>
+
+<h4 id="iv-based-encryption">IV-based encryption</h4>
+
+<p>When we start encrypting the first block, we pick a random IV (initialization vector of length one bloc).  We XOR the first message with it before encrypting.
+IV is publicly known and prepended to the cipher text.
+Chaining is done by for the next block XORing the cipher text of the first block with the new message and then encrypting.</p>
+
+<p>What security does it provide?</p>
+
+<p>It does provide semantic security:</p>
+
+<p>Adv<em>CPA [A , E</em>{CBC} ] =&lt; 2 * Adv_PRP [B, E] + (2 q^2 L^2 / |X| = error term, needs to be negligible)</p>
+
+<p><strong>CBC is secure as long as q^2L^2 &lt;&lt; |X| where L is the length of the messages and q is the number of times we used q to encrypt messages.</strong></p>
+
+<p>Applied to AES, this means that after 2^48 blocks, we need to replace the key.</p>
+
+<p>Cipher is not CPA secure if the IV is predictable.</p>
+
+<p><img src="http://cl.ly/ThMj/Screen%20Shot%202014-02-01%20at%2021.47.48.png" alt="IV-based encryption" /></p>
+
+<h4 id="nonce-based-encryption">Nonce-based encryption</h4>
+
+<p>Cipher-block chaining with unique nonce. (no need to include in first cipher text)</p>
+
+<p>If nonce is not random, it needs to be xored with first block.</p>
+
+<p><img src="http://cl.ly/Tgje/Screen%20Shot%202014-02-01%20at%2021.47.34.png" alt="Nonce-based CBC" /></p>
+
+<h4 id="padding">Padding</h4>
+
+<p>In TLS, you pad the n remaining bytes with the number n. If no pad is needed, add a dummy block.</p>
+
+<h3 id="randomised-counter-mode-superior-to-cbc">Randomised Counter-mode (superior to CBC)</h3>
+
+<p>Unlike CBC, randomised counter-mode doesn’t need a secure block cipher (PRP) but works with a secure PRF because we’re never going to invert the function F.</p>
+
+<p>How does it work?</p>
+
+<p>We pick a random IV, then we XOR the messages blocks with F(k,IV + message block number)</p>
+
+<p>Nonce based counter mode: IV = [ 64-bit nonce | 64-bit counter (starts at 0 for every message)]</p>
+
+<p>Note that we can encrypt a maximum of 2^64 blocks per nonce because otherwise the counter overflows and the pad would be used a second time.</p>
+
+<p>We can use counter-mode for more blocks than CBC because  the adversary’s advantage is 2q^2L / |X| &lt; CBC’s advantage.</p>
+
+<p>For AES, we can encrypt 2^64 AES blocks  with the same key with semantic secrecy.</p>
+
+<p>Advantage: It’s parallelizable! Fast encryption! And is so much better than CBC.</p>
+
+<p><img src="http://cl.ly/TgXt/Screen%20Shot%202014-02-01%20at%2022.38.13.png" alt="CBC vs Counter" /></p>
+
+<p>&lt;&lt;<WIP...>&gt;&gt;</p>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

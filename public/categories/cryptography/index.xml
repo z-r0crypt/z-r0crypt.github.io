@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptography on Security Notes</title>
+    <link>/categories/cryptography/</link>
+    <description>Recent content in Cryptography on Security Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Nov 2019 16:52:36 -0500</lastBuildDate>
+    
+	<atom:link href="/categories/cryptography/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cryptography I - Stanford University - Week 1</title>
+      <link>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</guid>
+      <description>Week 1. This week&amp;rsquo;s topic is an overview of what cryptography is about as well as our first example ciphers. You will learn about pseudo-randomness and how to use it for encryption. We will also look at a few basic definitions of secure encryption.
+ History Discrete Probability  Birthday paradox  Stream Ciphers  Information theoretic security  Stream Ciphers PRG Attacks on OTP / stream ciphers Modern broken stream ciphers Better modern stream cipher Let’s do some Salsa!</description>
+    </item>
+    
+    <item>
+      <title>Cryptography I - Stanford University - Week 1</title>
+      <link>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</guid>
+      <description>Week 2:
+Crypto notes - Stanford - Week 2  Block Ciphers  Pseudo Random Function (PRF) Pseudo Random Permutation (PRP) Secure PRF PRF =&amp;gt; PRG  Data Encryption Standard  []() []()    Block Ciphers A block cipher maps n bits of inputs to n bits of output. Examples : - 3DES: n=64bits, k=168 bits - AES: n=128bits, k = 128,192,256 bits
+Block ciphers are typically built by iteration with a round function R(k, m).</description>
+    </item>
+    
+  </channel>
+</rss>
