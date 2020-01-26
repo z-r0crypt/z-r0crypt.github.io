@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/z-r0crypt/z-r0crypt.github.io.git
+	branch = master

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/2020/01/25/cryptography-i---stanford-university---week-2/</loc>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/2020/01/22/oswe/awae-preparation/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
   </url>
@@ -10,11 +15,6 @@
   <url>
     <loc>/blog/2019/11/25/microcorruption-ctf---tutorial/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</loc>
-    <lastmod>2019-11-24T16:52:36-05:00</lastmod>
   </url>
   
   <url>
@@ -36,6 +36,12 @@
   </url>
   
   <url>
+    <loc>/tags/aes/</loc>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/assembly/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
@@ -48,19 +54,25 @@
   </url>
   
   <url>
+    <loc>/tags/block-cipher/</loc>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/cryptography/</loc>
-    <lastmod>2019-11-24T16:52:36-05:00</lastmod>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/cryptography/</loc>
-    <lastmod>2019-11-24T16:52:36-05:00</lastmod>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -73,6 +85,12 @@
   <url>
     <loc>/tags/ctf/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/des/</loc>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -114,7 +132,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -138,7 +156,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -150,7 +168,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
