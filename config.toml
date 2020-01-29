@@ -4,6 +4,8 @@ languageCode = "en-us"
 MetaDataFormat = "toml"
 theme = "hyde-x"
 paginate = 10
+enableRobotsTXT = true
+canonifyURLs = true
 
 [author]
     name = "Z-r0crypt"
@@ -26,7 +28,6 @@ paginate = 10
     # Otherwise show description and 'read on' link to individual blog post page.
     # Default (if omitted) is true.
     truncate = true
-    enableRobotsTXT = true
 
     sidebar = "left"
     # Used when a given page doesn't set its own.
