@@ -65,25 +65,25 @@
   </url>
   
   <url>
-    <loc>/categories/cryptography/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/cryptography/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/ctf/</loc>
-    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
+    <loc>/categories/cryptography/</loc>
+    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/ctf/</loc>
+    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/ctf/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -95,13 +95,13 @@
   </url>
   
   <url>
-    <loc>/categories/exploit/</loc>
+    <loc>/tags/exploit/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/exploit/</loc>
+    <loc>/categories/exploit/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -143,13 +143,13 @@
   </url>
   
   <url>
-    <loc>/categories/reverse-engineering/</loc>
+    <loc>/tags/reverse-engineering/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/reverse-engineering/</loc>
+    <loc>/categories/reverse-engineering/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -173,13 +173,13 @@
   </url>
   
   <url>
-    <loc>/categories/web/</loc>
+    <loc>/tags/web/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/web/</loc>
+    <loc>/categories/web/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
