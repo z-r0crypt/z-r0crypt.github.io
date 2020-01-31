@@ -121,7 +121,7 @@ This post contains all trainings and tutorials that could be useful for offensiv
    - [https://blog.ripstech.com/2019/oxid-esales-shop-software/](https://blog.ripstech.com/2019/oxid-esales-shop-software/)
    - [https://pentesterlab.com/exercises/from_sqli_to_shell/course](https://pentesterlab.com/exercises/from_sqli_to_shell/course)
    - [https://www.acunetix.com/websitesecurity/blind-sql-injection/](https://www.acunetix.com/websitesecurity/blind-sql-injection/)
-   - #### PostgreSQL
+   - **PostgreSQL**
        + [http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet](http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet)
        + [http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt](http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt)
        + [https://www.exploit-db.com/papers/13084](https://www.exploit-db.com/papers/13084)
@@ -137,10 +137,10 @@ This post contains all trainings and tutorials that could be useful for offensiv
     * [Grails PDF Plugin 0.6 - XML External Entity Injection](https://www.exploit-db.com/exploits/44607)
     * [XXE in ASP.NET app](https://www.exploit-db.com/exploits/46106)
     
- * ### Youtube Playlist
+* ### Youtube Playlist
     * [https://www.youtube.com/watch?v=Xfbu-pQ1tIc&list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33](https://www.youtube.com/watch?v=Xfbu-pQ1tIc&list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33)
     
- * ### Further References/Reviews
+* ### Further References/Reviews
     * [https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en](https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en)
     * [https://github.com/wetw0rk/AWAE-PREP](https://github.com/wetw0rk/AWAE-PREP)
     * [https://ldxf.botonia.it/rce-via-file-upload.html](https://ldxf.botonia.it/rce-via-file-upload.html)
@@ -149,5 +149,5 @@ This post contains all trainings and tutorials that could be useful for offensiv
     * [https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf](https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf)
     * [https://blog.ripstech.com/](https://blog.ripstech.com/)
     * [https://rhinosecuritylabs.com](https://rhinosecuritylabs.com)
-    
+    * [https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside](https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside)    
   

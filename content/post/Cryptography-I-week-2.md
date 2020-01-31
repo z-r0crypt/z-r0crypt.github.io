@@ -435,5 +435,5 @@ Advantage: It’s parallelizable! Fast encryption! And is so much better than CB
 
 ![CBC vs Counter](http://cl.ly/TgXt/Screen%20Shot%202014-02-01%20at%2022.38.13.png)
 
-<<<WIP...>>>
+<< WIP... >>
 

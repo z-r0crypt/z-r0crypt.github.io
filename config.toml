@@ -66,10 +66,10 @@ canonifyURLs = true
     github = "z-r0crypt"
 #    bitbucket = ""
 #    stackOverflow = ""
-    linkedin = "vbtr"
+    linkedin = "https://linkedin.com/in/vbtr"
 #    googleplus = ""
 #    facebook = ""
-    twitter = "zer0crypt"
+    twitter = "https://twitter.com/zer0crypt"
 #    youtube = ""
 
     # Other social-like sidebar links
