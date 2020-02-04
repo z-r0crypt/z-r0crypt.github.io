@@ -1,35 +1,43 @@
----
-title:  "Cryptography I - Stanford University - Week 2"
-date:   2020-01-25 16:52:36 -0500
-pulished: true
-categories:  
-- Cryptography
-tags: 
-- Cryptography 
-- DES
-- AES
-- Block Cipher
----
-
-Week 2:
-
--------------------------------------------------------------------------------------
-
 # Crypto notes - Stanford - Week 2
 
-   1. [Block Ciphers](#block-ciphers)
-	* [Pseudo Random Function (PRF)](#pseudo-random-function-prf)
-	* [Pseudo Random Permutation (PRP)](#pseudo-random-permutation-prp)
-	* [Secure PRF](#secure-prf)
-	* [PRF => PRG](#prf-gives-us-a-prg-prf--prg)
+  1. [Block Ciphers](#block-ciphers)
+      * [Pseudo Random Function (PRF)](#pseudo-random-function-prf)
+      * [Pseudo Random Permutation (PRP)](#pseudo-random-permutation-prp)
+      * [Secure PRF](#secure-prf)
+      * [PRF => PRG](#prf-gives-us-a-prg-prf--prg)
    2. [Data Encryption Standard](#des-data-encryption-standard)
-	+ []()
-	+ []()
+      * [DES: Core Idea - Feistel Network](#des-core-idea---feistel-network)
+      * [DES is a 16 round Feistel network](#des-is-a-16-round-feistel-network)
+         + [The Function F(k_i, x)](#the-function-fk_i-x)
+         + [S-boxes](#s-boxes)
+      * [Exhaustive search on DES](#exhaustive-search-on-des)
+      * [Strengthening DES against ex. search](#strengthening-des-against-ex-search)
+         + [Method 1: Triple DES](#method-1-triple-des)
+         + [Method 2: DESX](#method-2-desx)
+      * [Attacks on the implementation of the block ciphers](#attacks-on-the-implementation-of-the-block-ciphers)
+         + [Side channel attacks](#side-channel-attacks)
+         + [Fault attacks](#fault-attacks)
+         + [Conclusion on implementation attacks](#conclusion-on-implementation-attacks)
+      * [Attacks on block ciphers](#attacks-on-block-ciphers)
+         + [Linear and differential attacks](#linear-and-differential-attacks-linear-cryptanalysis)
+         + [Quantum  attacks](#quantum--attacks)
+   3. [Advanced Encryption Standard (AES) Block Cipher](#advanced-encryption-standard-aes-block-cipher)
+      * [History](#history)
+      * [Design](#design)
+      * [How to use AES](#how-to-use-aes)
+      * [Attacks on AES](#attacks-on-aes)
+   4. [Building Block Ciphers from PRGs](#building-block-ciphers-from-prg)
+      * [Notes and Review](#notes-and-review)
+   5. [Using Block Ciphers](#using-block-ciphers)
+      * [Modes of operation: One time key](#modes-of-operation-one-time-key)
+        + [#security-for-one-time-key](#security-for-one-time-key) 
+        + [ECB (Electronic Code Book) - One time key](#ecb-electronic-code-book---one-time-key)
+          - [Deterministic counter mode from a PRF F (eg. AES) - One time key](#deterministic-counter-mode-from-a-prf-f-eg-aes---one-time-key)
+        + [Security for many-time key](#security-for-many-time-key)
+        + [CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)](#cbc-cipher-block-chaining-with-a-random-iv---many-time-key-cpa-security)
    
    
 -------------------------------------------------------------------------------------
-
-
 ## Block Ciphers
 
 A block cipher maps n bits of inputs to n bits of output. 
@@ -112,10 +120,10 @@ Goal: build invertible function `F:{0,1}^{2n} -> {0,1}^{2n}`
    - We claim that for all arbitrary functions f_1 to f_d, the
       outlined functiond F is invertible.
    - We can proove this by constructing the inverse of the process:
-      + The inverse of one round of input is:
+      - The inverse of one round of input is:
          * R_i = L_i+1, L_i = f_i+1(L_i+1) XOR R_i+1
-      + By repeating this step from d to 0, we have completed the inverse.
-      + Because the process is so similar, this is very attractive
+      - By repeating this step from d to 0, we have completed the inverse.
+      - Because the process is so similar, this is very attractive
         because the hardware that encrypts can be used f
    - Used in many block ciphers, although not in AES.
 
@@ -153,7 +161,7 @@ For decryption, the algorithm is the same but you use the round keys in reverse-
    - The resulting 32-bit value goes into yet another permutator, where it gets mixed and matched around.
    - Essentially by using different round keys, we get different, arbitrary round functions.
 
-![F function](./images/f.png)
+![F function](/images/f.png)
 
 #### S-boxes
 
@@ -236,9 +244,9 @@ key-length = 184 bits. Attack known in 2^120.
 
 #### Linear and differential attacks (Linear cryptanalysis)
 
-   Given many inp/out pairs, can recover key in less time than exhaustive search (2^56 for DES)
+   Given many input/output pairs, can recover key in less time than exhaustive search (2^56 for DES)
 
-   Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon
+  > Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon
 
    For DES, epsilon = 1/(2^(21)) ~= 0.0000000477 because the fifth S-Box is too close to a linear function. 
 
@@ -252,7 +260,7 @@ key-length = 184 bits. Attack known in 2^120.
 
    - For DES, with 2^42 inp/out pairs, you can find k[l_i, …, l_u] in time 2^42. 
    - Roughly speaking: you can find 14 = 2 +12(from the 5th S-box) key bits this way in time 2^42.
-   - we can do exhaustive search in the remain bits and find the remaining 56-14=42 bits in time 2^42. Then we can brute force the rest via exhaustive search, giving us total attack time of ~= 2^43 (<< 2^56) 
+   - We can do exhaustive search in the remain bits and find the remaining 56-14=42 bits in time 2^42. Then we can brute force the rest via exhaustive search, giving us total attack time of ~= 2^43 (<< 2^56) 
 
    **Lesson:** A tiny bit of linearity in S_5 lead to a 2^42 time attack! NEVER DESIGN YOUR OWN BLOCK CIPHER. 
 
@@ -267,61 +275,64 @@ Examples:
 - AES-128 = 2^64
 - AES-256 = 2^128 
 
-### AES
+## Advanced Encryption Standard (AES) Block Cipher
 
-#### History 
+### History 
 
 - 1997: NIST publishes request for proposal 
 - 1998: 15 submissions (5 claimed attacks)
 - 1999: NIST chooses 5 finalists
 - 2000: NIST chooses Rijndael as AES (designed in Belgium)
 
-Key sizes = 128, 192, 256 bits. Larger keys: slower but thought to be more secure.
+Key sizes = 128, 192, 256 bits. 
+Larger keys: slower encryption but thought to be more secure.
 
 Block size = 128 bits
 
-#### Design
+### Design
 
-AES is a substitution-permutation network. In a Feistal network, half of the bits are not changed in every round. In a subs-perm network, all bits are changed on every round. 
+AES is a **substitution-permutation** network. In a Feistal network, half of the bits are not changed in every round. In a subs-perm network, all bits are changed on every round. 
 
-AES-128 schematic 
+> AES-128 schematic 
 
-![AES-128](http://cl.ly/Tc1N/Screen%20Shot%202014-01-28%20at%2014.36.28.png)
+   ![AES-128](http://cl.ly/Tc1N/Screen%20Shot%202014-01-28%20at%2014.36.28.png)
 
 AES operates on 128 bits, a 4x4 matrix, each cell containing a byte. Then we XOR with the first round key, apply the round function, x10 and then we get the output. The keys are coming from the 16 bytes AES key using key expansion.
  
-![AES-128-RoundFunctions](http://cl.ly/TbLk/Screen%20Shot%202014-01-28%20at%2014.36.35.png)
+   ![AES-128-RoundFunctions](http://cl.ly/TbLk/Screen%20Shot%202014-01-28%20at%2014.36.35.png)
 
 Overview of the round function: 
-- Byte substitution: one byte S-Box (256 byte table). We take the current cell as an index into the lookup table, and the value is the output.
-- Shift row step: We shift the second row from 1 position, third row by 2 positions and last row by 3 positions.
-- Mix column: We apply a linear transformation to each of the communes independently. 
+- **ByteStub** (Byte substitution): one byte S-Box (256 byte table). We take the current cell as an index into the lookup table, and the value is the output.
+- **ShiftRows** step: We shift the second row from 1 position, third row by 2 positions and last row by 3 positions.
+- **MixColumns**: We apply a linear transformation to each of the communes independently. 
 
-#### How to use AES
+### How to use AES
 
 If you want to send an implementation over a network. Don’t send precomputed table but algorithm to compute it. And then compute them upon receival. 
 
-AES is implemented in hardware. aesenc, aesenclast: one round of aes. aeskeygenassist, perform key expansion. 14 times faster than software. 
+AES is implemented in hardware (Intel Westmere): 
+   + **aesenc, aesenclast**: one round of AES. 
+   + **aeskeygenassist**: performs AES key expansion. 
+   + Claim 14 times faster than OpenSSL on same hardware. 
 
-#### Attacks on AES
+### Attacks on AES
 
-Best key recovery attack: four times better than exhaustive search. 128key => 126 key.
+   + **Best key recovery attack**: four times better than exhaustive search. 128key => 126 key.
+   + **Related key attack on AES-256**: Given 2^99 input/output pairs from four related keys in AES-256. can recover keys in time ~2^99 *Importance is to choose keys at random*.
 
-Related key attack on AES-256: If related keys => 2^99 security! *Importance to choose keys at random*.
+## Building block ciphers from PRG
 
-### Building block ciphers from PRG
+Can we build a PRF(block ciphers) from a PRG? 
 
-Can we build a PRF from a PRG? 
+Let’s start with a PRG, G such that `G:K -> K^2` be a secure PRG. 
 
-Let’s start with a PRG G such that G:K -> K^2 be a secure PRG. 
-
-Define 1-bit PRF F:Kx{0,1} -> K as F(k, x in {0,1}) = G(k)[x]
+Define 1-bit PRF (domain is only 1 bit) `F:Kx{0,1} -> K` as `F(k, x in {0,1}) = G(k)[x]`
 
 If G is a secure PRG, then F is a secure PRF on {0,1}^n => Not used in expanded mode due to performance reasons. 
 
 Thanks to the Luby-Rackoff theorem, we know that we can thus make a secure PRP with a 3-round Feistal network.
 
-### Notes and review
+### Notes and Review
 
 A block cipher maps n bits of input to n bits of output. 
 
@@ -330,10 +341,19 @@ PRP -> One to one revertible function. Domain X=Y. Key concept to build a block 
 
 Any secure PRP is also a secure PRF if |X| is sufficiently large.
 
-Lemma: Let E be a PRP over (K,X) then for any q-query adversary A: |Adv_{PRF} [A,E] - Adv_{PRF} [A,E] | < q^2 / 2|X|
+Lemma: Let E be a PRP over (K,X) then for any q-query adversary A: 
+> |Adv_{PRF} [A,E] - Adv_{PRF} [A,E] | < q^2 / 2|X|
 When X is large, the ratio will be negligible.
 
+So we can say that if E is secure PRP, it is also Secure PRF.
 From now on, we consider AES or 3DES as secure PRPs.
+
+## Using Block Ciphers
+---------------------
+
+## Modes of operation: One time key
+
+Goal: Build a secure encryption from a secure PRP
 
 ### Security for one-time key
 
@@ -344,15 +364,31 @@ Let’s start with a threat model (one-time keys) defined as follows:
 Reminder: semantic security for a one-time key. The attacker, if given c_0 and c_1 and m_0 and m_1 can’t know which one is the result of what message. 
 Adv_{SS} [A, OTP] = | Pr[ EXP(0)=1 ] - Pr[ EXP(1) = 1 ] |
 
+
+### ECB (Electronic Code Book) - One time key
+
+ECB is badly broken. It works by breaking down the message into n blocks of size of the block cipher and then encrypt each of the parts individually. Issue, the attacker learns when a two segments have the same value. (if m_1 = m_2 -> c_1 = c_2)
+
+**ECB is not semantically secure.**
+ECB is not semantically secure for messages that contain more than one block.
+
+![ECB’s advantage is 1!](http://cl.ly/Tdm9/Screen%20Shot%202014-01-30%20at%2011.28.png)
+
+#### Deterministic counter mode from a PRF F (eg. AES) - One time key
+
+E_{DETCTR} (k,m) = We build a stream cipher from a PRF.
+
+![Deterministic Counter Mode](http://cl.ly/Te5t/Screen%20Shot%202014-01-30%20at%2011.37.39.png)
+
 ### Security for many-time key
 
 Why? Many applications: Filesystems or IPSec, encrypts a lot of traffic with the same key. 
 
 When we use a key more than once, the adversary sees many cipher texts with the same key. 
 
-Adversary power: chosen-plaintext attack, the attacker can obtain the encryption of arbitrary messages of his choice (How does it work IRL? You can email someone, email will be stored encrypted on disk and boom you have m and c).
+**Adversary's power**: chosen-plaintext attack, the attacker can obtain the encryption of arbitrary messages of his choice (How does it work IRL? You can email someone, email will be stored encrypted on disk and boom you have m and c).
 
-Adversary goal: Break semantic security
+**Adversary goal**: Break semantic security
 
 Semantic-security for many-time key is defined exactly as semantic security for a one-time key but he can repeat any of the messages in the challenge that the attacker can choose. ==> Chosen Plaintext attack.
 
@@ -364,22 +400,6 @@ So how do we fix this?
 
 2) Nonce-based encryption. We define a **nonce** as a value that changes from message to message. The pair (k, n) should NEVER be used more than once. The nonce can conveniently be a counter (if in-order and reliable transmission channel, no need to transmit nonce). If same key used by multiple machines, the nonce space needs to be very big and picked at random (easier to implement a “stateless” protocol)
 
-### Modes of operation
-
-Goal: Build a secure encryption from a secure PRP
-
-### ECB (Electronic Code Book) - One time key
-
-ECB is badly broken. It works by breaking down the message into n blocks of size of the block cipher and then encrypt each of the parts individually. Issue, the attacker learns when a two segments have the same value. (if m_1 = m_2 -> c_1 = c_2)
-
-ECB is not semantically secure.
-![ECB’s advantage is 1!](http://cl.ly/Tdm9/Screen%20Shot%202014-01-30%20at%2011.28.png)
-
-### Deterministic counter mode from a PRF F (eg. AES) - One time key
-
-E_{DETCTR} (k,m) = We build a stream cipher from a PRF.
-
-![Deterministic Counter Mode](http://cl.ly/Te5t/Screen%20Shot%202014-01-30%20at%2011.37.39.png)
 
 ### CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)
 
@@ -434,6 +454,4 @@ For AES, we can encrypt 2^64 AES blocks  with the same key with semantic secrecy
 Advantage: It’s parallelizable! Fast encryption! And is so much better than CBC.
 
 ![CBC vs Counter](http://cl.ly/TgXt/Screen%20Shot%202014-02-01%20at%2022.38.13.png)
-
-<< WIP... >>
 

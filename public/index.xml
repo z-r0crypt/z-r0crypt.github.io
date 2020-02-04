@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security Notes</title>
-    <link>/</link>
+    <link>https://z-r0crypt.github.io/</link>
     <description>Recent content on Security Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Jan 2020 16:52:36 -0500</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://z-r0crypt.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cryptography I - Stanford University - Week 2</title>
-      <link>/blog/2020/01/25/cryptography-i---stanford-university---week-2/</link>
+      <link>https://z-r0crypt.github.io/blog/2020/01/25/cryptography-i---stanford-university---week-2/</link>
       <pubDate>Sat, 25 Jan 2020 16:52:36 -0500</pubDate>
       
-      <guid>/blog/2020/01/25/cryptography-i---stanford-university---week-2/</guid>
+      <guid>https://z-r0crypt.github.io/blog/2020/01/25/cryptography-i---stanford-university---week-2/</guid>
       <description>Week 2:
 Crypto notes - Stanford - Week 2  Block Ciphers  Pseudo Random Function (PRF) Pseudo Random Permutation (PRP) Secure PRF PRF =&amp;gt; PRG  Data Encryption Standard  []() []()    Block Ciphers A block cipher maps n bits of inputs to n bits of output. Examples : - 3DES: n=64bits, k=168 bits - AES: n=128bits, k = 128,192,256 bits
 Block ciphers are typically built by iteration with a round function R(k, m).</description>
@@ -24,10 +24,10 @@ Block ciphers are typically built by iteration with a round function R(k, m).</d
     
     <item>
       <title>OSWE/AWAE Preparation</title>
-      <link>/blog/2020/01/22/oswe/awae-preparation/</link>
+      <link>https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/</link>
       <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
       
-      <guid>/blog/2020/01/22/oswe/awae-preparation/</guid>
+      <guid>https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/</guid>
       <description>AWAE-Preparation This post contains all trainings and tutorials that could be useful for offensive security&amp;rsquo;s OSWE certification. I will be updating the post during my lab and preparation for the exam.
 Course Syllabus: https://www.offensive-security.com/documentation/awae-syllabus.pdf
 Before registering for AWAE:  Cross-Site Scripting:  XSS XMLHttpRequest Specification AtMail Email Server Appliance 6.4 - Persistent Cross-Site Scripting Persistent XSS Hijack Session using socat   XSS and MySQL  PentesterLab: XSS and MySQL FILE  https://www.</description>
@@ -35,10 +35,10 @@ Before registering for AWAE:  Cross-Site Scripting:  XSS XMLHttpRequest Specific
     
     <item>
       <title>Microcorruption CTF - Tutorial</title>
-      <link>/blog/2019/11/25/microcorruption-ctf---tutorial/</link>
+      <link>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</link>
       <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
       
-      <guid>/blog/2019/11/25/microcorruption-ctf---tutorial/</guid>
+      <guid>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</guid>
       <description>Introduction In this post I will share my learnings and research work done during microcorruption CTF challenge.
 What is Microcorruption? It&amp;rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.
 You&amp;rsquo;ll use the debugger to reverse-engineer the code for each level.</description>
@@ -46,39 +46,39 @@ You&amp;rsquo;ll use the debugger to reverse-engineer the code for each level.</
     
     <item>
       <title>Cryptography I - Stanford University - Week 1</title>
-      <link>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</link>
+      <link>https://z-r0crypt.github.io/blog/2019/11/24/cryptography-i---stanford-university---week-1/</link>
       <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
       
-      <guid>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</guid>
+      <guid>https://z-r0crypt.github.io/blog/2019/11/24/cryptography-i---stanford-university---week-1/</guid>
       <description>Week 1. This week&amp;rsquo;s topic is an overview of what cryptography is about as well as our first example ciphers. You will learn about pseudo-randomness and how to use it for encryption. We will also look at a few basic definitions of secure encryption.
  History Discrete Probability  Birthday paradox  Stream Ciphers  Information theoretic security  Stream Ciphers PRG Attacks on OTP / stream ciphers Modern broken stream ciphers Better modern stream cipher Let’s do some Salsa!</description>
     </item>
     
     <item>
       <title>Introduction</title>
-      <link>/blog/2019/11/11/introduction/</link>
+      <link>https://z-r0crypt.github.io/blog/2019/11/11/introduction/</link>
       <pubDate>Mon, 11 Nov 2019 14:59:36 -0500</pubDate>
       
-      <guid>/blog/2019/11/11/introduction/</guid>
+      <guid>https://z-r0crypt.github.io/blog/2019/11/11/introduction/</guid>
       <description>Welcome!
 In this site I will be sharing my learning and experiences i gained during a pentest, a CTF, wargame or any security challenges, basically everything i learn or want to learn. Hoping to help someone in similar situations and get feedback from you!</description>
     </item>
     
     <item>
       <title></title>
-      <link>/testpage/</link>
+      <link>https://z-r0crypt.github.io/testpage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/testpage/</guid>
+      <guid>https://z-r0crypt.github.io/testpage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://z-r0crypt.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://z-r0crypt.github.io/about/</guid>
       <description> Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on! To make pages show up in the sidebar, add `sidebar_link: true` to the front matter.-- Certifications: </description>
     </item>
     

@@ -3,183 +3,183 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/2020/01/25/cryptography-i---stanford-university---week-2/</loc>
+    <loc>https://z-r0crypt.github.io/blog/2020/01/25/cryptography-i---stanford-university---week-2/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2020/01/22/oswe/awae-preparation/</loc>
+    <loc>https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2019/11/25/microcorruption-ctf---tutorial/</loc>
+    <loc>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2019/11/24/cryptography-i---stanford-university---week-1/</loc>
+    <loc>https://z-r0crypt.github.io/blog/2019/11/24/cryptography-i---stanford-university---week-1/</loc>
     <lastmod>2019-11-24T16:52:36-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/2019/11/11/introduction/</loc>
+    <loc>https://z-r0crypt.github.io/blog/2019/11/11/introduction/</loc>
     <lastmod>2019-11-11T14:59:36-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/testpage/</loc>
+    <loc>https://z-r0crypt.github.io/testpage/</loc>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://z-r0crypt.github.io/about/</loc>
   </url>
   
   <url>
-    <loc>/tags/aes/</loc>
+    <loc>https://z-r0crypt.github.io/tags/aes/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/assembly/</loc>
+    <loc>https://z-r0crypt.github.io/tags/assembly/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/awae/</loc>
+    <loc>https://z-r0crypt.github.io/tags/awae/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/block-cipher/</loc>
+    <loc>https://z-r0crypt.github.io/tags/block-cipher/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://z-r0crypt.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/cryptography/</loc>
+    <loc>https://z-r0crypt.github.io/categories/cryptography/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/cryptography/</loc>
+    <loc>https://z-r0crypt.github.io/tags/cryptography/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/ctf/</loc>
+    <loc>https://z-r0crypt.github.io/categories/ctf/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/ctf/</loc>
+    <loc>https://z-r0crypt.github.io/tags/ctf/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/des/</loc>
+    <loc>https://z-r0crypt.github.io/tags/des/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/exploit/</loc>
+    <loc>https://z-r0crypt.github.io/categories/exploit/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/exploit/</loc>
+    <loc>https://z-r0crypt.github.io/tags/exploit/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/infosec/</loc>
+    <loc>https://z-r0crypt.github.io/categories/infosec/</loc>
     <lastmod>2019-11-11T14:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/microcorruption/</loc>
+    <loc>https://z-r0crypt.github.io/tags/microcorruption/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/offensive-security/</loc>
+    <loc>https://z-r0crypt.github.io/tags/offensive-security/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/oswe/</loc>
+    <loc>https://z-r0crypt.github.io/tags/oswe/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://z-r0crypt.github.io/post/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/prg/</loc>
+    <loc>https://z-r0crypt.github.io/tags/prg/</loc>
     <lastmod>2019-11-24T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/reverse-engineering/</loc>
+    <loc>https://z-r0crypt.github.io/categories/reverse-engineering/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/reverse-engineering/</loc>
+    <loc>https://z-r0crypt.github.io/tags/reverse-engineering/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://z-r0crypt.github.io/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/stream-cipher/</loc>
+    <loc>https://z-r0crypt.github.io/tags/stream-cipher/</loc>
     <lastmod>2019-11-24T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://z-r0crypt.github.io/tags/</loc>
     <lastmod>2020-01-25T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/web/</loc>
+    <loc>https://z-r0crypt.github.io/categories/web/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/web/</loc>
+    <loc>https://z-r0crypt.github.io/tags/web/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>

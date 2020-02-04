@@ -63,7 +63,7 @@ canonifyURLs = true
     google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
 
     # Sidebar social links, these must be full URLs.
-    github = "z-r0crypt"
+    github = "https://github.com/z-r0crypt"
 #    bitbucket = ""
 #    stackOverflow = ""
     linkedin = "https://linkedin.com/in/vbtr"
