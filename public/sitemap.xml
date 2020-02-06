@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://z-r0crypt.github.io/blog/2020/01/25/cryptography-i---stanford-university---week-2/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <loc>https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/</loc>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://z-r0crypt.github.io/blog/2020/02/03/cryptography-i----week-2---part-1/</loc>
+    <lastmod>2020-02-03T16:52:36-05:00</lastmod>
   </url>
   
   <url>
@@ -37,7 +42,7 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/aes/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <lastmod>2020-02-03T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -55,7 +60,13 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/block-cipher/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <lastmod>2020-02-03T16:52:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://z-r0crypt.github.io/tags/block-cipher-modes/</loc>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -65,20 +76,20 @@
   </url>
   
   <url>
-    <loc>https://z-r0crypt.github.io/categories/cryptography/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <loc>https://z-r0crypt.github.io/tags/cbc/</loc>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/cryptography/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://z-r0crypt.github.io/categories/ctf/</loc>
-    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
+    <loc>https://z-r0crypt.github.io/categories/cryptography/</loc>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -89,19 +100,37 @@
   </url>
   
   <url>
-    <loc>https://z-r0crypt.github.io/tags/des/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <loc>https://z-r0crypt.github.io/categories/ctf/</loc>
+    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://z-r0crypt.github.io/categories/exploit/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <loc>https://z-r0crypt.github.io/tags/ctr/</loc>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://z-r0crypt.github.io/tags/des/</loc>
+    <lastmod>2020-02-03T16:52:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://z-r0crypt.github.io/tags/ecb/</loc>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/exploit/</loc>
+    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://z-r0crypt.github.io/categories/exploit/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -132,7 +161,7 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/post/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -143,20 +172,20 @@
   </url>
   
   <url>
-    <loc>https://z-r0crypt.github.io/categories/reverse-engineering/</loc>
-    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://z-r0crypt.github.io/tags/reverse-engineering/</loc>
     <lastmod>2019-11-25T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://z-r0crypt.github.io/categories/reverse-engineering/</loc>
+    <lastmod>2019-11-25T22:10:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://z-r0crypt.github.io/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
+    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -168,18 +197,18 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/</loc>
-    <lastmod>2020-01-25T16:52:36-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://z-r0crypt.github.io/categories/web/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2020-02-03T16:52:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/web/</loc>
+    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://z-r0crypt.github.io/categories/web/</loc>
     <lastmod>2020-01-22T22:10:36-05:00</lastmod>
     <priority>0</priority>
   </url>

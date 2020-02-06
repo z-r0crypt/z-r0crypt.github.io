@@ -6,20 +6,27 @@
     <description>Recent content on Security Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 16:52:36 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 16:52:36 -0500</lastBuildDate>
     
 	<atom:link href="https://z-r0crypt.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cryptography I - Stanford University - Week 2</title>
-      <link>https://z-r0crypt.github.io/blog/2020/01/25/cryptography-i---stanford-university---week-2/</link>
-      <pubDate>Sat, 25 Jan 2020 16:52:36 -0500</pubDate>
+      <title>Cryptography I - Week 2 - part 2</title>
+      <link>https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/</link>
+      <pubDate>Wed, 05 Feb 2020 16:52:36 -0500</pubDate>
       
-      <guid>https://z-r0crypt.github.io/blog/2020/01/25/cryptography-i---stanford-university---week-2/</guid>
-      <description>Week 2:
-Crypto notes - Stanford - Week 2  Block Ciphers  Pseudo Random Function (PRF) Pseudo Random Permutation (PRP) Secure PRF PRF =&amp;gt; PRG  Data Encryption Standard  []() []()    Block Ciphers A block cipher maps n bits of inputs to n bits of output. Examples : - 3DES: n=64bits, k=168 bits - AES: n=128bits, k = 128,192,256 bits
-Block ciphers are typically built by iteration with a round function R(k, m).</description>
+      <guid>https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/</guid>
+      <description>Crypto notes - Stanford - Week 2 - part 2  Using Block Ciphers  Modes of operation: One time key  Security for one time key ECB (Electronic Code Book) - One time key  Deterministic counter mode from a PRF F (eg. AES) - One time key   Modes of operation: Many time key (CBC)  Security for many-time key CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)  Modes of operation: Many time key (CTR)    Using Block Ciphers Modes of operation: One time key Goal: Build a secure encryption from a secure PRP</description>
+    </item>
+    
+    <item>
+      <title>Cryptography I  - Week 2 - Part 1</title>
+      <link>https://z-r0crypt.github.io/blog/2020/02/03/cryptography-i----week-2---part-1/</link>
+      <pubDate>Mon, 03 Feb 2020 16:52:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/blog/2020/02/03/cryptography-i----week-2---part-1/</guid>
+      <description>Crypto notes - Stanford - Week 2  Block Ciphers  Pseudo Random Function (PRF) Pseudo Random Permutation (PRP) Secure PRF PRF =&amp;gt; PRG  Data Encryption Standard  DES: Core Idea - Feistel Network DES is a 16 round Feistel network  The Function F(k_i, x) S-boxes  Exhaustive search on DES Strengthening DES against ex. search  Method 1: Triple DES Method 2: DESX  Attacks on the implementation of the block ciphers  Side channel attacks Fault attacks Conclusion on implementation attacks  Attacks on block ciphers  Linear and differential attacks Quantum attacks   Advanced Encryption Standard (AES) Block Cipher  History Design How to use AES Attacks on AES  Building Block Ciphers from PRGs  Notes and Review    Block Ciphers A block cipher maps n bits of inputs to n bits of output.</description>
     </item>
     
     <item>

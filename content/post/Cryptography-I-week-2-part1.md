@@ -1,11 +1,28 @@
-# Crypto notes - Stanford - Week 2
+---
+title:  "Cryptography I  - Week 2 - Part 1"
+date:   2020-02-03 16:52:36 -0500
+pulished: true
+categories:
+- Cryptography
+- Block Cipher
+tags:
+- Cryptography
+- Block Cipher
+- AES
+- DES
+---
+
+
+
+
+--------------------------------
 
   1. [Block Ciphers](#block-ciphers)
       * [Pseudo Random Function (PRF)](#pseudo-random-function-prf)
       * [Pseudo Random Permutation (PRP)](#pseudo-random-permutation-prp)
       * [Secure PRF](#secure-prf)
       * [PRF => PRG](#prf-gives-us-a-prg-prf--prg)
-   2. [Data Encryption Standard](#des-data-encryption-standard)
+  2. [Data Encryption Standard](#des-data-encryption-standard)
       * [DES: Core Idea - Feistel Network](#des-core-idea---feistel-network)
       * [DES is a 16 round Feistel network](#des-is-a-16-round-feistel-network)
          + [The Function F(k_i, x)](#the-function-fk_i-x)
@@ -21,20 +38,14 @@
       * [Attacks on block ciphers](#attacks-on-block-ciphers)
          + [Linear and differential attacks](#linear-and-differential-attacks-linear-cryptanalysis)
          + [Quantum  attacks](#quantum--attacks)
-   3. [Advanced Encryption Standard (AES) Block Cipher](#advanced-encryption-standard-aes-block-cipher)
+  3. [Advanced Encryption Standard (AES) Block Cipher](#advanced-encryption-standard-aes-block-cipher)
       * [History](#history)
       * [Design](#design)
       * [How to use AES](#how-to-use-aes)
       * [Attacks on AES](#attacks-on-aes)
-   4. [Building Block Ciphers from PRGs](#building-block-ciphers-from-prg)
+  4. [Building Block Ciphers from PRGs](#building-block-ciphers-from-prg)
       * [Notes and Review](#notes-and-review)
-   5. [Using Block Ciphers](#using-block-ciphers)
-      * [Modes of operation: One time key](#modes-of-operation-one-time-key)
-        + [#security-for-one-time-key](#security-for-one-time-key) 
-        + [ECB (Electronic Code Book) - One time key](#ecb-electronic-code-book---one-time-key)
-          - [Deterministic counter mode from a PRF F (eg. AES) - One time key](#deterministic-counter-mode-from-a-prf-f-eg-aes---one-time-key)
-        + [Security for many-time key](#security-for-many-time-key)
-        + [CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)](#cbc-cipher-block-chaining-with-a-random-iv---many-time-key-cpa-security)
+  
    
    
 -------------------------------------------------------------------------------------
@@ -246,7 +257,7 @@ key-length = 184 bits. Attack known in 2^120.
 
    Given many input/output pairs, can recover key in less time than exhaustive search (2^56 for DES)
 
-  > Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon
+   Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon
 
    For DES, epsilon = 1/(2^(21)) ~= 0.0000000477 because the fifth S-Box is too close to a linear function. 
 
@@ -348,110 +359,6 @@ When X is large, the ratio will be negligible.
 So we can say that if E is secure PRP, it is also Secure PRF.
 From now on, we consider AES or 3DES as secure PRPs.
 
-## Using Block Ciphers
----------------------
-
-## Modes of operation: One time key
-
-Goal: Build a secure encryption from a secure PRP
-
-### Security for one-time key
-
-Let’s start with a threat model (one-time keys) defined as follows:
-- Adversary’s power: Adv sees only one cipher text
-- Adversary’s goal: Learn info about PT from CT (semantic security)
-
-Reminder: semantic security for a one-time key. The attacker, if given c_0 and c_1 and m_0 and m_1 can’t know which one is the result of what message. 
-Adv_{SS} [A, OTP] = | Pr[ EXP(0)=1 ] - Pr[ EXP(1) = 1 ] |
 
 
-### ECB (Electronic Code Book) - One time key
-
-ECB is badly broken. It works by breaking down the message into n blocks of size of the block cipher and then encrypt each of the parts individually. Issue, the attacker learns when a two segments have the same value. (if m_1 = m_2 -> c_1 = c_2)
-
-**ECB is not semantically secure.**
-ECB is not semantically secure for messages that contain more than one block.
-
-![ECB’s advantage is 1!](http://cl.ly/Tdm9/Screen%20Shot%202014-01-30%20at%2011.28.png)
-
-#### Deterministic counter mode from a PRF F (eg. AES) - One time key
-
-E_{DETCTR} (k,m) = We build a stream cipher from a PRF.
-
-![Deterministic Counter Mode](http://cl.ly/Te5t/Screen%20Shot%202014-01-30%20at%2011.37.39.png)
-
-### Security for many-time key
-
-Why? Many applications: Filesystems or IPSec, encrypts a lot of traffic with the same key. 
-
-When we use a key more than once, the adversary sees many cipher texts with the same key. 
-
-**Adversary's power**: chosen-plaintext attack, the attacker can obtain the encryption of arbitrary messages of his choice (How does it work IRL? You can email someone, email will be stored encrypted on disk and boom you have m and c).
-
-**Adversary goal**: Break semantic security
-
-Semantic-security for many-time key is defined exactly as semantic security for a one-time key but he can repeat any of the messages in the challenge that the attacker can choose. ==> Chosen Plaintext attack.
-
-All the deterministic encryption schemes we’ve seen before are broken under CPA. 
-
-So how do we fix this?
-
-1) Randomized encryption: encrypting same message twice gives different cipher text. Ciphertext must be longer than plaintext. size(CT) = size (PT) + “#random bits”
-
-2) Nonce-based encryption. We define a **nonce** as a value that changes from message to message. The pair (k, n) should NEVER be used more than once. The nonce can conveniently be a counter (if in-order and reliable transmission channel, no need to transmit nonce). If same key used by multiple machines, the nonce space needs to be very big and picked at random (easier to implement a “stateless” protocol)
-
-
-### CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)
-
-#### IV-based encryption
-
-When we start encrypting the first block, we pick a random IV (initialization vector of length one bloc).  We XOR the first message with it before encrypting. 
-IV is publicly known and prepended to the cipher text. 
-Chaining is done by for the next block XORing the cipher text of the first block with the new message and then encrypting. 
-
-What security does it provide? 
-
-It does provide semantic security:
-
-Adv_CPA [A , E_{CBC} ] =< 2 * Adv_PRP [B, E] + (2 q^2 L^2 / |X| = error term, needs to be negligible) 
-
-**CBC is secure as long as q^2L^2 << |X| where L is the length of the messages and q is the number of times we used q to encrypt messages.**
-
-Applied to AES, this means that after 2^48 blocks, we need to replace the key. 
-
-Cipher is not CPA secure if the IV is predictable. 
-
-![IV-based encryption](http://cl.ly/ThMj/Screen%20Shot%202014-02-01%20at%2021.47.48.png)
-
-#### Nonce-based encryption
-
-Cipher-block chaining with unique nonce. (no need to include in first cipher text)
-
-If nonce is not random, it needs to be xored with first block.
-
-![Nonce-based CBC](http://cl.ly/Tgje/Screen%20Shot%202014-02-01%20at%2021.47.34.png)
-
-#### Padding 
-
-In TLS, you pad the n remaining bytes with the number n. If no pad is needed, add a dummy block. 
- 
-### Randomised Counter-mode (superior to CBC) 
-
-Unlike CBC, randomised counter-mode doesn’t need a secure block cipher (PRP) but works with a secure PRF because we’re never going to invert the function F. 
-
-How does it work?
-
-We pick a random IV, then we XOR the messages blocks with F(k,IV + message block number)
-
-Nonce based counter mode: IV = [ 64-bit nonce | 64-bit counter (starts at 0 for every message)]
-
-Note that we can encrypt a maximum of 2^64 blocks per nonce because otherwise the counter overflows and the pad would be used a second time.
-
-We can use counter-mode for more blocks than CBC because  the adversary’s advantage is 2q^2L / |X| < CBC’s advantage. 
-
-For AES, we can encrypt 2^64 AES blocks  with the same key with semantic secrecy. 
- 
-Advantage: It’s parallelizable! Fast encryption! And is so much better than CBC.
-
-![CBC vs Counter](http://cl.ly/TgXt/Screen%20Shot%202014-02-01%20at%2022.38.13.png)
 

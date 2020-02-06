@@ -4,6 +4,7 @@ date:   2019-11-24 16:52:36 -0500
 pulished: true
 categories:  
 - Cryptography
+- Stream Cipher
 tags: 
 - Cryptography 
 - PRG
