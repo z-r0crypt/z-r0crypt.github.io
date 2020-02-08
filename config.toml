@@ -32,7 +32,7 @@ canonifyURLs = true
     sidebar = "left"
     # Used when a given page doesn't set its own.
     defaultDescription = "Your default page description"
-    defaultKeywords = "Exploit, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest"
+    defaultKeywords = "Offensive Security, offsec, OSCP, OSCE, OSWE, AWAR, AWE, Exploit, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest, Fuzzing"
 
     # Hide estimated reading time for posts.
     # Default (if omitted) is false.

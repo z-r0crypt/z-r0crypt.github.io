@@ -6,9 +6,19 @@
     <description>Recent content in Categories on Security Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 05 Feb 2020 16:52:36 -0500</lastBuildDate>
     
 	<atom:link href="https://z-r0crypt.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Block Cipher</title>
+      <link>https://z-r0crypt.github.io/categories/block-cipher/</link>
+      <pubDate>Wed, 05 Feb 2020 16:52:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/block-cipher/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cryptography</title>
@@ -52,6 +62,15 @@
       <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
       
       <guid>https://z-r0crypt.github.io/categories/reverse-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stream Cipher</title>
+      <link>https://z-r0crypt.github.io/categories/stream-cipher/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/stream-cipher/</guid>
       <description></description>
     </item>
     
