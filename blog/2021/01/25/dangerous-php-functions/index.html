@@ -15,27 +15,25 @@
          "@id": "https://z-r0crypt.github.io"
     },
     "articleSection" : "post",
-    "name" : "Microcorruption CTF - Tutorial",
-    "headline" : "Microcorruption CTF - Tutorial",
-    "description" : "Introduction In this post I will share my learnings and research work done during microcorruption CTF challenge.
-What is Microcorruption? It&rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.
-You&rsquo;ll use the debugger to reverse-engineer the code for each level.",
+    "name" : "Dangerous PHP Functions",
+    "headline" : "Dangerous PHP Functions",
+    "description" : "Command Execution exec - Returns last line of commands output passthru - Passes commands output directly to the browser system - Passes commands output directly to the browser and returns last line shell_exec - Returns commands output \`\` (backticks) - Same as shell_exec() popen - Opens read or write pipe to process of a command proc_open - Similar to popen() but greater degree of control pcntl_exec - Executes a program  PHP Code Execution Apart from eval there are other ways to execute PHP code: include/require can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.",
     "inLanguage" : "en-US",
     "author" : "Z-r0crypt",
     "creator" : "Z-r0crypt",
     "publisher": "Z-r0crypt",
     "accountablePerson" : "Z-r0crypt",
     "copyrightHolder" : "Z-r0crypt",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-11-25 22:10:36 -0500 -0500",
-    "dateModified" : "2019-11-25 22:10:36 -0500 -0500",
-    "url" : "https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/",
-    "wordCount" : "446",
-    "keywords" : [ "Microcorruption","CTF","Reverse Engineering","Assembly","ExploitDev","Blog" ]
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-25 22:59:36 -0500 -0500",
+    "dateModified" : "2021-01-25 22:59:36 -0500 -0500",
+    "url" : "https://z-r0crypt.github.io/blog/2021/01/25/dangerous-php-functions/",
+    "wordCount" : "708",
+    "keywords" : [ "OSWE","AWAE","Web Security","Exploit Development","Blog" ]
 }
 </script>
 
-  <title>Microcorruption CTF - Tutorial &middot; Z-r0crypt</title>
+  <title>Dangerous PHP Functions &middot; Z-r0crypt</title>
 
   
   <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole.css">
@@ -127,11 +125,11 @@ You&rsquo;ll use the debugger to reverse-engineer the code for each level.",
 
 <div class="content container">
   <div class="post">
-    <h1 class="post-title">Microcorruption CTF - Tutorial</h1>
-    <span class="post-date">Nov 25, 2019
+    <h1 class="post-title">Dangerous PHP Functions</h1>
+    <span class="post-date">Jan 25, 2021
     
     <br/>
-    <a class="label" href="https://z-r0crypt.github.io/categories/ctf">CTF</a><a class="label" href="https://z-r0crypt.github.io/categories/reverse-engineering">Reverse Engineering</a>
+    <a class="label" href="https://z-r0crypt.github.io/categories/web">Web</a><a class="label" href="https://z-r0crypt.github.io/categories/exploit-development">Exploit Development</a>
     </span>
     
 
@@ -164,62 +162,230 @@ text-align: center;
 </style>
 
 <span style="color: silver;">Share on: </span><div id="share-buttons">
-<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/z-r0crypt.github.io\/blog\/2019\/11\/25\/microcorruption-ctf---tutorial\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
-<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/z-r0crypt.github.io\/blog\/2019\/11\/25\/microcorruption-ctf---tutorial\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
-<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/z-r0crypt.github.io\/blog\/2019\/11\/25\/microcorruption-ctf---tutorial\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/z-r0crypt.github.io\/blog\/2021\/01\/25\/dangerous-php-functions\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/z-r0crypt.github.io\/blog\/2021\/01\/25\/dangerous-php-functions\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/z-r0crypt.github.io\/blog\/2021\/01\/25\/dangerous-php-functions\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
 
-<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/z-r0crypt.github.io\/blog\/2019\/11\/25\/microcorruption-ctf---tutorial\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
-<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/z-r0crypt.github.io\/blog\/2019\/11\/25\/microcorruption-ctf---tutorial\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/z-r0crypt.github.io\/blog\/2021\/01\/25\/dangerous-php-functions\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/z-r0crypt.github.io\/blog\/2021\/01\/25\/dangerous-php-functions\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
 </div>
 
 
     
 
-<h3 id="introduction">Introduction</h3>
+<h2 id="command-execution">Command Execution</h2>
 
-<p>In this post I will share my learnings and research work done during microcorruption CTF challenge.</p>
-
-<h4 id="what-is-microcorruption">What is Microcorruption?</h4>
-
-<p><img src="https://z-r0crypt.github.io/images/micro-tut1.jpg" alt="" /></p>
-
-<p>It&rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.</p>
-
-<p>You&rsquo;ll use the debugger to reverse-engineer the code for each level. You can provide the device with input, then step through the code watching what the device does what that input. You&rsquo;re looking for a specific input that unlocks the device. Maybe that input is the correct passcode. More likely, though, it&rsquo;s something else: an input that exploits a bug in the device&rsquo;s code.</p>
-
-<h3 id="pre-requisites">Pre-requisites</h3>
-
-<ul>
-<li>little knowledge of assembly</li>
-<li>little knowledge of debuggers</li>
-<li>knowledge of memory corruption vulnerabilities</li>
-</ul>
-
-<p>To start with the CTF one is advised to go through the <a href="https://microcorruption.com/manual.pdf">lock manual</a> provided by the CTF team. The manual provides of useful information from attackers perspective as well. The first thing you will get to know about the product <code>LockIT Pro</code> is that it is built on MSP430 microcontroller.</p>
-
-<p>Lets dive into first level challenge. This level is more like a tutorial than a challenge and that is the reason it is called tutorial level.</p>
-
-<h3 id="level-0-cpuctf-debugger-tutorial">Level 0: CPUCTF Debugger Tutorial</h3>
-
-<p>This level is pretty much a walkthrough of the online debugger, assembly and the approach which should be used for further challenges. The level itself is the walkthrough of the first challenge which is to unlock the lockitPro lock so there is no point in explaining the solution in this post. Most of your time is spent on this level getting to know the web based debugger as well as general tips and tricks for moving around.</p>
-
-<pre><code>4484 &lt;check_password&gt;
-4484:  6e4f           mov.b @r15, r14
-4486:  1f53           inc   r15
-4488:  1c53           inc   r12
-448a:  0e93           tst   r14
-448c:  fb23           jnz   #0x4484 &lt;check_password+0x0&gt;
-448e:  3c90 0900      cmp   #0x9, r12   ; password length check
-4492:  0224           jeq   #0x4498 &lt;check_password+0x14&gt;
+<pre><code class="language-php">exec           - Returns last line of commands output
+passthru       - Passes commands output directly to the browser
+system         - Passes commands output directly to the browser and returns last line
+shell_exec     - Returns commands output
+\`\` (backticks) - Same as shell_exec()
+popen          - Opens read or write pipe to process of a command
+proc_open      - Similar to popen() but greater degree of control
+pcntl_exec     - Executes a program
 </code></pre>
 
-<p>Once we hit the first instruction in <code>check_password</code> at <code>0x4484</code>, the first character of the password you entered is loaded into <code>r14</code> from the memory location pointed to in <code>r15</code>. In next instructions, registers <code>r12</code> and <code>r15</code> are incremented. This will continue to iterate until a null byte <code>\0</code> is reached, bypassing the jump at <code>0x448c</code>, making the <code>cmp</code> be the next instruction.</p>
+<h2 id="php-code-execution">PHP Code Execution</h2>
 
-<p>If <code>r12</code> ends up being <code>0x09</code> (indicating that out passwords was 8 characters long followed by a null byte), then the jump at <code>0x4492</code> will occur, finally calling the interrupt to unlock the lock.</p>
+<p>Apart from eval there are other ways to execute PHP code: include/require can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.</p>
 
-<p><img src="https://z-r0crypt.github.io/images/micro-tut2.jpg" alt="" /></p>
+<pre><code class="language-php">eval()
+assert()  - identical to eval()
+preg_replace('/.*/e',...) - /e does an eval() on the match
+create_function()
+include()
+include_once()
+require()
+require_once()
+$_GET['func_name']($_GET['argument']);
+$func = new ReflectionFunction($_GET['func_name']); $func-&gt;invoke(); or $func-&gt;invokeArgs(array());
+</code></pre>
 
-<p>The <strong>solution</strong> of this level is to provide any 8 character input as password.</p>
+<h2 id="list-of-functions-which-accept-callbacks">List of functions which accept callbacks</h2>
+
+<p>These functions accept a string parameter which could be used to call a function of the attacker&rsquo;s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like phpinfo() could be used.</p>
+
+<pre><code class="language-php">Function                     =&gt; Position of callback arguments
+'ob_start'                   =&gt;  0,
+'array_diff_uassoc'          =&gt; -1,
+'array_diff_ukey'            =&gt; -1,
+'array_filter'               =&gt;  1,
+'array_intersect_uassoc'     =&gt; -1,
+'array_intersect_ukey'       =&gt; -1,
+'array_map'                  =&gt;  0,
+'array_reduce'               =&gt;  1,
+'array_udiff_assoc'          =&gt; -1,
+'array_udiff_uassoc'         =&gt; array(-1, -2),
+'array_udiff'                =&gt; -1,
+'array_uintersect_assoc'     =&gt; -1,
+'array_uintersect_uassoc'    =&gt; array(-1, -2),
+'array_uintersect'           =&gt; -1,
+'array_walk_recursive'       =&gt;  1,
+'array_walk'                 =&gt;  1,
+'assert_options'             =&gt;  1,
+'uasort'                     =&gt;  1,
+'uksort'                     =&gt;  1,
+'usort'                      =&gt;  1,
+'preg_replace_callback'      =&gt;  1,
+'spl_autoload_register'      =&gt;  0,
+'iterator_apply'             =&gt;  1,
+'call_user_func'             =&gt;  0,
+'call_user_func_array'       =&gt;  0,
+'register_shutdown_function' =&gt;  0,
+'register_tick_function'     =&gt;  0,
+'set_error_handler'          =&gt;  0,
+'set_exception_handler'      =&gt;  0,
+'session_set_save_handler'   =&gt; array(0, 1, 2, 3, 4, 5),
+'sqlite_create_aggregate'    =&gt; array(2, 3),
+'sqlite_create_function'     =&gt;  2,
+</code></pre>
+
+<h2 id="information-disclosure">Information Disclosure</h2>
+
+<p>Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see phpinfo() it is definitely a vulnerability.</p>
+
+<pre><code class="language-php">phpinfo
+posix_mkfifo
+posix_getlogin
+posix_ttyname
+getenv
+get_current_user
+proc_get_status
+get_cfg_var
+disk_free_space
+disk_total_space
+diskfreespace
+getcwd
+getlastmo
+getmygid
+getmyinode
+getmypid
+getmyuid
+</code></pre>
+
+<h2 id="other">Other</h2>
+
+<pre><code class="language-php">extract - Opens the door for register_globals attacks (see [study in scarlet - seclist](http://seclists.org/bugtraq/2001/Jul/att-26/studyinscarlet.txt)).
+parse_str -  works like extract if only one argument is given.
+putenv
+ini_set
+mail - has CRLF injection in the 3rd parameter, opens the door for spam. 
+header - on old systems CRLF injection could be used for xss or other purposes, now it is still a problem if they do a header(&quot;location: ...&quot;); and they do not die();. The script keeps executing after a call to header(), and will still print output normally. This is nasty if you are trying to protect an administrative area. 
+proc_nice
+proc_terminate
+proc_close
+pfsockopen
+fsockopen
+apache_child_terminate
+posix_kill
+posix_mkfifo
+posix_setpgid
+posix_setsid
+posix_setuid
+</code></pre>
+
+<h2 id="filesystem-functions">Filesystem Functions</h2>
+
+<p>According to RATS all filesystem functions in php are nasty. Some of these don&rsquo;t seem very useful to the attacker. Others are more useful than you might think. For instance if allow_url_fopen=On then a url can be used as a file path, so a call to copy($_GET[&rsquo;s&rsquo;], $_GET[&rsquo;d&rsquo;]); can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.</p>
+
+<pre><code class="language-php">// open filesystem handler
+
+fopen
+tmpfile
+bzopen
+gzopen
+SplFileObject-&gt;__construct
+
+// write to filesystem (partially in combination with reading)
+
+chgrp
+chmod
+chown
+copy
+file_put_contents
+lchgrp
+lchown
+link
+mkdir
+move_uploaded_file
+rename
+rmdir
+symlink
+tempnam
+touch
+unlink
+imagepng   - 2nd parameter is a path.
+imagewbmp  - 2nd parameter is a path. 
+image2wbmp - 2nd parameter is a path. 
+imagejpeg  - 2nd parameter is a path.
+imagexbm   - 2nd parameter is a path.
+imagegif   - 2nd parameter is a path.
+imagegd    - 2nd parameter is a path.
+imagegd2   - 2nd parameter is a path.
+iptcembed
+ftp_get
+ftp_nb_get
+
+// read from filesystem
+
+file_exists
+file_get_contents
+file
+fileatime
+filectime
+filegroup
+fileinode
+filemtime
+fileowner
+fileperms
+filesize
+filetype
+glob
+is_dir
+is_executable
+is_file
+is_link
+is_readable
+is_uploaded_file
+is_writable
+is_writeable
+linkinfo
+lstat
+parse_ini_file
+pathinfo
+readfile
+readlink
+realpath
+stat
+gzfile
+readgzfile
+getimagesize
+imagecreatefromgif
+imagecreatefromjpeg
+imagecreatefrompng
+imagecreatefromwbmp
+imagecreatefromxbm
+imagecreatefromxpm
+ftp_put
+ftp_nb_put
+exif_read_data
+read_exif_data
+exif_thumbnail
+exif_imagetype
+hash_file
+hash_hmac_file
+hash_update_file
+md5_file
+sha1_file
+highlight_file
+show_source
+php_strip_whitespace
+get_meta_tags
+</code></pre>
+
+<ul>
+<li>Reference - <a href="https://stackoverflow.com/a/3697776">https://stackoverflow.com/a/3697776</a></li>
+</ul>
 
     
 
@@ -439,7 +605,7 @@ background-color: #FF6600
 <h4 style="color: maroon;">Share this post on: </h4><div id="share-buttons"></span>
 
 
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
     </div>
@@ -447,7 +613,7 @@ background-color: #FF6600
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Microcorruption%20CTF%20-%20Tutorial&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Dangerous%20PHP%20Functions&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
     </div>
@@ -455,7 +621,7 @@ background-color: #FF6600
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f&amp;title=Microcorruption%20CTF%20-%20Tutorial&amp;summary=Microcorruption%20CTF%20-%20Tutorial&amp;source=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f&amp;title=Dangerous%20PHP%20Functions&amp;summary=Dangerous%20PHP%20Functions&amp;source=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
     </div>
@@ -463,7 +629,7 @@ background-color: #FF6600
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f&amp;resubmit=true&amp;title=Microcorruption%20CTF%20-%20Tutorial" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f&amp;resubmit=true&amp;title=Dangerous%20PHP%20Functions" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
     </div>
@@ -471,7 +637,7 @@ background-color: #FF6600
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=Microcorruption%20CTF%20-%20Tutorial%20https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Dangerous%20PHP%20Functions%20https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/></svg>
     </div>
@@ -479,7 +645,7 @@ background-color: #FF6600
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f&amp;t=Microcorruption%20CTF%20-%20Tutorial" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f&amp;t=Dangerous%20PHP%20Functions" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"></path></svg>
     </div>
@@ -487,7 +653,7 @@ background-color: #FF6600
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Microcorruption%20CTF%20-%20Tutorial&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2019%2f11%2f25%2fmicrocorruption-ctf---tutorial%2f" target="_blank" rel="noopener" aria-label="">
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Dangerous%20PHP%20Functions&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2021%2f01%2f25%2fdangerous-php-functions%2f" target="_blank" rel="noopener" aria-label="">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z"/></svg>
     </div>
@@ -497,7 +663,19 @@ background-color: #FF6600
 
     <br />
     
+  
+
 <br />
+
+  <aside>
+    <h3>Related Content</h3>
+    <ul>
+      
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/">OSWE/AWAE Preparation</a></li>
+      
+    </ul>
+  </aside>
 
 
 

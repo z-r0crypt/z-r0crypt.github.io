@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://z-r0crypt.github.io/blog/2021/01/25/dangerous-php-functions/</loc>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/</loc>
     <lastmod>2020-02-05T16:52:36-05:00</lastmod>
   </url>
@@ -54,7 +59,7 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/awae/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -132,13 +137,13 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/categories/exploit-development/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/exploit-development/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -162,13 +167,13 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/oswe/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://z-r0crypt.github.io/post/</loc>
-    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -192,7 +197,7 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/</loc>
-    <lastmod>2020-02-05T16:52:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -216,13 +221,13 @@
   
   <url>
     <loc>https://z-r0crypt.github.io/categories/web/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://z-r0crypt.github.io/tags/web-security/</loc>
-    <lastmod>2020-01-22T22:10:36-05:00</lastmod>
+    <lastmod>2021-01-25T22:59:36-05:00</lastmod>
     <priority>0</priority>
   </url>
   
