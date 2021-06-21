@@ -187,7 +187,7 @@ pcntl_exec     - Executes a program
 
 <h2 id="php-code-execution">PHP Code Execution</h2>
 
-<p>Apart from eval there are other ways to execute PHP code: include/require can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.</p>
+<p>Apart from eval there are other ways to execute PHP code: <code>include/require</code> can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.</p>
 
 <pre><code class="language-php">eval()
 assert()  - identical to eval()
@@ -203,7 +203,7 @@ $func = new ReflectionFunction($_GET['func_name']); $func-&gt;invoke(); or $func
 
 <h2 id="list-of-functions-which-accept-callbacks">List of functions which accept callbacks</h2>
 
-<p>These functions accept a string parameter which could be used to call a function of the attacker&rsquo;s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like phpinfo() could be used.</p>
+<p>These functions accept a string parameter which could be used to call a function of the attacker&rsquo;s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like <code>phpinfo()</code> could be used.</p>
 
 <pre><code class="language-php">Function                     =&gt; Position of callback arguments
 'ob_start'                   =&gt;  0,
@@ -242,7 +242,7 @@ $func = new ReflectionFunction($_GET['func_name']); $func-&gt;invoke(); or $func
 
 <h2 id="information-disclosure">Information Disclosure</h2>
 
-<p>Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see phpinfo() it is definitely a vulnerability.</p>
+<p>Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see <code>phpinfo()</code> it is definitely a vulnerability.</p>
 
 <pre><code class="language-php">phpinfo
 posix_mkfifo
@@ -286,7 +286,7 @@ posix_setuid
 
 <h2 id="filesystem-functions">Filesystem Functions</h2>
 
-<p>According to RATS all filesystem functions in php are nasty. Some of these don&rsquo;t seem very useful to the attacker. Others are more useful than you might think. For instance if allow_url_fopen=On then a url can be used as a file path, so a call to copy($_GET[&rsquo;s&rsquo;], $_GET[&rsquo;d&rsquo;]); can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.</p>
+<p>According to RATS all filesystem functions in php are nasty. Some of these don&rsquo;t seem very useful to the attacker. Others are more useful than you might think. For instance if <code>allow_url_fopen=On</code> then a url can be used as a file path, so a call to <code>copy($_GET['s'], $_GET['d']);</code> can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.</p>
 
 <pre><code class="language-php">// open filesystem handler
 
