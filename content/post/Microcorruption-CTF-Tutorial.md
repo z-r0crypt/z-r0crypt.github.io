@@ -4,7 +4,7 @@ date:   2019-11-25 22:10:36 -0500
 categories:  
 - CTF
 - Reverse Engineering
-tags: [Microcorruption, CTF, Reverse Engineering, Assembly, Exploit]
+tags: [Microcorruption, CTF, Reverse Engineering, Assembly, ExploitDev]
 ---
 
 

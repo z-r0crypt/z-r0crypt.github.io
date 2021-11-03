@@ -59,7 +59,7 @@ XOR has the amazing property of always adding entropy, never removing it.
 
 ## Birthday paradox 
 
-when n = 1.2 x U^(1/2) ==> Pr[there exists two similar elements] >= 1/2
+when `n = 1.2 x U^(1/2) ==> Pr[there exists two similar elements] >= 1/2`
 
 # Stream ciphers
 
@@ -69,11 +69,12 @@ A **cipher** is defined over a triple ( the key space, message space, cipher spa
 
 E is sometimes randomised but D is always deterministic. 
 
-**The Vernam Cipher** is a cipher where the key is as long as the message where the cipher text is obtained by E(m,k)=(message XOR key) = cipher text and D(c,k) = c XOR k = message.
+**The Vernam Cipher** is a cipher where the key is as long as the message where the cipher text is obtained by `E(m,k)=(message XOR key) = cipher text and D(c,k) = c XOR k = message`.
 
 Vernam is not useful in practise because if we have a secure channel to send the keys over, we could use that to send the message, so what’s the point of the cipher, right?
 
-A cipher (E,D) over (K, M, C) has **perfect secrecy** if for every m_0 and m_1 in M, length of m_0 is equal to the length of m_1 and for every c in C, Pr[E(k,m_0) = c] = Pr[E(k, m_1)=c].
+A cipher (E,D) over (K, M, C) has **perfect secrecy** if for every m_0 and m_1 in M, length of m_0 is equal to the length of m_1 and for every c in C, `Pr[E(k,m_0) = c] = Pr[E(k, m_1)=c]`.
+
 Perfect secrecy means that there are no cipher text only attack!
 
 If one cipher has perfect secrecy => |K| >= |M|, the key_length >= message_length.
@@ -84,20 +85,21 @@ Idea: replace random key by pseudorandom key.
 
 For the stream ciphers, we introduce a PRG: Pseudo-random generator.
 
-A **PRG** is a deterministic function G:{0,1}^s (seed space) -> {0,1}^n, n>>s.
+A **PRG** is a deterministic function `G:{0,1}^s (seed space) -> {0,1}^n, n>>s`.
 
 In stream ciphers, seed = key and define the following operations.
+```
 E(k,m) := m XOR G(k)
 D(k,c) :=  c XOR G(k)
-
+```
 ## PRG
 A PRG must be unpredictable for a stream cipher to be secure. 
 
-We say G:K -> {0,1}^n is predictable if there exists an efficient algorithm A and there exists an i: 1<i<n-1 such as Pr[A(G(k))|i,…,i = G(k)|i+1] >= 1/2 + epsilon. (for some non-negligible epsilon).
+We say `G:K -> {0,1}^n` is predictable if there exists an efficient algorithm A and there exists an i: 1<i<n-1 such as `Pr[A(G(k))|i,…,i = G(k)|i+1] >= 1/2 + epsilon (for some non-negligible epsilon)`.
 
 In short, a PRG is unpredictable: for all i, there is no efficient algorithm A, that can predict the i+1 bit following the prefix.
 
-NEVER USE Weak PRGs: Linear congruential generators (glibc random). 
+*NEVER USE Weak PRGs*: Linear congruential generators (glibc random). 
 
 Negligible and non-negligible - In practise, epsilon is a scalar such as the event is not likely to happen. In theory, non-neg is defined as there exists d: epsilon(polynomial lambda) >= 1/(lambda^d) infinitely often. 
 
@@ -108,10 +110,12 @@ TLDR’: The function is negligible if it’s less than all polynomial fractions
 The two time pad is insecure. 
 
 Example: 
-`c_1 = m_1  XOR PRG(k)
-c_2 = m_2 XOR PRG(k)`
+```
+c_1 = m_1  XOR PRG(k)
+c_2 = m_2 XOR PRG(k)
+```
 
-If an attacker gets c_1 and c_2, he can perform c_1 XOR c_2 = m_1 XOR m_2
+If an attacker gets c_1 and c_2, he can perform `c_1 XOR c_2 = m_1 XOR m_2`
 
 The english language (and ASCII encoding) has enough redundancy to find m_1 and m_2. 
 
@@ -123,24 +127,24 @@ In disk encryption, issue of the one time pad is **malleability**. Because OTP *
 
  **RC4** (1987) - stream cipher designed to be implemented in *software*- takes a variable size seed, expands it to a broader number of bits and then generates 1 byte (of pseudorandom) per round.  Used in HTTPS and WEP.
  
- - Weaknesses: 
-	1) Bias in initial output: ex. `Pr[2nd byte = 0] = 2/256` if seed = 128bits and expansion to 2048bits. (256th first bytes are biased) 
-	2) Pr[(0,0)] is getting bigger than it should after a few gigs of data. Should not be used anymore.
-	3) Related key attacks
+ - **Weaknesses:** 
+	+ Bias in initial output: ex. `Pr[2nd byte = 0] = 2/256` if seed = 128bits and expansion to 2048bits. (256th first bytes are biased) 
+	+ `Pr[(0,0)]` is getting bigger than it should after a few gigs of data. Should not be used anymore.
+	+ Related key attacks
  
 
 **CSS - Content scrambling system** is a stream-cipher used for encrypting DVDs. It’s badly broken. CSS was designed in the 1980’s when exportable encryption was restricted to 40-bit keys. As a result, CSS encrypts movies using a 40-bit secret key. It was designed to be implemented on *hardware* and based on a mechanism called **LFSR** (linear feedback shift register), also used for GSM encryption (A5/1,2) and Bluetooth (E0). LFSR-derived stream ciphers are all badly broken but hard to fix because implemented in hardware.
  
-LFSR is works: 
-- We have a register of n bits.
-- At every clock cycle, we shift the entries of the registry to the left, the last bit falls off and the first bit becomes the result of the XOR of all bits of the register of the previous state.
-- Seed = initial state of the register.
+ - **How LFSR works:**
+	+ We have a register of n bits.
+	+ At every clock cycle, we shift the entries of the registry to the left, the last bit falls off and the first bit becomes the result of the XOR of all bits of the register of the previous state.
+	+ Seed = initial state of the register.
 
-CSS: 
-- seed = 5 bytes = 40 bits (because crypto-regulations in the US only allowed exports of crypto using 40 bits keys!)
-- 2 LFSRs (17-bit and 25-bits). The first one is seeded with (1 + first 2 bytes of the key) and the second one is seeded with (1 + last 3 bytes of the key). Each of the LFSRs do produce 8 bits outputs (in 8 cycles) that are then added and mod 256 + carry of previous block. And this outputs one byte per round that is then XORed with the byte of the movie we are trying to encrypt.
+ - **CSS:**
+   - seed = 5 bytes = 40 bits (because crypto-regulations in the US only allowed exports of crypto using 40 bits keys!)
+   - 2 LFSRs (17-bit and 25-bits). The first one is seeded with (1 + first 2 bytes of the key) and the second one is seeded with (1 + last 3 bytes of the key). Each of the LFSRs do produce 8 bits outputs (in 8 cycles) that are then added and mod 256 + carry of previous block. And this outputs one byte per round that is then XORed with the byte of the movie we are trying to encrypt.
 
-CSS can be broken in 2^17.
+   *CSS can be broken in 2^17.*
 
 ## Better modern stream cipher
 
@@ -164,6 +168,7 @@ Salsa20: `{0,1}^{128 or 256} x {0,1}^64 -> {0,1}^n (max n=2^73)`
 How is that function H(k, (r,i) ) defined? k --> seed; r --> nonce; i --> counter
 
 Salsa20 uses 128 and 256 bits keys.
+
 For the 128 version of Salsa20, we start with 64 bytes defined as in this slide. T_0…3 is defined in the Salsa20 specification. You perform 10 rounds of an invertible function h and do add all of the them word by word and you get a 64 byte output. 
 
 {{< figure src="/images/Salsa.png" >}}
@@ -184,7 +189,10 @@ There are no significant attacks known on Salsa20. Very fast stream cipher in bo
 The seed space is really small compared to the universe {0,1}^n. A pseudorandom generator outputs would look indistinguishable from a uniform distribution on {0,1}^n. 
 
 One way to test if a PRG is pseudorandom we do perform *statistical tests*.
-An algorithm that is used to distinguish a pseudo-random string G(s) from a truly random string r is called a **statistical test**.
+
+**Statistical Test:**
+
+An algorithm that is used to distinguish a pseudo-random string G(s) from a truly random string r is called a *statistical test*.
 How do we evaluate if a statistical test is good? We define the advantage of a statistical test A over the generator G: 
 
 `Adv[A,G] = | Pr[A(G(k))=1 ]- Pr[A(r) =1] | (between 0,1)` 
@@ -198,7 +206,7 @@ If the statistical test always outputs 0, it’s advantage is 0.
  We define a **secure PRG** such as, for all statistical tests A, Adv[A,G] is negligible.
 
 So, can we prove it? No we can’t. ( p != np) but we have heuristic candidates.
-—
+
 ***If PRG is predictable => PRG is insecure*** (can be proved easily by using the advantage definition of a secure PRG). If next-bit predictors cannot distinguish G from random then no statistical test can! 
 
 ## What is a secure cipher?
@@ -209,5 +217,8 @@ For every message m_0, m1 in M: E(k, m_0) is computationally indistinguishable f
 
 A cipher is **semantically secure** if;
 
-`for all efficient adversary A, Adv[A, cipher] is negligible. `
+for all efficient adversary A, `Adv[A, cipher]` is negligible. 
+
+------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 

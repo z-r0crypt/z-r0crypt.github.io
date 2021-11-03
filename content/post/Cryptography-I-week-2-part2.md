@@ -21,10 +21,14 @@ tags:
 		+ [Security for one time key](#security-for-one-time-key) 
 		+ [ECB (Electronic Code Book) - One time key](#ecb-electronic-code-book---one-time-key)
 			- [Deterministic counter mode from a PRF F (eg. AES) - One time key](#deterministic-counter-mode-from-a-prf-f-eg-aes---one-time-key)
-	* [Modes of operation: Many time key (CBC)](#) 
-		+ [Security for many-time key](#security-for-many-time-key)
+	* [Modes of operation: Many time key](#security-for-many-time-key) 
 		+ [CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)](#cbc-cipher-block-chaining-with-a-random-iv---many-time-key-cpa-security)
-	* [Modes of operation: Many time key (CTR)](#)
+			+ [IV (Initialization Vector)](#iv-initialization-vector)
+			+ [IV-based encryption](#iv-based-encryption)
+			+ [Nonce-based encryption](#nonce-based-encryption)
+			+ [Padding](#padding)
+		+ [Randomised Counter-mode (CTR) (superior to CBC)](#randomised-counter-mode-ctr-superior-to-cbc)
+		+ [Coparison: CTR vs CBC](#coparison-ctr-vs-cbc)
    
 -------------------------------------------------------------------------------------
 
@@ -109,11 +113,11 @@ When we start encrypting the first block, we pick a random IV (initialization ve
 IV is publicly known and prepended to the cipher text. 
 Chaining is done by for the next block XORing the cipher text of the first block with the new message and then encrypting. 
 
-What security does it provide? 
+**What security does it provide?** 
 
 It does provide semantic security:
 
-Adv_CPA [A , E_{CBC} ] =< 2 * Adv_PRP [B, E] + (2 q^2 L^2 / |X| = error term, needs to be negligible) 
+`Adv_CPA [A , E_{CBC} ] =< 2 * Adv_PRP [B, E] + (2 q^2 L^2 / |X| = error term, needs to be negligible) `
 
 **CBC is secure as long as q^2L^2 << |X| where L is the length of the messages and q is the number of times we used q to encrypt messages.**
 
@@ -123,9 +127,16 @@ Cipher is not CPA secure if the IV is predictable.
 
 ![IV-based encryption](http://cl.ly/ThMj/Screen%20Shot%202014-02-01%20at%2021.47.48.png)
 
+
+**Decryption Circuit for IV based encryption**
+
+![](https://github.com/z-r0crypt/Cryptography-Notes/raw/master/images/IV%20based%20decryption.JPG)
+
+
 #### Nonce-based encryption
 
-Cipher-block chaining with unique nonce. (no need to include in first cipher text)
+Cipher-block chaining with unique nonce. (no need to include in first cipher text) : key = (k, k1). 
+ > unique nonce means: (key, n) pair is used for only one message.
 
 If nonce is not random, it needs to be xored with first block.
 
@@ -141,19 +152,24 @@ In TLS, you pad the n remaining bytes with the number n. If no pad is needed, ad
 
 Unlike CBC, randomised counter-mode doesn’t need a secure block cipher (PRP) but works with a secure PRF because we’re never going to invert the function F. 
 
-How does it work?
+**How does it work?**
 
 We pick a random IV, then we XOR the messages blocks with F(k,IV + message block number)
 
-Nonce based counter mode: IV = [ 64-bit nonce | 64-bit counter (starts at 0 for every message)]
+Nonce based counter mode: IV = { 64-bit nonce | 64-bit counter (starts at 0 for every message)}
 
 Note that we can encrypt a maximum of 2^64 blocks per nonce because otherwise the counter overflows and the pad would be used a second time.
 
-We can use counter-mode for more blocks than CBC because  the adversary’s advantage is 2q^2L / |X| < CBC’s advantage. 
+We can use counter-mode for more blocks than CBC because  the adversary’s advantage is `2q^2L / |X| < CBC’s advantage.` 
 
 For AES, we can encrypt 2^64 AES blocks  with the same key with semantic secrecy. 
  
 Advantage: It’s parallelizable! Fast encryption! And is so much better than CBC.
 
+### Coparison: CTR vs CBC
+
 ![CBC vs Counter](http://cl.ly/TgXt/Screen%20Shot%202014-02-01%20at%2022.38.13.png)
 
+
+
+-------------------------------------------------------------------------------------------------

@@ -256,16 +256,19 @@ key-length = 184 bits. Attack known in 2^120.
 #### Linear and differential attacks (Linear cryptanalysis)
 
    Given many input/output pairs, can recover key in less time than exhaustive search (2^56 for DES)
-
-   Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon
-
-   For DES, epsilon = 1/(2^(21)) ~= 0.0000000477 because the fifth S-Box is too close to a linear function. 
+```
+ Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon 
+```
+   For DES, `epsilon = 1/(2^(21)) ~= 0.0000000477` because the fifth S-Box is too close to a linear function. 
 
 
    **How can we attack it to find key bits?**
 
    Given 1/epsilon^2 random (m, c=DES(k, m) ) pairs then 
-   k[l_1, … , l_u] = MAJ [ m[i_1 , … , i_r] XOR c[j_j, …,j_v] ] with probability >= 97.7%. 
+```
+ k[l_1, … , l_u] = MAJ [ m[i_1 , … , i_r] XOR c[j_j, …,j_v] ]  
+``` 
+with probability >= 97.7%.
 
    **Linear Attacks**
 
@@ -296,6 +299,7 @@ Examples:
 - 2000: NIST chooses Rijndael as AES (designed in Belgium)
 
 Key sizes = 128, 192, 256 bits. 
+
 Larger keys: slower encryption but thought to be more secure.
 
 Block size = 128 bits
@@ -353,7 +357,9 @@ PRP -> One to one revertible function. Domain X=Y. Key concept to build a block 
 Any secure PRP is also a secure PRF if |X| is sufficiently large.
 
 Lemma: Let E be a PRP over (K,X) then for any q-query adversary A: 
-> |Adv_{PRF} [A,E] - Adv_{PRF} [A,E] | < q^2 / 2|X|
+```
+|Adv_{PRF} [A,E] - Adv_{PRF} [A,E] | < q^2 / 2|X|
+```
 When X is large, the ratio will be negligible.
 
 So we can say that if E is secure PRP, it is also Secure PRF.
@@ -362,3 +368,4 @@ From now on, we consider AES or 3DES as secure PRPs.
 
 
 
+----------------------------------------------------------------------------------------

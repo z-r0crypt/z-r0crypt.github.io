@@ -2,152 +2,171 @@
 layout: post
 title:  "OSWE/AWAE Preparation"
 date:   2020-01-22 22:10:36 -0500
-categories:  [Web, Exploit]
-tags: [OSWE, AWAE, Web, Offensive Security, Exploit]
+categories:  [Web, Exploit Development]
+tags: [OSWE, AWAE, Web Security, Exploit Development]
 ---
 
-## AWAE-Preparation
+## OSWE Exam Preparation
 This post contains all trainings and tutorials that could be useful for offensive security's OSWE certification. I will be updating the post during my lab and preparation for the exam.
 
 ### Course Syllabus:
 [https://www.offensive-security.com/documentation/awae-syllabus.pdf](https://www.offensive-security.com/documentation/awae-syllabus.pdf)
 
-### Before registering for AWAE:
+### Before registering for AWAE Lab:
  
-  * #### Cross-Site Scripting:
-     * [XSS](https://portswigger.net/web-security/cross-site-scripting)
-     * [XMLHttpRequest Specification](https://xhr.spec.whatwg.org/)
-     * [AtMail Email Server Appliance 6.4 - Persistent Cross-Site Scripting](https://www.exploit-db.com/exploits/20009)
-     * [Persistent XSS](https://www.acunetix.com/blog/articles/persistent-xss/)
-     * [Hijack Session using socat](https://popped.io/hijacking-sessions-using-socat/)
-     
-  * #### XSS and MySQL
-     * [PentesterLab: XSS and MySQL FILE](https://pentesterlab.com/exercises/xss_and_mysql_file/course)
-       - [https://www.vulnhub.com/entry/pentester-lab-xss-and-mysql-file,66/](https://www.vulnhub.com/entry/pentester-lab-xss-and-mysql-file,66/)
-  
-  * #### Cross-Site Request Forgery
-     * [CSRF Prevention Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) 
-  
-   
-* ### ATutor Authentication Bypass and RCE (2.2.1) CVE-2016-2555
-  - [ATutor Install](https://sourceforge.net/projects/atutor/files/atutor_2_2_1/)
-  - [https://www.exploit-db.com/exploits/39514](https://www.exploit-db.com/exploits/39514)
-  - [https://srcincite.io/advisories/src-2016-0009/](https://srcincite.io/advisories/src-2016-0009/)
-  - [https://www.exploit-db.com/exploits/39639](https://www.exploit-db.com/exploits/39639)
-  - [https://github.com/atutor/ATutor/commit/d74f1177cfa92ed8e49aa65f724f308b4a3ac5b9](https://github.com/atutor/ATutor/commit/d74f1177cfa92ed8e49aa65f724f308b4a3ac5b9)
+  * [Get comfortable with python requests library](https://requests.readthedocs.io/en/master/)
+  * [Read Web Application Hacker's handbook, again if you already did](https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting-ebook/dp/B005LVQA9S)
+  * [Get familiar with Burpsuite](https://portswigger.net/burp/communitydownload)
+  * [Get familiar with regex](https://regex101.com/)
+  * [Get hands on with OWASP top 10 2017 Vulnerabilities](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/)
+       - [Vulnerable Apps for practice on OWASP](https://owasp.org/www-project-vulnerable-web-applications-directory/)
+       - [Portswigger WebSecAcademy](https://portswigger.net/web-security)
+  * [Practice code review skills - OWASP SKF](https://owasp.org/www-project-security-knowledge-framework/) 
 
-* ### Bypassing File Upload Restrictions:
-  - [https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf](https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf)
-  - [http://www.securityidiots.com/Web-Pentest/hacking-website-by-shell-uploading.html](http://www.securityidiots.com/Web-Pentest/hacking-website-by-shell-uploading.html)
-  - [https://www.owasp.org/index.php/Unrestricted_File_Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-  - Popcorn machine from HackTheBox
-  - Vault machine from HackTheBox
+-------------------------------------------------------------------------------------
 
-* ### PHP Type Juggling:
-   * [https://shieldfy.io/security-wiki/php-vulnerabilities/exploitable-php-functions](https://shieldfy.io/security-wiki/php-vulnerabilities/exploitable-php-functions)
-   * [https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf](https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf )
-   * [https://medium.com/@Q2hpY2tlblB3bnk/php-type-juggling-c34a10630b10](https://medium.com/@Q2hpY2tlblB3bnk/php-type-juggling-c34a10630b10) 
-   * [https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/](https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/)
-   * [https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/](https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/)
-   * [http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html](http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html)
-   * [https://www.netsparker.com/blog/web-security/type-juggling-authentication-bypass-cms-made-simple/](https://www.netsparker.com/blog/web-security/type-juggling-authentication-bypass-cms-made-simple/)
-   * [https://www.php.net/manual/en/types.comparisons.php](https://www.php.net/manual/en/types.comparisons.php)
-   * [https://github.com/spaze/hashes](https://github.com/spaze/hashes)
-   * [https://www.whitehatsec.com/blog/magic-hashes/](https://www.whitehatsec.com/blog/magic-hashes/)
-   * [https://blog.ripstech.com/2018/cubecart-admin-authentication-bypass/](https://blog.ripstech.com/2018/cubecart-admin-authentication-bypass/)
-   * Falafel machine from HackTheBox
-   * [https://srcincite.io/advisories/src-2016-0012/](https://srcincite.io/advisories/src-2016-0012/)
-   * [https://github.com/sourceincite/poc/blob/master/SRC-2016-0012.py](https://github.com/sourceincite/poc/blob/master/SRC-2016-0012.py)
-   * [https://github.com/atutor/ATutor/commit/2eed42a74454355eddc7fc119e67af40dba1a94c](https://github.com/atutor/ATutor/commit/2eed42a74454355eddc7fc119e67af40dba1a94c)
-   * Reference: PHP Type Juggling
-      - [https://www.youtube.com/watch?v=ASYuK01H3Po](https://www.youtube.com/watch?v=ASYuK01H3Po)
+### Before registering for the OSWE Exam:
 
-* ### Deserialization:
-   * [https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
-   * [https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf](https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf)
-   * [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md)
-   * [https://2017.zeronights.org/wp-content/uploads/materials/ZN17_Aleksei%20Tiurin_Deserialization%20vulnerabilities.pdf](https://2017.zeronights.org/wp-content/uploads/materials/ZN17_Aleksei%20Tiurin_Deserialization%20vulnerabilities.pdf)
-   * [https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf](https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf)
-   * [https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf](https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf)
-   * [https://www.n00py.io/2017/11/exploiting-blind-java-deserialization-with-burp-and-ysoserial/](https://www.n00py.io/2017/11/exploiting-blind-java-deserialization-with-burp-and-ysoserial/)
-   * [https://www.owasp.org/images/7/71/GOD16-Deserialization.pdf](https://www.owasp.org/images/7/71/GOD16-Deserialization.pdf)
-   * [https://github.com/frohoff/ysoserial](https://github.com/frohoff/ysoserial) 
-   * [https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet/blob/master/README.md](https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet/blob/master/README.md)
-   * [https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/](https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/)
+* #### XSS to RCE
+   - [AtMail Email Server Appliance 6.4 - Persistent Cross-Site Scripting](https://www.exploit-db.com/exploits/20009)
+   - [Chaining XSS, CSRF to achieve RCE](https://rhinosecuritylabs.com/application-security/labkey-server-vulnerabilities-to-rce/)
+   - [Code analysis to gaining RCE](https://sarthaksaini.com/2019/awae/xss-rce.html)
+   - [Magento 2.3.1: Unauthenticated Stored XSS to RCE](https://blog.ripstech.com/2019/magento-rce-via-xss/)
+   - [Mybb 18.20 From Stored XSS to RCE](https://medium.com/@knownsec404team/the-analysis-of-mybb-18-20-from-stored-xss-to-rce-7234d7cc0e72)
 
-* ### .NET Deserialization:
-   - [DotNetNuke Install](https://github.com/dnnsoftware/Dnn.Platform/releases/tag/v9.1.0)
-   - [https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf](https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf)
-   - [https://github.com/pwntester/ysoserial.net](https://github.com/pwntester/ysoserial.net)
-   - [https://github.com/0xd4d/dnSpy](https://github.com/0xd4d/dnSpy)
-   - [https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf](https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf)
-   - [https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4](https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4)
-   - [https://paper.seebug.org/365/](https://paper.seebug.org/365/)
-   - [https://www.youtube.com/watch?v=oUAeWhW5b8c](https://www.youtube.com/watch?v=oUAeWhW5b8c)
-   - [https://vulners.com/seebug/SSV:96326](https://vulners.com/seebug/SSV:96326)
-   - [https://www.slideshare.net/MSbluehat/dangerous-contents-securing-net-deserialization](https://www.slideshare.net/MSbluehat/dangerous-contents-securing-net-deserialization)
-   - [https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf](https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf)
+* #### Bypassing File Upload Restrictions:
+   - [[Paper] File Upload Restrictions Bypass](https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf)
+   - [Shell the web - Methods of a Ninja](http://www.securityidiots.com/Web-Pentest/hacking-website-by-shell-uploading.html)
+   - [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+   - [Atlassian Crowd Pre-auth RCE](https://www.corben.io/atlassian-crowd-rce/)
+   - [Popcorn machine from HackTheBox](https://www.youtube.com/watch?v=NMGsnPSm8iw)
+   - [Vault machine from HackTheBox](https://www.youtube.com/watch?v=LfbwlPxToBc)
 
-* ### JavaScript Injection:
-   * [https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1-server-side-js-injection.html](https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1_-_server_side_js_injection.html)
-   * [https://capacitorset.github.io/mathjs/](https://capacitorset.github.io/mathjs/)
-   * [https://itnext.io/how-i-exploited-a-remote-code-execution-vulnerability-in-fast-redact-9e69fa35572f](https://itnext.io/how-i-exploited-a-remote-code-execution-vulnerability-in-fast-redact-9e69fa35572f)
-   * [https://rhinosecuritylabs.com/application-security/nvidia-rce-cve-2019-5678/](https://rhinosecuritylabs.com/application-security/nvidia-rce-cve-2019-5678/)
-   * [https://idiallo.com/javascript/settimeout-and-setinterval-and-setevil](https://idiallo.com/javascript/settimeout-and-setinterval-and-setevil)
+* #### Authentication Bypass to RCE
+   - [ATutor 2.2.1 Authentication Bypass](https://rebraws.github.io/ATutorAuthBypass/)
+   - [ATutor LMS password_reminder TOCTOU Authentication Bypass](https://srcincite.io/advisories/src-2016-0009/)
+   - [ATutor 2.2.1 - Directory Traversal / Remote Code Execution](https://www.exploit-db.com/exploits/39639)
+   - [Cubecart Admin Authentication Bypass](https://blog.ripstech.com/2018/cubecart-admin-authentication-bypass/)
+   - [Trendmicro smart protection bypass to RCE](https://underdefense.com/n-day-exploit-development-and-upgrade-to-rce/)
 
-* ### NodeJS:
-   - **Bassmaster Install: npm install bassmaster@1.5.1**
-   - [https://www.npmjs.com/package/bassmaster](https://www.npmjs.com/package/bassmaster)
-   - [https://www.rapid7.com/db/modules/exploit/multi/http/bassmaster_js_injection](https://www.rapid7.com/db/modules/exploit/multi/http/bassmaster_js_injection)
-   - [https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/http/bassmaster_js_injection.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/http/bassmaster_js_injection.rb)
-   - [https://www.exploit-db.com/exploits/40689](https://www.exploit-db.com/exploits/40689)
-   - [https://vulners.com/nodejs/NODEJS:337](https://vulners.com/nodejs/NODEJS:337)
-   - [https://www.websecgeeks.com/2017/04/pentesting-nodejs-application-nodejs.html](https://www.websecgeeks.com/2017/04/pentesting-nodejs-application-nodejs.html)
-   - [https://capacitorset.github.io/mathjs/](https://capacitorset.github.io/mathjs/)
-   - [https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/](https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/)
-   - [https://github.com/ajinabraham/Node.Js-Security-Course](https://github.com/ajinabraham/Node.Js-Security-Course)
-   - [https://www.acunetix.com/blog/web-security-zone/deserialization-vulnerabilities-attacking-deserialization-in-js/](https://www.acunetix.com/blog/web-security-zone/deserialization-vulnerabilities-attacking-deserialization-in-js/)
-   - [https://www.yeahhub.com/nodejs-deserialization-attack-detailed-tutorial-2018/](https://www.yeahhub.com/nodejs-deserialization-attack-detailed-tutorial-2018/)
-   - Celestial machine from HackTheBox
-   - [https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d)
-   - [https://blog.netspi.com/escape-nodejs-sandboxes/](https://blog.netspi.com/escape-nodejs-sandboxes/)
+* #### Password Reset Vulnerability
+   - [Testing Password rest functionalities](http://imranparay.blogspot.com/2018/09/testing-password-reset-functionalities.html)
+   - [OWASP - Forgot Password Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html)
+   - [How we hacked multiple user accounts using weak reset tokens for passwords](https://blog.appsecco.com/mass-account-pwning-or-how-we-hacked-multiple-user-accounts-using-weak-reset-tokens-for-passwords-c2d6c0831377)
 
-* ### SQL Injection:
-   - [Manage Engine Application Manager Install](http://archives.manageengine.com/applications_manager/12900)
-   - [https://manageenginesales.co.uk/2018/05/manageengine-applications-manager-build-13730-released/](https://manageenginesales.co.uk/2018/05/manageengine-applications-manager-build-13730-released/)
-   - [https://www.postgresql.org/docs/9.4/functions-binarystring.html](https://www.postgresql.org/docs/9.4/functions-binarystring.html)
-   - [https://www.mulesoft.com/tcat/tomcat-jsp](https://www.mulesoft.com/tcat/tomcat-jsp)
-   - [https://blog.jamesotten.com/post/applications-manager-rce/](https://blog.jamesotten.com/post/applications-manager-rce/)
-   - [https://blog.ripstech.com/2019/oxid-esales-shop-software/](https://blog.ripstech.com/2019/oxid-esales-shop-software/)
-   - [https://pentesterlab.com/exercises/from_sqli_to_shell/course](https://pentesterlab.com/exercises/from_sqli_to_shell/course)
-   - [https://www.acunetix.com/websitesecurity/blind-sql-injection/](https://www.acunetix.com/websitesecurity/blind-sql-injection/)
-   - **PostgreSQL**
-       + [http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet](http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet)
-       + [http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt](http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt)
-       + [https://www.exploit-db.com/papers/13084](https://www.exploit-db.com/papers/13084)
-       + [http://www.postgresqltutorial.com/postgresql-string-functions/](http://www.postgresqltutorial.com/postgresql-string-functions/) 
-       + [https://www.linuxtopia.org/online_books/database_guides/Practical_PostgreSQL_database/c7547_002.htm](https://www.linuxtopia.org/online_books/database_guides/Practical_PostgreSQL_database/c7547_002.htm)
-       + [https://www.infigo.hr/files/INFIGO-TD-2009-04_PostgreSQL_injection_ENG.pdf](https://www.infigo.hr/files/INFIGO-TD-2009-04_PostgreSQL_injection_ENG.pdf)
-       + [https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/](https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/)
-
-* ### XXE
-    * [Open source app with XXE. Uses XXE + SSRF to achieve RCE](https://www.exploit-db.com/exploits/46693)
-    * [CakePHP XXE](https://www.exploit-db.com/exploits/19863)
-    * [Opensource app with XXE](https://www.exploit-db.com/exploits/41466)
-    * [Grails PDF Plugin 0.6 - XML External Entity Injection](https://www.exploit-db.com/exploits/44607)
-    * [XXE in ASP.NET app](https://www.exploit-db.com/exploits/46106)
+* #### SQL Injection:
+   - [RCE with SQL Injection - MSSQL](https://medium.com/@notsoshant/a-not-so-blind-rce-with-sql-injection-13838026331e)
+   - [SQL Injection to LFI to RCE - MySQL](https://medium.com/bugbountywriteup/sql-injection-to-lfi-to-rce-536bed29a862)
+   - [From SQLi to SHELL (I and II) - PentesterLab](https://pentesterlab.com/exercises/from_sqli_to_shell_II/course)
+   - [Pre-Auth Takeover of OXID eShops](https://blog.ripstech.com/2019/oxid-esales-shop-software/)
+   - [Blind SQL Injection](https://www.acunetix.com/websitesecurity/blind-sql-injection/)
+   - [[Paper] PostgreSQL Injection](https://www.infigo.hr/files/INFIGO-TD-2009-04_PostgreSQL_injection_ENG.pdf)
+   - [Having Fun With PostgreSQL](http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt)
+   - [Blind Postgresql Sql Injection Tutorial](https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/)
+   - [SQL Injection Cheat Sheet - PentestMonkey](http://pentestmonkey.net/category/cheat-sheet/sql-injection)
+   - [SQL Injection Cheat Sheet - PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection)
+   - [Exploiting H2 SQL injection to RCE](https://blog.ripstech.com/2019/dotcms515-sqli-to-rce/)
     
-* ### Youtube Playlist
+* #### JavaScript Injection:
+   - [Server Side JS Injection](https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1_-_server_side_js_injection.html)
+   - [Remote Code Execution in math.js](https://capacitorset.github.io/mathjs/)
+   - [Arbitrary code execution in fast-redact](https://itnext.io/how-i-exploited-a-remote-code-execution-vulnerability-in-fast-redact-9e69fa35572f)
+   - [NVIDIA GeForce Experience OS Command Injection - CVE-2019-5678](https://rhinosecuritylabs.com/application-security/nvidia-rce-cve-2019-5678/)
+   - [SetTimeout and SetInterval use eval therefore are evil](https://idiallo.com/javascript/settimeout-and-setinterval-and-setevil)
+   - [Pentesting Node.js Application : Nodejs Application Security](https://www.websecgeeks.com/2017/04/pentesting-nodejs-application-nodejs.html)
+   - [NodeJS remote debugging with vscode](https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/)
+   - [Escape NodeJS Sandboxes](https://blog.netspi.com/escape-nodejs-sandboxes/)
+
+* #### PHP Type Juggling:
+   * [OWASP - PHPMagicTricks TypeJuggling](https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf)
+   * [PHP Type Juggling - Introduction](https://medium.com/@Q2hpY2tlblB3bnk/php-type-juggling-c34a10630b10) 
+   * [Type Juggling, PHP Object Injection, SQLi](https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/)
+   * [Writing Exploits For PHP Type Juggling](http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html)
+   * [Type Juggling Authentication Bypass Vulnerability in CMS Made Simple](https://www.netsparker.com/blog/web-security/type-juggling-authentication-bypass-cms-made-simple/)
+   * [PHP Magic Hashes](https://www.whitehatsec.com/blog/magic-hashes/)
+   * [Detailed Explanation of PHP Type Juggling Vulnerabilities](https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/)
+   * [[Video] PHP Type Juggling Vulnerabilities, Netsparker](https://www.youtube.com/watch?v=ASYuK01H3Po)
+   * [[Video] Falafel machine from HackTheBox](https://www.youtube.com/watch?v=CUbWpteTfio)
+
+* #### Deserialization:
+   - [Deserialization_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html)
+   - [Insecure deserialization - PayloadAllthethings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Insecure%20Deserialization)
+   - [[Paper] Deserialization Vulnerability](https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf)
+   - [Serialization : A Big Threat](https://klezvirus.github.io/The_Big_Problem_of_Serialisation/)
+   - ##### JAVA Deserialization
+        - [Understanding & practicing java deserialization exploits](https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/)
+        - [Understanding JAVA Deserialization](https://nytrosecurity.com/2018/05/30/understanding-java-deserialization/)
+        - [Exploiting blind Java deserialization with Burp and Ysoserial](https://www.n00py.io/2017/11/exploiting-blind-java-deserialization-with-burp-and-ysoserial/)
+        - [Details on Oracle Web Logic Desrialization](https://www.thezdi.com/blog/2020/5/8/details-on-the-oracle-weblogic-vulnerability-being-exploited-in-the-wild)
+        - [Analysis of Weblogic Deserialization](https://medium.com/@knownsec404team/analysis-of-weblogic-deserialization-vulnerability-cve-2018-2628-164bbed7a71d)
+        - [[Video] Matthias Kaiser - Exploiting Deserialization Vulnerabilities in Java](https://www.youtube.com/watch?v=VviY3O-euVQ)
+
+   - ##### .NET Deserialization
+        - [Use of Deserialization in .NET Framework Methods and Classes.](https://www.nccgroup.trust/globalassets/our-research/uk/images/whitepaper-new.pdf)
+        - [Exploiting Deserialisation in ASP.NET via ViewState](https://soroush.secproject.com/blog/2019/04/exploiting-deserialisation-in-asp-net-via-viewstate/)
+        - [Remote Code Execution via Insecure Deserialization in Telerik UI](https://labs.bishopfox.com/tech-blog/cve-2019-18935-remote-code-execution-in-telerik-ui)
+        - [[Video] Friday the 13th: JSON Attacks - BlackHat](https://www.youtube.com/watch?v=oUAeWhW5b8c)
+        - [[Paper] Are you My Type?](https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf)
+        - [[Video] JSON Machine from HackTheBox - Ippsec](https://www.youtube.com/watch?v=FPgK_udcBig)
+   
+   - ##### PHP Object Injection/Deserialization
+        - [What is PHP Object Injection](https://blog.ripstech.com/2018/php-object-injection/)
+        - [phpBB 3.2.3: Phar Deserialization to RCE](https://blog.ripstech.com/2018/phpbb3-phar-deserialization-to-remote-code-execution/)
+        - [Exploiting PHP Desrialization](https://medium.com/swlh/exploiting-php-deserialization-56d71f03282a)
+        - [Analysis of typo3 Deserialization Vulnerability](https://medium.com/@knownsec404team/analysis-of-typo3-deserialization-vulnerability-cve-2019-12747-5863c48f39a7)
+        - [Attack Surface of PHP Deserialization Vulnerability via Phar](https://medium.com/@knownsec404team/extend-the-attack-surface-of-php-deserialization-vulnerability-via-phar-d6455c6a1066)
+        - [[Video] Intro to PHP Deserialization / Object Injection - Ippsec](https://www.youtube.com/watch?v=HaW15aMzBUM)
+        - [[Video] Advanced PHP Deserialization - Phar Files - Ippsec](https://www.youtube.com/watch?v=fHZKSCMWqF4)
+        - [[Video] Exploiting PHP7 unserialize (33c3)](https://www.youtube.com/watch?v=_Zj0B4D4TYc)
+
+   - ##### NodeJS Deserialization
+        - [Exploiting Node.js deserialization bug for Remote Code Execution](https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/)
+        - [The good, the bad and RCE on NodeJS applications](https://www.linkedin.com/pulse/good-bad-rce-remote-code-execution-nodejs-ionut-indre/)
+        - [Attacking Deserialization in JS](https://www.acunetix.com/blog/web-security-zone/deserialization-vulnerabilities-attacking-deserialization-in-js/)
+        - [Node.js Deserialization Attack – Detailed Tutorial](https://www.yeahhub.com/nodejs-deserialization-attack-detailed-tutorial-2018/)
+        - [[Video] Celestial machine from HackTheBox - Ippsec](https://www.youtube.com/watch?v=aS6z4NgRysU)
+
+* #### XML External Entity (XXE) Attack
+    - [A Deep Dive into XXE Injection](https://www.synack.com/blog/a-deep-dive-into-xxe-injection/)
+    - [From XXE to RCE: Pwn2Win CTF 2018 Writeup](https://bookgin.tw/2018/12/04/from-xxe-to-rce-pwn2win-ctf-2018-writeup/)
+    - [Blind XXE to RCE](https://www.ambionics.io/blog/oracle-peoplesoft-xxe-to-rce)
+    - [Apache Flex BlazeDS XXE Vulnerabilty](https://codewhitesec.blogspot.com/2015/08/cve-2015-3269-apache-flex-blazeds-xxe.html)
+    - [WebLogic EJBTaglibDescriptor XXE](https://medium.com/@knownsec404team/weblogic-ejbtaglibdescriptor-xxe-vulnerability-analysis-cve-2019-2888-bd649f5fcfa6)
+
+* #### Server Side Template Injection (SSTI)
+    - [[Portswigger Research] Server Side Template Injection](https://portswigger.net/research/server-side-template-injection)
+    - [[Video] SSTI : RCE For The Modern Web App - albinowax](https://www.youtube.com/watch?v=3cT0uE7Y87s)
+    - [Server Side Template Injection](https://medium.com/server-side-template-injection/server-side-template-injection-faf88d0c7f34)
+    - [Jinja2 template injection filter bypasses](https://0day.work/jinja2-template-injection-filter-bypasses/)
+    - [Exploitation of Server Side Template Injection with Craft CMS plugin SEOmatic <=3.1.3](http://ha.cker.info/exploitation-of-server-side-template-injection-with-craft-cms-plguin-seomatic/)
+
+* #### Websocekts InSecurity
+    - [Introduction to WebSockets](https://portswigger.net/web-security/websockets)
+    - [[Video] Hacking with Websocket - BlackHat](https://www.youtube.com/watch?v=-ALjHUqSz_Y)
+    - [Remote Hardware takeover via Websocket Hijacking](https://www.netsparker.com/blog/web-security/remote-hardware-takeover-via-vulnerable-admin-software/)
+    - [Cross-Site WebSocket Hijacking to full Session Compromise](https://www.notsosecure.com/how-cross-site-websocket-hijacking-could-lead-to-full-session-compromise/)
+
+* #### Source Code Audit
+    * [Introduction to Code Review [PentesterLab]](https://pentesterlab.com/exercises/codereview/course)
+    * [Static code analysis writeups](https://shells.systems/category/static-code-analysis/)
+    * [TrendMicro - Secure Coding Dojo](https://trendmicro.github.io/SecureCodingDojo/codereview101/)
+    * [Bug Hunting with Static Code Analysis [Video]](https://www.youtube.com/watch?v=Sb011qfbMkQ)
+    * [Shopify Remote Code Execution - Hackerone](https://prakhar.prasad.pro/blog/shopify-remote-code-execution/) 
+    * [Finding vulnerabilities in source code ( APS.NET)](https://hydrasky.com/network-security/finding-vulnerabilities-in-source-code-aps-net/)
+    * [A deep dive into ASP.NET Deserialization](https://medium.com/@swapneildash/deep-dive-into-net-viewstate-deserialization-and-its-exploitation-54bf5b788817)
+    * [Writeups by mr_me](https://srcincite.io/blog/)
+ 
+* #### Youtube Playlist
     * [https://www.youtube.com/watch?v=Xfbu-pQ1tIc&list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33](https://www.youtube.com/watch?v=Xfbu-pQ1tIc&list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33)
     
-* ### Further References/Reviews
-    * [https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en](https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en)
-    * [https://github.com/wetw0rk/AWAE-PREP](https://github.com/wetw0rk/AWAE-PREP)
-    * [https://ldxf.botonia.it/rce-via-file-upload.html](https://ldxf.botonia.it/rce-via-file-upload.html)
-    * [https://www.corben.io/atlassian-crowd-rce/](https://www.corben.io/atlassian-crowd-rce/)
-    * [Use of Deserialization in .NET Framework Methods and Classes.](https://www.nccgroup.trust/globalassets/our-research/uk/images/whitepaper-new.pdf)  
-    * [https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf](https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf)
+* #### Further References/Reviews
+    * [From AWAE to OSWE the preperation guide - hansesecure](https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en)
+    * [OSWE Exam Review 2020 Notes gifts inside - 21y4d](https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside)
+    * [OSWE Cheat Sheet - V1s3r1on](https://cyber-dragon.nl/2020/06/10/oswe-cheat-sheet/)
+    * [wetw0rk/AWAE-PREP](https://github.com/wetw0rk/AWAE-PREP)
+    * [https://codewhitesec.blogspot.com/](https://codewhitesec.blogspot.com/)
     * [https://blog.ripstech.com/](https://blog.ripstech.com/)
     * [https://rhinosecuritylabs.com](https://rhinosecuritylabs.com)
-    * [https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside](https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside)    
+    
   
+-----------------------------------------------------------------------------------------------
