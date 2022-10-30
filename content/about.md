@@ -13,14 +13,16 @@ matter.-->
 
 ### Certifications:
 
-![](/images/certs/oscp.png)
 
-![](/images/certs/osce.png)
+||||
+|---|---|---|
+|<img src="/images/certs/OSCP.png" width="250" height="250">|<img src="/images/certs/OSCE.png" width="250" height="250">|<img src="/images/certs/OSWE.png" width="250" height="250">|
+||||
+|<img src="/images/certs/crto.png" alt="Certified Red Team Operator" width="250" height="250">|||
 
-![](/images/certs/oswe.png)
+
 
 
 ### CVEs
 
-* 2 - Lexmark Printers
-* 1 - Aruba Networks
+* 5
