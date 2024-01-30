@@ -6,31 +6,57 @@
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://z-r0crypt.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "OSWE/AWAE Preparation",
+    "headline" : "OSWE/AWAE Preparation",
+    "description" : "This post contains all trainings and tutorials that could be useful for offensive security&#39;s OSWE (WEB-300) certification. I will be updating the post during my lab and preparation for the exam.",
+    "inLanguage" : "en-US",
+    "author" : "Z-r0crypt",
+    "creator" : "Z-r0crypt",
+    "publisher": "Z-r0crypt",
+    "accountablePerson" : "Z-r0crypt",
+    "copyrightHolder" : "Z-r0crypt",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-22 22:10:36 -0500 -0500",
+    "dateModified" : "2020-01-22 22:10:36 -0500 -0500",
+    "url" : "https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/",
+    "wordCount" : "749",
+    "keywords" : [ "OSWE","AWAE","Web Exploit","Offensive Security","Certification","Blog" ]
+}
+</script>
 
   <title>OSWE/AWAE Preparation &middot; Z-r0crypt</title>
 
   
-  <link rel="stylesheet" href="/css/poole.css">
-  <link rel="stylesheet" href="/css/hyde.css">
-  <link rel="stylesheet" href="/css/poole-overrides.css">
-  <link rel="stylesheet" href="/css/hyde-overrides.css">
-  <link rel="stylesheet" href="/css/hyde-x.css">
-  <link rel="stylesheet" href="/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/highlight/sunburst.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
-  <link href="/favicon.png" rel="icon">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://z-r0crypt.github.io/touch-icon-144-precomposed.png">
+  <link href="https://z-r0crypt.github.io/favicon.png" rel="icon">
 
   
   
   
   
 
-  <meta name="description" content="Your default page description">
-  <meta name="keywords" content="Exploit, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest">
+  <meta name="description" content="This post contains all trainings and tutorials that could be useful for offensive security&#39;s OSWE (WEB-300) certification. I will be updating the post during my lab and preparation for the exam.">
+  <meta name="keywords" content="offsec, OSCP, OSEP, OSCE, OSWE, AWAE, AWE, Exploit, Red Team, AV Evasion, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest, Fuzzing">
   
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,6 +68,15 @@
     ga('send', 'pageview');
   </script>
   
+  
+    <meta name="google-site-verification" content="lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko">
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body class="theme-base-08">
 <div class="sidebar">
@@ -53,33 +88,62 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item"><a href="/">Blog</a></li>
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/">Blog</a></li>
       
-      <li class="sidebar-nav-item"><a href="/post/">Posts</a></li>
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/post/">Posts</a></li>
       
-      <li class="sidebar-nav-item"><a href="/tags/">Tags</a></li>
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/categories/">Categories</a></li>
       
-      <li class="sidebar-nav-item"><a href="/about">About</a></li>
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/tags/">Tags</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/about">About</a></li>
       
     </ul>
 
     <ul class="sidebar-nav">
       <li class="sidebar-nav-item">
-      <a href="z-r0crypt"><i class="fa fa-github-square fa-3x"></i></a>
+      <a href="https://github.com/z-r0crypt"><i class="fa fa-github-square fa-3x"></i></a>
       
       
-      <a href="vbtr"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      <a href="https://linkedin.com/in/vbtr"><i class="fa fa-linkedin-square fa-3x"></i></a>
       
       
-      <a href="zer0crypt"><i class="fa fa-twitter-square fa-3x"></i></a>
+      <a href="https://twitter.com/zer0crypt"><i class="fa fa-twitter-square fa-3x"></i></a>
       
       
       </li>
     </ul>
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      </li>
+    </ul>
 
     
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
 
-    <p>Copyright &copy; 2020 <a href="/license/">License</a><br/>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="7792133681"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="6558943067"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Copyright &copy; 2024 <a href="https://z-r0crypt.github.io/license/">License</a><br/>
        Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
 
   </div>
@@ -92,11 +156,51 @@
     <span class="post-date">Jan 22, 2020
     
     <br/>
-    <a class="label" href="/categories/web">Web</a><a class="label" href="/categories/exploit">Exploit</a>
+    <a class="label" href="https://z-r0crypt.github.io/categories/web">Web</a><a class="label" href="https://z-r0crypt.github.io/categories/exploit-development">Exploit Development</a>
     </span>
     
 
-<h2 id="awae-preparation">AWAE-Preparation</h2>
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+position: relative;
+text-align: left; 
+height: 36px; 
+width: 32px; 
+float: left; 
+text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/z-r0crypt.github.io\/blog\/2020\/01\/22\/oswe\/awae-preparation\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/z-r0crypt.github.io\/blog\/2020\/01\/22\/oswe\/awae-preparation\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/z-r0crypt.github.io\/blog\/2020\/01\/22\/oswe\/awae-preparation\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/z-r0crypt.github.io\/blog\/2020\/01\/22\/oswe\/awae-preparation\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/z-r0crypt.github.io\/blog\/2020\/01\/22\/oswe\/awae-preparation\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+
+    
+
+<h2 id="oswe-exam-preparation">OSWE Exam Preparation</h2>
 
 <p>This post contains all trainings and tutorials that could be useful for offensive security&rsquo;s OSWE certification. I will be updating the post during my lab and preparation for the exam.</p>
 
@@ -104,213 +208,559 @@
 
 <p><a href="https://www.offensive-security.com/documentation/awae-syllabus.pdf">https://www.offensive-security.com/documentation/awae-syllabus.pdf</a></p>
 
-<h3 id="before-registering-for-awae">Before registering for AWAE:</h3>
+<h3 id="before-registering-for-awae-lab">Before registering for AWAE Lab:</h3>
 
 <ul>
-<li><h4 id="cross-site-scripting">Cross-Site Scripting:</h4>
+<li><a href="https://requests.readthedocs.io/en/master/">Get comfortable with python requests library</a></li>
+<li><a href="https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting-ebook/dp/B005LVQA9S">Read Web Application Hacker&rsquo;s handbook, again if you already did</a></li>
+<li><a href="https://portswigger.net/burp/communitydownload">Get familiar with Burpsuite</a></li>
+<li><a href="https://regex101.com/">Get familiar with regex</a></li>
+<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/">Get hands on with OWASP top 10 2017 Vulnerabilities</a>
 
 <ul>
-<li><a href="https://portswigger.net/web-security/cross-site-scripting">XSS</a></li>
-<li><a href="https://xhr.spec.whatwg.org/">XMLHttpRequest Specification</a></li>
+<li><a href="https://owasp.org/www-project-vulnerable-web-applications-directory/">Vulnerable Apps for practice on OWASP</a></li>
+<li><a href="https://portswigger.net/web-security">Portswigger WebSecAcademy</a></li>
+</ul></li>
+<li><a href="https://owasp.org/www-project-security-knowledge-framework/">Practice code review skills - OWASP SKF</a></li>
+</ul>
+
+<hr />
+
+<h3 id="before-registering-for-the-oswe-exam">Before registering for the OSWE Exam:</h3>
+
+<ul>
+<li><h4 id="xss-to-rce">XSS to RCE</h4>
+
+<ul>
 <li><a href="https://www.exploit-db.com/exploits/20009">AtMail Email Server Appliance 6.4 - Persistent Cross-Site Scripting</a></li>
-<li><a href="https://www.acunetix.com/blog/articles/persistent-xss/">Persistent XSS</a></li>
-<li><a href="https://popped.io/hijacking-sessions-using-socat/">Hijack Session using socat</a>
+<li><a href="https://rhinosecuritylabs.com/application-security/labkey-server-vulnerabilities-to-rce/">Chaining XSS, CSRF to achieve RCE</a></li>
+<li><a href="https://sarthaksaini.com/2019/awae/xss-rce.html">Code analysis to gaining RCE</a></li>
+<li><a href="https://blog.ripstech.com/2019/magento-rce-via-xss/">Magento 2.3.1: Unauthenticated Stored XSS to RCE</a></li>
+<li><a href="https://medium.com/@knownsec404team/the-analysis-of-mybb-18-20-from-stored-xss-to-rce-7234d7cc0e72">Mybb 18.20 From Stored XSS to RCE</a></li>
+</ul></li>
+
+<li><h4 id="bypassing-file-upload-restrictions">Bypassing File Upload Restrictions:</h4>
+
+<ul>
+<li><a href="https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf">[Paper] File Upload Restrictions Bypass</a></li>
+<li><a href="http://www.securityidiots.com/Web-Pentest/hacking-website-by-shell-uploading.html">Shell the web - Methods of a Ninja</a></li>
+<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">Unrestricted File Upload</a></li>
+<li><a href="https://www.corben.io/atlassian-crowd-rce/">Atlassian Crowd Pre-auth RCE</a></li>
+<li><a href="https://www.youtube.com/watch?v=NMGsnPSm8iw">Popcorn machine from HackTheBox</a></li>
+<li><a href="https://www.youtube.com/watch?v=LfbwlPxToBc">Vault machine from HackTheBox</a></li>
+</ul></li>
+
+<li><h4 id="authentication-bypass-to-rce">Authentication Bypass to RCE</h4>
+
+<ul>
+<li><a href="https://rebraws.github.io/ATutorAuthBypass/">ATutor 2.2.1 Authentication Bypass</a></li>
+<li><a href="https://srcincite.io/advisories/src-2016-0009/">ATutor LMS password_reminder TOCTOU Authentication Bypass</a></li>
+<li><a href="https://www.exploit-db.com/exploits/39639">ATutor 2.2.1 - Directory Traversal / Remote Code Execution</a></li>
+<li><a href="https://blog.ripstech.com/2018/cubecart-admin-authentication-bypass/">Cubecart Admin Authentication Bypass</a></li>
+<li><a href="https://underdefense.com/n-day-exploit-development-and-upgrade-to-rce/">Trendmicro smart protection bypass to RCE</a></li>
+</ul></li>
+
+<li><h4 id="password-reset-vulnerability">Password Reset Vulnerability</h4>
+
+<ul>
+<li><a href="http://imranparay.blogspot.com/2018/09/testing-password-reset-functionalities.html">Testing Password rest functionalities</a></li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html">OWASP - Forgot Password Cheatsheet</a></li>
+<li><a href="https://blog.appsecco.com/mass-account-pwning-or-how-we-hacked-multiple-user-accounts-using-weak-reset-tokens-for-passwords-c2d6c0831377">How we hacked multiple user accounts using weak reset tokens for passwords</a></li>
+</ul></li>
+
+<li><h4 id="sql-injection">SQL Injection:</h4>
+
+<ul>
+<li><a href="https://medium.com/@notsoshant/a-not-so-blind-rce-with-sql-injection-13838026331e">RCE with SQL Injection - MSSQL</a></li>
+<li><a href="https://medium.com/bugbountywriteup/sql-injection-to-lfi-to-rce-536bed29a862">SQL Injection to LFI to RCE - MySQL</a></li>
+<li><a href="https://pentesterlab.com/exercises/from_sqli_to_shell_II/course">From SQLi to SHELL (I and II) - PentesterLab</a></li>
+<li><a href="https://blog.ripstech.com/2019/oxid-esales-shop-software/">Pre-Auth Takeover of OXID eShops</a></li>
+<li><a href="https://www.acunetix.com/websitesecurity/blind-sql-injection/">Blind SQL Injection</a></li>
+<li><a href="https://www.infigo.hr/files/INFIGO-TD-2009-04_PostgreSQL_injection_ENG.pdf">[Paper] PostgreSQL Injection</a></li>
+<li><a href="http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt">Having Fun With PostgreSQL</a></li>
+<li><a href="https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/">Blind Postgresql Sql Injection Tutorial</a></li>
+<li><a href="http://pentestmonkey.net/category/cheat-sheet/sql-injection">SQL Injection Cheat Sheet - PentestMonkey</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection">SQL Injection Cheat Sheet - PayloadAllTheThings</a></li>
+<li><a href="https://blog.ripstech.com/2019/dotcms515-sqli-to-rce/">Exploiting H2 SQL injection to RCE</a>
 <br /></li>
 </ul></li>
 
-<li><h4 id="xss-and-mysql">XSS and MySQL</h4>
+<li><h4 id="javascript-injection">JavaScript Injection:</h4>
 
 <ul>
-<li><a href="https://pentesterlab.com/exercises/xss_and_mysql_file/course">PentesterLab: XSS and MySQL FILE</a>
+<li><a href="https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1_-_server_side_js_injection.html">Server Side JS Injection</a></li>
+<li><a href="https://capacitorset.github.io/mathjs/">Remote Code Execution in math.js</a></li>
+<li><a href="https://itnext.io/how-i-exploited-a-remote-code-execution-vulnerability-in-fast-redact-9e69fa35572f">Arbitrary code execution in fast-redact</a></li>
+<li><a href="https://rhinosecuritylabs.com/application-security/nvidia-rce-cve-2019-5678/">NVIDIA GeForce Experience OS Command Injection - CVE-2019-5678</a></li>
+<li><a href="https://idiallo.com/javascript/settimeout-and-setinterval-and-setevil">SetTimeout and SetInterval use eval therefore are evil</a></li>
+<li><a href="https://www.websecgeeks.com/2017/04/pentesting-nodejs-application-nodejs.html">Pentesting Node.js Application : Nodejs Application Security</a></li>
+<li><a href="https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/">NodeJS remote debugging with vscode</a></li>
+<li><a href="https://blog.netspi.com/escape-nodejs-sandboxes/">Escape NodeJS Sandboxes</a></li>
+</ul></li>
+
+<li><h4 id="php-type-juggling">PHP Type Juggling:</h4>
 
 <ul>
-<li><a href="https://www.vulnhub.com/entry/pentester-lab-xss-and-mysql-file,66/">https://www.vulnhub.com/entry/pentester-lab-xss-and-mysql-file,66/</a>
+<li><a href="https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf">OWASP - PHPMagicTricks TypeJuggling</a></li>
+<li><a href="https://medium.com/@Q2hpY2tlblB3bnk/php-type-juggling-c34a10630b10">PHP Type Juggling - Introduction</a></li>
+<li><a href="https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/">Type Juggling, PHP Object Injection, SQLi</a></li>
+<li><a href="http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html">Writing Exploits For PHP Type Juggling</a></li>
+<li><a href="https://www.netsparker.com/blog/web-security/type-juggling-authentication-bypass-cms-made-simple/">Type Juggling Authentication Bypass Vulnerability in CMS Made Simple</a></li>
+<li><a href="https://www.whitehatsec.com/blog/magic-hashes/">PHP Magic Hashes</a></li>
+<li><a href="https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/">Detailed Explanation of PHP Type Juggling Vulnerabilities</a></li>
+<li><a href="https://www.youtube.com/watch?v=ASYuK01H3Po">[Video] PHP Type Juggling Vulnerabilities, Netsparker</a></li>
+<li><a href="https://www.youtube.com/watch?v=CUbWpteTfio">[Video] Falafel machine from HackTheBox</a></li>
+</ul></li>
+
+<li><h4 id="deserialization">Deserialization:</h4>
+
+<ul>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html">Deserialization_Cheat_Sheet</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Insecure%20Deserialization">Insecure deserialization - PayloadAllthethings</a></li>
+<li><a href="https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf">[Paper] Deserialization Vulnerability</a></li>
+<li><a href="https://klezvirus.github.io/The_Big_Problem_of_Serialisation/">Serialization : A Big Threat</a></li>
+
+<li><h5 id="java-deserialization">JAVA Deserialization</h5>
+
+<ul>
+<li><a href="https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/">Understanding &amp; practicing java deserialization exploits</a></li>
+<li><a href="https://nytrosecurity.com/2018/05/30/understanding-java-deserialization/">Understanding JAVA Deserialization</a></li>
+<li><a href="https://www.n00py.io/2017/11/exploiting-blind-java-deserialization-with-burp-and-ysoserial/">Exploiting blind Java deserialization with Burp and Ysoserial</a></li>
+<li><a href="https://www.thezdi.com/blog/2020/5/8/details-on-the-oracle-weblogic-vulnerability-being-exploited-in-the-wild">Details on Oracle Web Logic Desrialization</a></li>
+<li><a href="https://medium.com/@knownsec404team/analysis-of-weblogic-deserialization-vulnerability-cve-2018-2628-164bbed7a71d">Analysis of Weblogic Deserialization</a></li>
+<li><a href="https://www.youtube.com/watch?v=VviY3O-euVQ">[Video] Matthias Kaiser - Exploiting Deserialization Vulnerabilities in Java</a></li>
+</ul></li>
+
+<li><h5 id="net-deserialization">.NET Deserialization</h5>
+
+<ul>
+<li><a href="https://www.nccgroup.trust/globalassets/our-research/uk/images/whitepaper-new.pdf">Use of Deserialization in .NET Framework Methods and Classes.</a></li>
+<li><a href="https://soroush.secproject.com/blog/2019/04/exploiting-deserialisation-in-asp-net-via-viewstate/">Exploiting Deserialisation in ASP.NET via ViewState</a></li>
+<li><a href="https://labs.bishopfox.com/tech-blog/cve-2019-18935-remote-code-execution-in-telerik-ui">Remote Code Execution via Insecure Deserialization in Telerik UI</a></li>
+<li><a href="https://www.youtube.com/watch?v=oUAeWhW5b8c">[Video] Friday the 13th: JSON Attacks - BlackHat</a></li>
+<li><a href="https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf">[Paper] Are you My Type?</a></li>
+<li><a href="https://www.youtube.com/watch?v=FPgK_udcBig">[Video] JSON Machine from HackTheBox - Ippsec</a>
 <br /></li>
 </ul></li>
-</ul></li>
 
-<li><h4 id="cross-site-request-forgery">Cross-Site Request Forgery</h4>
+<li><h5 id="php-object-injection-deserialization">PHP Object Injection/Deserialization</h5>
 
 <ul>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">CSRF Prevention Cheatsheet</a>
+<li><a href="https://blog.ripstech.com/2018/php-object-injection/">What is PHP Object Injection</a></li>
+<li><a href="https://blog.ripstech.com/2018/phpbb3-phar-deserialization-to-remote-code-execution/">phpBB 3.2.3: Phar Deserialization to RCE</a></li>
+<li><a href="https://medium.com/swlh/exploiting-php-deserialization-56d71f03282a">Exploiting PHP Desrialization</a></li>
+<li><a href="https://medium.com/@knownsec404team/analysis-of-typo3-deserialization-vulnerability-cve-2019-12747-5863c48f39a7">Analysis of typo3 Deserialization Vulnerability</a></li>
+<li><a href="https://medium.com/@knownsec404team/extend-the-attack-surface-of-php-deserialization-vulnerability-via-phar-d6455c6a1066">Attack Surface of PHP Deserialization Vulnerability via Phar</a></li>
+<li><a href="https://www.youtube.com/watch?v=HaW15aMzBUM">[Video] Intro to PHP Deserialization / Object Injection - Ippsec</a></li>
+<li><a href="https://www.youtube.com/watch?v=fHZKSCMWqF4">[Video] Advanced PHP Deserialization - Phar Files - Ippsec</a></li>
+<li><a href="https://www.youtube.com/watch?v=_Zj0B4D4TYc">[Video] Exploiting PHP7 unserialize (33c3)</a></li>
+</ul></li>
+
+<li><h5 id="nodejs-deserialization">NodeJS Deserialization</h5>
+
+<ul>
+<li><a href="https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/">Exploiting Node.js deserialization bug for Remote Code Execution</a></li>
+<li><a href="https://www.linkedin.com/pulse/good-bad-rce-remote-code-execution-nodejs-ionut-indre/">The good, the bad and RCE on NodeJS applications</a></li>
+<li><a href="https://www.acunetix.com/blog/web-security-zone/deserialization-vulnerabilities-attacking-deserialization-in-js/">Attacking Deserialization in JS</a></li>
+<li><a href="https://www.yeahhub.com/nodejs-deserialization-attack-detailed-tutorial-2018/">Node.js Deserialization Attack – Detailed Tutorial</a></li>
+<li><a href="https://www.youtube.com/watch?v=aS6z4NgRysU">[Video] Celestial machine from HackTheBox - Ippsec</a></li>
+</ul></li>
+</ul></li>
+
+<li><h4 id="xml-external-entity-xxe-attack">XML External Entity (XXE) Attack</h4>
+
+<ul>
+<li><a href="https://www.synack.com/blog/a-deep-dive-into-xxe-injection/">A Deep Dive into XXE Injection</a></li>
+<li><a href="https://bookgin.tw/2018/12/04/from-xxe-to-rce-pwn2win-ctf-2018-writeup/">From XXE to RCE: Pwn2Win CTF 2018 Writeup</a></li>
+<li><a href="https://www.ambionics.io/blog/oracle-peoplesoft-xxe-to-rce">Blind XXE to RCE</a></li>
+<li><a href="https://codewhitesec.blogspot.com/2015/08/cve-2015-3269-apache-flex-blazeds-xxe.html">Apache Flex BlazeDS XXE Vulnerabilty</a></li>
+<li><a href="https://medium.com/@knownsec404team/weblogic-ejbtaglibdescriptor-xxe-vulnerability-analysis-cve-2019-2888-bd649f5fcfa6">WebLogic EJBTaglibDescriptor XXE</a></li>
+</ul></li>
+
+<li><h4 id="server-side-template-injection-ssti">Server Side Template Injection (SSTI)</h4>
+
+<ul>
+<li><a href="https://portswigger.net/research/server-side-template-injection">[Portswigger Research] Server Side Template Injection</a></li>
+<li><a href="https://www.youtube.com/watch?v=3cT0uE7Y87s">[Video] SSTI : RCE For The Modern Web App - albinowax</a></li>
+<li><a href="https://medium.com/server-side-template-injection/server-side-template-injection-faf88d0c7f34">Server Side Template Injection</a></li>
+<li><a href="https://0day.work/jinja2-template-injection-filter-bypasses/">Jinja2 template injection filter bypasses</a></li>
+<li><a href="http://ha.cker.info/exploitation-of-server-side-template-injection-with-craft-cms-plguin-seomatic/">Exploitation of Server Side Template Injection with Craft CMS plugin SEOmatic &lt;=3.1.3</a></li>
+</ul></li>
+
+<li><h4 id="websocekts-insecurity">Websocekts InSecurity</h4>
+
+<ul>
+<li><a href="https://portswigger.net/web-security/websockets">Introduction to WebSockets</a></li>
+<li><a href="https://www.youtube.com/watch?v=-ALjHUqSz_Y">[Video] Hacking with Websocket - BlackHat</a></li>
+<li><a href="https://www.netsparker.com/blog/web-security/remote-hardware-takeover-via-vulnerable-admin-software/">Remote Hardware takeover via Websocket Hijacking</a></li>
+<li><a href="https://www.notsosecure.com/how-cross-site-websocket-hijacking-could-lead-to-full-session-compromise/">Cross-Site WebSocket Hijacking to full Session Compromise</a></li>
+</ul></li>
+
+<li><h4 id="source-code-audit">Source Code Audit</h4>
+
+<ul>
+<li><a href="https://pentesterlab.com/exercises/codereview/course">Introduction to Code Review [PentesterLab]</a></li>
+<li><a href="https://shells.systems/category/static-code-analysis/">Static code analysis writeups</a></li>
+<li><a href="https://trendmicro.github.io/SecureCodingDojo/codereview101/">TrendMicro - Secure Coding Dojo</a></li>
+<li><a href="https://www.youtube.com/watch?v=Sb011qfbMkQ">Bug Hunting with Static Code Analysis [Video]</a></li>
+<li><a href="https://prakhar.prasad.pro/blog/shopify-remote-code-execution/">Shopify Remote Code Execution - Hackerone</a></li>
+<li><a href="https://hydrasky.com/network-security/finding-vulnerabilities-in-source-code-aps-net/">Finding vulnerabilities in source code ( APS.NET)</a></li>
+<li><a href="https://medium.com/@swapneildash/deep-dive-into-net-viewstate-deserialization-and-its-exploitation-54bf5b788817">A deep dive into ASP.NET Deserialization</a></li>
+<li><a href="https://srcincite.io/blog/">Writeups by mr_me</a></li>
+</ul></li>
+
+<li><h4 id="youtube-playlist">Youtube Playlist</h4>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Xfbu-pQ1tIc&amp;list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33">https://www.youtube.com/watch?v=Xfbu-pQ1tIc&amp;list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33</a>
+<br /></li>
+</ul></li>
+
+<li><h4 id="further-references-reviews">Further References/Reviews</h4>
+
+<ul>
+<li><a href="https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en">From AWAE to OSWE the preperation guide - hansesecure</a></li>
+<li><a href="https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside">OSWE Exam Review 2020 Notes gifts inside - 21y4d</a></li>
+<li><a href="https://cyber-dragon.nl/2020/06/10/oswe-cheat-sheet/">OSWE Cheat Sheet - V1s3r1on</a></li>
+<li><a href="https://github.com/wetw0rk/AWAE-PREP">wetw0rk/AWAE-PREP</a></li>
+<li><a href="https://codewhitesec.blogspot.com/">https://codewhitesec.blogspot.com/</a></li>
+<li><a href="https://blog.ripstech.com/">https://blog.ripstech.com/</a></li>
+<li><a href="https://rhinosecuritylabs.com">https://rhinosecuritylabs.com</a>
 <br />
 <br /></li>
 </ul></li>
-
-<li><h3 id="atutor-authentication-bypass-and-rce-2-2-1-cve-2016-2555">ATutor Authentication Bypass and RCE (2.2.1) CVE-2016-2555</h3>
-
-<ul>
-<li><a href="https://sourceforge.net/projects/atutor/files/atutor_2_2_1/">ATutor Install</a></li>
-<li><a href="https://www.exploit-db.com/exploits/39514">https://www.exploit-db.com/exploits/39514</a></li>
-<li><a href="https://srcincite.io/advisories/src-2016-0009/">https://srcincite.io/advisories/src-2016-0009/</a></li>
-<li><a href="https://www.exploit-db.com/exploits/39639">https://www.exploit-db.com/exploits/39639</a></li>
-<li><a href="https://github.com/atutor/ATutor/commit/d74f1177cfa92ed8e49aa65f724f308b4a3ac5b9">https://github.com/atutor/ATutor/commit/d74f1177cfa92ed8e49aa65f724f308b4a3ac5b9</a></li>
-</ul></li>
-
-<li><h3 id="bypassing-file-upload-restrictions">Bypassing File Upload Restrictions:</h3>
-
-<ul>
-<li><a href="https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf">https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf</a></li>
-<li><a href="http://www.securityidiots.com/Web-Pentest/hacking-website-by-shell-uploading.html">http://www.securityidiots.com/Web-Pentest/hacking-website-by-shell-uploading.html</a></li>
-<li><a href="https://www.owasp.org/index.php/Unrestricted_File_Upload">https://www.owasp.org/index.php/Unrestricted_File_Upload</a></li>
-<li>Popcorn machine from HackTheBox</li>
-<li>Vault machine from HackTheBox</li>
-</ul></li>
-
-<li><h3 id="php-type-juggling">PHP Type Juggling:</h3>
-
-<ul>
-<li><a href="https://shieldfy.io/security-wiki/php-vulnerabilities/exploitable-php-functions">https://shieldfy.io/security-wiki/php-vulnerabilities/exploitable-php-functions</a></li>
-<li><a href="https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf">https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf</a></li>
-<li><a href="https://medium.com/@Q2hpY2tlblB3bnk/php-type-juggling-c34a10630b10">https://medium.com/@Q2hpY2tlblB3bnk/php-type-juggling-c34a10630b10</a></li>
-<li><a href="https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/">https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/</a></li>
-<li><a href="https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/">https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/</a></li>
-<li><a href="http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html">http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html</a></li>
-<li><a href="https://www.netsparker.com/blog/web-security/type-juggling-authentication-bypass-cms-made-simple/">https://www.netsparker.com/blog/web-security/type-juggling-authentication-bypass-cms-made-simple/</a></li>
-<li><a href="https://www.php.net/manual/en/types.comparisons.php">https://www.php.net/manual/en/types.comparisons.php</a></li>
-<li><a href="https://github.com/spaze/hashes">https://github.com/spaze/hashes</a></li>
-<li><a href="https://www.whitehatsec.com/blog/magic-hashes/">https://www.whitehatsec.com/blog/magic-hashes/</a></li>
-<li><a href="https://blog.ripstech.com/2018/cubecart-admin-authentication-bypass/">https://blog.ripstech.com/2018/cubecart-admin-authentication-bypass/</a></li>
-<li>Falafel machine from HackTheBox</li>
-<li><a href="https://srcincite.io/advisories/src-2016-0012/">https://srcincite.io/advisories/src-2016-0012/</a></li>
-<li><a href="https://github.com/sourceincite/poc/blob/master/SRC-2016-0012.py">https://github.com/sourceincite/poc/blob/master/SRC-2016-0012.py</a></li>
-<li><a href="https://github.com/atutor/ATutor/commit/2eed42a74454355eddc7fc119e67af40dba1a94c">https://github.com/atutor/ATutor/commit/2eed42a74454355eddc7fc119e67af40dba1a94c</a></li>
-<li>Reference: PHP Type Juggling
-
-<ul>
-<li><a href="https://www.youtube.com/watch?v=ASYuK01H3Po">https://www.youtube.com/watch?v=ASYuK01H3Po</a></li>
-</ul></li>
-</ul></li>
-
-<li><h3 id="deserialization">Deserialization:</h3>
-
-<ul>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html</a></li>
-<li><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md</a></li>
-<li><a href="https://2017.zeronights.org/wp-content/uploads/materials/ZN17_Aleksei%20Tiurin_Deserialization%20vulnerabilities.pdf">https://2017.zeronights.org/wp-content/uploads/materials/ZN17_Aleksei%20Tiurin_Deserialization%20vulnerabilities.pdf</a></li>
-<li><a href="https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf">https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf</a></li>
-<li><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf</a></li>
-<li><a href="https://www.n00py.io/2017/11/exploiting-blind-java-deserialization-with-burp-and-ysoserial/">https://www.n00py.io/2017/11/exploiting-blind-java-deserialization-with-burp-and-ysoserial/</a></li>
-<li><a href="https://www.owasp.org/images/7/71/GOD16-Deserialization.pdf">https://www.owasp.org/images/7/71/GOD16-Deserialization.pdf</a></li>
-<li><a href="https://github.com/frohoff/ysoserial">https://github.com/frohoff/ysoserial</a></li>
-<li><a href="https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet/blob/master/README.md">https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet/blob/master/README.md</a></li>
-<li><a href="https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/">https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/</a></li>
-</ul></li>
-
-<li><h3 id="net-deserialization">.NET Deserialization:</h3>
-
-<ul>
-<li><a href="https://github.com/dnnsoftware/Dnn.Platform/releases/tag/v9.1.0">DotNetNuke Install</a></li>
-<li><a href="https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf">https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf</a></li>
-<li><a href="https://github.com/pwntester/ysoserial.net">https://github.com/pwntester/ysoserial.net</a></li>
-<li><a href="https://github.com/0xd4d/dnSpy">https://github.com/0xd4d/dnSpy</a></li>
-<li><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf</a></li>
-<li><a href="https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4">https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4</a></li>
-<li><a href="https://paper.seebug.org/365/">https://paper.seebug.org/365/</a></li>
-<li><a href="https://www.youtube.com/watch?v=oUAeWhW5b8c">https://www.youtube.com/watch?v=oUAeWhW5b8c</a></li>
-<li><a href="https://vulners.com/seebug/SSV:96326">https://vulners.com/seebug/SSV:96326</a></li>
-<li><a href="https://www.slideshare.net/MSbluehat/dangerous-contents-securing-net-deserialization">https://www.slideshare.net/MSbluehat/dangerous-contents-securing-net-deserialization</a></li>
-<li><a href="https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf">https://www.exploit-db.com/docs/english/44756-deserialization-vulnerability.pdf</a></li>
-</ul></li>
-
-<li><h3 id="javascript-injection">JavaScript Injection:</h3>
-
-<ul>
-<li><a href="https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1_-_server_side_js_injection.html">https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1-server-side-js-injection.html</a></li>
-<li><a href="https://capacitorset.github.io/mathjs/">https://capacitorset.github.io/mathjs/</a></li>
-<li><a href="https://itnext.io/how-i-exploited-a-remote-code-execution-vulnerability-in-fast-redact-9e69fa35572f">https://itnext.io/how-i-exploited-a-remote-code-execution-vulnerability-in-fast-redact-9e69fa35572f</a></li>
-<li><a href="https://rhinosecuritylabs.com/application-security/nvidia-rce-cve-2019-5678/">https://rhinosecuritylabs.com/application-security/nvidia-rce-cve-2019-5678/</a></li>
-<li><a href="https://idiallo.com/javascript/settimeout-and-setinterval-and-setevil">https://idiallo.com/javascript/settimeout-and-setinterval-and-setevil</a></li>
-</ul></li>
-
-<li><h3 id="nodejs">NodeJS:</h3>
-
-<ul>
-<li><strong>Bassmaster Install: npm install bassmaster@1.5.1</strong></li>
-<li><a href="https://www.npmjs.com/package/bassmaster">https://www.npmjs.com/package/bassmaster</a></li>
-<li><a href="https://www.rapid7.com/db/modules/exploit/multi/http/bassmaster_js_injection">https://www.rapid7.com/db/modules/exploit/multi/http/bassmaster_js_injection</a></li>
-<li><a href="https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/http/bassmaster_js_injection.rb">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/http/bassmaster_js_injection.rb</a></li>
-<li><a href="https://www.exploit-db.com/exploits/40689">https://www.exploit-db.com/exploits/40689</a></li>
-<li><a href="https://vulners.com/nodejs/NODEJS:337">https://vulners.com/nodejs/NODEJS:337</a></li>
-<li><a href="https://www.websecgeeks.com/2017/04/pentesting-nodejs-application-nodejs.html">https://www.websecgeeks.com/2017/04/pentesting-nodejs-application-nodejs.html</a></li>
-<li><a href="https://capacitorset.github.io/mathjs/">https://capacitorset.github.io/mathjs/</a></li>
-<li><a href="https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/">https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/</a></li>
-<li><a href="https://github.com/ajinabraham/Node.Js-Security-Course">https://github.com/ajinabraham/Node.Js-Security-Course</a></li>
-<li><a href="https://www.acunetix.com/blog/web-security-zone/deserialization-vulnerabilities-attacking-deserialization-in-js/">https://www.acunetix.com/blog/web-security-zone/deserialization-vulnerabilities-attacking-deserialization-in-js/</a></li>
-<li><a href="https://www.yeahhub.com/nodejs-deserialization-attack-detailed-tutorial-2018/">https://www.yeahhub.com/nodejs-deserialization-attack-detailed-tutorial-2018/</a></li>
-<li>Celestial machine from HackTheBox</li>
-<li><a href="https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d">https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d</a></li>
-<li><a href="https://blog.netspi.com/escape-nodejs-sandboxes/">https://blog.netspi.com/escape-nodejs-sandboxes/</a></li>
-</ul></li>
-
-<li><h3 id="sql-injection">SQL Injection:</h3>
-
-<ul>
-<li><a href="http://archives.manageengine.com/applications_manager/12900">Manage Engine Application Manager Install</a></li>
-<li><a href="https://manageenginesales.co.uk/2018/05/manageengine-applications-manager-build-13730-released/">https://manageenginesales.co.uk/2018/05/manageengine-applications-manager-build-13730-released/</a></li>
-<li><a href="https://www.postgresql.org/docs/9.4/functions-binarystring.html">https://www.postgresql.org/docs/9.4/functions-binarystring.html</a></li>
-<li><a href="https://www.mulesoft.com/tcat/tomcat-jsp">https://www.mulesoft.com/tcat/tomcat-jsp</a></li>
-<li><a href="https://blog.jamesotten.com/post/applications-manager-rce/">https://blog.jamesotten.com/post/applications-manager-rce/</a></li>
-<li><a href="https://blog.ripstech.com/2019/oxid-esales-shop-software/">https://blog.ripstech.com/2019/oxid-esales-shop-software/</a></li>
-<li><a href="https://pentesterlab.com/exercises/from_sqli_to_shell/course">https://pentesterlab.com/exercises/from_sqli_to_shell/course</a></li>
-<li><a href="https://www.acunetix.com/websitesecurity/blind-sql-injection/">https://www.acunetix.com/websitesecurity/blind-sql-injection/</a></li>
-<li>#### PostgreSQL
-
-<ul>
-<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet">http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet</a></li>
-<li><a href="http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt">http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt</a></li>
-<li><a href="https://www.exploit-db.com/papers/13084">https://www.exploit-db.com/papers/13084</a></li>
-<li><a href="http://www.postgresqltutorial.com/postgresql-string-functions/">http://www.postgresqltutorial.com/postgresql-string-functions/</a></li>
-<li><a href="https://www.linuxtopia.org/online_books/database_guides/Practical_PostgreSQL_database/c7547_002.htm">https://www.linuxtopia.org/online_books/database_guides/Practical_PostgreSQL_database/c7547_002.htm</a></li>
-<li><a href="https://www.infigo.hr/files/INFIGO-TD-2009-04_PostgreSQL_injection_ENG.pdf">https://www.infigo.hr/files/INFIGO-TD-2009-04_PostgreSQL_injection_ENG.pdf</a></li>
-<li><a href="https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/">https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/</a></li>
-</ul></li>
-</ul></li>
-
-<li><h3 id="xxe">XXE</h3>
-
-<ul>
-<li><a href="https://www.exploit-db.com/exploits/46693">Open source app with XXE. Uses XXE + SSRF to achieve RCE</a></li>
-<li><a href="https://www.exploit-db.com/exploits/19863">CakePHP XXE</a></li>
-<li><a href="https://www.exploit-db.com/exploits/41466">Opensource app with XXE</a></li>
-<li><a href="https://www.exploit-db.com/exploits/44607">Grails PDF Plugin 0.6 - XML External Entity Injection</a></li>
-
-<li><p><a href="https://www.exploit-db.com/exploits/46106">XXE in ASP.NET app</a></p></li>
-
-<li><h3 id="youtube-playlist">Youtube Playlist</h3></li>
-
-<li><p><a href="https://www.youtube.com/watch?v=Xfbu-pQ1tIc&amp;list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33">https://www.youtube.com/watch?v=Xfbu-pQ1tIc&amp;list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33</a></p></li>
-
-<li><h3 id="further-references-reviews">Further References/Reviews</h3></li>
-
-<li><p><a href="https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en">https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en</a></p></li>
-
-<li><p><a href="https://github.com/wetw0rk/AWAE-PREP">https://github.com/wetw0rk/AWAE-PREP</a></p></li>
-
-<li><p><a href="https://ldxf.botonia.it/rce-via-file-upload.html">https://ldxf.botonia.it/rce-via-file-upload.html</a></p></li>
-
-<li><p><a href="https://www.corben.io/atlassian-crowd-rce/">https://www.corben.io/atlassian-crowd-rce/</a></p></li>
-
-<li><p><a href="https://www.nccgroup.trust/globalassets/our-research/uk/images/whitepaper-new.pdf">Use of Deserialization in .NET Framework Methods and Classes.</a></p></li>
-
-<li><p><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf</a></p></li>
-
-<li><p><a href="https://blog.ripstech.com/">https://blog.ripstech.com/</a></p></li>
-
-<li><p><a href="https://rhinosecuritylabs.com">https://rhinosecuritylabs.com</a></p></li>
-</ul></li>
 </ul>
 
+<hr />
+
+    
+
+<style>
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+
+.resp-sharing-button--whatsapp:hover,
+.resp-sharing-button--whatsapp:active {
+  background-color: #1DA851;
+  border-color: #1DA851;
+}
+
+.resp-sharing-button--hackernews {
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.resp-sharing-button--hackernews:hover
+.resp-sharing-button--hackernews:active {
+  background-color: #FB6200;
+  border-color: #FB6200;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+
+</style>
+
+<div>
+<h4 style="color: maroon;">Share this post on: </h4><div id="share-buttons"></span>
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
   </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=OSWE%2fAWAE%20Preparation&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f&amp;title=OSWE%2fAWAE%20Preparation&amp;summary=OSWE%2fAWAE%20Preparation&amp;source=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f&amp;resubmit=true&amp;title=OSWE%2fAWAE%20Preparation" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=OSWE%2fAWAE%20Preparation%20https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f&amp;t=OSWE%2fAWAE%20Preparation" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=OSWE%2fAWAE%20Preparation&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f01%2f22%2foswe%2fawae-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z"/></svg>
+    </div>
+  </div>
+</a>
+</div>
+
+    <br />
+    
+  
+
+<br />
+
+  <aside>
+    <h3>Related Content</h3>
+    <ul>
+      
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2023/04/27/htb-machines-for-osep-preparation/">HTB Machines for OSEP Preparation</a></li>
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2021/01/25/dangerous-php-functions/">Dangerous PHP Functions</a></li>
+      
+    </ul>
+  </aside>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="8136937986"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</script>
+
+ </div>
   
 </div>
 
 
 
 
-<script src="/js/highlight.pack.js"></script>
+<script src="https://z-r0crypt.github.io/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+<div>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="6558943067"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 </body>
 </html>
 

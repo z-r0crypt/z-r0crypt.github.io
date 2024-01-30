@@ -2,65 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Security Notes</title>
-    <link>/categories/</link>
+    <link>https://z-r0crypt.github.io/categories/</link>
     <description>Recent content in Categories on Security Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 05 Feb 2020 16:52:36 -0500</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://z-r0crypt.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cryptography</title>
-      <link>/categories/cryptography/</link>
-      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      <title>Block Cipher</title>
+      <link>https://z-r0crypt.github.io/categories/block-cipher/</link>
+      <pubDate>Wed, 05 Feb 2020 16:52:36 -0500</pubDate>
       
-      <guid>/categories/cryptography/</guid>
+      <guid>https://z-r0crypt.github.io/categories/block-cipher/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptography</title>
+      <link>https://z-r0crypt.github.io/categories/cryptography/</link>
+      <pubDate>Wed, 05 Feb 2020 16:52:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/cryptography/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ctf</title>
-      <link>/categories/ctf/</link>
+      <link>https://z-r0crypt.github.io/categories/ctf/</link>
       <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
       
-      <guid>/categories/ctf/</guid>
+      <guid>https://z-r0crypt.github.io/categories/ctf/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Exploit</title>
-      <link>/categories/exploit/</link>
-      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      <title>Defense Evasion</title>
+      <link>https://z-r0crypt.github.io/categories/defense-evasion/</link>
+      <pubDate>Thu, 27 Apr 2023 22:59:36 -0500</pubDate>
       
-      <guid>/categories/exploit/</guid>
+      <guid>https://z-r0crypt.github.io/categories/defense-evasion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploit Development</title>
+      <link>https://z-r0crypt.github.io/categories/exploit-development/</link>
+      <pubDate>Mon, 25 Jan 2021 22:59:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/exploit-development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Infosec</title>
-      <link>/categories/infosec/</link>
+      <link>https://z-r0crypt.github.io/categories/infosec/</link>
       <pubDate>Mon, 11 Nov 2019 14:59:36 -0500</pubDate>
       
-      <guid>/categories/infosec/</guid>
+      <guid>https://z-r0crypt.github.io/categories/infosec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux Post Exploitation</title>
+      <link>https://z-r0crypt.github.io/categories/linux-post-exploitation/</link>
+      <pubDate>Sun, 20 Aug 2023 22:59:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/linux-post-exploitation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Red Team</title>
+      <link>https://z-r0crypt.github.io/categories/red-team/</link>
+      <pubDate>Sun, 20 Aug 2023 22:59:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/red-team/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reverse Engineering</title>
-      <link>/categories/reverse-engineering/</link>
+      <link>https://z-r0crypt.github.io/categories/reverse-engineering/</link>
       <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
       
-      <guid>/categories/reverse-engineering/</guid>
+      <guid>https://z-r0crypt.github.io/categories/reverse-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stream Cipher</title>
+      <link>https://z-r0crypt.github.io/categories/stream-cipher/</link>
+      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/categories/stream-cipher/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>/categories/web/</link>
-      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
+      <link>https://z-r0crypt.github.io/categories/web/</link>
+      <pubDate>Mon, 25 Jan 2021 22:59:36 -0500</pubDate>
       
-      <guid>/categories/web/</guid>
+      <guid>https://z-r0crypt.github.io/categories/web/</guid>
       <description></description>
     </item>
     
