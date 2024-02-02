@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://z-r0crypt.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "Cryptography I  - Week 2 - Part 1",
+    "headline" : "Cryptography I  - Week 2 - Part 1",
+    "description" : "Block Ciphers  Pseudo Random Function (PRF) Pseudo Random Permutation (PRP) Secure PRF PRF =&gt; PRG  Data Encryption Standard  DES: Core Idea - Feistel Network DES is a 16 round Feistel network  The Function F(k_i, x) S-boxes  Exhaustive search on DES Strengthening DES against ex. search  Method 1: Triple DES Method 2: DESX  Attacks on the implementation of the block ciphers  Side channel attacks Fault attacks Conclusion on implementation attacks  Attacks on block ciphers  Linear and differential attacks Quantum attacks   Advanced Encryption Standard (AES) Block Cipher  History Design How to use AES Attacks on AES  Building Block Ciphers from PRGs  Notes and Review    Block Ciphers A block cipher maps n bits of inputs to n bits of output.",
+    "inLanguage" : "en-US",
+    "author" : "Z-r0crypt",
+    "creator" : "Z-r0crypt",
+    "publisher": "Z-r0crypt",
+    "accountablePerson" : "Z-r0crypt",
+    "copyrightHolder" : "Z-r0crypt",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-03 16:52:36 -0500 -0500",
+    "dateModified" : "2020-02-03 16:52:36 -0500 -0500",
+    "url" : "https://z-r0crypt.github.io/blog/2020/02/03/cryptography-i----week-2---part-1/",
+    "wordCount" : "2402",
+    "keywords" : [ "Cryptography","Block Cipher","AES","DES","Blog" ]
+}
+</script>
+
+  <title>Cryptography I  - Week 2 - Part 1 &middot; Z-r0crypt</title>
+
+  
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://z-r0crypt.github.io/touch-icon-144-precomposed.png">
+  <link href="https://z-r0crypt.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Security Research Blog for learning and sharing">
+  <meta name="keywords" content="offsec, OSCP, OSEP, OSCE, OSWE, AWAE, AWE, Exploit, Red Team, AV Evasion, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest, Fuzzing">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-153171451-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+    <meta name="google-site-verification" content="lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko">
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="theme-base-08">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Z-r0crypt</h1>
+      <p class="lead">Security Enthusiast</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/post/">Posts</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/categories/">Categories</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/tags/">Tags</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/z-r0crypt"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://linkedin.com/in/vbtr"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      <a href="https://twitter.com/zer0crypt"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      </li>
+    </ul>
+
+    
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="7792133681"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="6558943067"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Copyright &copy; 2024 <a href="https://z-r0crypt.github.io/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Cryptography I  - Week 2 - Part 1</h1>
+    <span class="post-date">Feb 3, 2020
+    
+    <br/>
+    <a class="label" href="https://z-r0crypt.github.io/categories/cryptography">Cryptography</a><a class="label" href="https://z-r0crypt.github.io/categories/block-cipher">Block Cipher</a>
+    </span>
+    
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+position: relative;
+text-align: left; 
+height: 36px; 
+width: 32px; 
+float: left; 
+text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/z-r0crypt.github.io\/blog\/2020\/02\/03\/cryptography-i----week-2---part-1\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/z-r0crypt.github.io\/blog\/2020\/02\/03\/cryptography-i----week-2---part-1\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/z-r0crypt.github.io\/blog\/2020\/02\/03\/cryptography-i----week-2---part-1\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/z-r0crypt.github.io\/blog\/2020\/02\/03\/cryptography-i----week-2---part-1\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/z-r0crypt.github.io\/blog\/2020\/02\/03\/cryptography-i----week-2---part-1\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+
+    
+
+<hr />
+
+<ol>
+<li><a href="#block-ciphers">Block Ciphers</a>
+
+<ul>
+<li><a href="#pseudo-random-function-prf">Pseudo Random Function (PRF)</a></li>
+<li><a href="#pseudo-random-permutation-prp">Pseudo Random Permutation (PRP)</a></li>
+<li><a href="#secure-prf">Secure PRF</a></li>
+<li><a href="#prf-gives-us-a-prg-prf--prg">PRF =&gt; PRG</a></li>
+</ul></li>
+<li><a href="#des-data-encryption-standard">Data Encryption Standard</a>
+
+<ul>
+<li><a href="#des-core-idea---feistel-network">DES: Core Idea - Feistel Network</a></li>
+<li><a href="#des-is-a-16-round-feistel-network">DES is a 16 round Feistel network</a>
+
+<ul>
+<li><a href="#the-function-fk_i-x">The Function F(k_i, x)</a></li>
+<li><a href="#s-boxes">S-boxes</a></li>
+</ul></li>
+<li><a href="#exhaustive-search-on-des">Exhaustive search on DES</a></li>
+<li><a href="#strengthening-des-against-ex-search">Strengthening DES against ex. search</a>
+
+<ul>
+<li><a href="#method-1-triple-des">Method 1: Triple DES</a></li>
+<li><a href="#method-2-desx">Method 2: DESX</a></li>
+</ul></li>
+<li><a href="#attacks-on-the-implementation-of-the-block-ciphers">Attacks on the implementation of the block ciphers</a>
+
+<ul>
+<li><a href="#side-channel-attacks">Side channel attacks</a></li>
+<li><a href="#fault-attacks">Fault attacks</a></li>
+<li><a href="#conclusion-on-implementation-attacks">Conclusion on implementation attacks</a></li>
+</ul></li>
+<li><a href="#attacks-on-block-ciphers">Attacks on block ciphers</a>
+
+<ul>
+<li><a href="#linear-and-differential-attacks-linear-cryptanalysis">Linear and differential attacks</a></li>
+<li><a href="#quantum--attacks">Quantum  attacks</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#advanced-encryption-standard-aes-block-cipher">Advanced Encryption Standard (AES) Block Cipher</a>
+
+<ul>
+<li><a href="#history">History</a></li>
+<li><a href="#design">Design</a></li>
+<li><a href="#how-to-use-aes">How to use AES</a></li>
+<li><a href="#attacks-on-aes">Attacks on AES</a></li>
+</ul></li>
+<li><a href="#building-block-ciphers-from-prg">Building Block Ciphers from PRGs</a>
+
+<ul>
+<li><a href="#notes-and-review">Notes and Review</a>
+<br />
+<br />
+<br /></li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2 id="block-ciphers">Block Ciphers</h2>
+
+<p>A block cipher maps n bits of inputs to n bits of output.
+Examples :
+- 3DES: n=64bits, k=168 bits
+- AES: n=128bits, k = 128,192,256 bits</p>
+
+<p>Block ciphers are typically built by iteration with a round function R(k, m). It takes as input the round key k and the message m. The key k is expanded into &lsquo;round keys&rsquo; k1, k2, &hellip; kn. The message m is then encoded using R that stands for round function, which takes one of the round keys, and the current state of the message /mi/. This sequence of steps is applied iteratively until we reach /kn/, and the concatenation of the output of R is our cipher text.</p>
+
+<p><img src="https://z-r0crypt.github.io/images/blockcipher.jpg" alt="" /></p>
+
+<p>Different ciphers have different amount of rounds. For 3DES it&rsquo;s 48, and for AES-128 it is 10.</p>
+
+<p>Block ciphers are rather slow compared to stream ciphers. The longer the key, the slower they are. However we can do many things with block ciphers that we couldn&rsquo;t do with stream ciphers.</p>
+
+<h3 id="pseudo-random-function-prf">Pseudo Random Function (PRF)</h3>
+
+<p>A PRF is defined over (K, X, Y) {key-space K, input-space X and output-space Y} with <code>F: K x X -&gt; Y</code> such that there exists an efficient algorithm to evaluate F(k,x).</p>
+
+<p>Note: A PRF doesn’t need to be revertible.</p>
+
+<h3 id="pseudo-random-permutation-prp">Pseudo Random Permutation (PRP)</h3>
+
+<p>A PRP (block cipher) is defined over (K,X) with <code>E: K x X -&gt; X</code> such that:
+- Exists efficient and deterministic algorithm to evaluate E(k,x)
+- The function E(k, ・) is one-to-one.
+- Exists an efficient inversion algorithm D(k,y)</p>
+
+<p>Examples:
+- 3DES: K x X -&gt; X where X = {0,1}^64 , K = {0,1}^168
+- AES: K x X -&gt; X where K = X = {0,1}^128</p>
+
+<p>Any block cipher or PRP is also a PRF : A PRP is a PRF where X = Y and is efficiently invertible.</p>
+
+<h3 id="secure-prf">Secure PRF</h3>
+
+<p>Let F: K x X -&gt; Y be a PRF
+- Funs[X,Y]: the set of all functions from X to Y
+- S_{F} = { F(k,・) s.t. k ∈ K} ⊆ Funs[X,Y]</p>
+
+<p>Intuition: A PRF is secure if a random function in Fun[X,Y] is indistinguishable from a random function in S_F.</p>
+
+<h3 id="prf-gives-us-a-prg-prf-prg">PRF gives us a PRG (PRF =&gt; PRG)</h3>
+
+<p>Let <code>F: K x {0,1}^n -&gt; {0,1}^n</code> be a secure PRF. Then the following <code>G: K -&gt; {0,1}^{nt}</code> is a secure PRG: <code>G(k) = F(k,0) || F(k,1) || … || F(k,t)</code></p>
+
+<p>Key property: parallelizable</p>
+
+<p>Security from PRF property: F(k,・) indistinguishable from a random function f(・)</p>
+
+<p><em>Summary:</em>
+<em>- Block cipher basically maps n-bits of input to n bit of outputs</em>
+<em>- Built by Iteration</em></p>
+
+<h2 id="des-data-encryption-standard">DES (Data Encryption Standard)</h2>
+
+<ul>
+<li>Early 1970: Horst Feistel designs Lucifer at IBM.
+<code>key-len = 128 bits, block-len = 128 bits.</code></li>
+<li>1973: NBS (old name of NIST) asks for block cipher proposals. IBM submits variant of Lucifer.</li>
+<li>1976: NBS adopts DES as a federal standard.
+<code>key-len = 56 bits. block-len = 64 bits.</code>
+Note: This is yet another example where standard bureaus do weaken cryptography.</li>
+<li>1997: DES broken by exhaustive search</li>
+<li>2000: NIST adopts Rijndael as AES (Advanced Encryption Standard) to replace DES.</li>
+</ul>
+
+<p>Widely deployed in banking (ACH) and commerce.</p>
+
+<h3 id="des-core-idea-feistel-network">DES: Core Idea - Feistel Network</h3>
+
+<p>Given functions <code>f_1, …, f_d: {0,1}^n -&gt; {0,1}^n</code>
+Goal: build invertible function <code>F:{0,1}^{2n} -&gt; {0,1}^{2n}</code></p>
+
+<ul>
+<li>Feistel network is a series of steps that follow the structure:
+
+<ul>
+<li>We start with R_0 for the first Right Bit, L_0 for the first
+Left Bit, and f_1 for the first function.</li>
+<li>We get L_1 from applying f_1 to R_0, and R_1 from XOR&rsquo;ing L_0
+with the output of f_1(R_0).</li>
+<li>We keep applying the same process until we reach R_d-1, L_d-1
+and fd, and the output of the process (the function F) is Rd and Ld.</li>
+<li>We claim that for all arbitrary functions f_1 to f_d, the
+outlined functiond F is invertible.</li>
+<li>We can proove this by constructing the inverse of the process:
+
+<ul>
+<li>The inverse of one round of input is:
+
+<ul>
+<li>R_i = L_i+1, L_i = f_i+1(L_i+1) XOR R_i+1</li>
+</ul></li>
+<li>By repeating this step from d to 0, we have completed the inverse.</li>
+<li>Because the process is so similar, this is very attractive
+because the hardware that encrypts can be used f</li>
+</ul></li>
+<li>Used in many block ciphers, although not in AES.</li>
+</ul></li>
+</ul>
+
+<p><img src="https://z-r0crypt.github.io/images/des.jpg" alt="" /></p>
+
+<p>A Feistel Network mapping a 2n bit input to 2n bit output:
+Encryption
+L<em>i = R</em>{i-1}
+R_i =  L_i XOR f<em>i (R</em>{i-1})
+Decryption
+L<em>i = f</em>{i+1} (L<em>{i+1}) XOR R</em>{i+1}
+R<em>i = L</em>{i+1}</p>
+
+<p><img src="https://z-r0crypt.github.io/images/construct-inverse.png" alt="" /></p>
+
+<p>Feistal networks are a general method for building invertible functions (block ciphers) from arbitrary functions. And it’s used in many block ciphers but not AES.</p>
+
+<p>The Luby-Rackoff Theorem proves that if you take a secure PRF and let it go through 3 rounds of a Feistal network, the result is a secure PRP. Formally
+f: K x {0,1}^n -&gt; {0,1}^n a secure PRF =&gt; 3-round Feistel F: K^3 x {0,1}^{2n} -&gt; {0,1}^{2n} is a secure PRP.</p>
+
+<h3 id="des-is-a-16-round-feistel-network">DES is a 16 round Feistel network</h3>
+
+<p><code>f_1, … , f_1: {0,1}^32 -&gt; {0,1}^32, f_i (x) = F{k_i, x}</code> where k_i is a round key from the key expansion.</p>
+
+<p>We start with a 64-bit input that gets fed into a Initial Permutation, that mixes the input bits around, this then gets fed into the 16-round Feistel network, which gets fed into Final Permutation that undoes the shuffling around of IP. We are left with a 64-bit output.</p>
+
+<p>For decryption, the algorithm is the same but you use the round keys in reverse-order.</p>
+
+<h4 id="the-function-f-k-i-x">The Function F(k_i, x):</h4>
+
+<ul>
+<li>takes a 32-bit value x and a 48-bit round key k_i.</li>
+<li>x gets expanded into 48 bits by duplicating and mixing</li>
+<li>This expanded x gets xor&rsquo;ed with the round key</li>
+<li>The resulting 48-bits are split into eight slots of 6-bits, that get fed into eight &ldquo;S-boxes&rdquo;.</li>
+<li>S-boxes spit out 4-bit values based on lookup tables</li>
+<li>The resulting 32-bit value goes into yet another permutator, where it gets mixed and matched around.</li>
+<li>Essentially by using different round keys, we get different, arbitrary round functions.</li>
+</ul>
+
+<p><img src="https://z-r0crypt.github.io/images/f.png" alt="F function" /></p>
+
+<h4 id="s-boxes">S-boxes</h4>
+
+<p>function {0,1}^6 &ndash;&gt; {0,1}^4</p>
+
+<p>S-boxes are implemented as lookup tables.</p>
+
+<p>Example: a bad S-box choice
+   - There are good and bad versions of S-boxes.
+   - Mainly we don&rsquo;t want the S-boxes to be calculated via a linear function, because this would mean that all that DES does is xor&rsquo;ing and moving bits around.
+   - If DES was wholly linear, this would mean that it&rsquo;s not fully random.
+   - <strong>Choosing the S-boxes</strong> at random would not be enough to make them secure, as the chances of them being linear would be too high. The key could be recovered after about 2^24 outputs.</p>
+
+<p>So what are the creators of DES advising to make S boxes lookup tables?
+   - No output bit should be close to a linear function of the input bits
+   - S-boxes are 4 to 1 maps.
+   - …</p>
+
+<h3 id="exhaustive-search-on-des">Exhaustive search on DES</h3>
+
+<p>Goal: given a few input/output pairs (m_i, c_i = E(k, m_i)), find key k.</p>
+
+<p><em>Lemma:</em> Suppose DES is an <strong>ideal cipher</strong> (2^56 random invertible functions). Then for all m,c there is at most one key k such that c = DES(k,m).</p>
+
+<p>With two input-output pairs, the probability that the key is unique is very close to one for both DES and AES. Hence, two input/output pairs are enough for exhaustive key search.</p>
+
+<p><strong>DES Challenge</strong>
+RSA issued a challenge to break DES exhaustively:
+- 1997: Internet Distributed Search = 3 months
+- 1998: EFF machine (deep crack) = 3 days
+- 1999: combined search = 22 hours
+- 2006: COPACOBANA (FPGA) = 7 Days (cheap!)</p>
+
+<p>Conclusion of the challenge was ==&gt; 56-bit ciphers should not be used!!</p>
+
+<h3 id="strengthening-des-against-ex-search">Strengthening DES against ex. search</h3>
+
+<p>How do we make DES more expensive to do exhaustive search? More rounds!</p>
+
+<h4 id="method-1-triple-des">Method 1: Triple DES.</h4>
+
+<p>Triple DES is also 3x slower for encryption :(</p>
+
+<p>The key-size of 3DES is 3*56 bits = 168 bits but does not provide 168 bits security only 118 bits. -&gt; Meet in the middle attack</p>
+
+<p><strong>Why not 2DES</strong>
+For 2DES: exhaustive search is formulated as finding (k_1,k_2) such that E(k_1, E(k_2, M)) = C. A meet-in-the-middle attack is E(k_2, m) = D(k_1,c)</p>
+
+<p>Step 1: Build table of pairs (k0…kN ; E(k0, M)…E(KN, M)
+Step 2: For all k ∈ {0,1}^56: test if D(k,C) is in 2nd column.
+Step 3: If found, then E(k^i, M) = D(k,c) =&gt; (k^i, k) = (k_2, k1)</p>
+
+<p>Running time = Time = 2* 2^56  * log 2^56 &lt; 2^63 &lt;&lt; 2^112</p>
+
+<p>Same attack on 3DES: Time = 2^(118), space = 2^56</p>
+
+<h4 id="method-2-desx">Method 2: DESX</h4>
+
+<p>E: K x {0,1}^n —&gt; {0,1}^n a block cipher. EX((k,1,k2,k3), m) = k_1 XOR E(k_2, m XOR k_3)
+key-length = 184 bits. Attack known in 2^120.</p>
+
+<h3 id="attacks-on-the-implementation-of-the-block-ciphers">Attacks on the implementation of the block ciphers</h3>
+
+<h4 id="side-channel-attacks">Side channel attacks</h4>
+
+<ul>
+<li>Measure time to do enc/dec</li>
+<li>Measuer power for enc/dec</li>
+<li>Measuring noise, time, power consumption for encryption and decryption.</li>
+</ul>
+
+<h4 id="fault-attacks">Fault attacks</h4>
+
+<ul>
+<li>Computing errors in the last round expose the secret key k.</li>
+<li>If you can cause the hardware that decrypts/encrypts to malfunction (i.e. by heating), you might be able to get access to the cipher before the last round of the encryption process, and this can reveal the key.</li>
+</ul>
+
+<h4 id="conclusion-on-implementation-attacks">Conclusion on implementation attacks</h4>
+
+<ul>
+<li>Don’t even implement these primitives yourself!
+<br />
+<br /></li>
+</ul>
+
+<h3 id="attacks-on-block-ciphers">Attacks on block ciphers</h3>
+
+<h4 id="linear-and-differential-attacks-linear-cryptanalysis">Linear and differential attacks (Linear cryptanalysis)</h4>
+
+<p>Given many input/output pairs, can recover key in less time than exhaustive search (2^56 for DES)</p>
+
+<pre><code> Pr[m[i_1] XOR … XOR m[i_r] XOR c[j_j] XOR … XOR c[j_v] = k[l_1] XOR … XOR k[l_u] ] = 1/2 + epsilon 
+</code></pre>
+
+<p>For DES, <code>epsilon = 1/(2^(21)) ~= 0.0000000477</code> because the fifth S-Box is too close to a linear function.</p>
+
+<p><strong>How can we attack it to find key bits?</strong></p>
+
+<p>Given 1/epsilon^2 random (m, c=DES(k, m) ) pairs then</p>
+
+<pre><code> k[l_1, … , l_u] = MAJ [ m[i_1 , … , i_r] XOR c[j_j, …,j_v] ]  
+</code></pre>
+
+<p>with probability &gt;= 97.7%.</p>
+
+<p><strong>Linear Attacks</strong></p>
+
+<ul>
+<li>For DES, with 2^42 inp/out pairs, you can find k[l_i, …, l_u] in time 2^42.</li>
+<li>Roughly speaking: you can find 14 = 2 +12(from the 5th S-box) key bits this way in time 2^42.</li>
+<li>We can do exhaustive search in the remain bits and find the remaining 56-14=42 bits in time 2^42. Then we can brute force the rest via exhaustive search, giving us total attack time of ~= 2^43 (&lt;&lt; 2^56)</li>
+</ul>
+
+<p><strong>Lesson:</strong> A tiny bit of linearity in S_5 lead to a 2^42 time attack! NEVER DESIGN YOUR OWN BLOCK CIPHER.</p>
+
+<h4 id="quantum-attacks">Quantum  attacks</h4>
+
+<p>If you could build a quantum computer, a generic search problem that would be solved in O( |X| ), can be solved in O( |X|^(<sup>1</sup>&frasl;<sub>2</sub>) ) whatever the function is.</p>
+
+<p>This would cut down the search space: With DES: ~= 2^28, with AES-128 ~= 2^64, which would still be not secure.</p>
+
+<p>Examples:
+- DES = 2^28
+- AES-128 = 2^64
+- AES-256 = 2^128</p>
+
+<h2 id="advanced-encryption-standard-aes-block-cipher">Advanced Encryption Standard (AES) Block Cipher</h2>
+
+<h3 id="history">History</h3>
+
+<ul>
+<li>1997: NIST publishes request for proposal</li>
+<li>1998: 15 submissions (5 claimed attacks)</li>
+<li>1999: NIST chooses 5 finalists</li>
+<li>2000: NIST chooses Rijndael as AES (designed in Belgium)</li>
+</ul>
+
+<p>Key sizes = 128, 192, 256 bits.</p>
+
+<p>Larger keys: slower encryption but thought to be more secure.</p>
+
+<p>Block size = 128 bits</p>
+
+<h3 id="design">Design</h3>
+
+<p>AES is a <strong>substitution-permutation</strong> network. In a Feistal network, half of the bits are not changed in every round. In a subs-perm network, all bits are changed on every round.</p>
+
+<blockquote>
+<p>AES-128 schematic</p>
+</blockquote>
+
+<p><img src="http://cl.ly/Tc1N/Screen%20Shot%202014-01-28%20at%2014.36.28.png" alt="AES-128" /></p>
+
+<p>AES operates on 128 bits, a 4x4 matrix, each cell containing a byte. Then we XOR with the first round key, apply the round function, x10 and then we get the output. The keys are coming from the 16 bytes AES key using key expansion.</p>
+
+<p><img src="http://cl.ly/TbLk/Screen%20Shot%202014-01-28%20at%2014.36.35.png" alt="AES-128-RoundFunctions" /></p>
+
+<p>Overview of the round function:
+- <strong>ByteStub</strong> (Byte substitution): one byte S-Box (256 byte table). We take the current cell as an index into the lookup table, and the value is the output.
+- <strong>ShiftRows</strong> step: We shift the second row from 1 position, third row by 2 positions and last row by 3 positions.
+- <strong>MixColumns</strong>: We apply a linear transformation to each of the communes independently.</p>
+
+<h3 id="how-to-use-aes">How to use AES</h3>
+
+<p>If you want to send an implementation over a network. Don’t send precomputed table but algorithm to compute it. And then compute them upon receival.</p>
+
+<p>AES is implemented in hardware (Intel Westmere):
+   + <strong>aesenc, aesenclast</strong>: one round of AES.
+   + <strong>aeskeygenassist</strong>: performs AES key expansion.
+   + Claim 14 times faster than OpenSSL on same hardware.</p>
+
+<h3 id="attacks-on-aes">Attacks on AES</h3>
+
+<ul>
+<li><strong>Best key recovery attack</strong>: four times better than exhaustive search. 128key =&gt; 126 key.</li>
+<li><strong>Related key attack on AES-256</strong>: Given 2^99 input/output pairs from four related keys in AES-256. can recover keys in time ~2^99 <em>Importance is to choose keys at random</em>.</li>
+</ul>
+
+<h2 id="building-block-ciphers-from-prg">Building block ciphers from PRG</h2>
+
+<p>Can we build a PRF(block ciphers) from a PRG?</p>
+
+<p>Let’s start with a PRG, G such that <code>G:K -&gt; K^2</code> be a secure PRG.</p>
+
+<p>Define 1-bit PRF (domain is only 1 bit) <code>F:Kx{0,1} -&gt; K</code> as <code>F(k, x in {0,1}) = G(k)[x]</code></p>
+
+<p>If G is a secure PRG, then F is a secure PRF on {0,1}^n =&gt; Not used in expanded mode due to performance reasons.</p>
+
+<p>Thanks to the Luby-Rackoff theorem, we know that we can thus make a secure PRP with a 3-round Feistal network.</p>
+
+<h3 id="notes-and-review">Notes and Review</h3>
+
+<p>A block cipher maps n bits of input to n bits of output.</p>
+
+<p>PRF -&gt; function, X -&gt; Y, doesn’t have to be the same.
+PRP -&gt; One to one revertible function. Domain X=Y. Key concept to build a block cipher.</p>
+
+<p>Any secure PRP is also a secure PRF if |X| is sufficiently large.</p>
+
+<p>Lemma: Let E be a PRP over (K,X) then for any q-query adversary A:</p>
+
+<pre><code>|Adv_{PRF} [A,E] - Adv_{PRF} [A,E] | &lt; q^2 / 2|X|
+</code></pre>
+
+<p>When X is large, the ratio will be negligible.</p>
+
+<p>So we can say that if E is secure PRP, it is also Secure PRF.
+From now on, we consider AES or 3DES as secure PRPs.</p>
+
+<hr />
+
+    
+
+<style>
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+
+.resp-sharing-button--whatsapp:hover,
+.resp-sharing-button--whatsapp:active {
+  background-color: #1DA851;
+  border-color: #1DA851;
+}
+
+.resp-sharing-button--hackernews {
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.resp-sharing-button--hackernews:hover
+.resp-sharing-button--hackernews:active {
+  background-color: #FB6200;
+  border-color: #FB6200;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+
+</style>
+
+<div>
+<h4 style="color: maroon;">Share this post on: </h4><div id="share-buttons"></span>
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Cryptography%20I%20%20-%20Week%202%20-%20Part%201&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f&amp;title=Cryptography%20I%20%20-%20Week%202%20-%20Part%201&amp;summary=Cryptography%20I%20%20-%20Week%202%20-%20Part%201&amp;source=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f&amp;resubmit=true&amp;title=Cryptography%20I%20%20-%20Week%202%20-%20Part%201" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Cryptography%20I%20%20-%20Week%202%20-%20Part%201%20https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f&amp;t=Cryptography%20I%20%20-%20Week%202%20-%20Part%201" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Cryptography%20I%20%20-%20Week%202%20-%20Part%201&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2020%2f02%2f03%2fcryptography-i----week-2---part-1%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z"/></svg>
+    </div>
+  </div>
+</a>
+</div>
+
+    <br />
+    
+  
+
+<br />
+
+  <aside>
+    <h3>Related Content</h3>
+    <ul>
+      
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/">Cryptography I - Week 2 - part 2</a></li>
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2019/11/24/cryptography-i---stanford-university---week-1/">Cryptography I - Stanford University - Week 1</a></li>
+      
+    </ul>
+  </aside>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="8136937986"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</script>
+
+ </div>
+  
+</div>
+
+
+
+
+<script src="https://z-r0crypt.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<div>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="6558943067"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</body>
+</html>
+

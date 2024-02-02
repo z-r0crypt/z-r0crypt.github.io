@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Etbd on Security Notes</title>
+    <link>https://z-r0crypt.github.io/tags/etbd/</link>
+    <description>Recent content in Etbd on Security Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Apr 2023 22:59:36 -0500</lastBuildDate>
+    
+	<atom:link href="https://z-r0crypt.github.io/tags/etbd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTB Machines for OSEP Preparation</title>
+      <link>https://z-r0crypt.github.io/blog/2023/04/27/htb-machines-for-osep-preparation/</link>
+      <pubDate>Thu, 27 Apr 2023 22:59:36 -0500</pubDate>
+      
+      <guid>https://z-r0crypt.github.io/blog/2023/04/27/htb-machines-for-osep-preparation/</guid>
+      <description>In-Progress
+ List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security.
+ table th:first-of-type { width: 10%; } table th:nth-of-type(2) { width: 1%; } table th:nth-of-type(3) { width: 12%; } table th:nth-of-type(4) { width: 70%; }  3. Client Side Code Execution With Office 
+   Attack Type HTB Machine Attack Used in HTB Walkthrough Link     Phishing with Microsoft Office: RTF Document REEL malicious RTF Document (CVE-2017-0199) Video : https://youtube.</description>
+    </item>
+    
+  </channel>
+</rss>

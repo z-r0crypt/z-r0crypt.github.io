@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://z-r0crypt.github.io"
+    },
+    "articleSection" : "post",
+    "name" : "HTB Machines for OSEP Preparation",
+    "headline" : "HTB Machines for OSEP Preparation",
+    "description" : "List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security",
+    "inLanguage" : "en-US",
+    "author" : "Z-r0crypt",
+    "creator" : "Z-r0crypt",
+    "publisher": "Z-r0crypt",
+    "accountablePerson" : "Z-r0crypt",
+    "copyrightHolder" : "Z-r0crypt",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-04-27 22:59:36 -0500 -0500",
+    "dateModified" : "2023-04-27 22:59:36 -0500 -0500",
+    "url" : "https://z-r0crypt.github.io/blog/2023/04/27/htb-machines-for-osep-preparation/",
+    "wordCount" : "1639",
+    "keywords" : [ "OSEP","ETBD","Red Team","Defense Evasion","Offensive Security","Certification","Blog" ]
+}
+</script>
+
+  <title>HTB Machines for OSEP Preparation &middot; Z-r0crypt</title>
+
+  
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://z-r0crypt.github.io/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://z-r0crypt.github.io/touch-icon-144-precomposed.png">
+  <link href="https://z-r0crypt.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security">
+  <meta name="keywords" content="offsec, OSCP, OSEP, OSCE, OSWE, AWAE, AWE, Exploit, Red Team, AV Evasion, Infosec, Security, BugBounty, Bug Hunting, Penetration Testing, Pentest, Fuzzing">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-153171451-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+  
+    <meta name="google-site-verification" content="lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko">
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-4175529736707177" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="theme-base-08">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Z-r0crypt</h1>
+      <p class="lead">Security Enthusiast</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/post/">Posts</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/categories/">Categories</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/tags/">Tags</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://z-r0crypt.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/z-r0crypt"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://linkedin.com/in/vbtr"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      <a href="https://twitter.com/zer0crypt"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      </li>
+    </ul>
+
+    
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="7792133681"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="6558943067"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>Copyright &copy; 2024 <a href="https://z-r0crypt.github.io/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">HTB Machines for OSEP Preparation</h1>
+    <span class="post-date">Apr 27, 2023
+    
+    <br/>
+    <a class="label" href="https://z-r0crypt.github.io/categories/red-team">Red Team</a><a class="label" href="https://z-r0crypt.github.io/categories/defense-evasion">Defense Evasion</a>
+    </span>
+    
+
+<style>
+#share-buttons {display: inline-block; vertical-align: middle; }
+#share-buttons:after {content: ""; display: block; clear: both;}
+#share-buttons > div {
+position: relative;
+text-align: left; 
+height: 36px; 
+width: 32px; 
+float: left; 
+text-align: center;
+}
+#share-buttons > div > svg {height: 16px; fill: #d5d5d5; margin-top: 10px;}
+#share-buttons > div:hover {cursor: pointer;}
+#share-buttons > div.facebook:hover > svg {fill: #3B5998;}
+#share-buttons > div.twitter:hover > svg {fill: #55ACEE;}
+#share-buttons > div.linkedin:hover > svg {fill: #0077b5;}
+#share-buttons > div.pinterest:hover > svg {fill: #CB2027;}
+#share-buttons > div.gplus:hover > svg {fill: #dd4b39;}
+#share-buttons > div.mail:hover > svg {fill: #7D7D7D;}
+#share-buttons > div.instagram:hover > svg {fill: #C73B92;}
+#share-buttons > div.facebook > svg {height: 18px; margin-top: 9px;}
+#share-buttons > div.twitter > svg {height: 20px; margin-top: 8px;}
+#share-buttons > div.linkedin > svg {height: 19px; margin-top: 7px;}
+#share-buttons > div.pinterest > svg {height: 20px; margin-top: 9px;}
+#share-buttons > div.gplus > svg {height: 17px; margin-top: 9px; position: relative; left: 1px;}
+#share-buttons > div.mail > svg {height: 14px; margin-top: 11px;}
+</style>
+
+<span style="color: silver;">Share on: </span><div id="share-buttons">
+<div class="facebook" title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https:\/\/z-r0crypt.github.io\/blog\/2023\/04\/27\/htb-machines-for-osep-preparation\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/></svg></div>
+<div class="twitter" title="Share this on Twitter" onclick="window.open('http://twitter.com/home?status=https:\/\/z-r0crypt.github.io\/blog\/2023\/04\/27\/htb-machines-for-osep-preparation\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
+<div class="linkedin" title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https:\/\/z-r0crypt.github.io\/blog\/2023\/04\/27\/htb-machines-for-osep-preparation\/&title=&summary=&source=');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/></svg></div>
+
+<div class="gplus" title="Share this on Google Plus" onclick="window.open('https://plus.google.com/share?url=https:\/\/z-r0crypt.github.io\/blog\/2023\/04\/27\/htb-machines-for-osep-preparation\/');"><svg viewBox="0 0 2304 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1437 913q0 208-87 370.5t-248 254-369 91.5q-149 0-285-58t-234-156-156-234-58-285 58-285 156-234 234-156 285-58q286 0 491 192l-199 191q-117-113-292-113-123 0-227.5 62t-165.5 168.5-61 232.5 61 232.5 165.5 168.5 227.5 62q83 0 152.5-23t114.5-57.5 78.5-78.5 49-83 21.5-74h-416v-252h692q12 63 12 122zm867-122v210h-209v209h-210v-209h-209v-210h209v-209h210v209h209z"/></svg></div>
+<div class="mail" title="Share this through Email" onclick="window.open('mailto:?&body=https:\/\/z-r0crypt.github.io\/blog\/2023\/04\/27\/htb-machines-for-osep-preparation\/');"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/></svg></div>
+</div>
+
+
+    <blockquote>
+<p>In-Progress</p>
+</blockquote>
+
+<p>List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security.</p>
+
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 1%;
+}
+table th:nth-of-type(3) {
+    width: 12%;
+}
+table th:nth-of-type(4) {
+    width: 70%;
+}
+</style>
+
+<p><b><details><summary>3. Client Side Code Execution With Office </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="left">Walkthrough Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Phishing with Microsoft Office: RTF Document</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/reel">REEL</a></td>
+<td align="center">malicious RTF Document (CVE-2017-0199)</td>
+<td align="left">Video : <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794</a> <br> Tool: <a href="https://github.com/bhdresh/CVE-2017-0199">https://github.com/bhdresh/CVE-2017-0199</a></td>
+</tr>
+
+<tr>
+<td align="center">Phishing with Microsoft Office: LibreOffice</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/re">RE</a></td>
+<td align="center">LibreOffice Macro</td>
+<td align="left">Video : <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794</a> <br> Tool: &lt;&gt;</td>
+</tr>
+
+<tr>
+<td align="center">Phishing/Macro</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/reel2">REEL2</a></td>
+<td align="center">Grab NTLMv2 with Malicious link</td>
+<td align="left">Video : <a href="https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=2350">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=2350</a> <br> Tool: &lt;&gt;</td>
+</tr>
+
+<tr>
+<td align="center">Phishing with Microsoft Office: LibreOffice</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/rabbit">RABBIT</a></td>
+<td align="center">LibreOffice Macro</td>
+<td align="left">Video : <a href="https://youtube.com/watch?v=5nnJq_IWJog&amp;t=1935">https://youtube.com/watch?v=5nnJq_IWJog&amp;t=1935</a> <br> Tool: &lt;&gt;</td>
+</tr>
+</tbody>
+</table>
+
+<p>=&gt; <strong>Non-HTB VIDEOS</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">Video By</th>
+<th align="center">Attack Used in Video</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Phishing with Microsoft Office</td>
+<td align="center">S3cur3Th1sSh1t</td>
+<td align="center">macro,amsi bypassm gadget2JS, persistence, ETW &hellip;etc.</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=KeSRGjnTdSc">https://www.youtube.com/watch?v=KeSRGjnTdSc</a></td>
+</tr>
+
+<tr>
+<td align="center">PowerShell Shellcode Runner</td>
+<td align="center">DWResearch</td>
+<td align="center">Weaponising Word With Powershell</td>
+<td align="center">Post: <a href="https://www.dwresearch.online/post/weaponising-word-with-powershell">https://www.dwresearch.online/post/weaponising-word-with-powershell</a></td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>4. Client Side Code Execution With Windows Script Host </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p>=&gt; <strong>Non-HTB VIDEOS</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">Video By</th>
+<th align="center">Attack Used in Video</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Shellcode Runner in C#</td>
+<td align="center">Reversing Hub</td>
+<td align="center">Process hallowing with shellcode in C#</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=AL5SgHidfmQ">https://www.youtube.com/watch?v=AL5SgHidfmQ</a></td>
+</tr>
+
+<tr>
+<td align="center">DotnetToJscript</td>
+<td align="center">ired.team</td>
+<td align="center">Executing C# Assemblies from Jscript</td>
+<td align="center">Post: <a href="https://www.ired.team/offensive-security/defense-evasion/executing-csharp-assemblies-from-jscript-and-wscript-with-dotnettojscript">Executing C# Assemblies from Jscript</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>5. Process Injection and Migration </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>6. Introduction to Antivirus Evasion </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Obfuscating Macro</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/re">RE</a></td>
+<td align="center"></td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=YXAakamjO_I&amp;t=1005">https://youtube.com/watch?v=YXAakamjO_I&amp;t=1005</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>7. Advanced Antivirus Evasion </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Amsi Bypass</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/apt">APT</a></td>
+<td align="center"></td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=eRnqtXwCZVs&amp;t=4650">https://youtube.com/watch?v=eRnqtXwCZVs&amp;t=4650</a></td>
+</tr>
+
+<tr>
+<td align="center">Amsi Bypass</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/pivotapi">PivotAPI</a></td>
+<td align="center"></td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=6360">https://youtube.com/watch?v=eRnqtXwCZVs&amp;t=4650</a></td>
+</tr>
+
+<tr>
+<td align="center">Amsi Bypass</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/multimaster">MULTIMASTER</a></td>
+<td align="center"></td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=iwR746pfTEc&amp;t=6814">https://youtube.com/watch?v=iwR746pfTEc&amp;t=6814</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>8. Application Whitelisting </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Applocker Bypass</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/reel2">REEL2</a></td>
+<td align="center">Breaking out of ConstrainedLanguage Mode by creating a function</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=3600">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=3600</a></td>
+</tr>
+
+<tr>
+<td align="center">Applocker Bypass</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/giddy">GIDDY</a></td>
+<td align="center">Escaping powershell constrained mode with PSBypassCLM</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=J2unwbMQvUo&amp;t=2750">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=360</a>0</td>
+</tr>
+
+<tr>
+<td align="center">Applocker Bypass</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/sekhmet">SEKHMET</a></td>
+<td align="center">intended way of bypassing applocker</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=vsgPsMZx59w&amp;t=6300">https://youtube.com/watch?v=vsgPsMZx59w&amp;t=6300</a></td>
+</tr>
+
+<tr>
+<td align="center">Applocker Bypass</td>
+<td align="center">-</td>
+<td align="center">AppLocker Bypass COR Profiler</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=T91iXd_VPVI&amp;t=1650">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=3600</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>9. Bypassing Network Filters </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">DNS Filters</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Web Proxies</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">HTTPS Inspection</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Domain Fronting</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">DNS Tunneling</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>10. Linux Post-Exploitation </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">User Configuration Files: bashrc</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/awkward">AWKWARD</a></td>
+<td align="center">discovering a unique file in a users .bashrc</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=gmaizI5Xcqs&amp;t=2520">https://youtube.com/watch?v=gmaizI5Xcqs&amp;t=2520</a></td>
+</tr>
+
+<tr>
+<td align="center">User Configuration Files: Vim</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/swagshop">SWAGSHOP</a></td>
+<td align="center">privesc with vim with sudo</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=qECG2_8xw_s&amp;t=2130">https://youtube.com/watch?v=qECG2_8xw_s&amp;t=2130</a></td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"><a href="https://www.hackthebox.com/machines/attended">ATTENDED</a></td>
+<td align="center">exploiting VIM RCE and using ping</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=ABVR8EgXsQU&amp;t=743">https://youtube.com/watch?v=ABVR8EgXsQU&amp;t=743</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>=&gt; <strong>Non-HTB VIDEOS</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">Video By</th>
+<th align="center">Attack Used in Video</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Shared Libraries</td>
+<td align="center">The Cyber Mentor</td>
+<td align="center">Escalation Via LD_PRELOAD</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=ZTnwg3qCdVM&amp;t=6581s">https://www.youtube.com/watch?v=ZTnwg3qCdVM&amp;t=6581s</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>11. Kiosk Breakouts </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p>=&gt; <strong>Non-HTB VIDEOS</strong></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">Video By</th>
+<th align="center">Attack Used in Video</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Kiosk Breakout</td>
+<td align="center">John Hammond</td>
+<td align="center">Kiosk BUILD - &ldquo;Easy Mode&rdquo; / FrontFace Lockdown</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=blNSJxk9PtE">https://www.youtube.com/watch?v=blNSJxk9PtE</a></td>
+</tr>
+
+<tr>
+<td align="center">Kiosk Breakout</td>
+<td align="center">John Hammond</td>
+<td align="center">Kiosk BREAKOUT - Web Browser to Command Prompt (Easy Mode)</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=R7srpHUshuI">https://www.youtube.com/watch?v=R7srpHUshuI</a></td>
+</tr>
+
+<tr>
+<td align="center">Kiosk Breakout</td>
+<td align="center">John Hammond</td>
+<td align="center">Assigned Access Kiosk - BREAKOUT (Hard Mode)</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=aBMvFmoMFMI">https://www.youtube.com/watch?v=aBMvFmoMFMI</a></td>
+</tr>
+
+<tr>
+<td align="center">Kiosk Breakout</td>
+<td align="center">John Hammond</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>12. Windows Credentials </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Local Windows Credentials: LSASS Dump</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/atom">ATOM</a></td>
+<td align="center">Using rundll32 to create a memory dump of LSASS</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=1OC2eRVX0ic&amp;t=1830">https://youtube.com/watch?v=1OC2eRVX0ic&amp;t=1830</a></td>
+</tr>
+
+<tr>
+<td align="center">Local Windows Credentials: LSASS Dump</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/blackfield">BLACKFIELD</a></td>
+<td align="center">running pypykatz to extract credentials</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=IfCysW0Od8w&amp;t=2205">https://youtube.com/watch?v=1OC2eRVX0ic&amp;t=1830</a></td>
+</tr>
+
+<tr>
+<td align="center">Local Windows Credentials: SAM Dump</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/bastion">BASTION</a></td>
+<td align="center">Extracting local passwords from SAM and SYSTEM with secretsdump</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=2j3FNp5pjQ4&amp;t=660">https://youtube.com/watch?v=2j3FNp5pjQ4&amp;t=660</a></td>
+</tr>
+
+<tr>
+<td align="center">Local Windows Credentials: LAPS</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/streamio">STREAMIO</a></td>
+<td align="center">Identifying and Extracting the LAPS Password</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=qKcUKlwoGw8&amp;t=5300">https://youtube.com/watch?v=B9nozi1PrhY&amp;t=11697</a></td>
+</tr>
+
+<tr>
+<td align="center">Local Windows Credentials: LAPS</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/pivotapi">PivotAPI</a></td>
+<td align="center">Discovering a user who can add groups to LAPS</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=5990">https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=5990</a></td>
+</tr>
+
+<tr>
+<td align="center">Access Tokens: UAC</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/arkham">ARKHAM</a></td>
+<td align="center">UAC Bypass</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=krC5j1Ab44I&amp;t=3340">https://youtube.com/watch?v=krC5j1Ab44I&amp;t=3340</a></td>
+</tr>
+
+<tr>
+<td align="center">Access Tokens: SeImpersonate</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/scrambled">SCRAMBLED</a></td>
+<td align="center">Abusing SeImpersonate Privilege</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1800">https://youtube.com/watch?v=2j3FNp5pjQ4&amp;t=660</a></td>
+</tr>
+
+<tr>
+<td align="center">Access Tokens: Incognito</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/hackback">HACKBACK</a></td>
+<td align="center">Using incognito to grab our impersonation token for HACKER user</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=B9nozi1PrhY&amp;t=11697">https://youtube.com/watch?v=B9nozi1PrhY&amp;t=11697</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>13. Windows Lateral Movement </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Remote Desktop Protocol</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">Fileless lateral movement</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>14. Linux Lateral Movement </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">DevOps</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/seal">SEAL</a></td>
+<td align="center">Abusing ansible playbook</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=wCfztTcioU8&amp;t=1260s">https://www.youtube.com/watch?v=wCfztTcioU8&amp;t=1260s</a></td>
+</tr>
+
+<tr>
+<td align="center">DevOps</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/inject">INJECT</a></td>
+<td align="center">Ansible enumeration and privilege escalation</td>
+<td align="center">Video: <a href="https://www.youtube.com/watch?v=3VuIaUvHsTI&amp;t=1320s">https://www.youtube.com/watch?v=3VuIaUvHsTI&amp;t=1320s</a></td>
+</tr>
+
+<tr>
+<td align="center">Kerberos on Linux</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/tentacle">TENTACLE</a></td>
+<td align="center">Configuring our attacker&rsquo;s box kerberos to connect to Tentacle&rsquo;s KDC, and steal keytab</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=kKhuUXPmJ_o&amp;t=3870">https://youtube.com/watch?v=kKhuUXPmJ_o&amp;t=3870</a></td>
+</tr>
+
+<tr>
+<td align="center">Kerberos on Linux</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/cerberus">CERBERUS</a></td>
+<td align="center">examine the SSSD configuration and get a domain password</td>
+<td align="center">Video : <a href="https://www.youtube.com/watch?v=IX4h5aaSK1g&amp;t=2160s">https://www.youtube.com/watch?v=IX4h5aaSK1g&amp;t=2160s</a></td>
+</tr>
+
+<tr>
+<td align="center">Kerberos on Linux</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/sekhmet">SEKHMET</a></td>
+<td align="center">Dumping the sssd.ldb,    Using kinit to get a kerberos ticket</td>
+<td align="center">Video : <a href="https://youtube.com/watch?v=vsgPsMZx59w&amp;t=2400">https://youtube.com/watch?v=kKhuUXPmJ_o&amp;t=3870</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>15. Microsoft SQL Server </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">MS SQL in AD</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/escape">ESCAPE</a></td>
+<td align="center">Using mssqlclient to login to access MSSQL</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=PS2duvVcjws&amp;t=390">https://youtube.com/watch?v=PS2duvVcjws&amp;t=390</a></td>
+</tr>
+
+<tr>
+<td align="center">MS SQL Escalation</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/scrambled">SCRAMBLED</a></td>
+<td align="center">enabling xp_cmdshell and getting a reverse shell</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1000">https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1000</a></td>
+</tr>
+
+<tr>
+<td align="center">MS SQL Escalation</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/streamio">STREAMIO</a></td>
+<td align="center">Using xp_dirtree to make the MSSQL database connect back to us and steal the hash</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=qKcUKlwoGw8&amp;t=1335">https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1000</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<p><b><details><summary>16. Active Directory Exploitation </summary></b></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Attack Type</th>
+<th align="center">HTB Machine</th>
+<th align="center">Attack Used in HTB</th>
+<th align="center">Link</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">AD Object permission theory</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/reel">REEL</a></td>
+<td align="center">Explaining Active Directory (AD) Security Objects (GenericWrite, WriteOwner,etc)</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3205">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3205</a></td>
+</tr>
+
+<tr>
+<td align="center">Abusing GenericAll</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/support">SUPPORT</a></td>
+<td align="center">Abusing GenericAll object permission</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970">https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970</a></td>
+</tr>
+
+<tr>
+<td align="center">Abusing GenericAll, WriteDACL</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/multimaster">MULTIMASTER</a></td>
+<td align="center">Abusing GenericAll, WriteDACL</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=iwR746pfTEc&amp;t=7410">https://youtube.com/watch?v=iwR746pfTEc&amp;t=7410</a></td>
+</tr>
+
+<tr>
+<td align="center">Abusing GenericWrite, WriteDACL</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/reel">REEL</a></td>
+<td align="center">Taking ownership and changing other user&rsquo;s password</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3503">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3503</a></td>
+</tr>
+
+<tr>
+<td align="center">Kerberos Delegation</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/pivotapi">PivotAPI</a></td>
+<td align="center">Unconstrained delegation with the SQL User. Upload rubeus, use tgtdeleg</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=7215">https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=7215</a></td>
+</tr>
+
+<tr>
+<td align="center">Kerberos Delegation</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/intelligence">INTELLIGENCE</a></td>
+<td align="center">Unconstrained delegation</td>
+<td align="center">Video: <a href="https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/">https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/</a></td>
+</tr>
+
+<tr>
+<td align="center">Kerberos Delegation</td>
+<td align="center"><a href="https://www.hackthebox.com/machines/support">SUPPORT</a></td>
+<td align="center">RBCD</td>
+<td align="center">Video: <a href="https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970">https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970</a> <br> Post: <a href="https://pencer.io/ctf/ctf-htb-support/#rbcd">https://pencer.io/ctf/ctf-htb-support/#rbcd</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></details></p>
+
+<!--
+
+| OSEP Module # | Module Name | Attack Type | HTB Machine | Attack Used in HTB | Link |
+|:---:|:---|:---:|:---:|:---:|:---:|
+| 3 | **Client Side Code Execution With Office**  | | | |
+|  |  | Phishing/Macro | [REEL](https://www.hackthebox.com/machines/reel) | malicious RTF Document (CVE-2017-0199) | Video : https://youtube.com/watch?v=ob9SgtFm6_g&t=794 <br> Tool: https://github.com/bhdresh/CVE-2017-0199 |
+|  |  | Phishing/Macro | RE | LibreOffice Macro | Video : https://youtube.com/watch?v=ob9SgtFm6_g&t=794 <br> Tool: <> |
+|  |  | Phishing/Macro | [REEL2](https://www.hackthebox.com/machines/reel2) | Grab NTLMv2 with Malicious link | Video : https://youtube.com/watch?v=Ro2vXt_WFDQ&t=2350 <br> Tool: <> |
+|  |  | Phishing/Macro | RABBIT | LibreOffice Macro | Video : https://youtube.com/watch?v=5nnJq_IWJog&t=1935 <br> Tool: <> |
+| 4 | **Client Side Code Execution With Windows Script Host** | | | |
+| 5 | **Process Injection and Migration** | | |  |
+| 6 | **Introduction to Antivirus Evasion**  | | | |
+|   | | Obfuscating Macro | RE | | Video : https://youtube.com/watch?v=YXAakamjO_I&t=1005 | 
+| 7 | **Advanced Antivirus Evasion** | | | |
+|   | | Amsi Bypass | APT | | Video : https://youtube.com/watch?v=eRnqtXwCZVs&t=4650 |
+|   |  | Amsi Bypass | PivotAPI | | Video : [https://youtube.com/watch?v=eRnqtXwCZVs&t=4650](https://youtube.com/watch?v=FbTxPz_GA4o&t=6360) |
+|   |  | Amsi Bypass | MULTIMASTER | | | Video : https://youtube.com/watch?v=iwR746pfTEc&t=6814 |
+| 8 | **Application Whitelisting** | | | |
+|  |  | Applocker Bypass | [REEL2](https://www.hackthebox.com/machines/reel2) | Breaking out of ConstrainedLanguage Mode by creating a function | Video : https://youtube.com/watch?v=Ro2vXt_WFDQ&t=3600 |
+|  |  | Applocker Bypass | GIDDY | Escaping powershell constrained mode with PSBypassCLM | Video : [https://youtube.com/watch?v=Ro2vXt_WFDQ&t=360](https://youtube.com/watch?v=J2unwbMQvUo&t=2750)0 |
+|  |  | Applocker Bypass | SEKHMET |  intended way of bypassing applocker  | Video : https://youtube.com/watch?v=vsgPsMZx59w&t=6300 |
+|  |  | Applocker Bypass | - | AppLocker Bypass COR Profiler | Video : [https://youtube.com/watch?v=Ro2vXt_WFDQ&t=3600](https://youtube.com/watch?v=T91iXd_VPVI&t=1650) |
+| 9 | **Bypassing Network Filters** | | | |
+| 10 | **Linux Post-Exploitation** | | | |
+| 11 | **Kiosk Breakouts** | | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+| 12 | **Windows Credentials**  | | | |
+|  |  | LSASS Dump | ATOM | Using rundll32 to create a memory dump of LSASS | Video : https://youtube.com/watch?v=1OC2eRVX0ic&t=1830 |
+|  |  | LSASS Dump | BLACKFIELD | running pypykatz to extract credentials | Video : [https://youtube.com/watch?v=1OC2eRVX0ic&t=1830](https://youtube.com/watch?v=IfCysW0Od8w&t=2205) |
+|  |  | SAM Dump | BASTION | Extracting local passwords from SAM and SYSTEM with secretsdump | Video : https://youtube.com/watch?v=2j3FNp5pjQ4&t=660 |
+|  |  | SeImpersonate | SCRAMBLED | Abusing SeImpersonate Privilege | Video : [https://youtube.com/watch?v=2j3FNp5pjQ4&t=660](https://youtube.com/watch?v=_8FE3JZIPfo&t=1800) |
+|  |  | Incognito | HACKBACK | Using incognito to grab our impersonation token for HACKER user | Video : https://youtube.com/watch?v=B9nozi1PrhY&t=11697 |
+|  |  | LAPS | STREAMIO | Identifying and Extracting the LAPS Password | Video : [https://youtube.com/watch?v=B9nozi1PrhY&t=11697](https://youtube.com/watch?v=qKcUKlwoGw8&t=5300) |
+|  |  | LAPS | PivotAPI | Discovering a user who can add groups to LAPS | Video : https://youtube.com/watch?v=FbTxPz_GA4o&t=5990 |
+| 13 | **Windows Lateral Movement** | | | |
+| 14 | **Linux Lateral Movement** | | | |
+|  |  | DevOps | SEAL | Abusing ansible playbook | Video: https://www.youtube.com/watch?v=wCfztTcioU8&t=1260s |
+|  |  | DevOps | INJECT | Ansible enumeration and privilege escalation | Video: https://www.youtube.com/watch?v=3VuIaUvHsTI&t=1320s |
+|  |  | Kerberos on Linux | TENTACLE | Configuring our attacker's box kerberos to connect to Tentacle's KDC, and steal keytab | Video : https://youtube.com/watch?v=kKhuUXPmJ_o&t=3870 |
+|  |  | Kerberos on Linux | CERBERUS | examine the SSSD configuration and get a domain password | Video : https://www.youtube.com/watch?v=IX4h5aaSK1g&t=2160s |
+|  |  | Kerberos on Linux | SEKHMET | Dumping the sssd.ldb,     Using kinit to get a kerberos ticket | Video : [https://youtube.com/watch?v=kKhuUXPmJ_o&t=3870](https://youtube.com/watch?v=vsgPsMZx59w&t=2400) |
+| 15 | **Microsoft SQL Attacks** | | | |
+| | | MS SQL in AD | ESCAPE | Using mssqlclient to login to access MSSQL | Video: https://youtube.com/watch?v=PS2duvVcjws&t=390|
+| | | MS SQL Escalation | SCRAMBLED | enabling xp_cmdshell and getting a reverse shell | Video: https://youtube.com/watch?v=_8FE3JZIPfo&t=1000 |
+| | | MS SQL Escalation | STREAMIO | Using xp_dirtree to make the MSSQL database connect back to us and steal the hash | Video: [https://youtube.com/watch?v=_8FE3JZIPfo&t=1000](https://youtube.com/watch?v=qKcUKlwoGw8&t=1335) |
+| 16 | **Active Directory Exploitation** | | | |
+| | | AD Object permission theory | REEL | explaining Active Directory (AD) Security Objects (GenericWrite, WriteOwner,etc) | Video: https://youtube.com/watch?v=ob9SgtFm6_g&t=3205 |
+| | | Abusing GenericAll | SUPPORT | Abusing GenericAll object permission | Video: https://youtube.com/watch?v=iIveZ-raTTQ&t=970 |
+| | | Abusing GenericAll, WriteDACL | MULTIMASTER | Abusing GenericAll, WriteDACL | Video: https://youtube.com/watch?v=iwR746pfTEc&t=7410 |
+| | | Abusing GenericWrite, WriteDACL | REEL | Taking ownership and changing other user's password | Video: https://youtube.com/watch?v=ob9SgtFm6_g&t=3503|
+| | | Kerberos Delegation | PivotAPI | Unconstrained delegation with the SQL User. Upload rubeus, use tgtdeleg | Video: https://youtube.com/watch?v=FbTxPz_GA4o&t=7215 |
+| | | Kerberos Delegation | INTELLIGENCE | Unconstrained delegation | Video: https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/ |
+| | | Kerberos Delegation | SUPPORT | RBCD | Video: https://youtube.com/watch?v=iIveZ-raTTQ&t=970 <br> Post: https://pencer.io/ctf/ctf-htb-support/#rbcd |
+| | | | | | |
+| | | | | | |
+
+
+
+
+-->
+
+    
+
+<style>
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+
+.resp-sharing-button--whatsapp:hover,
+.resp-sharing-button--whatsapp:active {
+  background-color: #1DA851;
+  border-color: #1DA851;
+}
+
+.resp-sharing-button--hackernews {
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.resp-sharing-button--hackernews:hover
+.resp-sharing-button--hackernews:active {
+  background-color: #FB6200;
+  border-color: #FB6200;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;}
+
+</style>
+
+<div>
+<h4 style="color: maroon;">Share this post on: </h4><div id="share-buttons"></span>
+
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=HTB%20Machines%20for%20OSEP%20Preparation&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f&amp;title=HTB%20Machines%20for%20OSEP%20Preparation&amp;summary=HTB%20Machines%20for%20OSEP%20Preparation&amp;source=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f&amp;resubmit=true&amp;title=HTB%20Machines%20for%20OSEP%20Preparation" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=HTB%20Machines%20for%20OSEP%20Preparation%20https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f&amp;t=HTB%20Machines%20for%20OSEP%20Preparation" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=HTB%20Machines%20for%20OSEP%20Preparation&amp;url=https%3a%2f%2fz-r0crypt.github.io%2fblog%2f2023%2f04%2f27%2fhtb-machines-for-osep-preparation%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z"/></svg>
+    </div>
+  </div>
+</a>
+</div>
+
+    <br />
+    
+  
+
+<br />
+
+  <aside>
+    <h3>Related Content</h3>
+    <ul>
+      
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2023/08/20/tool-sssd-extract/">Tool: SSSD Extract</a></li>
+      
+        <li><a href="https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/">OSWE/AWAE Preparation</a></li>
+      
+    </ul>
+  </aside>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+     crossorigin="anonymous"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="8136937986"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</script>
+
+ </div>
+  
+</div>
+
+
+
+
+<script src="https://z-r0crypt.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<div>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3835157681642549"
+     data-ad-slot="6558943067"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</body>
+</html>
+
