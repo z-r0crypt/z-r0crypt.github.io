@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head>
+	<meta name="generator" content="Hugo 0.161.1"><head>
+  
+  
+  
+
+
+
+
+  
+</head>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://z-r0crypt.github.io/" accesskey="h" title="z-r0crypt (Alt + H)">z-r0crypt</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://z-r0crypt.github.io/posts" title="research">
+                    <span>research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/tools" title="exploits &amp; tools">
+                    <span>exploits &amp; tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/ai-ml-security" title="ai/ml security">
+                    <span>ai/ml security</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/leadership/" title="leadership">
+                    <span>leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<style>
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --border: #30363d;
+  --border2: #3d444d;
+  --txt: #e6edf3;
+  --txt2: #8b949e;
+  --txt3: #6e7681;
+  --blue: #58a6ff;
+  --green: #3fb950;
+  --red: #f85149;
+  --amber: #e3b341;
+  --purple: #bc8cff;
+  --teal: #39d353;
+}
+
+html {
+  background-color: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--txt);
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+ 
+.hero-section {
+  padding: 40px 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-eyebrow {
+  font-family: 'Monaco', 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--purple);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--purple);
+}
+
+.hero-section h1 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--txt);
+  margin-bottom: 16px;
+}
+
+.hero-section h1 .accent-blue {
+  color: var(--blue);
+}
+
+.hero-section h1 .accent-purple {
+  color: var(--purple);
+}
+
+.hero-desc {
+  font-size: 13px;
+  color: var(--txt2);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  max-width: 700px;
+}
+
+.credentials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.credentials-icon {
+  font-size: 20px;
+}
+
+.credentials-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.credentials-name {
+  font-family: 'Monaco', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--txt);
+}
+
+.credentials-desc {
+  font-size: 10px;
+  color: var(--txt2);
+  margin-top: 2px;
+}
+
+ 
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-family: 'Monaco', monospace;
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tag:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.tag.red {
+  color: var(--red);
+  border-color: #f8514930;
+  background: #180b0a20;
+}
+
+.tag.blue {
+  color: var(--blue);
+  border-color: #58a6ff30;
+  background: #0a101e20;
+}
+
+.tag.purple {
+  color: var(--purple);
+  border-color: #bc8cff30;
+  background: #10091820;
+}
+
+.tag.green {
+  color: var(--green);
+  border-color: #3fb95030;
+  background: #09150920;
+}
+
+.tag.amber {
+  color: var(--amber);
+  border-color: #e3b34130;
+  background: #18120020;
+}
+
+.tag.grey {
+  color: var(--txt2);
+  border-color: var(--border);
+  background: var(--bg2);
+}
+
+.btn-primary {
+  background: var(--bg2);
+  color: #0d1117;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  transition: all 0.15s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--txt2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+  transition: all 0.15s;
+}
+
+.btn-secondary:hover {
+  color: var(--txt);
+  border-color: var(--border2);
+}
+
+ 
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.stat-item {
+  padding: 16px 20px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+  background: var(--bg);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: 'Monaco', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--txt);
+}
+
+.stat-number.purple {
+  color: var(--purple);
+}
+
+.stat-label {
+  font-family: 'Monaco', monospace;
+  font-size: 9px;
+  color: var(--txt3);
+  margin-top: 6px;
+}
+
+ 
+.featured-section {
+  margin: 32px 0 24px;
+}
+
+.section-title {
+  font-family: 'Monaco', monospace;
+  font-size: 10px;
+  color: var(--txt3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.featured-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.featured-image {
+  background: var(--bg3);
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 80px;
+  position: relative;
+  font-size: 12px;
+  color: var(--txt2);
+  font-family: 'Monaco', monospace;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: 'Monaco', monospace;
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #10091820;
+  color: var(--purple);
+  border: 1px solid #bc8cff30;
+}
+
+.diagram-node {
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-family: 'Monaco', monospace;
+  font-size: 9px;
+  color: var(--txt2);
+  flex-shrink: 0;
+}
+
+.diagram-node.highlight {
+  border-color: #bc8cff50;
+  color: var(--purple);
+}
+
+.diagram-node.attack {
+  border-color: #f8514950;
+  color: var(--red);
+}
+
+.diagram-arrow {
+  font-size: 11px;
+  color: var(--border2);
+}
+
+.featured-body {
+  padding: 14px;
+}
+
+.featured-kicker {
+  font-family: 'Monaco', monospace;
+  font-size: 9px;
+  color: var(--txt3);
+  margin-bottom: 6px;
+}
+
+.featured-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--txt);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+}
+
+.featured-tag {
+  background: #10091820;
+  color: var(--purple);
+  border: 1px solid #bc8cff30;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', monospace;
+}
+
+.featured-time {
+  color: var(--txt3);
+  font-family: 'Monaco', monospace;
+}
+
+.featured-link {
+  margin-left: auto;
+  color: var(--blue);
+  cursor: pointer;
+  font-family: 'Monaco', monospace;
+  font-weight: 500;
+}
+
+.featured-link:hover {
+  text-decoration: underline;
+}
+
+ 
+.posts-grid {
+  margin-top: 20px;
+}
+
+.post-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.15s;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-item:hover {
+  background: var(--bg2);
+  padding: 16px 16px;
+  margin: 0 -16px;
+  border-radius: 6px;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.post-date {
+  font-family: 'Monaco', monospace;
+  font-size: 9px;
+  color: var(--txt3);
+}
+
+.post-category {
+  font-family: 'Monaco', monospace;
+  font-size: 8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid;
+  display: inline-block;
+}
+
+.post-category.research {
+  color: var(--purple);
+  border-color: #bc8cff30;
+  background: #10091820;
+}
+
+.post-category.red-team {
+  color: var(--red);
+  border-color: #f8514930;
+  background: #180b0a20;
+}
+
+.post-category.web {
+  color: var(--blue);
+  border-color: #58a6ff30;
+  background: #0a101e20;
+}
+
+.post-category.exploit {
+  color: var(--blue);
+  border-color: #58a6ff30;
+  background: #0a101e20;
+}
+
+.post-category.tool {
+  color: var(--green);
+  border-color: #3fb95030;
+  background: #09150920;
+}
+
+.post-category.crypto {
+  color: var(--amber);
+  border-color: #e3b34130;
+  background: #18120020;
+}
+
+.post-category.ctf {
+  color: var(--green);
+  border-color: #3fb95030;
+  background: #09150920;
+}
+
+.post-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--txt);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.post-title a {
+  color: var(--txt);
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: var(--blue);
+}
+
+.post-excerpt {
+  font-size: 12px;
+  color: var(--txt2);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.post-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+}
+
+.post-link {
+  color: var(--blue);
+  font-family: 'Monaco', monospace;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+}
+
+.post-readtime {
+  color: var(--txt3);
+  font-family: 'Monaco', monospace;
+}
+
+ 
+.footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--txt3);
+  text-align: center;
+}
+
+ 
+@media (max-width: 768px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-section h1 {
+    font-size: 22px;
+  }
+  
+  .featured-image {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .post-item:hover {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .tag {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+  
+  .featured-image {
+    padding: 10px;
+    font-size: 10px;
+  }
+
+
+}
+
+
+</style>
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <div class="hero-section">
+      <p class="hero-eyebrow">research & adversarial engineering</p>
+      <h1>
+        <span class="accent-purple">Red Teaming in the Age of AI.</span><br>
+        Building secure systems through <span class="accent-blue">principled attacks.</span>
+      </h1>
+      <p class="hero-desc">
+        14+ years in offensive security, penetration testing, and exploit development. 
+        Red teaming, OSCP/OSWE/OSEP certified. Expanding knowledge into AI/ML security and emerging attack vectors.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag red">red teaming</span>
+        <span class="tag red">post-exploitation</span>
+        <span class="tag blue">web exploitation</span>
+        <span class="tag amber">cryptography</span>
+        <span class="tag purple">ai/ml security</span>
+        <span class="tag grey">bug bounty</span>
+      </div>
+
+      <div>
+        <a href="#posts" class="btn-primary">latest research →</a>
+        <a href="/about/" class="btn-secondary">about my work</a>
+      </div>
+    </div>
+
+    
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number purple">14+</div>
+        <div class="stat-label">years offsec</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">OSCP</div>
+        <div class="stat-label">certified</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">OSWE</div>
+        <div class="stat-label">certified</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number purple">9</div>
+        <div class="stat-label">documented posts</div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section class="credentials-section">
+  <h3>Certifications & Credentials</h3>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <img src="/images/cert/oscp.png" alt="OSCP" width="150" height="150">
+      <span>OSCP</span>
+      <small>Offensive Security Certified Professional</small>
+      <small>2022</small>
+    </div>
+    <div class="stat-item">
+      <img src="/images/cert/oswe.png" alt="OSWE" width="150" height="150">
+      <span>OSWE</span>
+      <small>Offensive Security Web Expert</small>
+      <small>2023</small>
+    </div>
+    <div class="stat-item">
+      <img src="/images/cert/osep.png" alt="OSEP" width="150" height="150">
+      <span>OSEP</span>
+      <small>Offensive Security Experienced Pentester</small>
+      <small>2024</small>
+    </div>
+    <div class="stat-item">
+      <img src="/images/cert/osce.png" alt="OSEP" width="150" height="150">
+      <span>OSEP</span>
+      <small>Offensive Security Certified Expert</small>
+      <small>2024</small>
+    </div>
+  </div>
+    </section>
+
+
+    
+  
+  <section class="featured-section" id="posts">
+    <div class="section-title">Latest Posts</div>
+    
+    
+    
+      
+        <div class="featured-card">
+          <div class="featured-image">
+            <span class="featured-badge">featured</span>
+            <div style="margin-top: 8px;">
+              <span class="diagram-node">exploration</span>
+              <span class="diagram-arrow">→</span>
+              <span class="diagram-node highlight">research</span>
+              <span class="diagram-arrow">→</span>
+              <span class="diagram-node attack">documentation</span>
+            </div>
+          </div>
+          <div class="featured-body">
+            <div class="featured-kicker">// researchai-ml</div>
+            <div class="featured-title">Data Exfiltration via RAG Manipulation in Enterprise Azure Environments</div>
+            <p style="font-size: 11px; color: var(--txt2); margin: 8px 0; line-height: 1.6;">Demonstrates practical attacks on production RAG systems using prompt injection and context pollution. Includes working exploit code against Azure OpenAI deployments and mitigation strategies for defenders.</p>
+            <div class="featured-meta">
+              <span class="featured-tag">featured</span>
+              <span class="featured-time">1 min read</span>
+              <span class="featured-link">read →</span>
+            </div>
+          </div>
+        </div>
+      
+    
+  </section>
+
+  
+  <section>
+    <div class="section-title">Recent Posts</div>
+    <div class="posts-grid">
+      
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Jan 2025</span>
+            
+              <span class="post-category research">research</span>
+            
+              <span class="post-category ai-ml">ai-ml</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2025-01-15-rag-exploitation-azure/">Data Exfiltration via RAG Manipulation in Enterprise Azure Environments</a>
+          </h3>
+          <p class="post-excerpt">Demonstrates practical attacks on production RAG systems using prompt injection and context pollution. Includes working exploit code against Azure OpenAI deployments and mitigation strategies for defenders.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2025-01-15-rag-exploitation-azure/" class="post-link">read research →</a>
+            <span class="post-readtime">1 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Aug 2023</span>
+            
+              <span class="post-category research">research</span>
+            
+              <span class="post-category tools">tools</span>
+            
+              <span class="post-category red-team">red-team</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/">SSSD-Extract: Dumping Active Directory Hashes from Linux Systems</a>
+          </h3>
+          <p class="post-excerpt">SSSD-Extract tool: dump AD account hashes, group memberships, and user accounts from Linux systems with SSSD credential caching enabled.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/" class="post-link">read research →</a>
+            <span class="post-readtime">1 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Apr 2023</span>
+            
+              <span class="post-category research">research</span>
+            
+              <span class="post-category red-team">red-team</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/">HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping</a>
+          </h3>
+          <p class="post-excerpt">Complete HTB machine list for OSEP prep: client-side code execution, process injection, AV/AppLocker bypass, AD lateral movement, credential dumping.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/" class="post-link">read research →</a>
+            <span class="post-readtime">4 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Jan 2021</span>
+            
+              <span class="post-category web">Web</span>
+            
+              <span class="post-category exploit development">Exploit Development</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/">Dangerous PHP Functions: Code Execution and Exploitation Reference</a>
+          </h3>
+          <p class="post-excerpt">PHP functions dangerous when exposed: command execution, code evaluation, callbacks, filesystem manipulation, and information disclosure vectors.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/" class="post-link">read research →</a>
+            <span class="post-readtime">4 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Feb 2020</span>
+            
+              <span class="post-category research">research</span>
+            
+              <span class="post-category cryptography">Cryptography</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/">Cryptography I: Advanced Block Cipher Modes and Padding</a>
+          </h3>
+          <p class="post-excerpt">Practical implementation of CBC and CTR modes: IV management, nonce-based encryption, padding schemes (TLS), and security bounds.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/" class="post-link">read research →</a>
+            <span class="post-readtime">7 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Feb 2020</span>
+            
+              <span class="post-category research">research</span>
+            
+              <span class="post-category cryptography">Cryptography</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2020-02-03-crypto-week2-part1/">Cryptography I: Block Ciphers and Modes of Operation</a>
+          </h3>
+          <p class="post-excerpt">Week 2-3: Block ciphers, PRP security, one-time key modes (ECB/DET-CTR), many-time key modes (CBC/CTR), IV/nonce-based encryption.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2020-02-03-crypto-week2-part1/" class="post-link">read research →</a>
+            <span class="post-readtime">12 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Jan 2020</span>
+            
+              <span class="post-category web">Web</span>
+            
+              <span class="post-category exploit development">Exploit Development</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/">OSWE/AWAE Preparation</a>
+          </h3>
+          <p class="post-excerpt">This post contains all trainings and tutorials that could be useful for offensive security&rsquo;s OSWE certification.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/" class="post-link">read research →</a>
+            <span class="post-readtime">4 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Nov 2019</span>
+            
+              <span class="post-category ctf">CTF</span>
+            
+              <span class="post-category reverse engineering">Reverse Engineering</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/">Microcorruption CTF Tutorial: Embedded Security Reverse Engineering</a>
+          </h3>
+          <p class="post-excerpt">Tutorial-level walkthrough of Microcorruption CTF on MSP430 microcontroller with debugger techniques and vulnerability identification.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/" class="post-link">read research →</a>
+            <span class="post-readtime">3 min</span>
+          </div>
+        </article>
+      
+        <article class="post-item">
+          <div class="post-meta">
+            <span class="post-date">Nov 2019</span>
+            
+              <span class="post-category research">research</span>
+            
+              <span class="post-category cryptography">Cryptography</span>
+            
+          </div>
+          <h3 class="post-title">
+            <a href="https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/">Cryptography I: Stream Ciphers, PRGs, and Semantic Security</a>
+          </h3>
+          <p class="post-excerpt">Week 1 foundations: stream ciphers, PRG security definitions, birthday paradox, attacks on OTP/RC4/CSS, and Salsa20 construction.</p>
+          <div class="post-footer">
+            <a href="https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/" class="post-link">read research →</a>
+            <span class="post-readtime">8 min</span>
+          </div>
+        </article>
+      
+    </div>
+  </section>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://z-r0crypt.github.io/">z-r0crypt</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

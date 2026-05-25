@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Llm-Security on z-r0crypt</title>
+    <link>https://z-r0crypt.github.io/tags/llm-security/</link>
+    <description>Recent content in Llm-Security on z-r0crypt</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://z-r0crypt.github.io/tags/llm-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Exfiltration via RAG Manipulation in Enterprise Azure Environments</title>
+      <link>https://z-r0crypt.github.io/posts/2025-01-15-rag-exploitation-azure/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2025-01-15-rag-exploitation-azure/</guid>
+      <description>Practical attacks on production RAG systems using prompt injection and context pollution against Azure OpenAI deployments.</description>
+    </item>
+  </channel>
+</rss>

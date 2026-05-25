@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ctf on z-r0crypt</title>
+    <link>https://z-r0crypt.github.io/tags/ctf/</link>
+    <description>Recent content in Ctf on z-r0crypt</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://z-r0crypt.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microcorruption CTF Tutorial: Embedded Security Reverse Engineering</title>
+      <link>https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/</guid>
+      <description>Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.</description>
+    </item>
+  </channel>
+</rss>

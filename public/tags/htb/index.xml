@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Htb on z-r0crypt</title>
+    <link>https://z-r0crypt.github.io/tags/htb/</link>
+    <description>Recent content in Htb on z-r0crypt</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://z-r0crypt.github.io/tags/htb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping</title>
+      <link>https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/</link>
+      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/</guid>
+      <description>Curated list of 40&#43; Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.</description>
+    </item>
+  </channel>
+</rss>

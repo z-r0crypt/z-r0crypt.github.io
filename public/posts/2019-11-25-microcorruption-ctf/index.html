@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><head>
+  
+  
+  
+
+
+
+
+  
+</head>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://z-r0crypt.github.io/" accesskey="h" title="z-r0crypt (Alt + H)">z-r0crypt</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://z-r0crypt.github.io/posts" title="research">
+                    <span>research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/tools" title="exploits &amp; tools">
+                    <span>exploits &amp; tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/ai-ml-security" title="ai/ml security">
+                    <span>ai/ml security</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/leadership/" title="leadership">
+                    <span>leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Microcorruption CTF Tutorial: Embedded Security Reverse Engineering
+    </h1>
+    <div class="post-description">
+      Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.
+    </div>
+    <div class="post-meta">
+
+<span title='2019-11-25 00:00:00 +0000 UTC'>November 25, 2019</span>&nbsp;·&nbsp;<span>z-r0crypt</span>&nbsp;|&nbsp;<span>
+        <a href="https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+    </span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p><strong>Prerequisites:</strong> Basic assembly knowledge, familiarity with debuggers | <strong>Difficulty:</strong> Beginner | <strong>Time:</strong> 3-4 hours per level</p>
+<hr>
+<h3 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h3>
+<p>In this post I will share my learnings and research work done during microcorruption CTF challenge.</p>
+<h4 id="what-is-microcorruption">What is Microcorruption?<a hidden class="anchor" aria-hidden="true" href="#what-is-microcorruption">#</a></h4>
+<p><img loading="lazy" src="/images/posts/micro-tut1.jpg"></p>
+<p>It&rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.</p>
+<p>You&rsquo;ll use the debugger to reverse-engineer the code for each level. You can provide the device with input, then step through the code watching what the device does what that input. You&rsquo;re looking for a specific input that unlocks the device. Maybe that input is the correct passcode. More likely, though, it&rsquo;s something else: an input that exploits a bug in the device&rsquo;s code.</p>
+<h3 id="pre-requisites">Pre-requisites<a hidden class="anchor" aria-hidden="true" href="#pre-requisites">#</a></h3>
+<ul>
+<li>little knowledge of assembly</li>
+<li>little knowledge of debuggers</li>
+<li>knowledge of memory corruption vulnerabilities</li>
+</ul>
+<p>To start with the CTF one is advised to go through the <a href="https://microcorruption.com/manual.pdf">lock manual</a> provided by the CTF team. The manual provides of useful information from attackers perspective as well. The first thing you will get to know about the product <code>LockIT Pro</code> is that it is built on MSP430 microcontroller.</p>
+<p>Lets dive into first level challenge. This level is more like a tutorial than a challenge and that is the reason it is called tutorial level.</p>
+<h3 id="level-0-cpuctf-debugger-tutorial">Level 0: CPUCTF Debugger Tutorial<a hidden class="anchor" aria-hidden="true" href="#level-0-cpuctf-debugger-tutorial">#</a></h3>
+<p>This level is pretty much a walkthrough of the online debugger, assembly and the approach which should be used for further challenges. The level itself is the walkthrough of the first challenge which is to unlock the lockitPro lock so there is no point in explaining the solution in this post. Most of your time is spent on this level getting to know the web based debugger as well as general tips and tricks for moving around.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">4484 &lt;check_password&gt;
+</span></span><span class="line"><span class="cl">4484:  6e4f           mov.b @r15, r14
+</span></span><span class="line"><span class="cl">4486:  1f53           inc   r15
+</span></span><span class="line"><span class="cl">4488:  1c53           inc   r12
+</span></span><span class="line"><span class="cl">448a:  0e93           tst   r14
+</span></span><span class="line"><span class="cl">448c:  fb23           jnz   #0x4484 &lt;check_password+0x0&gt;
+</span></span><span class="line"><span class="cl">448e:  3c90 0900      cmp   #0x9, r12   ; password length check
+</span></span><span class="line"><span class="cl">4492:  0224           jeq   #0x4498 &lt;check_password+0x14&gt;
+</span></span></code></pre></div><p>Once we hit the first instruction in <code>check_password</code> at <code>0x4484</code>, the first character of the password you entered is loaded into <code>r14</code> from the memory location pointed to in <code>r15</code>. In next instructions, registers <code>r12</code> and <code>r15</code> are incremented. This will continue to iterate until a null byte <code>\0</code> is reached, bypassing the jump at <code>0x448c</code>, making the <code>cmp</code> be the next instruction.</p>
+<p>If <code>r12</code> ends up being <code>0x09</code> (indicating that out passwords was 8 characters long followed by a null byte), then the jump at <code>0x4492</code> will occur, finally calling the interrupt to unlock the lock.</p>
+<p><img loading="lazy" src="/images/posts/micro-tut2.jpg"></p>
+<p>The <strong>solution</strong> of this level is to provide any 8 character input as password.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://z-r0crypt.github.io/tags/microcorruption/">Microcorruption</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/ctf/">Ctf</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/reverse-engineering/">Reverse-Engineering</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/assembly/">Assembly</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/exploit-development/">Exploit Development</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/msp430/">Msp430</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://z-r0crypt.github.io/">z-r0crypt</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
