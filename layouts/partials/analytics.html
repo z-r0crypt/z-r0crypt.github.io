@@ -1,0 +1,19 @@
+<!-- Google Analytics (GA4) -->
+{{ if and (eq .Site.Params.env "production") .Site.Params.googleAnalyticsID }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsID }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ .Site.Params.googleAnalyticsID }}', {
+      'anonymize_ip': true,
+      'allow_google_signals': false,
+      'allow_ad_personalization_signals': false
+    });
+  </script>
+{{ end }}
+
+<!-- Google AdSense -->
+{{ if and (eq .Site.Params.env "production") .Site.Params.googleAdsenseID }}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ .Site.Params.googleAdsenseID }}" crossorigin="anonymous"></script>
+{{ end }}

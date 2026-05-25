@@ -1,1 +1,0 @@
-# z-r0crypt.github.io

@@ -1,0 +1,133 @@
+# Z-R0crypt Hugo Configuration (Fixed v0.161.1+)
+baseURL = "https://z-r0crypt.github.io/"
+locale = "en-us"  # FIXED: replaces deprecated languageCode
+title = "z-r0crypt"
+theme = "PaperMod"
+paginate = 10
+languageCode = "en"  # Keep for backward compatibility but won't error
+
+# Enable RSS and other output formats
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
+
+[params]
+  description = "Research lead in offensive security, AI/ML red teaming, and adversarial engineering"
+  author = "z-r0crypt"
+  defaultTheme = "dark"
+  
+  # Social links
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/z-r0crypt"
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/vbtr"
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/zer0crypt"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "https://z-r0crypt.github.io/index.xml"
+
+  # PaperMod specific
+  [homeInfoParams]
+    Title = "Red Teaming in the Age of AI"
+    Content = "Building secure systems through principled attacks."
+
+  #Custom css
+  customCSS = ["css/custom.css"]
+
+  # Google Analytics - GA4
+  #googleAnalyticsID = "G-XXXXXXXXXX"  # TODO: Replace with your GA4 ID
+  googleAnalyticsID = "UA-153171451-1"
+  google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
+
+  # Google AdSense
+  googleAdsenseID = "ca-pub-3835157681642549"  # TODO: Replace with your AdSense ID
+
+  # Enable analytics
+  env = "production"  # Required for analytics to fire
+  
+  # PostCSS and minification
+  [params.assets]
+    disableHLJS = false
+    favicon = ""
+    
+  [params.cover]
+    image = ""
+    relative = false
+
+  [params.editPost]
+    URL = "https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content"
+    Text = "Suggest Changes"
+
+  # FIX: Disable problematic sidebar
+  [params.sidebar]
+    enabled = false
+
+# Menu navigation
+[menu]
+[[menu.main]]
+  identifier = "research"
+  name = "research"
+  url = "/posts"
+  weight = 10
+
+[[menu.main]]
+  identifier = "exploits"
+  name = "exploits & tools"
+  url = "/categories/tools"
+  weight = 20
+
+[[menu.main]]
+  identifier = "aiml"
+  name = "ai/ml security"
+  url = "/categories/ai-ml-security"
+  weight = 30
+
+[[menu.main]]
+  identifier = "leadership"
+  name = "leadership"
+  url = "/leadership/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "about"
+  name = "about"
+  url = "/about/"
+  weight = 50
+
+# Taxonomies
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Markup settings
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    noClasses = false
+    style = "monokai"
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+
+# Security headers
+[security]
+  [security.exec]
+    allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$"]
+  [security.funcs]
+    getenv = ["^HUGO_"]
+  [security.oscmd]
+    allow = ["^dart-sass-embedded$", "^npx$"]
+
+# Media types for RSS
+[mediaTypes."application/rss+xml"]
+  suffixes = ["xml"]

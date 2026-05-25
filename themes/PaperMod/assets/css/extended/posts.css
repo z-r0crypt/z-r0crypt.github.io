@@ -1,0 +1,579 @@
+/* ============================================================
+   ARTICLE & POST CONTAINER
+   ============================================================ */
+
+/* ============================================================
+   POST AND CONTENT STYLING - FIXED VERSION
+   Works WITH PaperMod theme, not against it
+   ============================================================ */
+
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --bg4: #D3D3D3;
+  --border: #30363d;
+  --border2: #3d444d;
+  --txt: #e6edf3;
+  --txt2: #8b949e;
+  --txt3: #6e7681;
+  --blue: #58a6ff;
+  --green: #3fb950;
+  --red: #f85149;
+  --amber: #e3b341;
+  --purple: #bc8cff;
+  --orange: #fb8500;
+  --cyan: #79c0ff;
+}
+
+/* ============================================================
+   TABLE STYLE CONTAINER
+   ============================================================ */
+
+/**/
+html[data-theme="light"] .post-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden; /* Clips children to match rounded corners */
+}
+
+html[data-theme="light"] .post-content tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+html[data-theme="light"] .post-content tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+html[data-theme="light"] .post-content tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+html[data-theme="light"] .post-content tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+/**/
+
+/* Light mode - ensure readability */
+html[data-theme="light"] .post-content {
+  color: #1a1a1a;
+}
+
+html[data-theme="light"] .post-content p {
+  color: #333333;
+}
+
+html[data-theme="light"] .post-content h2,
+html[data-theme="light"] .post-content h3,
+html[data-theme="light"] .post-content h4 {
+  color: #1a1a1a;
+}
+
+html[data-theme="light"] .post-content table td {
+  color: #333333;
+}
+
+html[data-theme="light"] .post-content code {
+  color: #c41e3a;
+  background: #f5f5f5;
+}
+
+html[data-theme="light"] .post-content a {
+  color: #0066cc;
+}
+
+html[data-theme="light"] .post-content table th {
+  color: #0d1117;
+  background: #f0f0f0;
+}
+
+/* Dark mode - keep your colors */
+html[data-theme="dark"] .post-content h2 {
+  color: #bc8cff;
+}
+
+html[data-theme="dark"] .post-content h3 {
+  color: #79c0ff;
+}
+
+html[data-theme="dark"] .post-content a {
+  color: #58a6ff;
+}
+
+/**/
+html[data-theme="light"] .post-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden; 
+}
+
+html[data-theme="dark"] .post-content tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+html[data-theme="dark"] .post-content tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+html[data-theme="dark"] .post-content tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+html[data-theme="dark"] .post-content tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+/**/
+
+html[data-theme="dark"] .post-content table th {
+  color: #58a6ff;
+  background: #161b22;
+}
+
+/* Dark mode tables */
+
+
+html[data-theme="dark"] .post-content table {
+  background: #0d1117;
+  border: 1px solid #30363d;
+}
+
+html[data-theme="dark"] .post-content table th {
+  background: #161b22;
+  border-bottom: 2px solid #58a6ff;
+  color: #58a6ff;
+  padding: 12px;
+}
+
+html[data-theme="dark"] .post-content table td {
+  border: 1px solid #30363d;
+  padding: 12px;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .post-content table tbody tr:hover {
+  background: #89befb;
+  color: #0f0f0f;
+}
+
+html[data-theme="light"] .post-content table tbody tr:hover {
+  background: #c0ddff;
+  color: #f0f0f0;
+}
+
+/* Light mode tables */
+/* Light mode - lighter tables */
+html[data-theme="light"] .post-content table {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+html[data-theme="light"] .post-content table th {
+  background: #0d1117;
+  border-bottom: 1px solid #0066cc;
+  color: #bbdffe;
+  padding: 10px;
+  font-weight: 600;
+}
+
+html[data-theme="light"] .post-content table td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px;
+  color: #333333;
+}
+
+/* Dark mode - subtle tables */
+html[data-theme="dark"] .post-content table {
+  background: transparent;
+  border: none;
+}
+
+html[data-theme="dark"] .post-content table th {
+  background: transparent;
+  border-bottom: 1px solid #58a6ff;
+  color: #58a6ff;
+  padding: 10px 0;
+}
+
+html[data-theme="dark"] .post-content table td {
+  border-bottom: 1px solid #30363d;
+  padding: 10px 0;
+  color: #e6edf3;
+}
+
+/**/
+
+
+/* Light mode - better contrast */
+html[data-theme="light"] .post-content li {
+  color: #3a3a3a !important;
+}
+
+html[data-theme="light"] .post-content ul > li::marker {
+  color: #0066cc !important;
+}
+
+html[data-theme="light"] .post-content ol > li::marker {
+  color: #0066cc !important;
+}
+
+
+/* ============================================================
+   HEADINGS - Color coded with left borders
+   ============================================================ */
+
+article h1,
+.post-title {
+  color: var(--blue) !important;
+  border-left: 4px solid var(--blue);
+  padding-left: 12px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+article h2 {
+  color: var(--purple) !important;
+  border-left: 4px solid var(--purple);
+  padding-left: 12px;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+article h3 {
+  color: var(--cyan) !important;
+  border-left: 4px solid var(--cyan);
+  padding-left: 12px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+article h4 {
+  color: var(--green) !important;
+  border-left: 4px solid var(--green);
+  padding-left: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+article h5,
+article h6 {
+  color: var(--amber) !important;
+  border-left: 4px solid var(--amber);
+  padding-left: 12px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* ============================================================
+   TEXT FORMATTING
+   ============================================================ */
+
+article p {
+  color: var(--txt);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+article strong,
+article b {
+  color: var(--blue) !important;
+  font-weight: 600;
+}
+
+article em,
+article i {
+  color: var(--purple) !important;
+  font-style: italic;
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+article a {
+  color: var(--blue) !important;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--blue);
+  transition: all 0.15s;
+  font-weight: 500;
+}
+
+article a:hover {
+  color: var(--txt3) !important;
+  border-bottom-color: var(--cyan);
+  background: rgba(88, 166, 255, 0.1);
+  padding: 0 2px;
+}
+
+/* ============================================================
+   INLINE CODE
+   ============================================================ */
+
+article code,
+article :not(pre) > code {
+  background: var(--bg2) !important;
+  color: var(--amber) !important;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'JetBrains Mono', monospace !important;
+  font-size: 13px;
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   CODE BLOCKS
+   ============================================================ */
+
+pre {
+  background: var(--bg2) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 4px solid var(--blue) !important;
+  border-radius: 6px;
+  padding: 14px !important;
+  overflow-x: auto;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none !important;
+  color: var(--txt) !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 13px;
+}
+
+/* Syntax highlighting */
+.chroma {
+  color: var(--txt);
+  background: var(--bg2);
+}
+
+.k, .kc, .kd, .kn, .kp, .kr, .kt {
+  color: var(--red) !important;
+  font-weight: 600;
+}
+
+.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2 {
+  color: var(--green) !important;
+}
+
+.c, .c1, .cm {
+  color: var(--txt3) !important;
+  font-style: italic;
+}
+
+.m, .mb, .mf, .mh, .mi, .il, .mo {
+  color: var(--amber) !important;
+}
+
+.n, .na, .nb, .bp, .nf, .py, .nl, .nn, .nx {
+  color: var(--cyan) !important;
+}
+
+.o, .ow {
+  color: var(--purple) !important;
+}
+
+/* ============================================================
+   BLOCKQUOTES
+   ============================================================ */
+
+article blockquote {
+  background: var(--bg2) !important;
+  border-left: 4px solid var(--purple) !important;
+  color: var(--txt2);
+  margin: 20px 0;
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+article blockquote p {
+  margin-bottom: 0;
+  color: var(--txt2);
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+
+article ul,
+article ol {
+  margin: 20px 0;
+  padding-left: 24px;
+  color: var(--txt);
+}
+
+article li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+article ul > li::marker {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+article ol > li::marker {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+article ul ul > li::marker {
+  color: var(--cyan);
+}
+
+article ol ol > li::marker {
+  color: var(--amber);
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+article table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+article table thead {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+}
+
+article table th {
+  padding: 12px;
+  text-align: left;
+  color: var(--blue);
+  font-weight: 600;
+  border-right: 1px solid var(--border);
+}
+
+article table th:last-child {
+  border-right: none;
+}
+
+article table td {
+  padding: 12px;
+  border-right: 1px solid var(--border);
+  color: var(--txt);
+  border-bottom: 1px solid var(--border);
+}
+
+article table td:last-child {
+  border-right: none;
+}
+
+article table tbody tr:hover {
+  background: var(--bg4);
+  color: #000000;
+}
+
+/* ============================================================
+   HORIZONTAL RULE
+   ============================================================ */
+
+article hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, var(--border), var(--purple), var(--blue), var(--border));
+  margin: 32px 0;
+  border-radius: 1px;
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+
+article img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 20px 0;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+article figure {
+  margin: 24px 0;
+  text-align: center;
+}
+
+article figure img {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+article figcaption {
+  color: var(--txt3);
+  font-size: 12px;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ============================================================
+   DEFINITION LISTS
+   ============================================================ */
+
+article dt {
+  color: var(--blue);
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+article dd {
+  color: var(--txt);
+  margin-left: 16px;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  article h1,
+  .post-title {
+    font-size: 24px;
+  }
+
+  article h2 {
+    font-size: 20px;
+  }
+
+  article h3 {
+    font-size: 16px;
+  }
+
+  article table {
+    font-size: 12px;
+  }
+
+  article table th,
+  article table td {
+    padding: 8px;
+  }
+
+  pre {
+    font-size: 12px;
+    padding: 10px !important;
+  }
+}

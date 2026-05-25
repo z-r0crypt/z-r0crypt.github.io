@@ -1,0 +1,112 @@
+{{ define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    <!-- Hero section -->
+    <div class="hero-section">
+      <p class="hero-subtitle">// research & adversarial engineering</p>
+      <h1 class="post-title">
+        Red Teaming in the Age of AI. <br>
+        Building secure systems through <span style="color: var(--blue)">principled attacks.</span>
+      </h1>
+      <p style="color: var(--txt2); line-height: 1.7; margin: 14px 0 16px;">
+        13+ years in offensive security, penetration testing, and exploit development. 
+        Currently focused on LLM security, RAG vulnerabilities, and adversarial ML in enterprise environments. 
+        BITS Pilani M.Tech AI/ML candidate.
+      </p>
+      
+      <!-- Credentials -->
+      <div class="credentials">
+        <div class="credentials-icon">🎓</div>
+        <div>
+          <div class="credentials-name">BITS Pilani WILP</div>
+          <div class="credentials-desc">M.Tech in AI/ML — Active Research</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number" style="color: var(--purple)">13+</div>
+        <div class="stat-label">years offsec</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">lead</div>
+        <div class="stat-label">red team design</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">active</div>
+        <div class="stat-label">rag security research</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" style="color: var(--purple)">6</div>
+        <div class="stat-label">published exploits</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured research -->
+  <section style="margin: 24px 0;">
+    <h2 style="font-size: 12px; color: var(--txt3); text-transform: uppercase; margin-bottom: 12px; font-family: 'Monaco', monospace;">
+      Latest Research
+    </h2>
+    
+    {{ $featured := where site.RegularPages "Params.featured" true | first 1 }}
+    {{ if $featured }}
+      {{ range $featured }}
+        <div class="featured-research">
+          <div class="featured-research-image">
+            <span class="featured-badge">original research</span>
+            <div style="margin-top: 8px; font-size: 12px;">
+              enterprise ai → rag pipeline → data breach
+            </div>
+          </div>
+          <div class="featured-research-body">
+            <div style="font-size: 9px; color: var(--txt3); margin-bottom: 4px; font-family: 'Monaco', monospace;">
+              // {{ range .Params.categories }}{{ . }}{{ end }}
+            </div>
+            <div class="featured-research-title">{{ .Title }}</div>
+            <p style="font-size: 11px; color: var(--txt2); margin: 6px 0; line-height: 1.6;">{{ .Summary }}</p>
+            <div class="featured-research-meta">
+              <span class="featured-badge">original research</span>
+              <span class="read-time">{{ .ReadingTime }} min read</span>
+              <span class="featured-link">read paper →</span>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </section>
+
+  <!-- Latest posts -->
+  <section>
+    <h2 style="font-size: 12px; color: var(--txt3); text-transform: uppercase; margin-bottom: 12px; font-family: 'Monaco', monospace;">
+      Recent Posts
+    </h2>
+    
+    {{ $pages := where site.RegularPages "Type" "posts" | first 10 }}
+    {{ range $pages }}
+      <article style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+          <span class="read-time">{{ .PublishDate.Format "Jan 2006" }}</span>
+          {{ range .Params.categories }}
+            <span class="post-category" data-category="{{ . | lower }}">{{ . }}</span>
+          {{ end }}
+        </div>
+        <h3 style="font-size: 13px; font-weight: 500; margin: 6px 0; color: var(--txt);">
+          <a href="{{ .Permalink }}" style="color: var(--txt); text-decoration: none;">{{ .Title }}</a>
+        </h3>
+        <p style="font-size: 11px; color: var(--txt2); line-height: 1.6; margin: 6px 0;">{{ .Summary }}</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <a href="{{ .Permalink }}" style="font-size: 10px; color: var(--blue); font-family: 'Monaco', monospace; text-decoration: none;">
+            read research →
+          </a>
+          <span class="read-time">{{ .ReadingTime }} min</span>
+        </div>
+      </article>
+    {{ end }}
+  </section>
+</article>
+
+{{ end }}
