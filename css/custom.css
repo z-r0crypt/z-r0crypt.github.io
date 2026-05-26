@@ -1,0 +1,163 @@
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --border: #30363d;
+  --border2: #3d444d;
+  --txt: #e6edf3;
+  --txt2: #8b949e;
+  --txt3: #6e7681;
+  --blue: #58a6ff;
+  --green: #3fb950;
+  --red: #f85149;
+  --amber: #e3b341;
+  --purple: #bc8cff;
+  --teal: #39d353;
+}
+
+/* Override theme defaults */
+html {
+  background-color: var(--bg);
+  color: var(--txt);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--txt);
+}
+
+.navbar {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.post-title {
+  color: var(--txt);
+}
+
+/* Category badges */
+.post-category {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-family: 'Monaco', 'JetBrains Mono', monospace;
+  margin-right: 6px;
+  margin-bottom: 8px;
+  border: 1px solid;
+}
+
+.post-category.research { color: var(--purple); border-color: #bc8cff28; background: #10091820; }
+.post-category.red-team { color: var(--red); border-color: #f8514928; background: #180b0a20; }
+.post-category.web { color: var(--blue); border-color: #58a6ff28; background: #0a101e20; }
+.post-category.exploit { color: var(--blue); border-color: #58a6ff28; background: #0a101e20; }
+.post-category.ai-ml { color: var(--purple); border-color: #bc8cff28; background: #10091820; }
+.post-category.crypto { color: var(--amber); border-color: #e3b34128; background: #18120020; }
+.post-category.ctf { color: var(--green); border-color: #3fb95028; background: #09150920; }
+.post-category.tool { color: var(--green); border-color: #3fb95028; background: #09150920; }
+
+/* Stats/credentials */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.stat-item {
+  padding: 14px 16px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: 16px; font-weight: 500; font-family: 'Monaco', monospace; }
+.stat-label { font-size: 9px; color: var(--txt3); margin-top: 4px; font-family: 'Monaco', monospace; }
+
+/* Featured research card */
+.featured-research {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.featured-research-image {
+  background: var(--bg3);
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--txt2);
+  font-family: 'Monaco', monospace;
+}
+
+.featured-research-body {
+  padding: 12px;
+}
+
+.featured-research-title {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 8px 0;
+  color: var(--txt);
+}
+
+.featured-research-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 9px;
+}
+
+.featured-badge {
+  background: #10091820;
+  color: var(--purple);
+  border: 1px solid #bc8cff28;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', monospace;
+}
+
+.featured-link {
+  margin-left: auto;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+/* Read time */
+.read-time {
+  font-size: 9px;
+  color: var(--txt3);
+  font-family: 'Monaco', monospace;
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+  font-family: 'Monaco', monospace;
+  font-size: 11px;
+  color: var(--txt2);
+  margin-bottom: 16px;
+}
+
+/* Credentials box */
+.credentials {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 14px 0;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.credentials-icon { font-size: 18px; }
+.credentials-name { font-size: 11px; font-weight: 500; font-family: 'Monaco', monospace; }
+.credentials-desc { font-size: 9px; color: var(--txt2); }
+
+

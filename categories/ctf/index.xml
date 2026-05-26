@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ctf on Security Notes</title>
+    <title>CTF on z-r0crypt</title>
     <link>https://z-r0crypt.github.io/categories/ctf/</link>
-    <description>Recent content in Ctf on Security Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in CTF on z-r0crypt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Nov 2019 22:10:36 -0500</lastBuildDate>
-    
-	<atom:link href="https://z-r0crypt.github.io/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://z-r0crypt.github.io/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Microcorruption CTF - Tutorial</title>
-      <link>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</link>
-      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</guid>
-      <description>Introduction In this post I will share my learnings and research work done during microcorruption CTF challenge.
-What is Microcorruption? It&amp;rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.
-You&amp;rsquo;ll use the debugger to reverse-engineer the code for each level.</description>
+      <title>Microcorruption CTF Tutorial: Embedded Security Reverse Engineering</title>
+      <link>https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/</guid>
+      <description>Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.</description>
     </item>
-    
   </channel>
 </rss>

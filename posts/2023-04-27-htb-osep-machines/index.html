@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><head>
+  
+  
+  
+
+
+
+
+  
+</head>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://z-r0crypt.github.io/" accesskey="h" title="z-r0crypt (Alt + H)">z-r0crypt</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://z-r0crypt.github.io/posts" title="research">
+                    <span>research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/tools" title="exploits &amp; tools">
+                    <span>exploits &amp; tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/ai-ml-security" title="ai/ml security">
+                    <span>ai/ml security</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/leadership/" title="leadership">
+                    <span>leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping
+    </h1>
+    <div class="post-description">
+      Curated list of 40&#43; Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.
+    </div>
+    <div class="post-meta">
+
+<span title='2023-04-27 00:00:00 +0000 UTC'>April 27, 2023</span>&nbsp;·&nbsp;<span>z-r0crypt</span>&nbsp;|&nbsp;<span>
+        <a href="https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+    </span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p><strong>Audience:</strong> OSEP exam candidates | <strong>Updated:</strong> January 2025 | <strong>Total machines:</strong> 40+ | <strong>Avg prep time:</strong> 3-4 weeks</p>
+<p><strong>How to use:</strong> Work machines in section order; each section builds on previous techniques.</p>
+<hr>
+<h2 id="htb-machines-for-osep-preparation">HTB Machines for OSEP Preparation<a hidden class="anchor" aria-hidden="true" href="#htb-machines-for-osep-preparation">#</a></h2>
+<p>List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->3. Client Side Code Execution With Office <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: left">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Phishing with Microsoft Office: RTF Document</td>
+          <td style="text-align: center">REEL</td>
+          <td style="text-align: center">malicious RTF Document (CVE-2017-0199)</td>
+          <td style="text-align: left">Walkthrough : <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794</a> <!-- raw HTML omitted --> Tool: <a href="https://github.com/bhdresh/CVE-2017-0199">https://github.com/bhdresh/CVE-2017-0199</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Phishing with Microsoft Office: LibreOffice</td>
+          <td style="text-align: center">RE</td>
+          <td style="text-align: center">LibreOffice Macro</td>
+          <td style="text-align: left">Walkthrough : <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=794</a> <!-- raw HTML omitted --> Tool: &lt;&gt;</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Phishing/Macro</td>
+          <td style="text-align: center">REEL2</td>
+          <td style="text-align: center">Grab NTLMv2 with Malicious link</td>
+          <td style="text-align: left">Walkthrough : <a href="https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=2350">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=2350</a> <!-- raw HTML omitted --> Tool: &lt;&gt;</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Phishing with Microsoft Office: LibreOffice</td>
+          <td style="text-align: center">RABBIT</td>
+          <td style="text-align: center">LibreOffice Macro</td>
+          <td style="text-align: left">Walkthrough : <a href="https://youtube.com/watch?v=5nnJq_IWJog&amp;t=1935">https://youtube.com/watch?v=5nnJq_IWJog&amp;t=1935</a> <!-- raw HTML omitted --> Tool: &lt;&gt;</td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->4. Client Side Code Execution With Windows Script Host <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->5. Process Injection and Migration <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->6. Introduction to Antivirus Evasion <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Obfuscating Macro</td>
+          <td style="text-align: center">RE</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=YXAakamjO_I&amp;t=1005">https://youtube.com/watch?v=YXAakamjO_I&amp;t=1005</a></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->7. Advanced Antivirus Evasion <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Amsi Bypass</td>
+          <td style="text-align: center">APT</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=eRnqtXwCZVs&amp;t=4650">https://youtube.com/watch?v=eRnqtXwCZVs&amp;t=4650</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Amsi Bypass</td>
+          <td style="text-align: center">PivotAPI</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=6360">https://youtube.com/watch?v=eRnqtXwCZVs&amp;t=4650</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Amsi Bypass</td>
+          <td style="text-align: center">MULTIMASTER</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->8. Application Whitelisting <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Applocker Bypass</td>
+          <td style="text-align: center">REEL2</td>
+          <td style="text-align: center">Breaking out of ConstrainedLanguage Mode by creating a function</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=3600">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=3600</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Applocker Bypass</td>
+          <td style="text-align: center">GIDDY</td>
+          <td style="text-align: center">Escaping powershell constrained mode with PSBypassCLM</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=J2unwbMQvUo&amp;t=2750">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=360</a>0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Applocker Bypass</td>
+          <td style="text-align: center">SEKHMET</td>
+          <td style="text-align: center">intended way of bypassing applocker</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=vsgPsMZx59w&amp;t=6300">https://youtube.com/watch?v=vsgPsMZx59w&amp;t=6300</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Applocker Bypass</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">AppLocker Bypass COR Profiler</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=T91iXd_VPVI&amp;t=1650">https://youtube.com/watch?v=Ro2vXt_WFDQ&amp;t=3600</a></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->9. Bypassing Network Filters <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->10. Linux Post-Exploitation <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->11. Kiosk Breakouts <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->12. Windows Credentials <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Local Windows Credentials: LSASS Dump</td>
+          <td style="text-align: center">ATOM</td>
+          <td style="text-align: center">Using rundll32 to create a memory dump of LSASS</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=1OC2eRVX0ic&amp;t=1830">https://youtube.com/watch?v=1OC2eRVX0ic&amp;t=1830</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Local Windows Credentials: LSASS Dump</td>
+          <td style="text-align: center">BLACKFIELD</td>
+          <td style="text-align: center">running pypykatz to extract credentials</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=IfCysW0Od8w&amp;t=2205">https://youtube.com/watch?v=1OC2eRVX0ic&amp;t=1830</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Local Windows Credentials: SAM Dump</td>
+          <td style="text-align: center">BASTION</td>
+          <td style="text-align: center">Extracting local passwords from SAM and SYSTEM with secretsdump</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=2j3FNp5pjQ4&amp;t=660">https://youtube.com/watch?v=2j3FNp5pjQ4&amp;t=660</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Local Windows Credentials: LAPS</td>
+          <td style="text-align: center">STREAMIO</td>
+          <td style="text-align: center">Identifying and Extracting the LAPS Password</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=qKcUKlwoGw8&amp;t=5300">https://youtube.com/watch?v=B9nozi1PrhY&amp;t=11697</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Local Windows Credentials: LAPS</td>
+          <td style="text-align: center">PivotAPI</td>
+          <td style="text-align: center">Discovering a user who can add groups to LAPS</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=5990">https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=5990</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Access Tokens: UAC</td>
+          <td style="text-align: center">ARKHAM</td>
+          <td style="text-align: center">UAC Bypass</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=krC5j1Ab44I&amp;t=3340">https://youtube.com/watch?v=krC5j1Ab44I&amp;t=3340</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Access Tokens: SeImpersonate</td>
+          <td style="text-align: center">SCRAMBLED</td>
+          <td style="text-align: center">Abusing SeImpersonate Privilege</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1800">https://youtube.com/watch?v=2j3FNp5pjQ4&amp;t=660</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Access Tokens: Incognito</td>
+          <td style="text-align: center">HACKBACK</td>
+          <td style="text-align: center">Using incognito to grab our impersonation token for HACKER user</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=B9nozi1PrhY&amp;t=11697">https://youtube.com/watch?v=B9nozi1PrhY&amp;t=11697</a></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->13. Windows Lateral Movement <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->14. Linux Lateral Movement <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">DevOps</td>
+          <td style="text-align: center">SEAL</td>
+          <td style="text-align: center">Abusing ansible playbook</td>
+          <td style="text-align: center">Walkthrough: <a href="https://www.youtube.com/watch?v=wCfztTcioU8&amp;t=1260s">https://www.youtube.com/watch?v=wCfztTcioU8&amp;t=1260s</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">DevOps</td>
+          <td style="text-align: center">INJECT</td>
+          <td style="text-align: center">Ansible enumeration and privilege escalation</td>
+          <td style="text-align: center">Walkthrough: <a href="https://www.youtube.com/watch?v=3VuIaUvHsTI&amp;t=1320s">https://www.youtube.com/watch?v=3VuIaUvHsTI&amp;t=1320s</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Kerberos on Linux</td>
+          <td style="text-align: center">TENTACLE</td>
+          <td style="text-align: center">Configuring our attacker&rsquo;s box kerberos to connect to Tentacle&rsquo;s KDC, and steal keytab</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=kKhuUXPmJ_o&amp;t=3870">https://youtube.com/watch?v=kKhuUXPmJ_o&amp;t=3870</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Kerberos on Linux</td>
+          <td style="text-align: center">CERBERUS</td>
+          <td style="text-align: center">examine the SSSD configuration and get a domain password</td>
+          <td style="text-align: center">Walkthrough : <a href="https://www.youtube.com/watch?v=IX4h5aaSK1g&amp;t=2160s">https://www.youtube.com/watch?v=IX4h5aaSK1g&amp;t=2160s</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Kerberos on Linux</td>
+          <td style="text-align: center">SEKHMET</td>
+          <td style="text-align: center">Dumping the sssd.ldb, 	Using kinit to get a kerberos ticket</td>
+          <td style="text-align: center">Walkthrough : <a href="https://youtube.com/watch?v=vsgPsMZx59w&amp;t=2400">https://youtube.com/watch?v=kKhuUXPmJ_o&amp;t=3870</a></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->15. Microsoft SQL Server <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">MS SQL in AD</td>
+          <td style="text-align: center">ESCAPE</td>
+          <td style="text-align: center">Using mssqlclient to login to access MSSQL</td>
+          <td style="text-align: center">Walkthrough: <a href="https://youtube.com/watch?v=PS2duvVcjws&amp;t=390">https://youtube.com/watch?v=PS2duvVcjws&amp;t=390</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">MS SQL Escalation</td>
+          <td style="text-align: center">SCRAMBLED</td>
+          <td style="text-align: center">enabling xp_cmdshell and getting a reverse shell</td>
+          <td style="text-align: center">Walkthrough: <a href="https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1000">https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1000</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">MS SQL Escalation</td>
+          <td style="text-align: center">STREAMIO</td>
+          <td style="text-align: center">Using xp_dirtree to make the MSSQL database connect back to us and steal the hash</td>
+          <td style="text-align: center">Walkthrough: <a href="https://youtube.com/watch?v=qKcUKlwoGw8&amp;t=1335">https://youtube.com/watch?v=_8FE3JZIPfo&amp;t=1000</a></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->16. Active Directory Exploitation <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Attack Type</th>
+          <th style="text-align: center">HTB Machine</th>
+          <th style="text-align: center">Attack Used in HTB</th>
+          <th style="text-align: center">Link</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">AD Object permission theory</td>
+          <td style="text-align: center">REEL</td>
+          <td style="text-align: center">Explaining Active Directory (AD) Security Objects (GenericWrite, WriteOwner,etc)</td>
+          <td style="text-align: center">walkthrough: <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3205">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3205</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Abusing GenericAll</td>
+          <td style="text-align: center">SUPPORT</td>
+          <td style="text-align: center">Abusing GenericAll object permission</td>
+          <td style="text-align: center">walkthrough: <a href="https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970">https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Abusing GenericAll, WriteDACL</td>
+          <td style="text-align: center">MULTIMASTER</td>
+          <td style="text-align: center">Abusing GenericAll, WriteDACL</td>
+          <td style="text-align: center">Walkthrough: <a href="https://youtube.com/watch?v=iwR746pfTEc&amp;t=7410">https://youtube.com/watch?v=iwR746pfTEc&amp;t=7410</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Abusing GenericWrite, WriteDACL</td>
+          <td style="text-align: center">REEL</td>
+          <td style="text-align: center">Taking ownership and changing other user&rsquo;s password</td>
+          <td style="text-align: center">Walkthrough: <a href="https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3503">https://youtube.com/watch?v=ob9SgtFm6_g&amp;t=3503</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Kerberos Delegation</td>
+          <td style="text-align: center">PivotAPI</td>
+          <td style="text-align: center">Unconstrained delegation with the SQL User. Upload rubeus, use tgtdeleg</td>
+          <td style="text-align: center">Walkthrough: <a href="https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=7215">https://youtube.com/watch?v=FbTxPz_GA4o&amp;t=7215</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Kerberos Delegation</td>
+          <td style="text-align: center">INTELLIGENCE</td>
+          <td style="text-align: center">Unconstrained delegation</td>
+          <td style="text-align: center">Walkthrough: <a href="https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/">https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Kerberos Delegation</td>
+          <td style="text-align: center">SUPPORT</td>
+          <td style="text-align: center">RBCD</td>
+          <td style="text-align: center">walkthrough: <a href="https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970">https://youtube.com/watch?v=iIveZ-raTTQ&amp;t=970</a> <!-- raw HTML omitted --> Post: <a href="https://pencer.io/ctf/ctf-htb-support/#rbcd">https://pencer.io/ctf/ctf-htb-support/#rbcd</a></td>
+      </tr>
+  </tbody>
+</table>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://z-r0crypt.github.io/tags/osep/">Osep</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/pen-300/">Pen-300</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/htb/">Htb</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/red-team/">Red-Team</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/penetration-testing/">Penetration-Testing</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/active-directory/">Active-Directory</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://z-r0crypt.github.io/">z-r0crypt</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

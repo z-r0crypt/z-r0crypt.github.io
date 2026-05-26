@@ -1,114 +1,193 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Security Notes</title>
+    <title>z-r0crypt</title>
     <link>https://z-r0crypt.github.io/</link>
-    <description>Recent content on Security Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content on z-r0crypt</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Aug 2023 22:10:36 -0500</lastBuildDate>
-    
-	<atom:link href="https://z-r0crypt.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://z-r0crypt.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tool: SSSD Extract</title>
-      <link>https://z-r0crypt.github.io/blog/2023/08/20/tool-sssd-extract/</link>
-      <pubDate>Sun, 20 Aug 2023 22:10:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2023/08/20/tool-sssd-extract/</guid>
-      <description>Tool Link: https://github.com/z-r0crypt/SSSD-extract Using this bash script it is possible to extract Active Directory accounts hashes when credential caching is enabled in SSSD.
-$ zsh sssd-extract.sh [$FolderPath]  Without input arguments it takes the SSSD default path /var/lib/sss/db/ but you can use a different one. If tdbdump is not installed it just lists the ldb files which contain the hashes, you can install it apt install tdb-tools or exfiltrate these files:</description>
+      <title>Data Exfiltration via RAG Manipulation in Enterprise Azure Environments</title>
+      <link>https://z-r0crypt.github.io/posts/2025-01-15-rag-exploitation-azure/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2025-01-15-rag-exploitation-azure/</guid>
+      <description>Practical attacks on production RAG systems using prompt injection and context pollution against Azure OpenAI deployments.</description>
     </item>
-    
     <item>
-      <title>HTB Machines for OSEP Preparation</title>
-      <link>https://z-r0crypt.github.io/blog/2023/04/27/htb-machines-for-osep-preparation/</link>
-      <pubDate>Thu, 27 Apr 2023 22:10:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2023/04/27/htb-machines-for-osep-preparation/</guid>
-      <description>HTB Machines for OSEP Preparation List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security.
-3. Client Side Code Execution With Office 
-   Attack Type HTB Machine Attack Used in HTB Link     Phishing with Microsoft Office: RTF Document REEL malicious RTF Document (CVE-2017-0199) Walkthrough : https://youtube.com/watch?v=ob9SgtFm6_g&amp;amp;t=794 Tool: https://github.com/bhdresh/CVE-2017-0199   Phishing with Microsoft Office: LibreOffice RE LibreOffice Macro Walkthrough : https://youtube.</description>
+      <title>SSSD-Extract: Dumping Active Directory Hashes from Linux Systems</title>
+      <link>https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/</link>
+      <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/</guid>
+      <description>Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.</description>
     </item>
-    
     <item>
-      <title>Dangerous PHP Functions</title>
-      <link>https://z-r0crypt.github.io/blog/2021/01/25/dangerous-php-functions/</link>
-      <pubDate>Mon, 25 Jan 2021 22:59:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2021/01/25/dangerous-php-functions/</guid>
-      <description>Command Execution exec - Returns last line of commands output passthru - Passes commands output directly to the browser system - Passes commands output directly to the browser and returns last line shell_exec - Returns commands output \`\` (backticks) - Same as shell_exec() popen - Opens read or write pipe to process of a command proc_open - Similar to popen() but greater degree of control pcntl_exec - Executes a program  PHP Code Execution Apart from eval there are other ways to execute PHP code: include/require can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.</description>
+      <title>HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping</title>
+      <link>https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/</link>
+      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/</guid>
+      <description>Curated list of 40&#43; Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.</description>
     </item>
-    
     <item>
-      <title>Cryptography I - Week 2 - part 2</title>
-      <link>https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/</link>
-      <pubDate>Wed, 05 Feb 2020 16:52:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2020/02/05/cryptography-i---week-2---part-2/</guid>
-      <description>Using Block Ciphers  Modes of operation: One time key  Security for one time key ECB (Electronic Code Book) - One time key  Deterministic counter mode from a PRF F (eg. AES) - One time key   Modes of operation: Many time key  CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)  IV (Initialization Vector) IV-based encryption Nonce-based encryption Padding  Randomised Counter-mode (CTR) (superior to CBC) Coparison: CTR vs CBC     Using Block Ciphers Modes of operation: One time key Goal: Build a secure encryption from a secure PRP</description>
+      <title>Dangerous PHP Functions: Code Execution and Exploitation Reference</title>
+      <link>https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/</guid>
+      <description>Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.</description>
     </item>
-    
     <item>
-      <title>Cryptography I  - Week 2 - Part 1</title>
-      <link>https://z-r0crypt.github.io/blog/2020/02/03/cryptography-i----week-2---part-1/</link>
-      <pubDate>Mon, 03 Feb 2020 16:52:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2020/02/03/cryptography-i----week-2---part-1/</guid>
-      <description>Block Ciphers  Pseudo Random Function (PRF) Pseudo Random Permutation (PRP) Secure PRF PRF =&amp;gt; PRG  Data Encryption Standard  DES: Core Idea - Feistel Network DES is a 16 round Feistel network  The Function F(k_i, x) S-boxes  Exhaustive search on DES Strengthening DES against ex. search  Method 1: Triple DES Method 2: DESX  Attacks on the implementation of the block ciphers  Side channel attacks Fault attacks Conclusion on implementation attacks  Attacks on block ciphers  Linear and differential attacks Quantum attacks   Advanced Encryption Standard (AES) Block Cipher  History Design How to use AES Attacks on AES  Building Block Ciphers from PRGs  Notes and Review    Block Ciphers A block cipher maps n bits of inputs to n bits of output.</description>
+      <title>Cryptography I: Advanced Block Cipher Modes and Padding</title>
+      <link>https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/</link>
+      <pubDate>Wed, 05 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/</guid>
+      <description>Deep dive into CBC/CTR implementation details, IV/nonce management, padding oracle attacks, and performance comparison of encryption modes.</description>
     </item>
-    
+    <item>
+      <title>Cryptography I: Block Ciphers and Modes of Operation</title>
+      <link>https://z-r0crypt.github.io/posts/2020-02-03-crypto-week2-part1/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2020-02-03-crypto-week2-part1/</guid>
+      <description>Block cipher theory, PRP/PRF security, ECB/CBC/CTR modes, IV construction, and semantic security under chosen-plaintext attack (CPA).</description>
+    </item>
     <item>
       <title>OSWE/AWAE Preparation</title>
-      <link>https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/</link>
-      <pubDate>Wed, 22 Jan 2020 22:10:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/</guid>
-      <description>OSWE Exam Preparation This post contains all trainings and tutorials that could be useful for offensive security&amp;rsquo;s OSWE certification. I will be updating the post during my lab and preparation for the exam.
-Course Syllabus: https://www.offensive-security.com/documentation/awae-syllabus.pdf
-Before registering for AWAE Lab:  Get comfortable with python requests library Read Web Application Hacker&amp;rsquo;s handbook, again if you already did Get familiar with Burpsuite Get familiar with regex Get hands on with OWASP top 10 2017 Vulnerabilities  Vulnerable Apps for practice on OWASP Portswigger WebSecAcademy  Practice code review skills - OWASP SKF  Before registering for the OSWE Exam:  XSS to RCE  AtMail Email Server Appliance 6.</description>
+      <link>https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/</guid>
+      <description>This post contains all trainings and tutorials that could be useful for offensive security&amp;#39;s OSWE certification.</description>
     </item>
-    
     <item>
-      <title>Microcorruption CTF - Tutorial</title>
-      <link>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</link>
-      <pubDate>Mon, 25 Nov 2019 22:10:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2019/11/25/microcorruption-ctf---tutorial/</guid>
-      <description>Introduction In this post I will share my learnings and research work done during microcorruption CTF challenge.
-What is Microcorruption? It&amp;rsquo;s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.
-You&amp;rsquo;ll use the debugger to reverse-engineer the code for each level.</description>
+      <title>Microcorruption CTF Tutorial: Embedded Security Reverse Engineering</title>
+      <link>https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/</guid>
+      <description>Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.</description>
     </item>
-    
     <item>
-      <title>Cryptography I - Stanford University - Week 1</title>
-      <link>https://z-r0crypt.github.io/blog/2019/11/24/cryptography-i---stanford-university---week-1/</link>
-      <pubDate>Sun, 24 Nov 2019 16:52:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2019/11/24/cryptography-i---stanford-university---week-1/</guid>
-      <description>Week 1. This week&amp;rsquo;s topic is an overview of what cryptography is about as well as our first example ciphers. You will learn about pseudo-randomness and how to use it for encryption. We will also look at a few basic definitions of secure encryption.
- History Discrete Probability  Birthday paradox  Stream Ciphers  Information theoretic security  Stream Ciphers PRG Attacks on OTP / stream ciphers Modern broken stream ciphers Better modern stream cipher Let’s do some Salsa!</description>
+      <title>Cryptography I: Stream Ciphers, PRGs, and Semantic Security</title>
+      <link>https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/</guid>
+      <description>Stream cipher security, pseudo-random generators, information-theoretic security, and practical attacks on weak PRGs. Stanford Cryptography I Week 1.</description>
     </item>
-    
-    <item>
-      <title>Introduction</title>
-      <link>https://z-r0crypt.github.io/blog/2019/11/11/introduction/</link>
-      <pubDate>Mon, 11 Nov 2019 14:59:36 -0500</pubDate>
-      
-      <guid>https://z-r0crypt.github.io/blog/2019/11/11/introduction/</guid>
-      <description>Welcome!
-In this site I will be sharing my learning and experiences i gained during a pentest, a CTF, wargame or any security challenges, basically everything i learn or want to learn. Hoping to help someone in similar situations and get feedback from you!</description>
-    </item>
-    
     <item>
       <title>About</title>
       <link>https://z-r0crypt.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://z-r0crypt.github.io/about/</guid>
-      <description> Carry on! To make pages show up in the sidebar, add `sidebar_link: true` to the front matter.-- Certifications:           Offensive Security Certified Professional Offensive Security Certified Expert Offensive Security Web Expert             Offensive Security Certified Professional Certified Red Team Operator               CVEs  9  </description>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;14+ years in offensive security, red teaming, and exploit development.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a security researcher focused on practical offensive techniques, vulnerability research, and building tools that solve real problems. This site documents my work and learning journey.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;professional-experience&#34;&gt;Professional Experience&lt;/h2&gt;
+&lt;h3 id=&#34;red-team-leader--penetration-tester&#34;&gt;Red Team Leader &amp;amp; Penetration Tester&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;14+ years&lt;/strong&gt; designing and executing red team operations&lt;/li&gt;
+&lt;li&gt;Specialized in: Active Directory attacks, post-exploitation, defense evasion&lt;/li&gt;
+&lt;li&gt;Experience with: Fortune 500 organizations, financial institutions&lt;/li&gt;
+&lt;li&gt;Tools built: SSSD-Extract, custom OSINT and exploitation frameworks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;current-focus&#34;&gt;Current Focus&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Deepening knowledge in AI/ML security through structured study&lt;/li&gt;
+&lt;li&gt;Exploring emerging attack vectors in enterprise systems&lt;/li&gt;
+&lt;li&gt;Documenting security research for the community&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;certifications--credentials&#34;&gt;Certifications &amp;amp; Credentials&lt;/h2&gt;
+&lt;p&gt;Professional certifications demonstrating expertise in offensive security:&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>About</title>
+      <link>https://z-r0crypt.github.io/aboutme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/aboutme/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;13+ years in offensive security, red teaming, and exploit development.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a security researcher focused on practical offensive techniques, vulnerability research, and building tools that solve real problems. This site documents my work and learning journey.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;professional-experience&#34;&gt;Professional Experience&lt;/h2&gt;
+&lt;h3 id=&#34;red-team-leader--penetration-tester&#34;&gt;Red Team Leader &amp;amp; Penetration Tester&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;13+ years&lt;/strong&gt; designing and executing red team operations&lt;/li&gt;
+&lt;li&gt;Specialized in: Active Directory attacks, post-exploitation, defense evasion&lt;/li&gt;
+&lt;li&gt;Experience with: Fortune 500 organizations, government contractors, financial institutions&lt;/li&gt;
+&lt;li&gt;Tools built: SSSD-Extract, custom exploitation frameworks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;current-focus&#34;&gt;Current Focus&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Deepening knowledge in AI/ML security through structured study&lt;/li&gt;
+&lt;li&gt;Exploring emerging attack vectors in enterprise systems&lt;/li&gt;
+&lt;li&gt;Documenting security research for the community&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;certifications--credentials&#34;&gt;Certifications &amp;amp; Credentials&lt;/h2&gt;
+&lt;p&gt;Professional certifications demonstrating expertise in offensive security:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leadership &amp; Program Design</title>
+      <link>https://z-r0crypt.github.io/leadership/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/leadership/</guid>
+      <description>&lt;h2 id=&#34;red-team-program-development&#34;&gt;Red Team Program Development&lt;/h2&gt;
+&lt;p&gt;Building secure systems requires understanding how attackers think. This section covers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Program Design&lt;/strong&gt; — Building risk-based adversary simulation programs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Team Structure&lt;/strong&gt; — Scaling from penetration testers to red team leaders&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stakeholder Management&lt;/strong&gt; — Communicating findings to executives&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Operational Security&lt;/strong&gt; — Running invasive assessments safely&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Coming soon.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Topics in Development:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Building a Risk-Based Adversary Simulation Program&lt;/li&gt;
+&lt;li&gt;Managing Stakeholders During Invasive Operations&lt;/li&gt;
+&lt;li&gt;Transitioning from Pentester to Red Team Lead&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Research Archive</title>
+      <link>https://z-r0crypt.github.io/research-archive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/research-archive/</guid>
+      <description>&lt;h2 id=&#34;all-research-posts&#34;&gt;All Research Posts&lt;/h2&gt;
+&lt;p&gt;{{ range (where site.RegularPages &amp;ldquo;Type&amp;rdquo; &amp;ldquo;posts&amp;rdquo;) }}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[{{ .Title }}]({{ .Permalink }}) — {{ .PublishDate.Format &amp;ldquo;January 2006&amp;rdquo; }}
+{{ end }}&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Start Here</title>
+      <link>https://z-r0crypt.github.io/start-here/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/start-here/</guid>
+      <description>&lt;h2 id=&#34;welcome-to-z-r0crypt&#34;&gt;Welcome to z-r0crypt&lt;/h2&gt;
+&lt;p&gt;Not sure where to begin? This page guides you to the most relevant content based on your interests.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;im-preparing-for-oscp-pen-200&#34;&gt;I&amp;rsquo;m Preparing for OSCP (PEN-200)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Best starting point:&lt;/strong&gt; Foundation building, Linux privilege escalation, network penetration testing&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recommended reading order:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cryptography Fundamentals&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/&#34;&gt;Cryptography I - Week 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://z-r0crypt.github.io/posts/2020-02-03-crypto-week2-part1/&#34;&gt;Cryptography I - Week 2 Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Why: OSCP includes network security fundamentals&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Linux Post-Exploitation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/&#34;&gt;SSSD-Extract Tool&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Why: Active Directory on Linux is a real attack vector&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Methodology &amp;amp; Planning&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

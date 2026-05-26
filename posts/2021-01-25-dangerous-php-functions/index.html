@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><head>
+  
+  
+  
+
+
+
+
+  
+</head>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://z-r0crypt.github.io/" accesskey="h" title="z-r0crypt (Alt + H)">z-r0crypt</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://z-r0crypt.github.io/posts" title="research">
+                    <span>research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/tools" title="exploits &amp; tools">
+                    <span>exploits &amp; tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/ai-ml-security" title="ai/ml security">
+                    <span>ai/ml security</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/leadership/" title="leadership">
+                    <span>leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Dangerous PHP Functions: Code Execution and Exploitation Reference
+    </h1>
+    <div class="post-description">
+      Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.
+    </div>
+    <div class="post-meta">
+
+<span title='2021-01-25 00:00:00 +0000 UTC'>January 25, 2021</span>&nbsp;·&nbsp;<span>z-r0crypt</span>&nbsp;|&nbsp;<span>
+        <a href="https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+    </span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p><strong>Purpose:</strong> Reference guide for identifying and exploiting PHP vulnerabilities during web application penetration testing.</p>
+<p><strong>Usage:</strong> Search by attack vector (RCE, LFI, information disclosure) for your target function.</p>
+<hr>
+<h2 id="command-execution">Command Execution<a hidden class="anchor" aria-hidden="true" href="#command-execution">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">exec</span>           <span class="o">-</span> <span class="nx">Returns</span> <span class="nx">last</span> <span class="nx">line</span> <span class="nx">of</span> <span class="nx">commands</span> <span class="nx">output</span>
+</span></span><span class="line"><span class="cl"><span class="nx">passthru</span>       <span class="o">-</span> <span class="nx">Passes</span> <span class="nx">commands</span> <span class="nx">output</span> <span class="nx">directly</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">browser</span>
+</span></span><span class="line"><span class="cl"><span class="nx">system</span>         <span class="o">-</span> <span class="nx">Passes</span> <span class="nx">commands</span> <span class="nx">output</span> <span class="nx">directly</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">browser</span> <span class="k">and</span> <span class="nx">returns</span> <span class="nx">last</span> <span class="nx">line</span>
+</span></span><span class="line"><span class="cl"><span class="nx">shell_exec</span>     <span class="o">-</span> <span class="nx">Returns</span> <span class="nx">commands</span> <span class="nx">output</span>
+</span></span><span class="line"><span class="cl"><span class="nx">\</span><span class="err">`</span><span class="nx">\</span><span class="err">`</span> <span class="p">(</span><span class="nx">backticks</span><span class="p">)</span> <span class="o">-</span> <span class="nx">Same</span> <span class="k">as</span> <span class="nx">shell_exec</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">popen</span>          <span class="o">-</span> <span class="nx">Opens</span> <span class="nx">read</span> <span class="k">or</span> <span class="nx">write</span> <span class="nx">pipe</span> <span class="nx">to</span> <span class="nx">process</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">command</span>
+</span></span><span class="line"><span class="cl"><span class="nx">proc_open</span>      <span class="o">-</span> <span class="nx">Similar</span> <span class="nx">to</span> <span class="nx">popen</span><span class="p">()</span> <span class="nx">but</span> <span class="nx">greater</span> <span class="nx">degree</span> <span class="nx">of</span> <span class="nx">control</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pcntl_exec</span>     <span class="o">-</span> <span class="nx">Executes</span> <span class="nx">a</span> <span class="nx">program</span>
+</span></span></code></pre></div><h2 id="php-code-execution">PHP Code Execution<a hidden class="anchor" aria-hidden="true" href="#php-code-execution">#</a></h2>
+<p>Apart from eval there are other ways to execute PHP code: <code>include/require</code> can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">eval</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">assert</span><span class="p">()</span>  <span class="o">-</span> <span class="nx">identical</span> <span class="nx">to</span> <span class="k">eval</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/.*/e&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">)</span> <span class="o">-</span> <span class="o">/</span><span class="nx">e</span> <span class="nx">does</span> <span class="nx">an</span> <span class="k">eval</span><span class="p">()</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">match</span>
+</span></span><span class="line"><span class="cl"><span class="nx">create_function</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">include</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">include_once</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">require</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">require_once</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;func_name&#39;</span><span class="p">](</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;argument&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$func</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionFunction</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;func_name&#39;</span><span class="p">]);</span> <span class="nv">$func</span><span class="o">-&gt;</span><span class="na">invoke</span><span class="p">();</span> <span class="k">or</span> <span class="nv">$func</span><span class="o">-&gt;</span><span class="na">invokeArgs</span><span class="p">(</span><span class="k">array</span><span class="p">());</span>
+</span></span></code></pre></div><h2 id="list-of-functions-which-accept-callbacks">List of functions which accept callbacks<a hidden class="anchor" aria-hidden="true" href="#list-of-functions-which-accept-callbacks">#</a></h2>
+<p>These functions accept a string parameter which could be used to call a function of the attacker&rsquo;s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like <code>phpinfo()</code> could be used.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">Function</span>                     <span class="o">=&gt;</span> <span class="nx">Position</span> <span class="nx">of</span> <span class="nx">callback</span> <span class="nx">arguments</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;ob_start&#39;</span>                   <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_diff_uassoc&#39;</span>          <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_diff_ukey&#39;</span>            <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_filter&#39;</span>               <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_intersect_uassoc&#39;</span>     <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_intersect_ukey&#39;</span>       <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_map&#39;</span>                  <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_reduce&#39;</span>               <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_udiff_assoc&#39;</span>          <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_udiff_uassoc&#39;</span>         <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_udiff&#39;</span>                <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_uintersect_assoc&#39;</span>     <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_uintersect_uassoc&#39;</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_uintersect&#39;</span>           <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_walk_recursive&#39;</span>       <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_walk&#39;</span>                 <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;assert_options&#39;</span>             <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;uasort&#39;</span>                     <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;uksort&#39;</span>                     <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;usort&#39;</span>                      <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;preg_replace_callback&#39;</span>      <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;spl_autoload_register&#39;</span>      <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;iterator_apply&#39;</span>             <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;call_user_func&#39;</span>             <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;call_user_func_array&#39;</span>       <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;register_shutdown_function&#39;</span> <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;register_tick_function&#39;</span>     <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;set_error_handler&#39;</span>          <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;set_exception_handler&#39;</span>      <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;session_set_save_handler&#39;</span>   <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sqlite_create_aggregate&#39;</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;sqlite_create_function&#39;</span>     <span class="o">=&gt;</span>  <span class="mi">2</span><span class="p">,</span>
+</span></span></code></pre></div><h2 id="information-disclosure">Information Disclosure<a hidden class="anchor" aria-hidden="true" href="#information-disclosure">#</a></h2>
+<p>Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see <code>phpinfo()</code> it is definitely a vulnerability.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">phpinfo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_mkfifo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_getlogin</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_ttyname</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getenv</span>
+</span></span><span class="line"><span class="cl"><span class="nx">get_current_user</span>
+</span></span><span class="line"><span class="cl"><span class="nx">proc_get_status</span>
+</span></span><span class="line"><span class="cl"><span class="nx">get_cfg_var</span>
+</span></span><span class="line"><span class="cl"><span class="nx">disk_free_space</span>
+</span></span><span class="line"><span class="cl"><span class="nx">disk_total_space</span>
+</span></span><span class="line"><span class="cl"><span class="nx">diskfreespace</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getcwd</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getlastmo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getmygid</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getmyinode</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getmypid</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getmyuid</span>
+</span></span></code></pre></div><h2 id="other">Other<a hidden class="anchor" aria-hidden="true" href="#other">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">extract</span> <span class="o">-</span> <span class="nx">Opens</span> <span class="nx">the</span> <span class="nx">door</span> <span class="k">for</span> <span class="nx">register_globals</span> <span class="nx">attacks</span> <span class="p">(</span><span class="nx">see</span> <span class="p">[</span><span class="nx">study</span> <span class="nx">in</span> <span class="nx">scarlet</span> <span class="o">-</span> <span class="nx">seclist</span><span class="p">](</span><span class="nx">http</span><span class="o">://</span><span class="nx">seclists</span><span class="o">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">bugtraq</span><span class="o">/</span><span class="mi">2001</span><span class="o">/</span><span class="nx">Jul</span><span class="o">/</span><span class="nx">att</span><span class="o">-</span><span class="mi">26</span><span class="o">/</span><span class="nx">studyinscarlet</span><span class="o">.</span><span class="nx">txt</span><span class="p">))</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">parse_str</span> <span class="o">-</span>  <span class="nx">works</span> <span class="nx">like</span> <span class="nx">extract</span> <span class="k">if</span> <span class="nx">only</span> <span class="nx">one</span> <span class="nx">argument</span> <span class="nx">is</span> <span class="nx">given</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">putenv</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ini_set</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mail</span> <span class="o">-</span> <span class="nx">has</span> <span class="nx">CRLF</span> <span class="nx">injection</span> <span class="nx">in</span> <span class="nx">the</span> <span class="mi">3</span><span class="nx">rd</span> <span class="nx">parameter</span><span class="p">,</span> <span class="nx">opens</span> <span class="nx">the</span> <span class="nx">door</span> <span class="k">for</span> <span class="nx">spam</span><span class="o">.</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">header</span> <span class="o">-</span> <span class="nx">on</span> <span class="nx">old</span> <span class="nx">systems</span> <span class="nx">CRLF</span> <span class="nx">injection</span> <span class="nx">could</span> <span class="nx">be</span> <span class="nx">used</span> <span class="k">for</span> <span class="nx">xss</span> <span class="k">or</span> <span class="nx">other</span> <span class="nx">purposes</span><span class="p">,</span> <span class="nx">now</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">still</span> <span class="nx">a</span> <span class="nx">problem</span> <span class="k">if</span> <span class="nx">they</span> <span class="k">do</span> <span class="nx">a</span> <span class="nx">header</span><span class="p">(</span><span class="s2">&#34;location: ...&#34;</span><span class="p">);</span> <span class="k">and</span> <span class="nx">they</span> <span class="k">do</span> <span class="k">not</span> <span class="k">die</span><span class="p">();</span><span class="o">.</span> <span class="nx">The</span> <span class="nx">script</span> <span class="nx">keeps</span> <span class="nx">executing</span> <span class="nx">after</span> <span class="nx">a</span> <span class="nx">call</span> <span class="nx">to</span> <span class="nx">header</span><span class="p">(),</span> <span class="k">and</span> <span class="nx">will</span> <span class="nx">still</span> <span class="k">print</span> <span class="nx">output</span> <span class="nx">normally</span><span class="o">.</span> <span class="k">This</span> <span class="nx">is</span> <span class="nx">nasty</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">trying</span> <span class="nx">to</span> <span class="nx">protect</span> <span class="nx">an</span> <span class="nx">administrative</span> <span class="nx">area</span><span class="o">.</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">proc_nice</span>
+</span></span><span class="line"><span class="cl"><span class="nx">proc_terminate</span>
+</span></span><span class="line"><span class="cl"><span class="nx">proc_close</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pfsockopen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fsockopen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">apache_child_terminate</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_kill</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_mkfifo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_setpgid</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_setsid</span>
+</span></span><span class="line"><span class="cl"><span class="nx">posix_setuid</span>
+</span></span></code></pre></div><h2 id="filesystem-functions">Filesystem Functions<a hidden class="anchor" aria-hidden="true" href="#filesystem-functions">#</a></h2>
+<p>According to RATS all filesystem functions in php are nasty. Some of these don&rsquo;t seem very useful to the attacker. Others are more useful than you might think. For instance if <code>allow_url_fopen=On</code> then a url can be used as a file path, so a call to <code>copy($_GET['s'], $_GET['d']);</code> can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// open filesystem handler
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fopen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tmpfile</span>
+</span></span><span class="line"><span class="cl"><span class="nx">bzopen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gzopen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">SplFileObject</span><span class="o">-&gt;</span><span class="na">__construct</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// write to filesystem (partially in combination with reading)
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">chgrp</span>
+</span></span><span class="line"><span class="cl"><span class="nx">chmod</span>
+</span></span><span class="line"><span class="cl"><span class="nx">chown</span>
+</span></span><span class="line"><span class="cl"><span class="nx">copy</span>
+</span></span><span class="line"><span class="cl"><span class="nx">file_put_contents</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lchgrp</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lchown</span>
+</span></span><span class="line"><span class="cl"><span class="nx">link</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mkdir</span>
+</span></span><span class="line"><span class="cl"><span class="nx">move_uploaded_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">rename</span>
+</span></span><span class="line"><span class="cl"><span class="nx">rmdir</span>
+</span></span><span class="line"><span class="cl"><span class="nx">symlink</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tempnam</span>
+</span></span><span class="line"><span class="cl"><span class="nx">touch</span>
+</span></span><span class="line"><span class="cl"><span class="nx">unlink</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagepng</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagewbmp</span>  <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">image2wbmp</span> <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">imagejpeg</span>  <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagexbm</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagegif</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagegd</span>    <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagegd2</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="nx">iptcembed</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ftp_get</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ftp_nb_get</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// read from filesystem
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">file_exists</span>
+</span></span><span class="line"><span class="cl"><span class="nx">file_get_contents</span>
+</span></span><span class="line"><span class="cl"><span class="nx">file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fileatime</span>
+</span></span><span class="line"><span class="cl"><span class="nx">filectime</span>
+</span></span><span class="line"><span class="cl"><span class="nx">filegroup</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fileinode</span>
+</span></span><span class="line"><span class="cl"><span class="nx">filemtime</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fileowner</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fileperms</span>
+</span></span><span class="line"><span class="cl"><span class="nx">filesize</span>
+</span></span><span class="line"><span class="cl"><span class="nx">filetype</span>
+</span></span><span class="line"><span class="cl"><span class="nx">glob</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_dir</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_executable</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_link</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_readable</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_uploaded_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_writable</span>
+</span></span><span class="line"><span class="cl"><span class="nx">is_writeable</span>
+</span></span><span class="line"><span class="cl"><span class="nx">linkinfo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lstat</span>
+</span></span><span class="line"><span class="cl"><span class="nx">parse_ini_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pathinfo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">readfile</span>
+</span></span><span class="line"><span class="cl"><span class="nx">readlink</span>
+</span></span><span class="line"><span class="cl"><span class="nx">realpath</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stat</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gzfile</span>
+</span></span><span class="line"><span class="cl"><span class="nx">readgzfile</span>
+</span></span><span class="line"><span class="cl"><span class="nx">getimagesize</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromgif</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromjpeg</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefrompng</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromwbmp</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromxbm</span>
+</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromxpm</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ftp_put</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ftp_nb_put</span>
+</span></span><span class="line"><span class="cl"><span class="nx">exif_read_data</span>
+</span></span><span class="line"><span class="cl"><span class="nx">read_exif_data</span>
+</span></span><span class="line"><span class="cl"><span class="nx">exif_thumbnail</span>
+</span></span><span class="line"><span class="cl"><span class="nx">exif_imagetype</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hash_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hash_hmac_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hash_update_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">md5_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sha1_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">highlight_file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">show_source</span>
+</span></span><span class="line"><span class="cl"><span class="nx">php_strip_whitespace</span>
+</span></span><span class="line"><span class="cl"><span class="nx">get_meta_tags</span>
+</span></span></code></pre></div><ul>
+<li>Reference - <a href="https://stackoverflow.com/a/3697776">https://stackoverflow.com/a/3697776</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://z-r0crypt.github.io/tags/oswe/">Oswe</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/awae/">Awae</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/php/">Php</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/rce/">Rce</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/web-security/">Web-Security</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/code-execution/">Code-Execution</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://z-r0crypt.github.io/">z-r0crypt</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

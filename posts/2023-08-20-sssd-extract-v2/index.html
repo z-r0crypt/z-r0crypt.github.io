@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><head>
+  
+  
+  
+
+
+
+
+  
+</head>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://z-r0crypt.github.io/" accesskey="h" title="z-r0crypt (Alt + H)">z-r0crypt</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://z-r0crypt.github.io/posts" title="research">
+                    <span>research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/tools" title="exploits &amp; tools">
+                    <span>exploits &amp; tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/categories/ai-ml-security" title="ai/ml security">
+                    <span>ai/ml security</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/leadership/" title="leadership">
+                    <span>leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://z-r0crypt.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      SSSD-Extract: Dumping Active Directory Hashes from Linux Systems
+    </h1>
+    <div class="post-description">
+      Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.
+    </div>
+    <div class="post-meta">
+
+<span title='2023-08-20 00:00:00 +0000 UTC'>August 20, 2023</span>&nbsp;·&nbsp;<span>z-r0crypt</span>&nbsp;|&nbsp;<span>
+        <a href="https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+    </span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p><strong>Requirements:</strong> Root access | Linux with SSSD (Ubuntu 18.04+, RHEL, CentOS) | tdbdump installed</p>
+<p><strong>Impact:</strong> Lateral movement on Domain-joined Linux systems | Hash cracking with Hashcat/John</p>
+<p><strong>GitHub:</strong> <a href="https://github.com/z-r0crypt/SSSD-extract">https://github.com/z-r0crypt/SSSD-extract</a></p>
+<hr>
+<p>Using this bash script it is possible to extract Active Directory accounts hashes when credential caching is enabled in SSSD.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ zsh sssd-extract.sh <span class="o">[</span><span class="nv">$FolderPath</span><span class="o">]</span>
+</span></span></code></pre></div><p>Without input arguments it takes the SSSD default path <em><strong><code>/var/lib/sss/db/</code></strong></em> but you can use a different one.
+If tdbdump is not installed it just lists the ldb files which contain the hashes, you can install it <em><strong><code>apt install tdb-tools</code></strong></em> or exfiltrate these files:</p>
+<p><img loading="lazy" src="https://raw.githubusercontent.com/ricardojoserf/ricardojoserf.github.io/master/images/SSSD-creds/image1.png"></p>
+<p><strong>In a system with tdbdump installed the script will:</strong></p>
+<ol>
+<li>Extracts cached accounts and hashes, dumping the results to the file <em><strong><code>hashes.txt</code></strong></em>. The hashes can then be cracked using Hashcat or John the Ripper:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">john hashes.txt --format=sha512crypt
+</span></span></code></pre></div><ol start="2">
+<li>Extract all the AD groups, Users and Machine accounts cached in the ldb file and save it to <em><strong><code>domain.txt</code></strong></em></li>
+</ol>
+<p><strong><code>*Note: Better approach would be to copy the ldb file to you attacking machine and run the script there.</code></strong></p>
+<h3 id="credit">Credit<a hidden class="anchor" aria-hidden="true" href="#credit">#</a></h3>
+<ul>
+<li>ricardojoserf/SSSD-creds</li>
+</ul>
+<!-- raw HTML omitted -->
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://z-r0crypt.github.io/tags/sssd/">Sssd</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/active-directory/">Active-Directory</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/post-exploitation/">Post-Exploitation</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/credential-dumping/">Credential-Dumping</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/ntlm/">Ntlm</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://z-r0crypt.github.io/">z-r0crypt</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
