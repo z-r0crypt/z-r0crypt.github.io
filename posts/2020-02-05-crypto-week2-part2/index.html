@@ -87,40 +87,52 @@
     </span>
 
 </div>
-  </header> 
+  </header> <details class="toc"  open>
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#using-block-ciphers" aria-label="Using Block Ciphers">Using Block Ciphers</a></li>
+            <li>
+                <a href="#modes-of-operation-one-time-key" aria-label="Modes of operation: One time key">Modes of operation: One time key</a><ul>
+                    
+            <li>
+                <a href="#security-for-one-time-key" aria-label="Security for one-time key">Security for one-time key</a></li>
+            <li>
+                <a href="#ecb-electronic-code-book---one-time-key" aria-label="ECB (Electronic Code Book) - One time key">ECB (Electronic Code Book) - One time key</a><ul>
+                    
+            <li>
+                <a href="#deterministic-counter-mode-from-a-prf-f-eg-aes---one-time-key" aria-label="Deterministic counter mode from a PRF F (eg. AES) - One time key">Deterministic counter mode from a PRF F (eg. AES) - One time key</a></li></ul>
+            </li>
+            <li>
+                <a href="#security-for-many-time-key" aria-label="Security for many-time key">Security for many-time key</a></li>
+            <li>
+                <a href="#cbc-cipher-block-chaining-with-a-random-iv---many-time-key-cpa-security" aria-label="CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)">CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)</a><ul>
+                    
+            <li>
+                <a href="#iv-initialization-vector" aria-label="IV (Initialization Vector)">IV (Initialization Vector)</a></li>
+            <li>
+                <a href="#iv-based-encryption" aria-label="IV-based encryption">IV-based encryption</a></li>
+            <li>
+                <a href="#nonce-based-encryption" aria-label="Nonce-based encryption">Nonce-based encryption</a></li>
+            <li>
+                <a href="#padding" aria-label="Padding">Padding</a></li></ul>
+            </li>
+            <li>
+                <a href="#randomised-counter-mode-ctr-superior-to-cbc" aria-label="Randomised Counter-mode (CTR) (superior to CBC)">Randomised Counter-mode (CTR) (superior to CBC)</a></li>
+            <li>
+                <a href="#coparison-ctr-vs-cbc" aria-label="Coparison: CTR vs CBC">Coparison: CTR vs CBC</a>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+</details>
+
   <div class="post-content md-content"><p><strong>Why this matters:</strong> Improper IV/nonce handling has led to real breaches (WEP, SSL/TLS downgrades). Critical for secure implementation.</p>
 <p><strong>Note:</strong> This continues from Week 2 Part 1 - read that first.</p>
-<hr>
-<ol>
-<li><a href="#using-block-ciphers">Using Block Ciphers</a>
-<ul>
-<li><a href="#modes-of-operation-one-time-key">Modes of operation: One time key</a>
-<ul>
-<li><a href="#security-for-one-time-key">Security for one time key</a></li>
-<li><a href="#ecb-electronic-code-book---one-time-key">ECB (Electronic Code Book) - One time key</a>
-<ul>
-<li><a href="#deterministic-counter-mode-from-a-prf-f-eg-aes---one-time-key">Deterministic counter mode from a PRF F (eg. AES) - One time key</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#security-for-many-time-key">Modes of operation: Many time key</a>
-<ul>
-<li><a href="#cbc-cipher-block-chaining-with-a-random-iv---many-time-key-cpa-security">CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security)</a>
-<ul>
-<li><a href="#iv-initialization-vector">IV (Initialization Vector)</a></li>
-<li><a href="#iv-based-encryption">IV-based encryption</a></li>
-<li><a href="#nonce-based-encryption">Nonce-based encryption</a></li>
-<li><a href="#padding">Padding</a></li>
-</ul>
-</li>
-<li><a href="#randomised-counter-mode-ctr-superior-to-cbc">Randomised Counter-mode (CTR) (superior to CBC)</a></li>
-<li><a href="#coparison-ctr-vs-cbc">Coparison: CTR vs CBC</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
 <hr>
 <h2 id="using-block-ciphers">Using Block Ciphers<a hidden class="anchor" aria-hidden="true" href="#using-block-ciphers">#</a></h2>
 <hr>

@@ -87,32 +87,51 @@
     </span>
 
 </div>
-  </header> 
+  </header> <details class="toc"  open>
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#history" aria-label="History">History</a></li>
+            <li>
+                <a href="#discrete-probability" aria-label="Discrete Probability">Discrete Probability</a><ul>
+                    
+            <li>
+                <a href="#birthday-paradox" aria-label="Birthday paradox">Birthday paradox</a></li></ul>
+            </li>
+            <li>
+                <a href="#stream-ciphers" aria-label="Stream ciphers">Stream ciphers</a><ul>
+                    
+            <li>
+                <a href="#information-theoretic-security" aria-label="Information theoretic security">Information theoretic security</a></li>
+            <li>
+                <a href="#stream-ciphers-1" aria-label="Stream ciphers">Stream ciphers</a></li>
+            <li>
+                <a href="#prg" aria-label="PRG">PRG</a></li>
+            <li>
+                <a href="#attacks-on-otp--stream-ciphers" aria-label="Attacks on OTP / stream ciphers">Attacks on OTP / stream ciphers</a></li>
+            <li>
+                <a href="#modern-broken-stream-ciphers" aria-label="Modern broken stream ciphers">Modern broken stream ciphers</a></li>
+            <li>
+                <a href="#better-modern-stream-cipher" aria-label="Better modern stream cipher">Better modern stream cipher</a></li>
+            <li>
+                <a href="#lets-do-some-salsa" aria-label="Let’s do some Salsa!">Let’s do some Salsa!</a></li>
+            <li>
+                <a href="#prg-security" aria-label="PRG Security">PRG Security</a></li>
+            <li>
+                <a href="#what-is-a-secure-cipher" aria-label="What is a secure cipher?">What is a secure cipher?</a>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+</details>
+
   <div class="post-content md-content"><p><strong>Why this matters:</strong> Understanding stream cipher internals is critical for OSWE/OSEP and real-world cryptographic implementation review.</p>
 <p><strong>Prerequisites:</strong> Basic discrete math, XOR operations | <strong>Time:</strong> 2-3 hours</p>
 <p>Week 1. This week&rsquo;s topic is an overview of what cryptography is about as well as our first example ciphers. You will learn about pseudo-randomness and how to use it for encryption. We will also look at a few basic definitions of secure encryption.</p>
-<hr>
-<ol>
-<li><a href="#history">History</a></li>
-<li><a href="#discrete-probability">Discrete Probability</a>
-<ul>
-<li><a href="#birthday-paradox">Birthday paradox</a></li>
-</ul>
-</li>
-<li><a href="#stream-ciphers">Stream Ciphers</a>
-<ul>
-<li><a href="#information-theoretic-security">Information theoretic security </a></li>
-<li><a href="#stream-ciphers-1">Stream Ciphers</a></li>
-<li><a href="#prg">PRG</a></li>
-<li><a href="#attacks-on-otp--stream-ciphers">Attacks on OTP / stream ciphers</a></li>
-<li><a href="#modern-broken-stream-ciphers">Modern broken stream ciphers</a></li>
-<li><a href="#better-modern-stream-cipher">Better modern stream cipher</a></li>
-<li><a href="#lets-do-some-salsa">Let’s do some Salsa!</a></li>
-<li><a href="#prg-security">PRG Security</a></li>
-<li><a href="#what-is-a-secure-cipher">What is a Secure Cipher</a></li>
-</ul>
-</li>
-</ol>
 <hr>
 <h1 id="history">History<a hidden class="anchor" aria-hidden="true" href="#history">#</a></h1>
 <p>Symmetric ciphers:</p>
