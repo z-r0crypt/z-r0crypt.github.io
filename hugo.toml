@@ -6,6 +6,11 @@ theme = "PaperMod"
 paginate = 10
 languageCode = "en"  # Keep for backward compatibility but won't error
 
+# Google Analytics - GA4
+googleAnalytics = "G-E0K2CP5DEL"
+google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
+
+
 # Enable RSS and other output formats
 [outputs]
   home = ["HTML", "JSON", "RSS"]
@@ -37,13 +42,13 @@ languageCode = "en"  # Keep for backward compatibility but won't error
   #Custom css
   customCSS = ["css/custom.css"]
 
-  # Google Analytics - GA4
-  #googleAnalyticsID = "G-XXXXXXXXXX"  # TODO: Replace with your GA4 ID
-  googleAnalytics = "G-E0K2CP5DEL"
-  google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
-
+  
   # Google AdSense
-  googleAdsenseID = "ca-pub-3835157681642549"  # TODO: Replace with your AdSense ID
+  # googleAdsense = "ca-pub-3835157681642549"  # TODO: Replace with your AdSense ID
+  [params.googleAdsense]
+    enabled = true
+    publisherId = "ca-pub-3835157681642549"
+    autoAds = true
 
   # Enable analytics
   env = "production"  # Required for analytics to fire

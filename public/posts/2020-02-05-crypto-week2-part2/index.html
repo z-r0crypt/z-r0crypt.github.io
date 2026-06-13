@@ -1,16 +1,130 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><head>
-  
-  
-  
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Cryptography I: Advanced Block Cipher Modes and Padding | z-r0crypt</title>
+<meta name="keywords" content="cryptography, cbc, ctr, padding-oracle, iv-nonce">
+<meta name="description" content="Deep dive into CBC/CTR implementation details, IV/nonce management, padding oracle attacks, and performance comparison of encryption modes.">
+<meta name="author" content="z-r0crypt">
+<link rel="canonical" href="https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://z-r0crypt.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://z-r0crypt.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://z-r0crypt.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://z-r0crypt.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://z-r0crypt.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+    crossorigin="anonymous"></script><script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0K2CP5DEL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E0K2CP5DEL');
+        }
+      </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/">
+  <meta property="og:site_name" content="z-r0crypt">
+  <meta property="og:title" content="Cryptography I: Advanced Block Cipher Modes and Padding">
+  <meta property="og:description" content="Deep dive into CBC/CTR implementation details, IV/nonce management, padding oracle attacks, and performance comparison of encryption modes.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-02-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Cryptography">
+    <meta property="article:tag" content="Cbc">
+    <meta property="article:tag" content="Ctr">
+    <meta property="article:tag" content="Padding-Oracle">
+    <meta property="article:tag" content="Iv-Nonce">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cryptography I: Advanced Block Cipher Modes and Padding">
+  <meta name="twitter:description" content="Deep dive into CBC/CTR implementation details, IV/nonce management, padding oracle attacks, and performance comparison of encryption modes.">
 
 
-
-
-  
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://z-r0crypt.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Cryptography I: Advanced Block Cipher Modes and Padding",
+      "item": "https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cryptography I: Advanced Block Cipher Modes and Padding",
+  "name": "Cryptography I: Advanced Block Cipher Modes and Padding",
+  "description": "Deep dive into CBC/CTR implementation details, IV/nonce management, padding oracle attacks, and performance comparison of encryption modes.",
+  "keywords": [
+    "cryptography", "cbc", "ctr", "padding-oracle", "iv-nonce"
+  ],
+  "articleBody": "Why this matters: Improper IV/nonce handling has led to real breaches (WEP, SSL/TLS downgrades). Critical for secure implementation.\nNote: This continues from Week 2 Part 1 - read that first.\nUsing Block Ciphers Modes of operation: One time key Security for one time key ECB (Electronic Code Book) - One time key Deterministic counter mode from a PRF F (eg. AES) - One time key Modes of operation: Many time key CBC (Cipher Block Chaining with a random IV) - Many time key (CPA security) IV (Initialization Vector) IV-based encryption Nonce-based encryption Padding Randomised Counter-mode (CTR) (superior to CBC) Coparison: CTR vs CBC Using Block Ciphers Modes of operation: One time key Goal: Build a secure encryption from a secure PRP\nThe block cipher mode of operation defines the relationships between blocks encoded using the cipher. There are different modes that were created to make it more difficult for an attacker to guess the original content of the message.\nSecurity for one-time key Let’s start with a threat model (one-time keys) defined as follows:\nAdversary’s power: Adv sees only one cipher text Adversary’s goal: Learn info about PT from CT (semantic security) Reminder: semantic security for a one-time key. The attacker, if given c_0 and c_1 and m_0 and m_1 can’t know which one is the result of what message. Adv_{SS} [A, OTP] = | Pr[ EXP(0)=1 ] - Pr[ EXP(1) = 1 ] |\nECB (Electronic Code Book) - One time key When using ECB, each block of data is encrypted separately and they are then concatenated in the original order. Parallel processing is possible since blocks do not depend on one another. There is no need for an IV. The major problem of ECB is that if the same block of data is encrypted, it will always generate the same ciphertext. This makes it easier for the attacker to guess the original data based on repeating patterns.\nECB is badly broken. It works by breaking down the message into n blocks of size of the block cipher and then encrypt each of the parts individually. Issue, the attacker learns when a two segments have the same value. (if m_1 = m_2 -\u003e c_1 = c_2)\nECB is not semantically secure. ECB is not semantically secure for messages that contain more than one block.\nDeterministic counter mode from a PRF F (eg. AES) - One time key E_{DETCTR} (k,m) = We build a stream cipher from a PRF.\nSecurity for many-time key Why? Many applications: Filesystems or IPSec, encrypts a lot of traffic with the same key.\nWhen we use a key more than once, the adversary sees many cipher texts with the same key.\nAdversary’s power: chosen-plaintext attack, the attacker can obtain the encryption of arbitrary messages of his choice (How does it work IRL? You can email someone, email will be stored encrypted on disk and boom you have m and c).\nAdversary goal: Break semantic security\nSemantic-security for many-time key is defined exactly as semantic security for a one-time key but he can repeat any of the messages in the challenge that the attacker can choose. ==\u003e Chosen Plaintext attack (CPA).\nAll the deterministic encryption schemes we’ve seen before are broken under a chosen plaintext attack (CPA).\nSo how do we fix this?\n1) Randomized encryption:\nencrypting same message twice gives different cipher text. Ciphertext must be longer than plaintext. size(CT) = size (PT) + “#random bits”\nRandom bits should always be unique in order for it to be semantically secure 2) Nonce-based encryption:\nWe define a nonce as a value that changes from message to message. The pair (k, n) {k -\u003e key; n -\u003e nonce} should NEVER be used more than once. A nonce should always be unique, it doesn’t need to be random.\nWe will lool at some examples of chosing a nonce. The nonce can conveniently be a counter (if in-order and reliable transmission channel, no need to transmit nonce). Another method of chosing a nonce could be picking a random nonce. If same key used by multiple machines, the nonce space needs to be very big and picked at random (easier to implement a “stateless” protocol).\nCBC (Cipher Block Chaining with a random IV) - Many time key (CPA security) IV (Initialization Vector) An initialization vector is a random (or pseudorandom) fixed-size input used in encryption methods. The main purpose of an IV is starting off an encryption method. In cipher modes like Cipher Block Chaining (CBC) each block is XOR-ed with the previous block. In the first block, there is no previous block to XOR with. An Initialization Vector is used as an input to the first block to start off the process.\nIf IV is unique for each message, it is called a nonce, which means that it can only be used once. A nonce should be unpredictable. It is also used to prevent attackers from decrypting all messages by guessing the IV. If you use a nonce, the same plaintext may be encrypted using the same key into different ciphertext.\nIV-based encryption When using CBC, each block is XORed with the previous ciphertext before encryption. This eliminates the problem of repeating patterns. An IV is needed to encrypt the first plaintext block. Parallel processing is not possible since the blocks are chained. There is one major disadvantage of CBC: if part of the message is garbled or lost, the remainder of the message is lost.\nWhen we start encrypting the first block, we pick a random IV (initialization vector of length one bloc). We XOR the first message with it before encrypting. IV is publicly known and prepended to the cipher text. Chaining is done by for the next block XORing the cipher text of the first block with the new message and then encrypting.\nWhat security does it provide?\nIt does provide semantic security:\nAdv_CPA [A , E_{CBC} ] =\u003c 2 * Adv_PRP [B, E] + (2 q^2 L^2 / |X| = error term, needs to be negligible) CBC is secure as long as q^2L^2 « |X| where L is the length of the messages and q is the number of times we used q to encrypt messages.\nApplied to AES, this means that after 2^48 blocks, we need to replace the key.\nCipher is not CPA secure if the IV is predictable.\nDecryption Circuit for IV based encryption\nNonce-based encryption Cipher-block chaining with unique nonce. (no need to include in first cipher text) : key = (k, k1).\nunique nonce means: (key, n) pair is used for only one message.\nIf nonce is not random, it needs to be xored with first block.\nPadding Block ciphers have a specified fixed length and most of them require that the input data is a multiple of their size. It is common that the last block contains data that does not meet this requirement. In this case, padding (usually random data) is used to bring it to the required block length.\nIn TLS, you pad the n remaining bytes with the number n. If no pad is needed, add a dummy block.\nRandomised Counter-mode (CTR) (superior to CBC) Unlike CBC, randomised counter-mode doesn’t need a secure block cipher (PRP) but works with a secure PRF because we’re never going to invert the function F.\nHow does it work?\nWe pick a random IV, then we XOR the messages blocks with F(k,IV + message block number)\nNonce based counter mode: IV = { 64-bit nonce | 64-bit counter (starts at 0 for every message)}\nNote that we can encrypt a maximum of 2^64 blocks per nonce because otherwise the counter overflows and the pad would be used a second time.\nWe can use counter-mode for more blocks than CBC because the adversary’s advantage is 2q^2L / |X| \u003c CBC’s advantage.\nFor AES, we can encrypt 2^64 AES blocks with the same key with semantic secrecy.\nAdvantage: It’s parallelizable! Fast encryption! And is so much better than CBC.\nCoparison: CTR vs CBC ",
+  "wordCount" : "1331",
+  "inLanguage": "en",
+  "datePublished": "2020-02-05T00:00:00Z",
+  "dateModified": "2025-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "z-r0crypt"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "z-r0crypt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-r0crypt.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 <body id="top">
     <header class="header">

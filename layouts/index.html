@@ -1,6 +1,11 @@
 {{- define "main" }}
 
 <style>
+/* ============================================================
+   HOMEPAGE STYLES - z-r0crypt
+   Single source of truth for homepage only
+   ============================================================ */
+
 :root {
   --bg: #0d1117;
   --bg2: #161b22;
@@ -15,14 +20,11 @@
   --red: #f85149;
   --amber: #e3b341;
   --purple: #bc8cff;
+  --cyan: #79c0ff;
   --teal: #39d353;
 }
 
-html {
-  background-color: var(--bg);
-}
-
-body {
+html, body {
   background-color: var(--bg);
   color: var(--txt);
 }
@@ -30,12 +32,15 @@ body {
 .main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 0 20px 60px;
 }
 
-/* Hero Section */
+/* ============================================================
+   HERO
+   ============================================================ */
+
 .hero-section {
-  padding: 40px 0 24px;
+  padding: 48px 0 28px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -43,10 +48,10 @@ body {
   font-family: 'Monaco', 'JetBrains Mono', monospace;
   font-size: 10px;
   color: var(--purple);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .hero-eyebrow::before {
@@ -56,64 +61,26 @@ body {
   height: 6px;
   border-radius: 50%;
   background-color: var(--purple);
+  flex-shrink: 0;
 }
 
 .hero-section h1 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 1.35;
   color: var(--txt);
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
 }
 
-.hero-section h1 .accent-blue {
-  color: var(--blue);
-}
-
-.hero-section h1 .accent-purple {
-  color: var(--purple);
-}
+.accent-blue  { color: var(--blue); }
+.accent-purple { color: var(--purple); }
 
 .hero-desc {
   font-size: 13px;
   color: var(--txt2);
-  line-height: 1.7;
-  margin-bottom: 16px;
-  max-width: 700px;
-}
-
-.credentials {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  width: fit-content;
-  margin-bottom: 24px;
-}
-
-.credentials-icon {
-  font-size: 20px;
-}
-
-.credentials-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.credentials-name {
-  font-family: 'Monaco', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--txt);
-}
-
-.credentials-desc {
-  font-size: 10px;
-  color: var(--txt2);
-  margin-top: 2px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  max-width: 680px;
 }
 
 /* Tags */
@@ -121,141 +88,103 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .tag {
   font-family: 'Monaco', monospace;
   font-size: 9px;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: 4px;
   border: 1px solid;
-  cursor: pointer;
-  transition: all 0.15s;
+  transition: opacity 0.15s, transform 0.15s;
+  text-decoration: none;
 }
 
-.tag:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
+.tag:hover { opacity: 0.75; transform: translateY(-1px); }
+.tag.red    { color: var(--red);    border-color: #f8514930; background: #180b0a20; }
+.tag.blue   { color: var(--blue);   border-color: #58a6ff30; background: #0a101e20; }
+.tag.purple { color: var(--purple); border-color: #bc8cff30; background: #10091820; }
+.tag.amber  { color: var(--amber);  border-color: #e3b34130; background: #18120020; }
+.tag.grey   { color: var(--txt2);   border-color: var(--border); background: var(--bg2); }
 
-.tag.red {
-  color: var(--red);
-  border-color: #f8514930;
-  background: #180b0a20;
-}
-
-.tag.blue {
-  color: var(--blue);
-  border-color: #58a6ff30;
-  background: #0a101e20;
-}
-
-.tag.purple {
-  color: var(--purple);
-  border-color: #bc8cff30;
-  background: #10091820;
-}
-
-.tag.green {
-  color: var(--green);
-  border-color: #3fb95030;
-  background: #09150920;
-}
-
-.tag.amber {
-  color: var(--amber);
-  border-color: #e3b34130;
-  background: #18120020;
-}
-
-.tag.grey {
-  color: var(--txt2);
-  border-color: var(--border);
-  background: var(--bg2);
-}
-
+/* CTA Buttons */
 .btn-primary {
-  background: var(--bg2);
+  background: var(--blue);
   color: #0d1117;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 9px 18px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   margin-right: 10px;
-  margin-bottom: 20px;
-  transition: all 0.15s;
+  margin-bottom: 0;
+  transition: opacity 0.15s, transform 0.15s;
 }
 
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 
 .btn-secondary {
   background: transparent;
   color: var(--txt2);
   border: 1px solid var(--border);
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 9px 18px;
   font-size: 12px;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  margin-bottom: 20px;
-  transition: all 0.15s;
+  transition: color 0.15s, border-color 0.15s;
 }
 
-.btn-secondary:hover {
-  color: var(--txt);
-  border-color: var(--border2);
-}
+.btn-secondary:hover { color: var(--txt); border-color: var(--border2); }
 
-/* Stats Row */
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  margin: 20px 0;
+  margin: 28px 0 0;
 }
 
 .stat-item {
-  padding: 16px 20px;
+  padding: 16px 12px;
   border-right: 1px solid var(--border);
   text-align: center;
-  background: var(--bg);
 }
 
-.stat-item:last-child {
-  border-right: none;
-}
+.stat-item:last-child { border-right: none; }
 
 .stat-number {
   font-family: 'Monaco', monospace;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--txt);
 }
 
-.stat-number.purple {
-  color: var(--purple);
-}
+.stat-number.purple { color: var(--purple); }
 
 .stat-label {
   font-family: 'Monaco', monospace;
   font-size: 9px;
   color: var(--txt3);
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
-/* Featured Research */
-.featured-section {
-  margin: 32px 0 24px;
+/* ============================================================
+   CREDENTIALS
+   ============================================================ */
+
+.credentials-section {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .section-title {
@@ -264,141 +193,80 @@ body {
   color: var(--txt3);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-weight: 500;
 }
 
-.featured-card {
+.creds-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cred-card {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 8px;
-  overflow: hidden;
+  padding: 16px 12px;
+  text-align: center;
+  transition: border-color 0.15s;
 }
 
-.featured-image {
-  background: var(--bg3);
-  padding: 14px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 80px;
-  position: relative;
+.cred-card:hover {
+  border-color: var(--blue);
+}
+
+.cred-card img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.cred-name {
+  font-family: 'Monaco', monospace;
   font-size: 12px;
-  color: var(--txt2);
-  font-family: 'Monaco', monospace;
-}
-
-.featured-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  font-family: 'Monaco', monospace;
-  font-size: 8px;
-  padding: 2px 6px;
-  border-radius: 3px;
-  background: #10091820;
-  color: var(--purple);
-  border: 1px solid #bc8cff30;
-}
-
-.diagram-node {
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: 3px;
-  padding: 4px 8px;
-  font-family: 'Monaco', monospace;
-  font-size: 9px;
-  color: var(--txt2);
-  flex-shrink: 0;
-}
-
-.diagram-node.highlight {
-  border-color: #bc8cff50;
-  color: var(--purple);
-}
-
-.diagram-node.attack {
-  border-color: #f8514950;
-  color: var(--red);
-}
-
-.diagram-arrow {
-  font-size: 11px;
-  color: var(--border2);
-}
-
-.featured-body {
-  padding: 14px;
-}
-
-.featured-kicker {
-  font-family: 'Monaco', monospace;
-  font-size: 9px;
-  color: var(--txt3);
-  margin-bottom: 6px;
-}
-
-.featured-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--txt);
-  line-height: 1.4;
-  margin-bottom: 8px;
-}
-
-.featured-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 10px;
-}
-
-.featured-tag {
-  background: #10091820;
-  color: var(--purple);
-  border: 1px solid #bc8cff30;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: 'Monaco', monospace;
-}
-
-.featured-time {
-  color: var(--txt3);
-  font-family: 'Monaco', monospace;
-}
-
-.featured-link {
-  margin-left: auto;
+  font-weight: 600;
   color: var(--blue);
-  cursor: pointer;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cred-desc {
+  font-size: 10px;
+  color: var(--txt2);
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.cred-year {
   font-family: 'Monaco', monospace;
-  font-weight: 500;
+  font-size: 10px;
+  color: var(--purple);
+  display: block;
 }
 
-.featured-link:hover {
-  text-decoration: underline;
-}
+/* ============================================================
+   POSTS
+   ============================================================ */
 
-/* Posts Grid */
-.posts-grid {
-  margin-top: 20px;
+.posts-section {
+  padding: 28px 0 0;
 }
 
 .post-item {
-  padding: 16px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--border);
-  transition: all 0.15s;
+  transition: background 0.15s, padding 0.15s;
 }
 
-.post-item:last-child {
-  border-bottom: none;
-}
+.post-item:last-child { border-bottom: none; }
 
 .post-item:hover {
   background: var(--bg2);
-  padding: 16px 16px;
-  margin: 0 -16px;
+  padding: 18px 14px;
+  margin: 0 -14px;
   border-radius: 6px;
 }
 
@@ -406,7 +274,8 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
+  flex-wrap: wrap;
 }
 
 .post-date {
@@ -424,174 +293,129 @@ body {
   display: inline-block;
 }
 
-.post-category.research {
-  color: var(--purple);
-  border-color: #bc8cff30;
-  background: #10091820;
-}
+.post-category.research     { color: var(--purple); border-color: #bc8cff30; background: #10091820; }
+.post-category.red-team     { color: var(--red);    border-color: #f8514930; background: #180b0a20; }
+.post-category.web          { color: var(--blue);   border-color: #58a6ff30; background: #0a101e20; }
+.post-category.exploit      { color: var(--blue);   border-color: #58a6ff30; background: #0a101e20; }
+.post-category.tools        { color: var(--green);  border-color: #3fb95030; background: #09150920; }
+.post-category.tool         { color: var(--green);  border-color: #3fb95030; background: #09150920; }
+.post-category.cryptography { color: var(--amber);  border-color: #e3b34130; background: #18120020; }
+.post-category.ctf          { color: var(--teal);   border-color: #39d35330; background: #09150920; }
+.post-category.ai-ml        { color: var(--purple); border-color: #bc8cff30; background: #10091820; }
 
-.post-category.red-team {
-  color: var(--red);
-  border-color: #f8514930;
-  background: #180b0a20;
-}
-
-.post-category.web {
-  color: var(--blue);
-  border-color: #58a6ff30;
-  background: #0a101e20;
-}
-
-.post-category.exploit {
-  color: var(--blue);
-  border-color: #58a6ff30;
-  background: #0a101e20;
-}
-
-.post-category.tool {
-  color: var(--green);
-  border-color: #3fb95030;
-  background: #09150920;
-}
-
-.post-category.crypto {
-  color: var(--amber);
-  border-color: #e3b34130;
-  background: #18120020;
-}
-
-.post-category.ctf {
-  color: var(--green);
-  border-color: #3fb95030;
-  background: #09150920;
-}
-
-.post-title {
+.post-title-text {
   font-size: 14px;
   font-weight: 500;
   color: var(--txt);
   margin-bottom: 6px;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
-.post-title a {
+.post-title-text a {
   color: var(--txt);
   text-decoration: none;
+  transition: color 0.15s;
 }
 
-.post-title a:hover {
-  color: var(--blue);
-}
+.post-title-text a:hover { color: var(--blue); }
 
 .post-excerpt {
   font-size: 12px;
   color: var(--txt2);
-  line-height: 1.6;
-  margin-bottom: 8px;
+  line-height: 1.65;
+  margin-bottom: 10px;
 }
 
 .post-footer {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 10px;
+  gap: 12px;
 }
 
 .post-link {
   color: var(--blue);
   font-family: 'Monaco', monospace;
+  font-size: 10px;
   text-decoration: none;
   font-weight: 500;
+  transition: opacity 0.15s;
 }
 
-.post-link:hover {
-  text-decoration: underline;
-}
+.post-link:hover { opacity: 0.75; }
 
 .post-readtime {
   color: var(--txt3);
   font-family: 'Monaco', monospace;
+  font-size: 10px;
 }
 
-/* Footer */
-.footer {
-  margin-top: 32px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--txt3);
-  text-align: center;
-}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
-/* Responsive */
 @media (max-width: 768px) {
-  .hero-stats {
+  .hero-section h1 { font-size: 22px; }
+
+  .hero-stats,
+  .creds-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .hero-section h1 {
-    font-size: 22px;
-  }
-  
-  .featured-image {
-    flex-direction: column;
-    gap: 4px;
-  }
-  
+
   .post-item:hover {
-    padding: 16px;
+    padding: 18px 10px;
+    margin: 0 -10px;
   }
 }
 
 @media (max-width: 480px) {
+  .hero-section h1 { font-size: 19px; }
+
   .hero-stats {
-    grid-template-columns: 1fr;
-  }
-  
-  .tag {
-    font-size: 8px;
-    padding: 2px 6px;
-  }
-  
-  .featured-image {
-    padding: 10px;
-    font-size: 10px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  .creds-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .tag { font-size: 8px; padding: 2px 7px; }
+
+  .post-item:hover {
+    padding: 18px 0;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+  }
 }
-
-
 </style>
 
-<article class="post-single">
-  <header class="post-header">
-    <!-- Hero Section -->
-    <div class="hero-section">
-      <p class="hero-eyebrow">research & adversarial engineering</p>
-      <h1>
-        <span class="accent-purple">Red Teaming in the Age of AI.</span><br>
-        Building secure systems through <span class="accent-blue">principled attacks.</span>
-      </h1>
-      <p class="hero-desc">
-        14+ years in offensive security, penetration testing, and exploit development. 
-        Red teaming, OSCP/OSWE/OSEP certified. Expanding knowledge into AI/ML security and emerging attack vectors.
-      </p>
+<div class="main">
 
-      <div class="hero-tags">
-        <span class="tag red">red teaming</span>
-        <span class="tag red">post-exploitation</span>
-        <span class="tag blue">web exploitation</span>
-        <span class="tag amber">cryptography</span>
-        <span class="tag purple">ai/ml security</span>
-        <span class="tag grey">bug bounty</span>
-      </div>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero-section">
+    <p class="hero-eyebrow">research &amp; adversarial engineering</p>
+    <h1>
+      <span class="accent-purple">Red Teaming in the Age of AI.</span><br>
+      Building secure systems through <span class="accent-blue">principled attacks.</span>
+    </h1>
+    <p class="hero-desc">
+      14+ years in offensive security, penetration testing, and exploit development.
+      Red teaming, OSCP/OSWE/OSEP/OSCE certified. Expanding knowledge into AI/ML security and emerging attack vectors.
+    </p>
 
-      <div>
-        <a href="#posts" class="btn-primary">latest research →</a>
-        <a href="/about/" class="btn-secondary">about my work</a>
-      </div>
+    <div class="hero-tags">
+      <span class="tag red">red teaming</span>
+      <span class="tag red">post-exploitation</span>
+      <span class="tag blue">web exploitation</span>
+      <span class="tag amber">cryptography</span>
+      <span class="tag purple">ai/ml security</span>
+      <span class="tag grey">bug bounty</span>
     </div>
+
+    <a href="#posts" class="btn-primary">latest research →</a>
+    <a href="/about/" class="btn-secondary">about my work</a>
 
     <!-- Stats Bar -->
     <div class="hero-stats">
@@ -608,103 +432,72 @@ body {
         <div class="stat-label">certified</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number purple">9</div>
+        <div class="stat-number purple">{{ len (where site.RegularPages "Type" "posts") }}</div>
         <div class="stat-label">documented posts</div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Credetials Section -->
+  <!-- ============================================================
+       CERTIFICATIONS
+       ============================================================ -->
   <section class="credentials-section">
-  <h3>Certifications & Credentials</h3>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <img src="/images/cert/oscp.png" alt="OSCP" width="150" height="150">
-      <span>OSCP</span>
-      <small>Offensive Security Certified Professional</small>
-      <small>2022</small>
+    <div class="section-title">Certifications &amp; Credentials</div>
+    <div class="creds-grid">
+      <div class="cred-card">
+        <img src="/images/cert/OSCP.png" alt="OSCP Badge">
+        <span class="cred-name">OSCP</span>
+        <span class="cred-desc">Offensive Security Certified Professional</span>
+        <span class="cred-year">2017</span>
+      </div>
+      <div class="cred-card">
+        <img src="/images/cert/OSCE.png" alt="OSCE Badge">
+        <span class="cred-name">OSCE</span>
+        <span class="cred-desc">Offensive Security Certified Expert</span>
+        <span class="cred-year">2018</span>
+      </div>
+      <div class="cred-card">
+        <img src="/images/cert/OSWE.png" alt="OSWE Badge">
+        <span class="cred-name">OSWE</span>
+        <span class="cred-desc">Offensive Security Web Expert</span>
+        <span class="cred-year">2023</span>
+      </div>
+      <div class="cred-card">
+        <img src="/images/cert/OSEP.png" alt="OSEP Badge">
+        <span class="cred-name">OSEP</span>
+        <span class="cred-desc">Offensive Security Experienced Pentester</span>
+        <span class="cred-year">2024</span>
+      </div>
     </div>
-    <div class="stat-item">
-      <img src="/images/cert/oswe.png" alt="OSWE" width="150" height="150">
-      <span>OSWE</span>
-      <small>Offensive Security Web Expert</small>
-      <small>2023</small>
-    </div>
-    <div class="stat-item">
-      <img src="/images/cert/osep.png" alt="OSEP" width="150" height="150">
-      <span>OSEP</span>
-      <small>Offensive Security Experienced Pentester</small>
-      <small>2024</small>
-    </div>
-    <div class="stat-item">
-      <img src="/images/cert/osce.png" alt="OSEP" width="150" height="150">
-      <span>OSEP</span>
-      <small>Offensive Security Certified Expert</small>
-      <small>2024</small>
-    </div>
-  </div>
-    </section>
+  </section>
 
+  <!-- ============================================================
+       POSTS
+       ============================================================ -->
+  <section class="posts-section" id="posts">
+    <div class="section-title">Recent Posts</div>
 
-    
-  <!-- Featured Research -->
-  <section class="featured-section" id="posts">
-    <div class="section-title">Latest Posts</div>
-    
-    {{ $featured := where site.RegularPages "Params.featured" true | first 1 }}
-    {{ if $featured }}
-      {{ range $featured }}
-        <div class="featured-card">
-          <div class="featured-image">
-            <span class="featured-badge">featured</span>
-            <div style="margin-top: 8px;">
-              <span class="diagram-node">exploration</span>
-              <span class="diagram-arrow">→</span>
-              <span class="diagram-node highlight">research</span>
-              <span class="diagram-arrow">→</span>
-              <span class="diagram-node attack">documentation</span>
-            </div>
-          </div>
-          <div class="featured-body">
-            <div class="featured-kicker">// {{ range .Params.categories }}{{ . }}{{ end }}</div>
-            <div class="featured-title">{{ .Title }}</div>
-            <p style="font-size: 11px; color: var(--txt2); margin: 8px 0; line-height: 1.6;">{{ .Summary }}</p>
-            <div class="featured-meta">
-              <span class="featured-tag">featured</span>
-              <span class="featured-time">{{ .ReadingTime }} min read</span>
-              <span class="featured-link">read →</span>
-            </div>
-          </div>
-        </div>
-      {{ end }}
+    {{ $pages := where site.RegularPages "Type" "posts" | first 10 }}
+    {{ range $pages }}
+    <article class="post-item">
+      <div class="post-meta">
+        <span class="post-date">{{ .PublishDate.Format "Jan 2006" }}</span>
+        {{ range .Params.categories }}
+          <span class="post-category {{ . | lower | replaceRE " " "-" }}">{{ . }}</span>
+        {{ end }}
+      </div>
+      <div class="post-title-text">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </div>
+      <p class="post-excerpt">{{ .Summary }}</p>
+      <div class="post-footer">
+        <a href="{{ .Permalink }}" class="post-link">read →</a>
+        <span class="post-readtime">{{ .ReadingTime }} min read</span>
+      </div>
+    </article>
     {{ end }}
   </section>
 
-  <!-- Recent Posts -->
-  <section>
-    <div class="section-title">Recent Posts</div>
-    <div class="posts-grid">
-      {{ $pages := where site.RegularPages "Type" "posts" | first 10 }}
-      {{ range $pages }}
-        <article class="post-item">
-          <div class="post-meta">
-            <span class="post-date">{{ .PublishDate.Format "Jan 2006" }}</span>
-            {{ range .Params.categories }}
-              <span class="post-category {{ . | lower }}">{{ . }}</span>
-            {{ end }}
-          </div>
-          <h3 class="post-title">
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-          </h3>
-          <p class="post-excerpt">{{ .Summary }}</p>
-          <div class="post-footer">
-            <a href="{{ .Permalink }}" class="post-link">read research →</a>
-            <span class="post-readtime">{{ .ReadingTime }} min</span>
-          </div>
-        </article>
-      {{ end }}
-    </div>
-  </section>
-</article>
+</div>
 
 {{- end }}

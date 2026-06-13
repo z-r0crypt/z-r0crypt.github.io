@@ -1,46 +1,4 @@
 /* ============================================================
-   POST AND CONTENT STYLING
-   Complete color-coded styling for all content pages
-   ============================================================ */
-
-:root {
-  --bg: #0d1117;
-  --bg2: #161b22;
-  --bg3: #1c2128;
-  --border: #30363d;
-  --border2: #3d444d;
-  --txt: #e6edf3;
-  --txt2: #8b949e;
-  --txt3: #6e7681;
-  --blue: #58a6ff;
-  --green: #3fb950;
-  --red: #f85149;
-  --amber: #e3b341;
-  --purple: #bc8cff;
-  --orange: #fb8500;
-  --cyan: #79c0ff;
-}
-
-/* ============================================================
-   PAGE BACKGROUND
-   ============================================================ */
-
-html {
-  background-color: var(--bg);
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--txt);
-}
-
-.main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px 40px;
-}
-
-/* ============================================================
    ARTICLE & POST CONTAINER
    ============================================================ */
 
@@ -53,6 +11,7 @@ body {
   --bg: #0d1117;
   --bg2: #161b22;
   --bg3: #1c2128;
+  --bg4: #D3D3D3;
   --border: #30363d;
   --border2: #3d444d;
   --txt: #e6edf3;
@@ -66,6 +25,201 @@ body {
   --orange: #fb8500;
   --cyan: #79c0ff;
 }
+
+/* ============================================================
+   TABLE STYLE CONTAINER
+   ============================================================ */
+
+/**/
+html[data-theme="light"] .post-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden; /* Clips children to match rounded corners */
+}
+
+html[data-theme="light"] .post-content tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+html[data-theme="light"] .post-content tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+html[data-theme="light"] .post-content tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+html[data-theme="light"] .post-content tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+/**/
+
+/* Light mode - ensure readability */
+html[data-theme="light"] .post-content {
+  color: #1a1a1a;
+}
+
+html[data-theme="light"] .post-content p {
+  color: #333333;
+}
+
+html[data-theme="light"] .post-content h2,
+html[data-theme="light"] .post-content h3,
+html[data-theme="light"] .post-content h4 {
+  color: #1a1a1a;
+}
+
+html[data-theme="light"] .post-content table td {
+  color: #333333;
+}
+
+html[data-theme="light"] .post-content code {
+  color: #c41e3a;
+  background: #f5f5f5;
+}
+
+html[data-theme="light"] .post-content a {
+  color: #0066cc;
+}
+
+html[data-theme="light"] .post-content table th {
+  color: #0d1117;
+  background: #f0f0f0;
+}
+
+/* Dark mode - keep your colors */
+html[data-theme="dark"] .post-content h2 {
+  color: #bc8cff;
+}
+
+html[data-theme="dark"] .post-content h3 {
+  color: #79c0ff;
+}
+
+html[data-theme="dark"] .post-content a {
+  color: #58a6ff;
+}
+
+/**/
+html[data-theme="light"] .post-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden; 
+}
+
+html[data-theme="dark"] .post-content tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+html[data-theme="dark"] .post-content tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+html[data-theme="dark"] .post-content tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+html[data-theme="dark"] .post-content tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+/**/
+
+html[data-theme="dark"] .post-content table th {
+  color: #58a6ff;
+  background: #161b22;
+}
+
+/* Dark mode tables */
+
+
+html[data-theme="dark"] .post-content table {
+  background: #0d1117;
+  border: 1px solid #30363d;
+}
+
+html[data-theme="dark"] .post-content table th {
+  background: #161b22;
+  border-bottom: 2px solid #58a6ff;
+  color: #58a6ff;
+  padding: 12px;
+}
+
+html[data-theme="dark"] .post-content table td {
+  border: 1px solid #30363d;
+  padding: 12px;
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .post-content table tbody tr:hover {
+  background: #89befb;
+  color: #0f0f0f;
+}
+
+html[data-theme="light"] .post-content table tbody tr:hover {
+  background: #c0ddff;
+  color: #f0f0f0;
+}
+
+/* Light mode tables */
+/* Light mode - lighter tables */
+html[data-theme="light"] .post-content table {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+html[data-theme="light"] .post-content table th {
+  background: #0d1117;
+  border-bottom: 1px solid #0066cc;
+  color: #bbdffe;
+  padding: 10px;
+  font-weight: 600;
+}
+
+html[data-theme="light"] .post-content table td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px;
+  color: #333333;
+}
+
+/* Dark mode - subtle tables */
+html[data-theme="dark"] .post-content table {
+  background: transparent;
+  border: none;
+}
+
+html[data-theme="dark"] .post-content table th {
+  background: transparent;
+  border-bottom: 1px solid #58a6ff;
+  color: #58a6ff;
+  padding: 10px 0;
+}
+
+html[data-theme="dark"] .post-content table td {
+  border-bottom: 1px solid #30363d;
+  padding: 10px 0;
+  color: #e6edf3;
+}
+
+/**/
+
+
+/* Light mode - better contrast */
+html[data-theme="light"] .post-content li {
+  color: #3a3a3a !important;
+}
+
+html[data-theme="light"] .post-content ul > li::marker {
+  color: #0066cc !important;
+}
+
+html[data-theme="light"] .post-content ol > li::marker {
+  color: #0066cc !important;
+}
+
 
 /* ============================================================
    HEADINGS - Color coded with left borders
@@ -153,7 +307,7 @@ article a {
 }
 
 article a:hover {
-  color: var(--cyan) !important;
+  color: var(--txt3) !important;
   border-bottom-color: var(--cyan);
   background: rgba(88, 166, 255, 0.1);
   padding: 0 2px;
@@ -326,7 +480,8 @@ article table td:last-child {
 }
 
 article table tbody tr:hover {
-  background: var(--bg3);
+  background: var(--bg4);
+  color: #000000;
 }
 
 /* ============================================================

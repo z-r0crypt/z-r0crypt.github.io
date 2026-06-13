@@ -1,16 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><head>
-  
-  
-  
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping | z-r0crypt</title>
+<meta name="keywords" content="osep, pen-300, htb, red-team, penetration-testing, active-directory">
+<meta name="description" content="Curated list of 40&#43; Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.">
+<meta name="author" content="z-r0crypt">
+<link rel="canonical" href="https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://z-r0crypt.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://z-r0crypt.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://z-r0crypt.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://z-r0crypt.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://z-r0crypt.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+    crossorigin="anonymous"></script><script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0K2CP5DEL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E0K2CP5DEL');
+        }
+      </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/">
+  <meta property="og:site_name" content="z-r0crypt">
+  <meta property="og:title" content="HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping">
+  <meta property="og:description" content="Curated list of 40&#43; Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Osep">
+    <meta property="article:tag" content="Pen-300">
+    <meta property="article:tag" content="Htb">
+    <meta property="article:tag" content="Red-Team">
+    <meta property="article:tag" content="Penetration-Testing">
+    <meta property="article:tag" content="Active-Directory">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping">
+  <meta name="twitter:description" content="Curated list of 40&#43; Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.">
 
 
-
-
-  
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://z-r0crypt.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping",
+      "item": "https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping",
+  "name": "HTB Machines for OSEP\/PEN-300 Preparation: Complete Attack Chain Mapping",
+  "description": "Curated list of 40+ Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse.",
+  "keywords": [
+    "osep", "pen-300", "htb", "red-team", "penetration-testing", "active-directory"
+  ],
+  "articleBody": "Audience: OSEP exam candidates | Updated: January 2025 | Total machines: 40+ | Avg prep time: 3-4 weeks\nHow to use: Work machines in section order; each section builds on previous techniques.\nHTB Machines for OSEP Preparation List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security.\n3. Client Side Code Execution With Office Attack Type HTB Machine Attack Used in HTB Link Phishing with Microsoft Office: RTF Document REEL malicious RTF Document (CVE-2017-0199) Walkthrough : https://youtube.com/watch?v=ob9SgtFm6_g\u0026t=794 Tool: https://github.com/bhdresh/CVE-2017-0199 Phishing with Microsoft Office: LibreOffice RE LibreOffice Macro Walkthrough : https://youtube.com/watch?v=ob9SgtFm6_g\u0026t=794 Tool: \u003c\u003e Phishing/Macro REEL2 Grab NTLMv2 with Malicious link Walkthrough : https://youtube.com/watch?v=Ro2vXt_WFDQ\u0026t=2350 Tool: \u003c\u003e Phishing with Microsoft Office: LibreOffice RABBIT LibreOffice Macro Walkthrough : https://youtube.com/watch?v=5nnJq_IWJog\u0026t=1935 Tool: \u003c\u003e 4. Client Side Code Execution With Windows Script Host Attack Type HTB Machine Attack Used in HTB Link 5. Process Injection and Migration Attack Type HTB Machine Attack Used in HTB Link 6. Introduction to Antivirus Evasion Attack Type HTB Machine Attack Used in HTB Link Obfuscating Macro RE Walkthrough : https://youtube.com/watch?v=YXAakamjO_I\u0026t=1005 7. Advanced Antivirus Evasion Attack Type HTB Machine Attack Used in HTB Link Amsi Bypass APT Walkthrough : https://youtube.com/watch?v=eRnqtXwCZVs\u0026t=4650 Amsi Bypass PivotAPI Walkthrough : https://youtube.com/watch?v=eRnqtXwCZVs\u0026t=4650 Amsi Bypass MULTIMASTER 8. Application Whitelisting Attack Type HTB Machine Attack Used in HTB Link Applocker Bypass REEL2 Breaking out of ConstrainedLanguage Mode by creating a function Walkthrough : https://youtube.com/watch?v=Ro2vXt_WFDQ\u0026t=3600 Applocker Bypass GIDDY Escaping powershell constrained mode with PSBypassCLM Walkthrough : https://youtube.com/watch?v=Ro2vXt_WFDQ\u0026t=3600 Applocker Bypass SEKHMET intended way of bypassing applocker Walkthrough : https://youtube.com/watch?v=vsgPsMZx59w\u0026t=6300 Applocker Bypass - AppLocker Bypass COR Profiler Walkthrough : https://youtube.com/watch?v=Ro2vXt_WFDQ\u0026t=3600 9. Bypassing Network Filters Attack Type HTB Machine Attack Used in HTB Link 10. Linux Post-Exploitation Attack Type HTB Machine Attack Used in HTB Link 11. Kiosk Breakouts Attack Type HTB Machine Attack Used in HTB Link 12. Windows Credentials Attack Type HTB Machine Attack Used in HTB Link Local Windows Credentials: LSASS Dump ATOM Using rundll32 to create a memory dump of LSASS Walkthrough : https://youtube.com/watch?v=1OC2eRVX0ic\u0026t=1830 Local Windows Credentials: LSASS Dump BLACKFIELD running pypykatz to extract credentials Walkthrough : https://youtube.com/watch?v=1OC2eRVX0ic\u0026t=1830 Local Windows Credentials: SAM Dump BASTION Extracting local passwords from SAM and SYSTEM with secretsdump Walkthrough : https://youtube.com/watch?v=2j3FNp5pjQ4\u0026t=660 Local Windows Credentials: LAPS STREAMIO Identifying and Extracting the LAPS Password Walkthrough : https://youtube.com/watch?v=B9nozi1PrhY\u0026t=11697 Local Windows Credentials: LAPS PivotAPI Discovering a user who can add groups to LAPS Walkthrough : https://youtube.com/watch?v=FbTxPz_GA4o\u0026t=5990 Access Tokens: UAC ARKHAM UAC Bypass Walkthrough : https://youtube.com/watch?v=krC5j1Ab44I\u0026t=3340 Access Tokens: SeImpersonate SCRAMBLED Abusing SeImpersonate Privilege Walkthrough : https://youtube.com/watch?v=2j3FNp5pjQ4\u0026t=660 Access Tokens: Incognito HACKBACK Using incognito to grab our impersonation token for HACKER user Walkthrough : https://youtube.com/watch?v=B9nozi1PrhY\u0026t=11697 13. Windows Lateral Movement Attack Type HTB Machine Attack Used in HTB Link 14. Linux Lateral Movement Attack Type HTB Machine Attack Used in HTB Link DevOps SEAL Abusing ansible playbook Walkthrough: https://www.youtube.com/watch?v=wCfztTcioU8\u0026t=1260s DevOps INJECT Ansible enumeration and privilege escalation Walkthrough: https://www.youtube.com/watch?v=3VuIaUvHsTI\u0026t=1320s Kerberos on Linux TENTACLE Configuring our attacker’s box kerberos to connect to Tentacle’s KDC, and steal keytab Walkthrough : https://youtube.com/watch?v=kKhuUXPmJ_o\u0026t=3870 Kerberos on Linux CERBERUS examine the SSSD configuration and get a domain password Walkthrough : https://www.youtube.com/watch?v=IX4h5aaSK1g\u0026t=2160s Kerberos on Linux SEKHMET Dumping the sssd.ldb, Using kinit to get a kerberos ticket Walkthrough : https://youtube.com/watch?v=kKhuUXPmJ_o\u0026t=3870 15. Microsoft SQL Server Attack Type HTB Machine Attack Used in HTB Link MS SQL in AD ESCAPE Using mssqlclient to login to access MSSQL Walkthrough: https://youtube.com/watch?v=PS2duvVcjws\u0026t=390 MS SQL Escalation SCRAMBLED enabling xp_cmdshell and getting a reverse shell Walkthrough: https://youtube.com/watch?v=_8FE3JZIPfo\u0026t=1000 MS SQL Escalation STREAMIO Using xp_dirtree to make the MSSQL database connect back to us and steal the hash Walkthrough: https://youtube.com/watch?v=_8FE3JZIPfo\u0026t=1000 16. Active Directory Exploitation Attack Type HTB Machine Attack Used in HTB Link AD Object permission theory REEL Explaining Active Directory (AD) Security Objects (GenericWrite, WriteOwner,etc) walkthrough: https://youtube.com/watch?v=ob9SgtFm6_g\u0026t=3205 Abusing GenericAll SUPPORT Abusing GenericAll object permission walkthrough: https://youtube.com/watch?v=iIveZ-raTTQ\u0026t=970 Abusing GenericAll, WriteDACL MULTIMASTER Abusing GenericAll, WriteDACL Walkthrough: https://youtube.com/watch?v=iwR746pfTEc\u0026t=7410 Abusing GenericWrite, WriteDACL REEL Taking ownership and changing other user’s password Walkthrough: https://youtube.com/watch?v=ob9SgtFm6_g\u0026t=3503 Kerberos Delegation PivotAPI Unconstrained delegation with the SQL User. Upload rubeus, use tgtdeleg Walkthrough: https://youtube.com/watch?v=FbTxPz_GA4o\u0026t=7215 Kerberos Delegation INTELLIGENCE Unconstrained delegation Walkthrough: https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/ Kerberos Delegation SUPPORT RBCD walkthrough: https://youtube.com/watch?v=iIveZ-raTTQ\u0026t=970 Post: https://pencer.io/ctf/ctf-htb-support/#rbcd ",
+  "wordCount" : "674",
+  "inLanguage": "en",
+  "datePublished": "2023-04-27T00:00:00Z",
+  "dateModified": "2025-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "z-r0crypt"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "z-r0crypt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-r0crypt.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 <body id="top">
     <header class="header">

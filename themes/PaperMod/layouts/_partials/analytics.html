@@ -1,6 +1,6 @@
 <!-- Google Analytics (GA4) -->
 {{ if and (eq .Site.Params.env "production") .Site.Params.googleAnalyticsID }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsID }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -15,5 +15,5 @@
 
 <!-- Google AdSense -->
 {{ if and (eq .Site.Params.env "production") .Site.Params.googleAdsenseID }}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ .Site.Params.googleAdsenseID }}" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ .Site.Params.googleAdsense }}" crossorigin="anonymous"></script>
 {{ end }}

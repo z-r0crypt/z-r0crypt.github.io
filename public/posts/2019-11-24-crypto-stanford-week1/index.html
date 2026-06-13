@@ -1,16 +1,130 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><head>
-  
-  
-  
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Cryptography I: Stream Ciphers, PRGs, and Semantic Security | z-r0crypt</title>
+<meta name="keywords" content="cryptography, stream-cipher, security-theory, prg, otp">
+<meta name="description" content="Stream cipher security, pseudo-random generators, information-theoretic security, and practical attacks on weak PRGs. Stanford Cryptography I Week 1.">
+<meta name="author" content="z-r0crypt">
+<link rel="canonical" href="https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://z-r0crypt.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://z-r0crypt.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://z-r0crypt.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://z-r0crypt.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://z-r0crypt.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+    crossorigin="anonymous"></script><script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0K2CP5DEL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E0K2CP5DEL');
+        }
+      </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/">
+  <meta property="og:site_name" content="z-r0crypt">
+  <meta property="og:title" content="Cryptography I: Stream Ciphers, PRGs, and Semantic Security">
+  <meta property="og:description" content="Stream cipher security, pseudo-random generators, information-theoretic security, and practical attacks on weak PRGs. Stanford Cryptography I Week 1.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-11-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Cryptography">
+    <meta property="article:tag" content="Stream-Cipher">
+    <meta property="article:tag" content="Security-Theory">
+    <meta property="article:tag" content="Prg">
+    <meta property="article:tag" content="Otp">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cryptography I: Stream Ciphers, PRGs, and Semantic Security">
+  <meta name="twitter:description" content="Stream cipher security, pseudo-random generators, information-theoretic security, and practical attacks on weak PRGs. Stanford Cryptography I Week 1.">
 
 
-
-
-  
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://z-r0crypt.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Cryptography I: Stream Ciphers, PRGs, and Semantic Security",
+      "item": "https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cryptography I: Stream Ciphers, PRGs, and Semantic Security",
+  "name": "Cryptography I: Stream Ciphers, PRGs, and Semantic Security",
+  "description": "Stream cipher security, pseudo-random generators, information-theoretic security, and practical attacks on weak PRGs. Stanford Cryptography I Week 1.",
+  "keywords": [
+    "cryptography", "stream-cipher", "security-theory", "prg", "otp"
+  ],
+  "articleBody": "Why this matters: Understanding stream cipher internals is critical for OSWE/OSEP and real-world cryptographic implementation review.\nPrerequisites: Basic discrete math, XOR operations | Time: 2-3 hours\nWeek 1. This week’s topic is an overview of what cryptography is about as well as our first example ciphers. You will learn about pseudo-randomness and how to use it for encryption. We will also look at a few basic definitions of secure encryption.\nHistory Discrete Probability Birthday paradox Stream Ciphers Information theoretic security Stream Ciphers PRG Attacks on OTP / stream ciphers Modern broken stream ciphers Better modern stream cipher Let’s do some Salsa! PRG Security What is a Secure Cipher History Symmetric ciphers:\nsubstitution ciphers (breaking by entropy attack)\nCaesar cipher (bad substitution cipher because no key (if you know the number of shifts, you win))\nVigener cipher (have a key that’s concatenated as long as there is plaintext, then take CipherText = (key + plaintext mod 26)). When we discover the key size, we can thus perform an entropy attack on every letter.\nRotor Motor :\nHebern: Rotor-powered substitution table -\u003e statistical attacks Enigma (2^18 keyspace) - broken by cipher text attacks DES (1974, NIST standard)\n2^56 keyspace -\u003e can be bruteforced these days, not to be used anymore blocks size 64 bits Now: AES, SALSA20\nDiscrete Probability Not much new material covered =\u003e See chapter in DS course for more info.\nRandom variable, events, independence, XOR …\nXOR has the amazing property of always adding entropy, never removing it.\nBirthday paradox when n = 1.2 x U^(1/2) ==\u003e Pr[there exists two similar elements] \u003e= 1/2\nStream ciphers Information theoretic security A cipher is defined over a triple ( the key space, message space, cipher space) and does provide two functions E and D in such a way that D(k, E(k,m)) = m.\nE is sometimes randomised but D is always deterministic.\nThe Vernam Cipher is a cipher where the key is as long as the message where the cipher text is obtained by E(m,k)=(message XOR key) = cipher text and D(c,k) = c XOR k = message.\nVernam is not useful in practise because if we have a secure channel to send the keys over, we could use that to send the message, so what’s the point of the cipher, right?\nA cipher (E,D) over (K, M, C) has perfect secrecy if for every m_0 and m_1 in M, length of m_0 is equal to the length of m_1 and for every c in C, Pr[E(k,m_0) = c] = Pr[E(k, m_1)=c].\nPerfect secrecy means that there are no cipher text only attack!\nIf one cipher has perfect secrecy =\u003e |K| \u003e= |M|, the key_length \u003e= message_length.\nStream ciphers Idea: replace random key by pseudorandom key.\nFor the stream ciphers, we introduce a PRG: Pseudo-random generator.\nA PRG is a deterministic function G:{0,1}^s (seed space) -\u003e {0,1}^n, n\u003e\u003es.\nIn stream ciphers, seed = key and define the following operations.\nE(k,m) := m XOR G(k) D(k,c) := c XOR G(k) PRG A PRG must be unpredictable for a stream cipher to be secure.\nWe say G:K -\u003e {0,1}^n is predictable if there exists an efficient algorithm A and there exists an i: 1",
+  "wordCount" : "1630",
+  "inLanguage": "en",
+  "datePublished": "2019-11-24T00:00:00Z",
+  "dateModified": "2025-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "z-r0crypt"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "z-r0crypt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-r0crypt.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 <body id="top">
     <header class="header">
