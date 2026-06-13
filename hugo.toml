@@ -74,31 +74,26 @@ google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
 [menu]
 [[menu.main]]
   identifier = "research"
-  name = "research"
+  name = "Posts"
   url = "/posts"
   weight = 10
 
 [[menu.main]]
   identifier = "exploits"
-  name = "exploits & tools"
+  name = "Exploits & Tools"
   url = "/categories/tools"
   weight = 20
 
 [[menu.main]]
   identifier = "aiml"
-  name = "ai/ml security"
+  name = "AI/ML Security"
   url = "/categories/ai-ml-security"
   weight = 30
 
-[[menu.main]]
-  identifier = "leadership"
-  name = "leadership"
-  url = "/leadership/"
-  weight = 40
 
 [[menu.main]]
   identifier = "about"
-  name = "about"
+  name = "About"
   url = "/about/"
   weight = 50
 
