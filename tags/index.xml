@@ -9,41 +9,6 @@
     <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://z-r0crypt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Azure</title>
-      <link>https://z-r0crypt.github.io/tags/azure/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/azure/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Llm-Security</title>
-      <link>https://z-r0crypt.github.io/tags/llm-security/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/llm-security/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Openai</title>
-      <link>https://z-r0crypt.github.io/tags/openai/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/openai/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Prompt-Injection</title>
-      <link>https://z-r0crypt.github.io/tags/prompt-injection/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/prompt-injection/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rag</title>
-      <link>https://z-r0crypt.github.io/tags/rag/</link>
-      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/rag/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Active-Directory</title>
       <link>https://z-r0crypt.github.io/tags/active-directory/</link>
       <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
@@ -121,7 +86,7 @@
       <description></description>
     </item>
     <item>
-      <title>AWAE</title>
+      <title>Awae</title>
       <link>https://z-r0crypt.github.io/tags/awae/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/tags/awae/</guid>
@@ -135,7 +100,7 @@
       <description></description>
     </item>
     <item>
-      <title>Oswe</title>
+      <title>OSWE</title>
       <link>https://z-r0crypt.github.io/tags/oswe/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/tags/oswe/</guid>
