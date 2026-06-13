@@ -1,16 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><head>
-  
-  
-  
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Microcorruption CTF Tutorial: Embedded Security Reverse Engineering | z-r0crypt</title>
+<meta name="keywords" content="microcorruption, ctf, reverse-engineering, assembly, exploit-development, msp430">
+<meta name="description" content="Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.">
+<meta name="author" content="z-r0crypt">
+<link rel="canonical" href="https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://z-r0crypt.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://z-r0crypt.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://z-r0crypt.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://z-r0crypt.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://z-r0crypt.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+    crossorigin="anonymous"></script><script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0K2CP5DEL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E0K2CP5DEL');
+        }
+      </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/">
+  <meta property="og:site_name" content="z-r0crypt">
+  <meta property="og:title" content="Microcorruption CTF Tutorial: Embedded Security Reverse Engineering">
+  <meta property="og:description" content="Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-11-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Microcorruption">
+    <meta property="article:tag" content="Ctf">
+    <meta property="article:tag" content="Reverse-Engineering">
+    <meta property="article:tag" content="Assembly">
+    <meta property="article:tag" content="Exploit Development">
+    <meta property="article:tag" content="Msp430">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Microcorruption CTF Tutorial: Embedded Security Reverse Engineering">
+  <meta name="twitter:description" content="Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.">
 
 
-
-
-  
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://z-r0crypt.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Microcorruption CTF Tutorial: Embedded Security Reverse Engineering",
+      "item": "https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Microcorruption CTF Tutorial: Embedded Security Reverse Engineering",
+  "name": "Microcorruption CTF Tutorial: Embedded Security Reverse Engineering",
+  "description": "Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges.",
+  "keywords": [
+    "microcorruption", "ctf", "reverse-engineering", "assembly", "exploit-development", "msp430"
+  ],
+  "articleBody": "Prerequisites: Basic assembly knowledge, familiarity with debuggers | Difficulty: Beginner | Time: 3-4 hours per level\nIntroduction In this post I will share my learnings and research work done during microcorruption CTF challenge.\nWhat is Microcorruption? It’s an embedded security CTF challenge where you are given a debugger and a device (a smart lock), you will be given different levels of challenges to unlock the device, find flgs, find code vulnerabilitys, memory corruption bugs etc.\nYou’ll use the debugger to reverse-engineer the code for each level. You can provide the device with input, then step through the code watching what the device does what that input. You’re looking for a specific input that unlocks the device. Maybe that input is the correct passcode. More likely, though, it’s something else: an input that exploits a bug in the device’s code.\nPre-requisites little knowledge of assembly little knowledge of debuggers knowledge of memory corruption vulnerabilities To start with the CTF one is advised to go through the lock manual provided by the CTF team. The manual provides of useful information from attackers perspective as well. The first thing you will get to know about the product LockIT Pro is that it is built on MSP430 microcontroller.\nLets dive into first level challenge. This level is more like a tutorial than a challenge and that is the reason it is called tutorial level.\nLevel 0: CPUCTF Debugger Tutorial This level is pretty much a walkthrough of the online debugger, assembly and the approach which should be used for further challenges. The level itself is the walkthrough of the first challenge which is to unlock the lockitPro lock so there is no point in explaining the solution in this post. Most of your time is spent on this level getting to know the web based debugger as well as general tips and tricks for moving around.\n4484 4484: 6e4f mov.b @r15, r14 4486: 1f53 inc r15 4488: 1c53 inc r12 448a: 0e93 tst r14 448c: fb23 jnz #0x4484 448e: 3c90 0900 cmp #0x9, r12 ; password length check 4492: 0224 jeq #0x4498 Once we hit the first instruction in check_password at 0x4484, the first character of the password you entered is loaded into r14 from the memory location pointed to in r15. In next instructions, registers r12 and r15 are incremented. This will continue to iterate until a null byte \\0 is reached, bypassing the jump at 0x448c, making the cmp be the next instruction.\nIf r12 ends up being 0x09 (indicating that out passwords was 8 characters long followed by a null byte), then the jump at 0x4492 will occur, finally calling the interrupt to unlock the lock.\nThe solution of this level is to provide any 8 character input as password.\n",
+  "wordCount" : "462",
+  "inLanguage": "en",
+  "datePublished": "2019-11-25T00:00:00Z",
+  "dateModified": "2025-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "z-r0crypt"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "z-r0crypt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-r0crypt.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 <body id="top">
     <header class="header">
@@ -128,7 +243,7 @@
       <li><a href="https://z-r0crypt.github.io/tags/ctf/">Ctf</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/reverse-engineering/">Reverse-Engineering</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/assembly/">Assembly</a></li>
-      <li><a href="https://z-r0crypt.github.io/tags/exploit-development/">Exploit-Development</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/exploit-development/">Exploit Development</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/msp430/">Msp430</a></li>
     </ul>
   </footer>

@@ -1,16 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><head>
-  
-  
-  
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>SSSD-Extract: Dumping Active Directory Hashes from Linux Systems | z-r0crypt</title>
+<meta name="keywords" content="sssd, active-directory, post-exploitation, linux, credential-dumping, ntlm">
+<meta name="description" content="Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.">
+<meta name="author" content="z-r0crypt">
+<link rel="canonical" href="https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://z-r0crypt.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://z-r0crypt.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://z-r0crypt.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://z-r0crypt.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://z-r0crypt.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+    crossorigin="anonymous"></script><script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0K2CP5DEL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E0K2CP5DEL');
+        }
+      </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/">
+  <meta property="og:site_name" content="z-r0crypt">
+  <meta property="og:title" content="SSSD-Extract: Dumping Active Directory Hashes from Linux Systems">
+  <meta property="og:description" content="Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Sssd">
+    <meta property="article:tag" content="Active-Directory">
+    <meta property="article:tag" content="Post-Exploitation">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Credential-Dumping">
+    <meta property="article:tag" content="Ntlm">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SSSD-Extract: Dumping Active Directory Hashes from Linux Systems">
+  <meta name="twitter:description" content="Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.">
 
 
-
-
-  
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://z-r0crypt.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "SSSD-Extract: Dumping Active Directory Hashes from Linux Systems",
+      "item": "https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SSSD-Extract: Dumping Active Directory Hashes from Linux Systems",
+  "name": "SSSD-Extract: Dumping Active Directory Hashes from Linux Systems",
+  "description": "Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.",
+  "keywords": [
+    "sssd", "active-directory", "post-exploitation", "linux", "credential-dumping", "ntlm"
+  ],
+  "articleBody": "Requirements: Root access | Linux with SSSD (Ubuntu 18.04+, RHEL, CentOS) | tdbdump installed\nImpact: Lateral movement on Domain-joined Linux systems | Hash cracking with Hashcat/John\nGitHub: https://github.com/z-r0crypt/SSSD-extract\nUsing this bash script it is possible to extract Active Directory accounts hashes when credential caching is enabled in SSSD.\n$ zsh sssd-extract.sh [$FolderPath] Without input arguments it takes the SSSD default path /var/lib/sss/db/ but you can use a different one. If tdbdump is not installed it just lists the ldb files which contain the hashes, you can install it apt install tdb-tools or exfiltrate these files:\nIn a system with tdbdump installed the script will:\nExtracts cached accounts and hashes, dumping the results to the file hashes.txt. The hashes can then be cracked using Hashcat or John the Ripper: john hashes.txt --format=sha512crypt Extract all the AD groups, Users and Machine accounts cached in the ldb file and save it to domain.txt *Note: Better approach would be to copy the ldb file to you attacking machine and run the script there.\nCredit ricardojoserf/SSSD-creds ",
+  "wordCount" : "171",
+  "inLanguage": "en",
+  "datePublished": "2023-08-20T00:00:00Z",
+  "dateModified": "2025-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "z-r0crypt"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "z-r0crypt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-r0crypt.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 <body id="top">
     <header class="header">

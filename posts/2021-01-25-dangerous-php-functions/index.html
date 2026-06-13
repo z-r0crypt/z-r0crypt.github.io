@@ -1,16 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><head>
-  
-  
-  
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Dangerous PHP Functions: Code Execution and Exploitation Reference | z-r0crypt</title>
+<meta name="keywords" content="oswe, awae, php, rce, web-security, code-execution">
+<meta name="description" content="Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.">
+<meta name="author" content="z-r0crypt">
+<link rel="canonical" href="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://z-r0crypt.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://z-r0crypt.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://z-r0crypt.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://z-r0crypt.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://z-r0crypt.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3835157681642549"
+    crossorigin="anonymous"></script><script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0K2CP5DEL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-E0K2CP5DEL');
+        }
+      </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/">
+  <meta property="og:site_name" content="z-r0crypt">
+  <meta property="og:title" content="Dangerous PHP Functions: Code Execution and Exploitation Reference">
+  <meta property="og:description" content="Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-01-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:tag" content="Oswe">
+    <meta property="article:tag" content="AWAE">
+    <meta property="article:tag" content="Php">
+    <meta property="article:tag" content="Rce">
+    <meta property="article:tag" content="Web Security">
+    <meta property="article:tag" content="Code-Execution">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dangerous PHP Functions: Code Execution and Exploitation Reference">
+  <meta name="twitter:description" content="Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.">
 
 
-
-
-  
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://z-r0crypt.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Dangerous PHP Functions: Code Execution and Exploitation Reference",
+      "item": "https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dangerous PHP Functions: Code Execution and Exploitation Reference",
+  "name": "Dangerous PHP Functions: Code Execution and Exploitation Reference",
+  "description": "Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.",
+  "keywords": [
+    "oswe", "awae", "php", "rce", "web-security", "code-execution"
+  ],
+  "articleBody": "Purpose: Reference guide for identifying and exploiting PHP vulnerabilities during web application penetration testing.\nUsage: Search by attack vector (RCE, LFI, information disclosure) for your target function.\nCommand Execution exec - Returns last line of commands output passthru - Passes commands output directly to the browser system - Passes commands output directly to the browser and returns last line shell_exec - Returns commands output \\`\\` (backticks) - Same as shell_exec() popen - Opens read or write pipe to process of a command proc_open - Similar to popen() but greater degree of control pcntl_exec - Executes a program PHP Code Execution Apart from eval there are other ways to execute PHP code: include/require can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.\neval() assert() - identical to eval() preg_replace('/.*/e',...) - /e does an eval() on the match create_function() include() include_once() require() require_once() $_GET['func_name']($_GET['argument']); $func = new ReflectionFunction($_GET['func_name']); $func-\u003einvoke(); or $func-\u003einvokeArgs(array()); List of functions which accept callbacks These functions accept a string parameter which could be used to call a function of the attacker’s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like phpinfo() could be used.\nFunction =\u003e Position of callback arguments 'ob_start' =\u003e 0, 'array_diff_uassoc' =\u003e -1, 'array_diff_ukey' =\u003e -1, 'array_filter' =\u003e 1, 'array_intersect_uassoc' =\u003e -1, 'array_intersect_ukey' =\u003e -1, 'array_map' =\u003e 0, 'array_reduce' =\u003e 1, 'array_udiff_assoc' =\u003e -1, 'array_udiff_uassoc' =\u003e array(-1, -2), 'array_udiff' =\u003e -1, 'array_uintersect_assoc' =\u003e -1, 'array_uintersect_uassoc' =\u003e array(-1, -2), 'array_uintersect' =\u003e -1, 'array_walk_recursive' =\u003e 1, 'array_walk' =\u003e 1, 'assert_options' =\u003e 1, 'uasort' =\u003e 1, 'uksort' =\u003e 1, 'usort' =\u003e 1, 'preg_replace_callback' =\u003e 1, 'spl_autoload_register' =\u003e 0, 'iterator_apply' =\u003e 1, 'call_user_func' =\u003e 0, 'call_user_func_array' =\u003e 0, 'register_shutdown_function' =\u003e 0, 'register_tick_function' =\u003e 0, 'set_error_handler' =\u003e 0, 'set_exception_handler' =\u003e 0, 'session_set_save_handler' =\u003e array(0, 1, 2, 3, 4, 5), 'sqlite_create_aggregate' =\u003e array(2, 3), 'sqlite_create_function' =\u003e 2, Information Disclosure Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see phpinfo() it is definitely a vulnerability.\nphpinfo posix_mkfifo posix_getlogin posix_ttyname getenv get_current_user proc_get_status get_cfg_var disk_free_space disk_total_space diskfreespace getcwd getlastmo getmygid getmyinode getmypid getmyuid Other extract - Opens the door for register_globals attacks (see [study in scarlet - seclist](http://seclists.org/bugtraq/2001/Jul/att-26/studyinscarlet.txt)). parse_str - works like extract if only one argument is given. putenv ini_set mail - has CRLF injection in the 3rd parameter, opens the door for spam. header - on old systems CRLF injection could be used for xss or other purposes, now it is still a problem if they do a header(\"location: ...\"); and they do not die();. The script keeps executing after a call to header(), and will still print output normally. This is nasty if you are trying to protect an administrative area. proc_nice proc_terminate proc_close pfsockopen fsockopen apache_child_terminate posix_kill posix_mkfifo posix_setpgid posix_setsid posix_setuid Filesystem Functions According to RATS all filesystem functions in php are nasty. Some of these don’t seem very useful to the attacker. Others are more useful than you might think. For instance if allow_url_fopen=On then a url can be used as a file path, so a call to copy($_GET['s'], $_GET['d']); can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.\n// open filesystem handler fopen tmpfile bzopen gzopen SplFileObject-\u003e__construct // write to filesystem (partially in combination with reading) chgrp chmod chown copy file_put_contents lchgrp lchown link mkdir move_uploaded_file rename rmdir symlink tempnam touch unlink imagepng - 2nd parameter is a path. imagewbmp - 2nd parameter is a path. image2wbmp - 2nd parameter is a path. imagejpeg - 2nd parameter is a path. imagexbm - 2nd parameter is a path. imagegif - 2nd parameter is a path. imagegd - 2nd parameter is a path. imagegd2 - 2nd parameter is a path. iptcembed ftp_get ftp_nb_get // read from filesystem file_exists file_get_contents file fileatime filectime filegroup fileinode filemtime fileowner fileperms filesize filetype glob is_dir is_executable is_file is_link is_readable is_uploaded_file is_writable is_writeable linkinfo lstat parse_ini_file pathinfo readfile readlink realpath stat gzfile readgzfile getimagesize imagecreatefromgif imagecreatefromjpeg imagecreatefrompng imagecreatefromwbmp imagecreatefromxbm imagecreatefromxpm ftp_put ftp_nb_put exif_read_data read_exif_data exif_thumbnail exif_imagetype hash_file hash_hmac_file hash_update_file md5_file sha1_file highlight_file show_source php_strip_whitespace get_meta_tags Reference - https://stackoverflow.com/a/3697776 ",
+  "wordCount" : "735",
+  "inLanguage": "en",
+  "datePublished": "2021-01-25T00:00:00Z",
+  "dateModified": "2025-01-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "z-r0crypt"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "z-r0crypt",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-r0crypt.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 <body id="top">
     <header class="header">
@@ -288,8 +403,8 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://z-r0crypt.github.io/tags/oswe/">OSWE</a></li>
-      <li><a href="https://z-r0crypt.github.io/tags/awae/">Awae</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/oswe/">Oswe</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/awae/">AWAE</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/php/">Php</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/rce/">Rce</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/web-security/">Web Security</a></li>
