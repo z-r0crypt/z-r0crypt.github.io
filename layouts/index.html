@@ -24,6 +24,24 @@
   --teal: #39d353;
 }
 
+html[data-theme="light"] {
+  --bg: #ffffff;
+  --bg2: #f6f8fa;
+  --bg3: #edf0f3;
+  --border: #d0d7de;
+  --border2: #b0b7c0;
+  --txt: #1f2328;
+  --txt2: #57606a;
+  --txt3: #6e7781;
+  --blue: #0969da;
+  --green: #1a7f37;
+  --red: #d1242f;
+  --amber: #7d4e00;
+  --purple: #8250df;
+  --cyan: #0550ae;
+  --teal: #1a7f37;
+}
+
 html, body {
   background-color: var(--bg);
   color: var(--txt);
@@ -72,7 +90,7 @@ html, body {
   margin: 0 0 16px 0;
 }
 
-.accent-blue  { color: var(--blue); }
+.accent-blue   { color: var(--blue); }
 .accent-purple { color: var(--purple); }
 
 .hero-desc {
@@ -102,16 +120,25 @@ html, body {
 }
 
 .tag:hover { opacity: 0.75; transform: translateY(-1px); }
+
+/* Dark mode tags */
 .tag.red    { color: var(--red);    border-color: #f8514930; background: #180b0a20; }
 .tag.blue   { color: var(--blue);   border-color: #58a6ff30; background: #0a101e20; }
 .tag.purple { color: var(--purple); border-color: #bc8cff30; background: #10091820; }
 .tag.amber  { color: var(--amber);  border-color: #e3b34130; background: #18120020; }
 .tag.grey   { color: var(--txt2);   border-color: var(--border); background: var(--bg2); }
 
+/* Light mode tags — solid borders, pastel backgrounds */
+html[data-theme="light"] .tag.red    { color: #d1242f; border-color: #d1242f80; background: #fff0f0; }
+html[data-theme="light"] .tag.blue   { color: #0969da; border-color: #0969da80; background: #f0f6ff; }
+html[data-theme="light"] .tag.purple { color: #8250df; border-color: #8250df80; background: #f5f0ff; }
+html[data-theme="light"] .tag.amber  { color: #7d4e00; border-color: #7d4e0080; background: #fff8e1; }
+html[data-theme="light"] .tag.grey   { color: #57606a; border-color: #d0d7de;   background: #f6f8fa; }
+
 /* CTA Buttons */
 .btn-primary {
   background: var(--blue);
-  color: #0d1117;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   padding: 9px 18px;
@@ -124,6 +151,8 @@ html, body {
   margin-bottom: 0;
   transition: opacity 0.15s, transform 0.15s;
 }
+
+html[data-theme="dark"] .btn-primary { color: #0d1117; }
 
 .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 
@@ -212,9 +241,7 @@ html, body {
   transition: border-color 0.15s;
 }
 
-.cred-card:hover {
-  border-color: var(--blue);
-}
+.cred-card:hover { border-color: var(--blue); }
 
 .cred-card img {
   width: 80px;
@@ -251,9 +278,7 @@ html, body {
    POSTS
    ============================================================ */
 
-.posts-section {
-  padding: 28px 0 0;
-}
+.posts-section { padding: 28px 0 0; }
 
 .post-item {
   padding: 18px 0;
@@ -268,6 +293,65 @@ html, body {
   padding: 18px 14px;
   margin: 0 -14px;
   border-radius: 6px;
+}
+
+html[data-theme="dark"] .post-item:hover {
+  background: #e6edf3;
+}
+
+html[data-theme="dark"] .post-item:hover .post-title-text a {
+  color: #0d1117;
+}
+
+html[data-theme="dark"] .post-item:hover .post-excerpt {
+  color: #24292f;
+}
+
+html[data-theme="dark"] .post-item:hover .post-date,
+html[data-theme="dark"] .post-item:hover .post-readtime {
+  color: #57606a;
+}
+
+html[data-theme="dark"] .post-item:hover .post-link {
+  color: #0969da;
+}
+
+html[data-theme="light"] .post-item:hover {
+  background: #161b22;
+}
+
+html[data-theme="light"] .post-item:hover .post-title-text a {
+  color: #e6edf3;
+}
+
+html[data-theme="light"] .post-item:hover .post-excerpt {
+  color: #8b949e;
+}
+
+html[data-theme="light"] .post-item:hover .post-date,
+html[data-theme="light"] .post-item:hover .post-readtime {
+  color: #6e7681;
+}
+
+html[data-theme="light"] .post-item:hover .post-link {
+  color: #58a6ff;
+}
+
+html[data-theme="light"] .post-item:hover .post-title-text a {
+  color: #e6edf3;
+}
+
+html[data-theme="light"] .post-item:hover .post-excerpt {
+  color: #8b949e;
+}
+
+html[data-theme="light"] .post-item:hover .post-date,
+html[data-theme="light"] .post-item:hover .post-readtime {
+  color: #6e7681;
+}
+
+html[data-theme="light"] .post-item:hover .post-link {
+  color: #58a6ff;
 }
 
 .post-meta {
@@ -293,6 +377,7 @@ html, body {
   display: inline-block;
 }
 
+/* Dark mode badges */
 .post-category.research     { color: var(--purple); border-color: #bc8cff30; background: #10091820; }
 .post-category.red-team     { color: var(--red);    border-color: #f8514930; background: #180b0a20; }
 .post-category.web          { color: var(--blue);   border-color: #58a6ff30; background: #0a101e20; }
@@ -302,6 +387,17 @@ html, body {
 .post-category.cryptography { color: var(--amber);  border-color: #e3b34130; background: #18120020; }
 .post-category.ctf          { color: var(--teal);   border-color: #39d35330; background: #09150920; }
 .post-category.ai-ml        { color: var(--purple); border-color: #bc8cff30; background: #10091820; }
+
+/* Light mode badges */
+html[data-theme="light"] .post-category.research     { color: #8250df; border-color: #8250df60; background: #f5f0ff; }
+html[data-theme="light"] .post-category.red-team     { color: #d1242f; border-color: #d1242f60; background: #fff0f0; }
+html[data-theme="light"] .post-category.web          { color: #0969da; border-color: #0969da60; background: #f0f6ff; }
+html[data-theme="light"] .post-category.exploit      { color: #0969da; border-color: #0969da60; background: #f0f6ff; }
+html[data-theme="light"] .post-category.tools        { color: #1a7f37; border-color: #1a7f3760; background: #f0fff4; }
+html[data-theme="light"] .post-category.tool         { color: #1a7f37; border-color: #1a7f3760; background: #f0fff4; }
+html[data-theme="light"] .post-category.cryptography { color: #7d4e00; border-color: #7d4e0060; background: #fff8e1; }
+html[data-theme="light"] .post-category.ctf          { color: #1a7f37; border-color: #1a7f3760; background: #f0fff4; }
+html[data-theme="light"] .post-category.ai-ml        { color: #8250df; border-color: #8250df60; background: #f5f0ff; }
 
 .post-title-text {
   font-size: 14px;
@@ -370,10 +466,7 @@ html, body {
 @media (max-width: 480px) {
   .hero-section h1 { font-size: 19px; }
 
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  .hero-stats,
   .creds-grid {
     grid-template-columns: repeat(2, 1fr);
   }

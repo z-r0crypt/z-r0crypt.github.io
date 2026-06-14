@@ -123,6 +123,20 @@ html[data-theme="dark"] .post-content blockquote {
   font-style: italic;
 }
 
+html[data-theme="light"] .post-content blockquote {
+  background: #161b22;
+  border-left: 4px solid #bc8cff;
+  color: #c9d1d9;
+  margin: 20px 0;
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+html[data-theme="light"] .post-content blockquote * {
+  color: #c9d1d9 !important;
+}
+
 /* ============================================================
    LISTS
    ============================================================ */
@@ -167,12 +181,14 @@ html[data-theme="dark"] .post-content table th {
   color: #58a6ff;
   padding: 12px;
   text-align: left;
+  font-size: 0.9em;
 }
 
 html[data-theme="dark"] .post-content table td {
   border-bottom: 1px solid #30363d;
   padding: 12px;
   color: #e6edf3;
+  font-size: 0.9em;
 }
 
 html[data-theme="dark"] .post-content table tbody tr:hover {
@@ -201,12 +217,14 @@ html[data-theme="light"] .post-content table th {
   padding: 10px;
   font-weight: 600;
   text-align: left;
+  font-size: 0.9em;
 }
 
 html[data-theme="light"] .post-content table td {
   border-bottom: 1px solid #f0f0f0;
   padding: 10px;
   color: #333333;
+  font-size: 0.9em;
 }
 
 html[data-theme="light"] .post-content table tbody tr:hover {
