@@ -6,14 +6,14 @@
     <description>Recent content in Php on z-r0crypt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://z-r0crypt.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dangerous PHP Functions: Code Execution and Exploitation Reference</title>
       <link>https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/</guid>
-      <description>Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.</description>
+      <description>Complete reference of PHP functions exploitable for RCE, LFI, information disclosure and filesystem manipulation. Includes grep and semgrep patterns for source code review, PHP version notes, and exploitation context for OSWE/AWAE.</description>
     </item>
   </channel>
 </rss>

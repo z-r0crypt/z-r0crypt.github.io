@@ -6,13 +6,55 @@
     <description>Recent content in Tags on z-r0crypt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://z-r0crypt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Active-Directory</title>
       <link>https://z-r0crypt.github.io/tags/active-directory/</link>
-      <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/tags/active-directory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Career</title>
+      <link>https://z-r0crypt.github.io/tags/career/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/career/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Evasion</title>
+      <link>https://z-r0crypt.github.io/tags/evasion/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/evasion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Oscp</title>
+      <link>https://z-r0crypt.github.io/tags/oscp/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/oscp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Osep</title>
+      <link>https://z-r0crypt.github.io/tags/osep/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/osep/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Penetration-Testing</title>
+      <link>https://z-r0crypt.github.io/tags/penetration-testing/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/penetration-testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Red-Team</title>
+      <link>https://z-r0crypt.github.io/tags/red-team/</link>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/red-team/</guid>
       <description></description>
     </item>
     <item>
@@ -51,17 +93,17 @@
       <description></description>
     </item>
     <item>
+      <title>Av-Evasion</title>
+      <link>https://z-r0crypt.github.io/tags/av-evasion/</link>
+      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/av-evasion/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Htb</title>
       <link>https://z-r0crypt.github.io/tags/htb/</link>
       <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/tags/htb/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Osep</title>
-      <link>https://z-r0crypt.github.io/tags/osep/</link>
-      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/osep/</guid>
       <description></description>
     </item>
     <item>
@@ -72,24 +114,17 @@
       <description></description>
     </item>
     <item>
-      <title>Penetration-Testing</title>
-      <link>https://z-r0crypt.github.io/tags/penetration-testing/</link>
-      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/penetration-testing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Red-Team</title>
-      <link>https://z-r0crypt.github.io/tags/red-team/</link>
-      <pubDate>Thu, 27 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>https://z-r0crypt.github.io/tags/red-team/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AWAE</title>
+      <title>Awae</title>
       <link>https://z-r0crypt.github.io/tags/awae/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/tags/awae/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code Review</title>
+      <link>https://z-r0crypt.github.io/tags/code-review/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/code-review/</guid>
       <description></description>
     </item>
     <item>
@@ -118,6 +153,13 @@
       <link>https://z-r0crypt.github.io/tags/rce/</link>
       <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/tags/rce/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Semgrep</title>
+      <link>https://z-r0crypt.github.io/tags/semgrep/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://z-r0crypt.github.io/tags/semgrep/</guid>
       <description></description>
     </item>
     <item>
