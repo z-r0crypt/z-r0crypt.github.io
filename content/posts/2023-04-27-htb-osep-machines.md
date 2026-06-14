@@ -1,162 +1,254 @@
 ---
 title: "HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping"
-date: 2023-04-27T00:00:00Z
-lastmod: 2025-01-15
-draft: false
-author: "z-r0crypt"
-description: "Curated list of 40+ Hack The Box machines mapped to PEN-300 exam topics with attack chains: client-side execution, AV evasion, AD exploitation, MSSQL abuse."
-categories: ["research", "red-team"]
-tags: ["osep", "pen-300", "htb", "red-team", "penetration-testing", "active-directory"]
+date: 2023-04-27
+lastmod: 2025-06-13
+description: "Curated list of HTB machines mapped to every PEN-300 syllabus topic: client-side execution, AV evasion, AD exploitation, MSSQL abuse, lateral movement and more. Includes TJNull OSEP-like list."
+categories: [research, red-team]
+tags: [osep, pen-300, htb, red-team, penetration-testing, active-directory, av-evasion]
+author: z-r0crypt
 featured: false
-summary: "Complete HTB machine list for OSEP prep: client-side code execution, process injection, AV/AppLocker bypass, AD lateral movement, credential dumping."
+draft: false
+summary: "HTB machines mapped to every PEN-300 syllabus topic. From Office macros to Kerberos delegation — covers client-side execution, AV evasion, AD exploitation, MSSQL, lateral movement and more."
 ---
 
-**Audience:** OSEP exam candidates | **Updated:** January 2025 | **Total machines:** 40+ | **Avg prep time:** 3-4 weeks
+## Overview
 
-**How to use:** Work machines in section order; each section builds on previous techniques.
+This is a curated mapping of Hack The Box machines to PEN-300 (OSEP) syllabus topics. The goal is to give you targeted practice on each exam skill rather than grinding random machines.
+
+**How to use:** Work sections in order — each builds on the previous. Don't skip to AD exploitation without doing AV evasion first.
+
+**Audience:** OSEP exam candidates | **Updated:** June 2025 | **Difficulty:** Hard
+
+> For the TJNull community OSEP-like list, see the [bottom of this post](#tjnull-osep-list).
 
 ---
 
-## HTB Machines for OSEP Preparation
-List of HTB (Hack the Box) Machines to prepare for OSEP Exam (PEN-300) by offensive security.
+## 1. Operating System and Programming Theory
 
-<b><details><summary>3. Client Side Code Execution With Office </summary></b>
+Sections 1 and 2 of PEN-300 are foundational — Win32 API, WoW64, Windows Registry, process scheduling. No specific HTB machines map cleanly here but the knowledge underpins everything that follows. Focus on the course material for these two chapters.
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---|
-| Phishing with Microsoft Office: RTF Document | REEL | malicious RTF Document (CVE-2017-0199) | Walkthrough : https://youtube.com/watch?v=ob9SgtFm6_g&t=794 <br> Tool: https://github.com/bhdresh/CVE-2017-0199 |
-| Phishing with Microsoft Office: LibreOffice | RE | LibreOffice Macro | Walkthrough : https://youtube.com/watch?v=ob9SgtFm6_g&t=794 <br> Tool: <> |
-| Phishing/Macro | REEL2 | Grab NTLMv2 with Malicious link | Walkthrough : https://youtube.com/watch?v=Ro2vXt_WFDQ&t=2350 <br> Tool: <> |
-| Phishing with Microsoft Office: LibreOffice | RABBIT | LibreOffice Macro | Walkthrough : https://youtube.com/watch?v=5nnJq_IWJog&t=1935 <br> Tool: <> |
-</details>
+---
 
-<b><details><summary>4. Client Side Code Execution With Windows Script Host </summary></b>
+## 2. Client-Side Code Execution with Office
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| | | | |
-</details>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| Phishing — RTF Document (CVE-2017-0199) | REEL | Malicious RTF via CVE-2017-0199 | [IppSec](https://youtube.com/watch?v=ob9SgtFm6_g&t=794) · [Tool](https://github.com/bhdresh/CVE-2017-0199) |
+| Phishing — LibreOffice Macro | RE | LibreOffice macro execution | [IppSec](https://youtube.com/watch?v=YXAakamjO_I&t=1005) |
+| Phishing — NTLMv2 capture via link | REEL2 | Malicious link to grab NTLMv2 hash | [IppSec](https://youtube.com/watch?v=Ro2vXt_WFDQ&t=2350) |
+| Phishing — LibreOffice Macro | RABBIT | LibreOffice macro execution | [IppSec](https://youtube.com/watch?v=5nnJq_IWJog&t=1935) |
 
+---
 
-<b><details><summary>5. Process Injection and Migration </summary></b>
+## 3. Client-Side Code Execution with JScript
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| | | | |
-</details>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| HTML Smuggling / JScript WSH | OUTDATED | Client-side attack via malicious document | [IppSec](https://www.youtube.com/watch?v=W2C5nZ8I9O8) |
+| JScript execution via WSH | ANUBIS | Windows Script Host abuse | [IppSec](https://www.youtube.com/watch?v=Y2Y8PYFM57Y) |
 
-<b><details><summary>6. Introduction to Antivirus Evasion </summary></b>
+---
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| Obfuscating Macro | RE | | Walkthrough : https://youtube.com/watch?v=YXAakamjO_I&t=1005 | 
-</details>
+## 4. Process Injection and Migration
 
-<b><details><summary>7. Advanced Antivirus Evasion </summary></b>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| DLL Injection / Process Hollowing | HACKBACK | Process injection for persistence | [IppSec](https://youtube.com/watch?v=B9nozi1PrhY) |
+| Process Migration via Meterpreter | JEEVES | Migrate between processes post-exploitation | [IppSec](https://www.youtube.com/watch?v=EKGBskG8APc) |
+| Reflective DLL Injection | CEREAL | .NET deserialization leading to injection | [IppSec](https://www.youtube.com/watch?v=_qMfRiLBqnI) |
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| Amsi Bypass | APT | | Walkthrough : https://youtube.com/watch?v=eRnqtXwCZVs&t=4650 |
-| Amsi Bypass | PivotAPI | | Walkthrough : [https://youtube.com/watch?v=eRnqtXwCZVs&t=4650](https://youtube.com/watch?v=FbTxPz_GA4o&t=6360) |
-| Amsi Bypass | MULTIMASTER | | | Walkthrough : https://youtube.com/watch?v=iwR746pfTEc&t=6814 |
-</details>
+---
 
+## 5. Introduction to Antivirus Evasion
 
-<b><details><summary>8. Application Whitelisting </summary></b>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| Macro obfuscation | RE | Obfuscating Office macro to bypass AV | [IppSec](https://youtube.com/watch?v=YXAakamjO_I&t=1005) |
+| Basic shellcode obfuscation | OUTDATED | Shellcode runner with basic obfuscation | [IppSec](https://www.youtube.com/watch?v=W2C5nZ8I9O8) |
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| Applocker Bypass | REEL2 | Breaking out of ConstrainedLanguage Mode by creating a function | Walkthrough : https://youtube.com/watch?v=Ro2vXt_WFDQ&t=3600 |
-| Applocker Bypass | GIDDY | Escaping powershell constrained mode with PSBypassCLM | Walkthrough : [https://youtube.com/watch?v=Ro2vXt_WFDQ&t=360](https://youtube.com/watch?v=J2unwbMQvUo&t=2750)0 |
-| Applocker Bypass | SEKHMET |  intended way of bypassing applocker  | Walkthrough : https://youtube.com/watch?v=vsgPsMZx59w&t=6300 |
-| Applocker Bypass | - | AppLocker Bypass COR Profiler | Walkthrough : [https://youtube.com/watch?v=Ro2vXt_WFDQ&t=3600](https://youtube.com/watch?v=T91iXd_VPVI&t=1650) |
-</details>
+---
 
+## 6. Advanced Antivirus Evasion
 
-<b><details><summary>9. Bypassing Network Filters </summary></b>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| AMSI Bypass | APT | AMSI bypass to run PS in constrained env | [IppSec](https://youtube.com/watch?v=eRnqtXwCZVs&t=4650) |
+| AMSI Bypass | PIVOTAPI | AMSI bypass for PowerShell execution | [IppSec](https://youtube.com/watch?v=FbTxPz_GA4o&t=6360) |
+| AMSI Bypass | MULTIMASTER | AMSI bypass during AD exploitation | [IppSec](https://youtube.com/watch?v=iwR746pfTEc) |
+| EDR Evasion | SEKHMET | AV/EDR evasion via custom loader | [IppSec](https://youtube.com/watch?v=vsgPsMZx59w) |
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| | | | |
-</details>
+---
 
+## 7. Application Whitelisting
 
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| AppLocker Bypass — ConstrainedLanguage | REEL2 | Breaking out of CLM by creating a function | [IppSec](https://youtube.com/watch?v=Ro2vXt_WFDQ&t=3600) |
+| AppLocker Bypass — PSBypassCLM | GIDDY | PSBypassCLM to escape constrained mode | [IppSec](https://youtube.com/watch?v=J2unwbMQvUo&t=2750) |
+| AppLocker Bypass — intended path | SEKHMET | Intended AppLocker bypass technique | [IppSec](https://youtube.com/watch?v=vsgPsMZx59w&t=6300) |
+| AppLocker Bypass — COR Profiler | — | COR Profiler bypass technique | [IppSec](https://youtube.com/watch?v=T91iXd_VPVI&t=1650) |
+| AppLocker Bypass | HATHOR | AppLocker bypass in hardened environment | [IppSec](https://www.youtube.com/watch?v=lGEjKnFpSDM) |
 
-<b><details><summary>10. Linux Post-Exploitation </summary></b>
+---
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| | | | |
-</details>
+## 8. Bypassing Network Filters
 
+This section is highly theoretical in the course — DNS tunnelling, ICMP tunnelling, HTTP/S proxying. The best HTB practice is:
 
-<b><details><summary>11. Kiosk Breakouts </summary></b>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| DNS Tunnelling | TENTACLE | DNS-based communication through restrictive firewall | [IppSec](https://youtube.com/watch?v=kKhuUXPmJ_o) |
+| HTTP Tunnelling / Pivoting | ANUBIS | HTTP tunnelling through restricted network | [IppSec](https://www.youtube.com/watch?v=Y2Y8PYFM57Y) |
+| Network pivoting | PIVOTAPI | Multi-hop pivoting through network segments | [IppSec](https://youtube.com/watch?v=FbTxPz_GA4o) |
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| | | | |
-</details>
+---
 
-<b><details><summary>12. Windows Credentials </summary></b>
+## 9. Linux Post-Exploitation
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| Local Windows Credentials: LSASS Dump | ATOM | Using rundll32 to create a memory dump of LSASS | Walkthrough : https://youtube.com/watch?v=1OC2eRVX0ic&t=1830 |
-| Local Windows Credentials: LSASS Dump | BLACKFIELD | running pypykatz to extract credentials | Walkthrough : [https://youtube.com/watch?v=1OC2eRVX0ic&t=1830](https://youtube.com/watch?v=IfCysW0Od8w&t=2205) |
-| Local Windows Credentials: SAM Dump | BASTION | Extracting local passwords from SAM and SYSTEM with secretsdump | Walkthrough : https://youtube.com/watch?v=2j3FNp5pjQ4&t=660 |
-| Local Windows Credentials: LAPS | STREAMIO | Identifying and Extracting the LAPS Password | Walkthrough : [https://youtube.com/watch?v=B9nozi1PrhY&t=11697](https://youtube.com/watch?v=qKcUKlwoGw8&t=5300) |
-| Local Windows Credentials: LAPS | PivotAPI | Discovering a user who can add groups to LAPS | Walkthrough : https://youtube.com/watch?v=FbTxPz_GA4o&t=5990 |
-| Access Tokens: UAC | ARKHAM | UAC Bypass | Walkthrough : https://youtube.com/watch?v=krC5j1Ab44I&t=3340 |
-| Access Tokens: SeImpersonate | SCRAMBLED | Abusing SeImpersonate Privilege | Walkthrough : [https://youtube.com/watch?v=2j3FNp5pjQ4&t=660](https://youtube.com/watch?v=_8FE3JZIPfo&t=1800) |
-| Access Tokens: Incognito | HACKBACK | Using incognito to grab our impersonation token for HACKER user | Walkthrough : https://youtube.com/watch?v=B9nozi1PrhY&t=11697 |
-</details>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| SSSD credential extraction | CERBERUS | SSSD config review, domain password extraction | [IppSec](https://www.youtube.com/watch?v=IX4h5aaSK1g&t=2160s) |
+| SSSD credential extraction | SEKHMET | Dumping sssd.ldb, kinit for Kerberos ticket | [IppSec](https://youtube.com/watch?v=vsgPsMZx59w&t=2400) |
+| Linux persistence / cron abuse | SEAL | Ansible playbook abuse for privilege escalation | [IppSec](https://www.youtube.com/watch?v=wCfztTcioU8&t=1260s) |
+| Ansible abuse | INJECT | Ansible enumeration and privesc | [IppSec](https://www.youtube.com/watch?v=3VuIaUvHsTI&t=1320s) |
 
+---
 
-<b><details><summary>13. Windows Lateral Movement </summary></b>
+## 10. Windows Post-Exploitation
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| | | | |
-</details>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| LSASS Dump via rundll32 | ATOM | rundll32 memory dump of LSASS | [IppSec](https://youtube.com/watch?v=1OC2eRVX0ic&t=1830) |
+| LSASS Dump via pypykatz | BLACKFIELD | pypykatz credential extraction from dump | [IppSec](https://youtube.com/watch?v=IfCysW0Od8w&t=2205) |
+| SAM / SYSTEM dump | BASTION | secretsdump against SAM and SYSTEM hives | [IppSec](https://youtube.com/watch?v=2j3FNp5pjQ4&t=660) |
+| LAPS password extraction | STREAMIO | Identifying and extracting LAPS password | [IppSec](https://youtube.com/watch?v=qKcUKlwoGw8&t=5300) |
+| LAPS password extraction | PIVOTAPI | Discovering user who can add groups to LAPS | [IppSec](https://youtube.com/watch?v=FbTxPz_GA4o&t=5990) |
+| UAC Bypass | ARKHAM | UAC bypass via deserialization | [IppSec](https://youtube.com/watch?v=krC5j1Ab44I&t=3340) |
+| SeImpersonate Privilege | SCRAMBLED | Abusing SeImpersonate for privesc | [IppSec](https://youtube.com/watch?v=_8FE3JZIPfo&t=1800) |
+| Token Impersonation — Incognito | HACKBACK | Incognito to grab impersonation token | [IppSec](https://youtube.com/watch?v=B9nozi1PrhY&t=11697) |
 
-<b><details><summary>14. Linux Lateral Movement </summary></b>
+---
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| DevOps | SEAL | Abusing ansible playbook | Walkthrough: https://www.youtube.com/watch?v=wCfztTcioU8&t=1260s |
-| DevOps | INJECT | Ansible enumeration and privilege escalation | Walkthrough: https://www.youtube.com/watch?v=3VuIaUvHsTI&t=1320s |
-| Kerberos on Linux | TENTACLE | Configuring our attacker's box kerberos to connect to Tentacle's KDC, and steal keytab | Walkthrough : https://youtube.com/watch?v=kKhuUXPmJ_o&t=3870 |
-| Kerberos on Linux | CERBERUS | examine the SSSD configuration and get a domain password | Walkthrough : https://www.youtube.com/watch?v=IX4h5aaSK1g&t=2160s |
-| Kerberos on Linux | SEKHMET | Dumping the sssd.ldb, 	Using kinit to get a kerberos ticket | Walkthrough : [https://youtube.com/watch?v=kKhuUXPmJ_o&t=3870](https://youtube.com/watch?v=vsgPsMZx59w&t=2400) |
+## 11. Kiosk Breakouts
 
-</details>
+This is one of the most niche sections in PEN-300 — breaking out of restricted environments like ATM interfaces or locked-down kiosk desktops. No dedicated HTB machines cover this well. Focus on the course material and practice with:
 
+- Sticky Keys / Utilman bypass techniques
+- Task Manager / Explorer shell replacement
+- Constrained desktop breakout via file dialogs
 
-<b><details><summary>15. Microsoft SQL Server </summary></b>
+---
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| MS SQL in AD | ESCAPE | Using mssqlclient to login to access MSSQL | Walkthrough: https://youtube.com/watch?v=PS2duvVcjws&t=390|
-| MS SQL Escalation | SCRAMBLED | enabling xp_cmdshell and getting a reverse shell | Walkthrough: https://youtube.com/watch?v=_8FE3JZIPfo&t=1000 |
-| MS SQL Escalation | STREAMIO | Using xp_dirtree to make the MSSQL database connect back to us and steal the hash | Walkthrough: [https://youtube.com/watch?v=_8FE3JZIPfo&t=1000](https://youtube.com/watch?v=qKcUKlwoGw8&t=1335) |
-</details>
+## 12. Windows Credentials
 
+*(See Windows Post-Exploitation above — sections overlap significantly)*
 
-<b><details><summary>16. Active Directory Exploitation </summary></b>
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| AD object permissions | REEL | GenericWrite, WriteOwner, WriteDACL explained | [IppSec](https://youtube.com/watch?v=ob9SgtFm6_g&t=3205) |
+| GenericAll abuse | SUPPORT | Abusing GenericAll object permission | [IppSec](https://youtube.com/watch?v=iIveZ-raTTQ&t=970) |
 
-| Attack Type | HTB Machine | Attack Used in HTB | Link |
-|:---:|:---:|:---:|:---:|
-| AD Object permission theory | REEL | Explaining Active Directory (AD) Security Objects (GenericWrite, WriteOwner,etc) | walkthrough: https://youtube.com/watch?v=ob9SgtFm6_g&t=3205 |
-| Abusing GenericAll | SUPPORT | Abusing GenericAll object permission | walkthrough: https://youtube.com/watch?v=iIveZ-raTTQ&t=970 |
-| Abusing GenericAll, WriteDACL | MULTIMASTER | Abusing GenericAll, WriteDACL | Walkthrough: https://youtube.com/watch?v=iwR746pfTEc&t=7410 |
-| Abusing GenericWrite, WriteDACL | REEL | Taking ownership and changing other user's password | Walkthrough: https://youtube.com/watch?v=ob9SgtFm6_g&t=3503|
-| Kerberos Delegation | PivotAPI | Unconstrained delegation with the SQL User. Upload rubeus, use tgtdeleg | Walkthrough: https://youtube.com/watch?v=FbTxPz_GA4o&t=7215 |
-| Kerberos Delegation | INTELLIGENCE | Unconstrained delegation | Walkthrough: https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/ |
-| Kerberos Delegation | SUPPORT | RBCD | walkthrough: https://youtube.com/watch?v=iIveZ-raTTQ&t=970 <br> Post: https://pencer.io/ctf/ctf-htb-support/#rbcd |
-</details>
+---
 
+## 13. Windows Lateral Movement
 
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| PsExec / SMB lateral movement | FLIGHT | SMB relay and lateral movement via PsExec | [IppSec](https://www.youtube.com/watch?v=qgzNQk2QTPI) |
+| WinRM lateral movement | OUTDATED | WinRM for lateral movement post-exploit | [IppSec](https://www.youtube.com/watch?v=W2C5nZ8I9O8) |
+| Pass-the-Hash | MULTIMASTER | PTH for lateral movement in AD | [IppSec](https://youtube.com/watch?v=iwR746pfTEc) |
+| Pass-the-Ticket | SCRAMBLED | Kerberos ticket abuse for lateral movement | [IppSec](https://youtube.com/watch?v=_8FE3JZIPfo) |
+| DCOM lateral movement | HATHOR | DCOM abuse in hardened environment | [IppSec](https://www.youtube.com/watch?v=lGEjKnFpSDM) |
 
-<br>    
-  
------------------------------------------------------------------------------------------------
+---
+
+## 14. Linux Lateral Movement
+
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| DevOps — Ansible playbook abuse | SEAL | Ansible playbook for privilege escalation | [IppSec](https://www.youtube.com/watch?v=wCfztTcioU8&t=1260s) |
+| DevOps — Ansible enumeration | INJECT | Ansible enumeration and privesc | [IppSec](https://www.youtube.com/watch?v=3VuIaUvHsTI&t=1320s) |
+| Kerberos on Linux — keytab theft | TENTACLE | Configuring attacker Kerberos, stealing keytab | [IppSec](https://youtube.com/watch?v=kKhuUXPmJ_o&t=3870) |
+| Kerberos on Linux — SSSD | CERBERUS | SSSD config review, domain password extraction | [IppSec](https://www.youtube.com/watch?v=IX4h5aaSK1g&t=2160s) |
+| Kerberos on Linux — sssd.ldb dump | SEKHMET | Dumping sssd.ldb, kinit for Kerberos ticket | [IppSec](https://youtube.com/watch?v=vsgPsMZx59w&t=2400) |
+
+---
+
+## 15. Microsoft SQL Server
+
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| MSSQL authentication in AD | ESCAPE | mssqlclient.py login, MSSQL enumeration | [IppSec](https://youtube.com/watch?v=PS2duvVcjws&t=390) |
+| xp_cmdshell RCE | SCRAMBLED | Enabling xp_cmdshell for reverse shell | [IppSec](https://youtube.com/watch?v=_8FE3JZIPfo&t=1000) |
+| xp_dirtree hash capture | STREAMIO | xp_dirtree to steal MSSQL service hash | [IppSec](https://youtube.com/watch?v=qKcUKlwoGw8&t=1335) |
+| MSSQL linked servers | QUERIER | MSSQL linked server lateral movement | [IppSec](https://www.youtube.com/watch?v=QVfExqOSdpw) |
+
+---
+
+## 16. Active Directory Exploitation
+
+| Attack Type | HTB Machine | Attack Used | Walkthrough |
+|---|---|---|---|
+| AD object permissions | REEL | GenericWrite, WriteOwner, WriteDACL | [IppSec](https://youtube.com/watch?v=ob9SgtFm6_g&t=3205) |
+| GenericAll abuse | SUPPORT | GenericAll → RBCD for domain access | [IppSec](https://youtube.com/watch?v=iIveZ-raTTQ&t=970) |
+| GenericAll + WriteDACL | MULTIMASTER | Chained AD permission abuse | [IppSec](https://youtube.com/watch?v=iwR746pfTEc&t=7410) |
+| GenericWrite + WriteDACL | REEL | Taking ownership, changing user password | [IppSec](https://youtube.com/watch?v=ob9SgtFm6_g&t=3503) |
+| Kerberos Delegation — Unconstrained | PIVOTAPI | Unconstrained delegation with SQL user, Rubeus tgtdeleg | [IppSec](https://youtube.com/watch?v=FbTxPz_GA4o&t=7215) |
+| Kerberos Delegation — Unconstrained | INTELLIGENCE | Unconstrained delegation exploitation | [IppSec](https://secnigma.wordpress.com/2021/11/27/hack-the-box-intelligence/) |
+| RBCD | SUPPORT | Resource-based constrained delegation | [IppSec](https://youtube.com/watch?v=iIveZ-raTTQ&t=970) |
+| AS-REP Roasting | FOREST | AS-REP roast → hash crack → DA | [IppSec](https://www.youtube.com/watch?v=H9FcE_FMZio) |
+| Kerberoasting | ACTIVE | SPN enumeration → TGS crack → DA | [IppSec](https://www.youtube.com/watch?v=jUc1J31DNdw) |
+| DCSync | BLACKFIELD | DCSync for domain credential extraction | [IppSec](https://youtube.com/watch?v=IfCysW0Od8w) |
+| Bloodhound AD enumeration | ESCAPE | BloodHound attack path analysis | [IppSec](https://youtube.com/watch?v=PS2duvVcjws) |
+
+---
+
+## TJNull OSEP List
+
+Community-maintained OSEP preparation list by TJNull, with 0xdf writeups linked where available.
+
+### OSEP-Like
+
+| Machine | 0xdf Writeup |
+|---|---|
+| Haze | [writeup](https://0xdf.gitlab.io/2025/06/28/htb-haze.html) |
+| EscapeTwo | [writeup](https://0xdf.gitlab.io/2025/05/24/htb-escapetwo.html) |
+| Escape | [writeup](https://0xdf.gitlab.io/2023/06/17/htb-escape.html) |
+| Absolute | [writeup](https://0xdf.gitlab.io/2023/05/27/htb-absolute.html) |
+| Flight | [writeup](https://0xdf.gitlab.io/2023/05/06/htb-flight.html) |
+| Sekhmet | [writeup](https://0xdf.gitlab.io/2023/04/01/htb-sekhmet.html) |
+| Support | [writeup](https://0xdf.gitlab.io/2022/12/17/htb-support.html) |
+| Outdated | [writeup](https://0xdf.gitlab.io/2022/12/10/htb-outdated.html) |
+| Hathor | [writeup](https://0xdf.gitlab.io/2022/11/19/htb-hathor.html) |
+| Scrambled | [writeup](https://0xdf.gitlab.io/2022/10/01/htb-scrambled.html) |
+| StreamIO | [writeup](https://0xdf.gitlab.io/2022/09/17/htb-streamio.html) |
+| Timelapse | [writeup](https://0xdf.gitlab.io/2022/08/20/htb-timelapse.html) |
+| Forge | [writeup](https://0xdf.gitlab.io/2022/01/22/htb-forge.html) |
+| Seal | [writeup](https://0xdf.gitlab.io/2021/11/13/htb-seal.html) |
+| APT | [writeup](https://0xdf.gitlab.io/2021/04/10/htb-apt.html) |
+| Multimaster | [writeup](https://0xdf.gitlab.io/2020/09/19/htb-multimaster.html) |
+| Magic | [writeup](https://0xdf.gitlab.io/2020/08/22/htb-magic.html) |
+| Monteverde | [writeup](https://0xdf.gitlab.io/2020/06/13/htb-monteverde.html) |
+| Forest | [writeup](https://0xdf.gitlab.io/2020/03/21/htb-forest.html) |
+| Querier | [writeup](https://0xdf.gitlab.io/2019/06/22/htb-querier.html) |
+
+### OSEP-Harder
+
+| Machine | 0xdf Writeup |
+|---|---|
+| Scepter | [writeup](https://0xdf.gitlab.io/2025/07/19/htb-scepter.html) |
+| Absolute | [writeup](https://0xdf.gitlab.io/2023/05/27/htb-absolute.html) |
+| Search | [writeup](https://0xdf.gitlab.io/2022/04/30/htb-search.html) |
+| Anubis | [writeup](https://0xdf.gitlab.io/2022/01/29/htb-anubis.html) |
+| PivotAPI | [writeup](https://0xdf.gitlab.io/2021/11/06/htb-pivotapi.html) |
+| Monteverde | [writeup](https://0xdf.gitlab.io/2020/06/13/htb-monteverde.html) |
+| Sizzle | [writeup](https://0xdf.gitlab.io/2019/06/01/htb-sizzle.html) |
+
+---
+
+## Further Resources
+
+- [TJNull's full OSEP prep spreadsheet](https://docs.google.com/spreadsheets/u/1/d/1dwSMIAPIam0PuRBkCiDI88pU3yzrqqHkDtBngUHNCw8/pubhtml)
+- [chvancooten/OSEP-Code-Snippets](https://github.com/chvancooten/OSEP-Code-Snippets) — most useful code reference for OSEP
+- [deletehead/pen_300_osep_prep](https://github.com/deletehead/pen_300_osep_prep) — solid community prep guide
+- [0xdf OSEP machine writeups](https://0xdf.gitlab.io/cheatsheets/offsec) — best quality writeups for the list above

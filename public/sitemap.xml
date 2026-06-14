@@ -3,91 +3,112 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://z-r0crypt.github.io/tags/active-directory/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/career/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/categories/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://z-r0crypt.github.io/tags/credential-dumping/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <loc>https://z-r0crypt.github.io/tags/evasion/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://z-r0crypt.github.io/tags/linux/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <loc>https://z-r0crypt.github.io/posts/2025-06-13-oscp-to-osep-red-team-gap/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://z-r0crypt.github.io/tags/ntlm/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/tags/post-exploitation/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/posts/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/categories/red-team/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/categories/research/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/tags/sssd/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/tags/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/categories/tools/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/tags/htb/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <loc>https://z-r0crypt.github.io/tags/oscp/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/osep/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://z-r0crypt.github.io/tags/pen-300/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/penetration-testing/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/posts/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/categories/red-team/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/red-team/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/categories/research/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/credential-dumping/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/linux/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/ntlm/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/post-exploitation/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/sssd/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/categories/tools/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/av-evasion/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/htb/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/pen-300/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/awae/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/code-review/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/code-execution/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/categories/exploit-development/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/oswe/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/php/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/rce/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://z-r0crypt.github.io/tags/semgrep/</loc>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/categories/web/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/web-security/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/cbc/</loc>
     <lastmod>2025-01-15T00:00:00+00:00</lastmod>
@@ -126,10 +147,10 @@
     <lastmod>2025-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/exploit-development/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://z-r0crypt.github.io/tags/assembly/</loc>
     <lastmod>2025-01-15T00:00:00+00:00</lastmod>

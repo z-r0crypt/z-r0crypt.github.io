@@ -6,14 +6,14 @@
     <description>Recent content in Tools on z-r0crypt</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://z-r0crypt.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>SSSD-Extract: Dumping Active Directory Hashes from Linux Systems</title>
+      <title>SSSD-Extract: Dumping AD Hashes and Domain Info from Linux Systems</title>
       <link>https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/</link>
       <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/</guid>
-      <description>Open-source tool for extracting cached AD credentials and NTLM hashes from SSSD on Linux systems. Post-exploitation for domain compromise.</description>
+      <description>How to extract cached Active Directory credentials, group memberships, user accounts and machine accounts from SSSD on domain-joined Linux systems. Includes extended fork with domain enumeration added during OSEP preparation.</description>
     </item>
   </channel>
 </rss>

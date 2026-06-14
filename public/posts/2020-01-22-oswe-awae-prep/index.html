@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>OSWE/AWAE Preparation | z-r0crypt</title>
-<meta name="keywords" content="OSWE, AWAE, Web Security, Exploit Development">
-<meta name="description" content="This post contains all trainings and tutorials that could be useful for offensive security&#39;s OSWE certification.">
+<title>OSWE/AWAE Preparation: Complete Study Guide | z-r0crypt</title>
+<meta name="keywords" content="OSWE, AWAE, Web Security, Exploit Development, Code Review, RCE">
+<meta name="description" content="Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters for the 48-hour exam.">
 <meta name="author" content="z-r0crypt">
 <link rel="canonical" href="https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
@@ -54,21 +54,23 @@
         }
       </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/">
   <meta property="og:site_name" content="z-r0crypt">
-  <meta property="og:title" content="OSWE/AWAE Preparation">
-  <meta property="og:description" content="This post contains all trainings and tutorials that could be useful for offensive security&#39;s OSWE certification.">
+  <meta property="og:title" content="OSWE/AWAE Preparation: Complete Study Guide">
+  <meta property="og:description" content="Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters for the 48-hour exam.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2020-01-22T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-06-13T00:00:00+00:00">
     <meta property="article:tag" content="OSWE">
-    <meta property="article:tag" content="AWAE">
+    <meta property="article:tag" content="Awae">
     <meta property="article:tag" content="Web-Security">
     <meta property="article:tag" content="Exploit-Development">
+    <meta property="article:tag" content="Code Review">
+    <meta property="article:tag" content="Rce">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="OSWE/AWAE Preparation">
-  <meta name="twitter:description" content="This post contains all trainings and tutorials that could be useful for offensive security&#39;s OSWE certification.">
+  <meta name="twitter:title" content="OSWE/AWAE Preparation: Complete Study Guide">
+  <meta name="twitter:description" content="Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters for the 48-hour exam.">
 
 
 <script type="application/ld+json">
@@ -85,7 +87,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "OSWE/AWAE Preparation",
+      "name": "OSWE/AWAE Preparation: Complete Study Guide",
       "item": "https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/"
     }
   ]
@@ -95,17 +97,17 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "OSWE/AWAE Preparation",
-  "name": "OSWE\/AWAE Preparation",
-  "description": "This post contains all trainings and tutorials that could be useful for offensive security's OSWE certification.",
+  "headline": "OSWE/AWAE Preparation: Complete Study Guide",
+  "name": "OSWE\/AWAE Preparation: Complete Study Guide",
+  "description": "Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters for the 48-hour exam.",
   "keywords": [
-    "OSWE", "AWAE", "Web Security", "Exploit Development"
+    "OSWE", "AWAE", "Web Security", "Exploit Development", "Code Review", "RCE"
   ],
-  "articleBody": "OSWE Exam Preparation This post contains all trainings and tutorials that could be useful for offensive security’s OSWE certification.\nExam info: 48-hour practical exam, 7 vulnerable web apps, requires source code review and exploit development\nPrerequisites: OSCP completed, strong Python/JavaScript knowledge | Difficulty: Hard | Pass rate: ~35%\nCourse Syllabus: https://www.offensive-security.com/documentation/awae-syllabus.pdf\nBefore registering for AWAE Lab: Get comfortable with python requests library Read Web Application Hacker’s handbook, again if you already did Get familiar with Burpsuite Get familiar with regex Get hands on with OWASP top 10 2017 Vulnerabilities Vulnerable Apps for practice on OWASP Portswigger WebSecAcademy Practice code review skills - OWASP SKF Before registering for the OSWE Exam: XSS to RCE AtMail Email Server Appliance 6.4 - Persistent Cross-Site Scripting Chaining XSS, CSRF to achieve RCE Code analysis to gaining RCE Magento 2.3.1: Unauthenticated Stored XSS to RCE Mybb 18.20 From Stored XSS to RCE Bypassing File Upload Restrictions: [Paper] File Upload Restrictions Bypass Shell the web - Methods of a Ninja Unrestricted File Upload Atlassian Crowd Pre-auth RCE Popcorn machine from HackTheBox Vault machine from HackTheBox Authentication Bypass to RCE ATutor 2.2.1 Authentication Bypass ATutor LMS password_reminder TOCTOU Authentication Bypass ATutor 2.2.1 - Directory Traversal / Remote Code Execution Cubecart Admin Authentication Bypass Trendmicro smart protection bypass to RCE Password Reset Vulnerability Testing Password rest functionalities OWASP - Forgot Password Cheatsheet How we hacked multiple user accounts using weak reset tokens for passwords SQL Injection: RCE with SQL Injection - MSSQL SQL Injection to LFI to RCE - MySQL From SQLi to SHELL (I and II) - PentesterLab Pre-Auth Takeover of OXID eShops Blind SQL Injection [Paper] PostgreSQL Injection Having Fun With PostgreSQL Blind Postgresql Sql Injection Tutorial SQL Injection Cheat Sheet - PentestMonkey SQL Injection Cheat Sheet - PayloadAllTheThings Exploiting H2 SQL injection to RCE JavaScript Injection: Server Side JS Injection Remote Code Execution in math.js Arbitrary code execution in fast-redact NVIDIA GeForce Experience OS Command Injection - CVE-2019-5678 SetTimeout and SetInterval use eval therefore are evil Pentesting Node.js Application : Nodejs Application Security NodeJS remote debugging with vscode Escape NodeJS Sandboxes PHP Type Juggling: OWASP - PHPMagicTricks TypeJuggling PHP Type Juggling - Introduction Type Juggling, PHP Object Injection, SQLi Writing Exploits For PHP Type Juggling Type Juggling Authentication Bypass Vulnerability in CMS Made Simple PHP Magic Hashes Detailed Explanation of PHP Type Juggling Vulnerabilities [Video] PHP Type Juggling Vulnerabilities, Netsparker [Video] Falafel machine from HackTheBox Deserialization: Deserialization_Cheat_Sheet\nInsecure deserialization - PayloadAllthethings\n[Paper] Deserialization Vulnerability\nSerialization : A Big Threat\nJAVA Deserialization Understanding \u0026 practicing java deserialization exploits Understanding JAVA Deserialization Exploiting blind Java deserialization with Burp and Ysoserial Details on Oracle Web Logic Desrialization Analysis of Weblogic Deserialization [Video] Matthias Kaiser - Exploiting Deserialization Vulnerabilities in Java .NET Deserialization Use of Deserialization in .NET Framework Methods and Classes. Exploiting Deserialisation in ASP.NET via ViewState Remote Code Execution via Insecure Deserialization in Telerik UI [Video] Friday the 13th: JSON Attacks - BlackHat [Paper] Are you My Type? [Video] JSON Machine from HackTheBox - Ippsec PHP Object Injection/Deserialization What is PHP Object Injection phpBB 3.2.3: Phar Deserialization to RCE Exploiting PHP Desrialization Analysis of typo3 Deserialization Vulnerability Attack Surface of PHP Deserialization Vulnerability via Phar [Video] Intro to PHP Deserialization / Object Injection - Ippsec [Video] Advanced PHP Deserialization - Phar Files - Ippsec [Video] Exploiting PHP7 unserialize (33c3) NodeJS Deserialization Exploiting Node.js deserialization bug for Remote Code Execution The good, the bad and RCE on NodeJS applications Attacking Deserialization in JS Node.js Deserialization Attack – Detailed Tutorial [Video] Celestial machine from HackTheBox - Ippsec XML External Entity (XXE) Attack A Deep Dive into XXE Injection From XXE to RCE: Pwn2Win CTF 2018 Writeup Blind XXE to RCE Apache Flex BlazeDS XXE Vulnerabilty WebLogic EJBTaglibDescriptor XXE Server Side Template Injection (SSTI) [Portswigger Research] Server Side Template Injection [Video] SSTI : RCE For The Modern Web App - albinowax Server Side Template Injection Jinja2 template injection filter bypasses Exploitation of Server Side Template Injection with Craft CMS plugin SEOmatic \u003c=3.1.3 Websocekts InSecurity Introduction to WebSockets [Video] Hacking with Websocket - BlackHat Remote Hardware takeover via Websocket Hijacking Cross-Site WebSocket Hijacking to full Session Compromise Source Code Audit Introduction to Code Review [PentesterLab] Static code analysis writeups TrendMicro - Secure Coding Dojo Bug Hunting with Static Code Analysis [Video] Shopify Remote Code Execution - Hackerone Finding vulnerabilities in source code ( APS.NET) A deep dive into ASP.NET Deserialization Writeups by mr_me Youtube Playlist https://www.youtube.com/watch?v=Xfbu-pQ1tIc\u0026list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33 Further References/Reviews From AWAE to OSWE the preperation guide - hansesecure OSWE Exam Review 2020 Notes gifts inside - 21y4d OSWE Cheat Sheet - V1s3r1on wetw0rk/AWAE-PREP https://codewhitesec.blogspot.com/ https://blog.ripstech.com/ https://rhinosecuritylabs.com ",
-  "wordCount" : "764",
+  "articleBody": "OSWE Exam Preparation I passed OSWE in 2020 after completing the AWAE course. This guide has been maintained and updated since then as the exam evolves. Everything here is what I actually used — not just collected links.\nLast updated: June 2025. Added PortSwigger Web Security Academy as primary free resource and noted outdated links.\nExam info: 48-hour practical exam, multiple vulnerable web apps, requires white-box source code review and working exploit development. No metasploit. No automated scanners.\nPrerequisites: OSCP completed, comfortable with Python scripting, basic understanding of web app architecture | Difficulty: Hard | Pass rate: ~15-20%\nMy Exam Strategy A few things I wish someone had told me before I sat the exam:\nSource code review is the exam. The vulnerability is always there — your job is to find it by reading code, not by fuzzing. Get fast at reading PHP, Java, and .NET code before you register.\nAutomate your exploits end-to-end. The exam expects a working script that goes from unauthenticated to RCE in one run. Practice writing these during lab time, not figuring it out during the exam.\nTime management is critical. In a 48-hour exam, sleep. Seriously. A rested 6-hour block is worth more than pushing through exhausted. Plan for 8 hours of sleep and still have plenty of time.\nThe lab machines are your best prep. Do every lab machine twice — once to understand the vulnerability, once to write a clean automated exploit.\nCourse Syllabus: https://www.offensive-security.com/documentation/awae-syllabus.pdf\nBefore registering for AWAE Lab: Get comfortable with python requests library Read Web Application Hacker’s handbook, again if you already did Get familiar with Burpsuite Get familiar with regex Get hands on with OWASP top 10 2017 Vulnerabilities Vulnerable Apps for practice on OWASP Portswigger WebSecAcademy Practice code review skills - OWASP SKF Before registering for the OSWE Exam: XSS to RCE AtMail Email Server Appliance 6.4 - Persistent Cross-Site Scripting Chaining XSS, CSRF to achieve RCE Code analysis to gaining RCE Magento 2.3.1: Unauthenticated Stored XSS to RCE Mybb 18.20 From Stored XSS to RCE Bypassing File Upload Restrictions: [Paper] File Upload Restrictions Bypass Shell the web - Methods of a Ninja Unrestricted File Upload Atlassian Crowd Pre-auth RCE Popcorn machine from HackTheBox Vault machine from HackTheBox Authentication Bypass to RCE ATutor 2.2.1 Authentication Bypass ATutor LMS password_reminder TOCTOU Authentication Bypass ATutor 2.2.1 - Directory Traversal / Remote Code Execution Cubecart Admin Authentication Bypass Trendmicro smart protection bypass to RCE Password Reset Vulnerability Testing Password rest functionalities OWASP - Forgot Password Cheatsheet How we hacked multiple user accounts using weak reset tokens for passwords SQL Injection: RCE with SQL Injection - MSSQL SQL Injection to LFI to RCE - MySQL From SQLi to SHELL (I and II) - PentesterLab Pre-Auth Takeover of OXID eShops Blind SQL Injection [Paper] PostgreSQL Injection Having Fun With PostgreSQL Blind Postgresql Sql Injection Tutorial SQL Injection Cheat Sheet - PentestMonkey SQL Injection Cheat Sheet - PayloadAllTheThings Exploiting H2 SQL injection to RCE JavaScript Injection: Server Side JS Injection Remote Code Execution in math.js Arbitrary code execution in fast-redact NVIDIA GeForce Experience OS Command Injection - CVE-2019-5678 SetTimeout and SetInterval use eval therefore are evil Pentesting Node.js Application : Nodejs Application Security NodeJS remote debugging with vscode Escape NodeJS Sandboxes PHP Type Juggling: OWASP - PHPMagicTricks TypeJuggling PHP Type Juggling - Introduction Type Juggling, PHP Object Injection, SQLi Writing Exploits For PHP Type Juggling Type Juggling Authentication Bypass Vulnerability in CMS Made Simple PHP Magic Hashes Detailed Explanation of PHP Type Juggling Vulnerabilities [Video] PHP Type Juggling Vulnerabilities, Netsparker [Video] Falafel machine from HackTheBox Deserialization: Deserialization_Cheat_Sheet\nInsecure deserialization - PayloadAllthethings\n[Paper] Deserialization Vulnerability\nSerialization : A Big Threat\nJAVA Deserialization Understanding \u0026 practicing java deserialization exploits Understanding JAVA Deserialization Exploiting blind Java deserialization with Burp and Ysoserial Details on Oracle Web Logic Desrialization Analysis of Weblogic Deserialization [Video] Matthias Kaiser - Exploiting Deserialization Vulnerabilities in Java .NET Deserialization Use of Deserialization in .NET Framework Methods and Classes. Exploiting Deserialisation in ASP.NET via ViewState Remote Code Execution via Insecure Deserialization in Telerik UI [Video] Friday the 13th: JSON Attacks - BlackHat [Paper] Are you My Type? [Video] JSON Machine from HackTheBox - Ippsec PHP Object Injection/Deserialization What is PHP Object Injection phpBB 3.2.3: Phar Deserialization to RCE Exploiting PHP Desrialization Analysis of typo3 Deserialization Vulnerability Attack Surface of PHP Deserialization Vulnerability via Phar [Video] Intro to PHP Deserialization / Object Injection - Ippsec [Video] Advanced PHP Deserialization - Phar Files - Ippsec [Video] Exploiting PHP7 unserialize (33c3) NodeJS Deserialization Exploiting Node.js deserialization bug for Remote Code Execution The good, the bad and RCE on NodeJS applications Attacking Deserialization in JS Node.js Deserialization Attack – Detailed Tutorial [Video] Celestial machine from HackTheBox - Ippsec XML External Entity (XXE) Attack A Deep Dive into XXE Injection From XXE to RCE: Pwn2Win CTF 2018 Writeup Blind XXE to RCE Apache Flex BlazeDS XXE Vulnerabilty WebLogic EJBTaglibDescriptor XXE Server Side Template Injection (SSTI) [Portswigger Research] Server Side Template Injection [Video] SSTI : RCE For The Modern Web App - albinowax Server Side Template Injection Jinja2 template injection filter bypasses Exploitation of Server Side Template Injection with Craft CMS plugin SEOmatic \u003c=3.1.3 WebSockets InSecurity Introduction to WebSockets [Video] Hacking with Websocket - BlackHat Remote Hardware takeover via Websocket Hijacking Cross-Site WebSocket Hijacking to full Session Compromise Source Code Audit Introduction to Code Review [PentesterLab] Static code analysis writeups TrendMicro - Secure Coding Dojo Bug Hunting with Static Code Analysis [Video] Shopify Remote Code Execution - Hackerone Finding vulnerabilities in source code ( APS.NET) A deep dive into ASP.NET Deserialization Writeups by mr_me Youtube Playlist https://www.youtube.com/watch?v=Xfbu-pQ1tIc\u0026list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33 2025 Updates — What’s Changed The core exam format and vulnerability classes haven’t changed dramatically since 2020, but the tooling and resources have improved significantly:\nPortSwigger Web Security Academy is now the single best free resource for OSWE prep — covers every vulnerability class with interactive labs. Prioritise this over most other resources below. blog.ripstech.com is now Sonar Research (sonarsource.com/blog) — the old links still work but check the new blog for recent PHP/Java audit content. The OWASP Top 10 links below reference the 2017 version — the 2021 version is current but the vulnerability classes relevant to OSWE haven’t changed materially. PayloadsAllTheThings remains the most useful single reference — bookmark it. Further References/Reviews From AWAE to OSWE the preperation guide - hansesecure OSWE Exam Review 2020 Notes gifts inside - 21y4d OSWE Cheat Sheet - V1s3r1on wetw0rk/AWAE-PREP https://codewhitesec.blogspot.com/ https://blog.ripstech.com/ https://rhinosecuritylabs.com PortSwigger Web Security Academy — Best free structured learning resource, covers all OSWE-relevant topics with labs Sonar Research Blog — Successor to blog.ripstech.com, excellent code audit writeups PayloadsAllTheThings — Most comprehensive payload reference ",
+  "wordCount" : "1102",
   "inLanguage": "en",
   "datePublished": "2020-01-22T00:00:00Z",
-  "dateModified": "2025-01-15T00:00:00Z",
+  "dateModified": "2025-06-13T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "z-r0crypt"
@@ -183,10 +185,10 @@
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      OSWE/AWAE Preparation
+      OSWE/AWAE Preparation: Complete Study Guide
     </h1>
     <div class="post-description">
-      This post contains all trainings and tutorials that could be useful for offensive security&#39;s OSWE certification.
+      Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters for the 48-hour exam.
     </div>
     <div class="post-meta">
 
@@ -197,10 +199,20 @@
 </div>
   </header> 
   <div class="post-content md-content"><h2 id="oswe-exam-preparation">OSWE Exam Preparation<a hidden class="anchor" aria-hidden="true" href="#oswe-exam-preparation">#</a></h2>
-<p>This post contains all trainings and tutorials that could be useful for offensive security&rsquo;s OSWE certification.</p>
+<p>I passed OSWE in 2020 after completing the AWAE course. This guide has been maintained and updated since then as the exam evolves. Everything here is what I actually used — not just collected links.</p>
+<blockquote>
+<p><strong>Last updated:</strong> June 2025. Added PortSwigger Web Security Academy as primary free resource and noted outdated links.</p>
+</blockquote>
 <hr>
-<p><strong>Exam info:</strong> 48-hour practical exam, 7 vulnerable web apps, requires source code review and exploit development</p>
-<p><strong>Prerequisites:</strong> OSCP completed, strong Python/JavaScript knowledge | <strong>Difficulty:</strong> Hard | <strong>Pass rate:</strong> ~35%</p>
+<p><strong>Exam info:</strong> 48-hour practical exam, multiple vulnerable web apps, requires white-box source code review and working exploit development. No metasploit. No automated scanners.</p>
+<p><strong>Prerequisites:</strong> OSCP completed, comfortable with Python scripting, basic understanding of web app architecture | <strong>Difficulty:</strong> Hard | <strong>Pass rate:</strong> ~15-20%</p>
+<hr>
+<h2 id="my-exam-strategy">My Exam Strategy<a hidden class="anchor" aria-hidden="true" href="#my-exam-strategy">#</a></h2>
+<p>A few things I wish someone had told me before I sat the exam:</p>
+<p><strong>Source code review is the exam.</strong> The vulnerability is always there — your job is to find it by reading code, not by fuzzing. Get fast at reading PHP, Java, and .NET code before you register.</p>
+<p><strong>Automate your exploits end-to-end.</strong> The exam expects a working script that goes from unauthenticated to RCE in one run. Practice writing these during lab time, not figuring it out during the exam.</p>
+<p><strong>Time management is critical.</strong> In a 48-hour exam, sleep. Seriously. A rested 6-hour block is worth more than pushing through exhausted. Plan for 8 hours of sleep and still have plenty of time.</p>
+<p><strong>The lab machines are your best prep.</strong> Do every lab machine twice — once to understand the vulnerability, once to write a clean automated exploit.</p>
 <hr>
 <h3 id="course-syllabus">Course Syllabus:<a hidden class="anchor" aria-hidden="true" href="#course-syllabus">#</a></h3>
 <p><a href="https://www.offensive-security.com/documentation/awae-syllabus.pdf">https://www.offensive-security.com/documentation/awae-syllabus.pdf</a></p>
@@ -386,7 +398,7 @@
 </ul>
 </li>
 <li>
-<h4 id="websocekts-insecurity">Websocekts InSecurity<a hidden class="anchor" aria-hidden="true" href="#websocekts-insecurity">#</a></h4>
+<h4 id="websockets-insecurity">WebSockets InSecurity<a hidden class="anchor" aria-hidden="true" href="#websockets-insecurity">#</a></h4>
 <ul>
 <li><a href="https://portswigger.net/web-security/websockets">Introduction to WebSockets</a></li>
 <li><a href="https://www.youtube.com/watch?v=-ALjHUqSz_Y">[Video] Hacking with Websocket - BlackHat</a></li>
@@ -414,6 +426,16 @@
 </ul>
 </li>
 <li>
+<h4 id="2025-updates--whats-changed">2025 Updates — What&rsquo;s Changed<a hidden class="anchor" aria-hidden="true" href="#2025-updates--whats-changed">#</a></h4>
+<p>The core exam format and vulnerability classes haven&rsquo;t changed dramatically since 2020, but the tooling and resources have improved significantly:</p>
+<ul>
+<li><strong>PortSwigger Web Security Academy</strong> is now the single best free resource for OSWE prep — covers every vulnerability class with interactive labs. Prioritise this over most other resources below.</li>
+<li><strong>blog.ripstech.com</strong> is now Sonar Research (sonarsource.com/blog) — the old links still work but check the new blog for recent PHP/Java audit content.</li>
+<li>The <strong>OWASP Top 10 links</strong> below reference the 2017 version — the 2021 version is current but the vulnerability classes relevant to OSWE haven&rsquo;t changed materially.</li>
+<li><strong>PayloadsAllTheThings</strong> remains the most useful single reference — bookmark it.</li>
+</ul>
+</li>
+<li>
 <h4 id="further-referencesreviews">Further References/Reviews<a hidden class="anchor" aria-hidden="true" href="#further-referencesreviews">#</a></h4>
 <ul>
 <li><a href="https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en">From AWAE to OSWE the preperation guide - hansesecure</a></li>
@@ -423,6 +445,9 @@
 <li><a href="https://codewhitesec.blogspot.com/">https://codewhitesec.blogspot.com/</a></li>
 <li><a href="https://blog.ripstech.com/">https://blog.ripstech.com/</a></li>
 <li><a href="https://rhinosecuritylabs.com">https://rhinosecuritylabs.com</a></li>
+<li><a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a> — Best free structured learning resource, covers all OSWE-relevant topics with labs</li>
+<li><a href="https://www.sonarsource.com/blog/">Sonar Research Blog</a> — Successor to blog.ripstech.com, excellent code audit writeups</li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings">PayloadsAllTheThings</a> — Most comprehensive payload reference</li>
 </ul>
 </li>
 </ul>
@@ -434,9 +459,11 @@
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://z-r0crypt.github.io/tags/oswe/">OSWE</a></li>
-      <li><a href="https://z-r0crypt.github.io/tags/awae/">AWAE</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/awae/">Awae</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/web-security/">Web-Security</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/exploit-development/">Exploit-Development</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/code-review/">Code Review</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/rce/">Rce</a></li>
     </ul>
   </footer>
 </article>

