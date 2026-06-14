@@ -4,6 +4,8 @@ date: 2019-11-24T00:00:00Z
 lastmod: 2025-01-15
 draft: false
 author: "z-r0crypt"
+aliases:
+  - /blog/2019/11/24/cryptography-i---stanford-university---week-1/
 description: "Stream cipher security, pseudo-random generators, information-theoretic security, and practical attacks on weak PRGs. Stanford Cryptography I Week 1."
 categories: ["research", "Cryptography"]
 tags: ["cryptography", "stream-cipher", "security-theory", "prg", "otp"]

@@ -8,6 +8,8 @@ tags: [sssd, active-directory, post-exploitation, linux, credential-dumping, ntl
 author: z-r0crypt
 featured: true
 draft: false
+aliases:
+  - /blog/2023/08/20/tool-sssd-extract/
 summary: "Extract cached AD hashes and enumerate domain groups, users and machine accounts from SSSD on domain-joined Linux. Extended fork of ricardojoserf/SSSD-creds with domain enumeration added during OSEP exam preparation."
 ---
 

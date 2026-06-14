@@ -4,6 +4,8 @@ date: 2020-02-05T00:00:00Z
 lastmod: 2025-01-15
 draft: false
 author: "z-r0crypt"
+aliases:
+  - /blog/2020/02/05/cryptography-i---week-2---part-2/
 description: "Deep dive into CBC/CTR implementation details, IV/nonce management, padding oracle attacks, and performance comparison of encryption modes."
 categories: ["research", "Cryptography"]
 tags: ["cryptography", "cbc", "ctr", "padding-oracle", "iv-nonce"]

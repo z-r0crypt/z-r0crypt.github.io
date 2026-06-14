@@ -4,6 +4,8 @@ date: 2019-11-25T00:00:00Z
 lastmod: 2025-01-15
 draft: false
 author: "z-r0crypt"
+aliases:
+  - /blog/2019/11/25/microcorruption-ctf---tutorial/
 description: "Hands-on guide to MSP430 assembly debugging and memory corruption exploitation in Microcorruption CTF challenges."
 categories: ["CTF", "Reverse Engineering"]
 tags: ["microcorruption", "ctf", "reverse-engineering", "assembly", "exploit-development", "msp430"]

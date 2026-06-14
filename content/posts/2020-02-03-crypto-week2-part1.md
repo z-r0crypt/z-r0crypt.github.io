@@ -4,6 +4,8 @@ date: 2020-02-03T00:00:00Z
 lastmod: 2025-01-15
 draft: false
 author: "z-r0crypt"
+aliases:
+  - /blog/2020/02/03/cryptography-i----week-2---part-1/
 description: "Block cipher theory, PRP/PRF security, ECB/CBC/CTR modes, IV construction, and semantic security under chosen-plaintext attack (CPA)."
 categories: ["research", "Cryptography"]
 tags: ["cryptography", "block-cipher", "aes", "cpa-security", "modes-of-operation"]

@@ -6,6 +6,8 @@ description: "Complete reference of PHP functions exploitable for RCE, LFI, info
 categories: [Web, Exploit Development]
 tags: [oswe, awae, php, rce, web-security, code-execution, code-review, semgrep]
 author: z-r0crypt
+aliases:
+  - /blog/2021/01/25/dangerous-php-functions/
 featured: false
 draft: false
 summary: "PHP dangerous function reference for source code review and exploitation. Covers command execution, code evaluation, callbacks, filesystem, and information disclosure — with grep/semgrep patterns and PHP version compatibility notes."

@@ -6,6 +6,8 @@ description: "Curated list of HTB machines mapped to every PEN-300 syllabus topi
 categories: [research, red-team]
 tags: [osep, pen-300, htb, red-team, penetration-testing, active-directory, av-evasion]
 author: z-r0crypt
+aliases:
+  - /blog/2023/04/27/htb-machines-for-osep-preparation/
 featured: false
 draft: false
 summary: "HTB machines mapped to every PEN-300 syllabus topic. From Office macros to Kerberos delegation — covers client-side execution, AV evasion, AD exploitation, MSSQL, lateral movement and more."

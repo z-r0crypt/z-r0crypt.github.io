@@ -8,6 +8,8 @@ tags: [OSWE, AWAE, Web Security, Exploit Development, Code Review, RCE]
 author: z-r0crypt
 featured: false
 draft: false
+aliases:
+  - /blog/2020/01/22/oswe/awae-preparation/
 summary: "Complete OSWE/AWAE preparation guide from someone who passed in 2020. Curated resources by vulnerability class, exam strategy, and what actually matters."
 ---
 
