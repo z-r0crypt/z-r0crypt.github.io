@@ -181,3 +181,15 @@ html[data-theme="light"] article.post-entry:hover .entry-content p {
 html[data-theme="light"] article.post-entry:hover .entry-footer {
   color: #57606a !important;
 }
+
+/* Ensure code blocks scroll beautifully without breaking theme borders */
+pre {
+    background-color: #272822 !important; /* Forces uniform Monokai dark background */
+    border-radius: var(--radius);
+    padding: 12px;
+    overflow-x: auto;
+}
+code {
+    font-family: var(--mono-font-family);
+    word-break: break-all;
+}

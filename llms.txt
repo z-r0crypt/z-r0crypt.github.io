@@ -1,0 +1,19 @@
+# z-r0crypt
+
+## Posts
+- [From OSCP to OSEP: Does it Fill the Red Team Gap?](https://z-r0crypt.github.io/posts/2025-06-13-oscp-to-osep-red-team-gap/)
+- [SSSD-Extract: Dumping AD Hashes and Domain Info from Linux Systems](https://z-r0crypt.github.io/posts/2023-08-20-sssd-extract-v2/)
+- [HTB Machines for OSEP/PEN-300 Preparation: Complete Attack Chain Mapping](https://z-r0crypt.github.io/posts/2023-04-27-htb-osep-machines/)
+- [Dangerous PHP Functions: Code Execution and Exploitation Reference](https://z-r0crypt.github.io/posts/2021-01-25-dangerous-php-functions/)
+- [Cryptography I: Advanced Block Cipher Modes and Padding](https://z-r0crypt.github.io/posts/2020-02-05-crypto-week2-part2/)
+- [Cryptography I: Block Ciphers and Modes of Operation](https://z-r0crypt.github.io/posts/2020-02-03-crypto-week2-part1/)
+- [OSWE/AWAE Preparation: Complete Study Guide](https://z-r0crypt.github.io/posts/2020-01-22-oswe-awae-prep/)
+- [Microcorruption CTF Tutorial: Embedded Security Reverse Engineering](https://z-r0crypt.github.io/posts/2019-11-25-microcorruption-ctf/)
+- [Cryptography I: Stream Ciphers, PRGs, and Semantic Security](https://z-r0crypt.github.io/posts/2019-11-24-crypto-stanford-week1/)
+
+## Pages
+- [About](https://z-r0crypt.github.io/about/)
+- [About](https://z-r0crypt.github.io/aboutme/)
+- [Leadership & Program Design](https://z-r0crypt.github.io/leadership/)
+- [Research Archive](https://z-r0crypt.github.io/research-archive/)
+- [Start Here](https://z-r0crypt.github.io/start-here/)
