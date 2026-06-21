@@ -6,21 +6,79 @@ theme = "PaperMod"
 paginate = 10
 languageCode = "en"  # Keep for backward compatibility but won't error
 
+enableRobotsTXT = true     # Tells Hugo to build a native robots.txt file for search crawlers
+enableEmoji = true         # Enables standard markdown emojis (e.g., :lock: -> 🔒)
+minify.disableXML = true   # Optimizes asset size processing for faster load times
+
 # Google Analytics - GA4
 googleAnalytics = "G-E0K2CP5DEL"
 google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
 
 
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
+
 # Enable RSS and other output formats
 [outputs]
-  home = ["HTML", "JSON", "RSS"]
+  home = ["HTML", "JSON", "RSS", "llms"]
 
+# -------------------------------------------------------------
+# MAIN PARAMETERS (Keep flat variables together)
+# -------------------------------------------------------------
 [params]
   description = "Research lead in offensive security, AI/ML red teaming, and adversarial engineering"
   author = "z-r0crypt"
   defaultTheme = "dark"
-  
-  # Social links
+  ShowToc = true
+  TocOpen = false
+  env = "production"  # Fixed placement: safely inside main params
+  customCSS = ["css/custom.css"]
+  ShowShareButtons = true     # Adds clean, lightweight icons at the bottom to share posts
+  ShowReadingTime = true      # Displays an estimated read time at the top of long guides
+  ShowPostNavLinks = true     # Adds "Previous Post" / "Next Post" links to step through guides
+  ShowBreadCrumbs = true      # Improves navigation clarity (e.g., Home » Posts » OffSec)
+  ShowPageNums = true         # Enables pagination numbers at the bottom of your feed
+
+  # Cover settings
+  [params.cover]
+    image = ""
+    relative = false
+
+  # Edit Post links
+  [params.editPost]
+    URL = "https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content"
+    Text = "Suggest Changes"
+
+  # Sidebar toggle
+  [params.sidebar]
+    enabled = false
+
+  # Assets & Highlight JS configuration
+  [params.assets]
+    disableHLJS = false
+    favicon = ""
+
+  # Local Search engine configuration
+  [params.search]
+    enabled = true
+    type = "fuse"
+    showOnHeader = true
+
+  # Homepage Identity Card
+  [params.homeInfoParams]
+    Title = "Red Teaming in the Age of AI"
+    Content = "Building secure systems through principled attacks."
+
+  # Google AdSense (Auto-Ads Disabled)
+  [params.googleAdsense]
+    enabled = true
+    publisherId = "ca-pub-3835157681642549"
+    autoAds = false
+
+  # Social links arrays
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/z-r0crypt"
@@ -32,45 +90,11 @@ google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
     url = "https://twitter.com/zer0crypt"
   [[params.socialIcons]]
     name = "rss"
-    url = "https://z-r0crypt.github.io/index.xml"
+    url = "/index.xml" # Fixed: relative path for local testing safety
 
-  # PaperMod specific
-  [homeInfoParams]
-    Title = "Red Teaming in the Age of AI"
-    Content = "Building secure systems through principled attacks."
-
-  #Custom css
-  customCSS = ["css/custom.css"]
-
-  
-  # Google AdSense
-  # googleAdsense = "ca-pub-3835157681642549"  # TODO: Replace with your AdSense ID
-  [params.googleAdsense]
-    enabled = true
-    publisherId = "ca-pub-3835157681642549"
-    autoAds = true
-
-  # Enable analytics
-  env = "production"  # Required for analytics to fire
-  
-  # PostCSS and minification
-  [params.assets]
-    disableHLJS = false
-    favicon = ""
-    
-  [params.cover]
-    image = ""
-    relative = false
-
-  [params.editPost]
-    URL = "https://github.com/z-r0crypt/z-r0crypt.github.io/tree/main/content"
-    Text = "Suggest Changes"
-
-  # FIX: Disable problematic sidebar
-  [params.sidebar]
-    enabled = false
-
-# Menu navigation
+# -------------------------------------------------------------
+# NAVIGATION MENU
+# -------------------------------------------------------------
 [menu]
 [[menu.main]]
   identifier = "research"
@@ -85,11 +109,10 @@ google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
   weight = 20
 
 [[menu.main]]
-  identifier = "aiml"
-  name = "AI/ML Security"
-  url = "/categories/ai-ml-security"
-  weight = 30
-
+  identifier = "search"
+  name = "Search"
+  url = "/search/"
+  weight = 40
 
 [[menu.main]]
   identifier = "about"
@@ -118,6 +141,8 @@ google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
     endLevel = 3
     ordered = false
     startLevel = 2
+  [markup.goldmark.renderer]
+    unsafe = true  # Permits rendering of raw HTML elements directly within Markdown files
 
 # Security headers
 [security]

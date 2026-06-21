@@ -1,5 +1,8 @@
 ---
 title: "Search"
-placeholder: Search demo site with full text fuzzy search ...
+summary: "search"
+url: "/search/"
+placeholder: "Search for tools, TTPs, cert guides ..."
 layout: "search"
+searchHidden: true
 ---
