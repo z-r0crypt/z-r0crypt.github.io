@@ -35,11 +35,13 @@ Professional certifications demonstrating expertise in offensive security:
 
 + OSCE — Offensive Security Certitifed Expert . *Offensive Security · Earned 2018*
 
-+ OSWE — Offensive Security Web Expert (AWAE) . *Offensive Security · Earned 2023*
++ OSWE — Offensive Security Web Expert (AWAE) . *Offensive Security · Earned 2020*
+
++ CRTO — Certified Red Team Operator . *Zero Point Security · Earned 2022*
 
 + OSEP — Offensive Security Experienced Pentester (PEN-300) . *Offensive Security · Earned 2024*
 
-+ CRTO — Certified Red Team Operator . *Zero Point Security · Earned 2024*
+
 
 ---
 
