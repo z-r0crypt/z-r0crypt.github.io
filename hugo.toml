@@ -74,7 +74,7 @@ google_verify = "lKxcocybGM-2fyrJhswx85Oxp6S4sqLCd-M0H34O-Ko"
 
   # Google AdSense (Auto-Ads Disabled)
   [params.googleAdsense]
-    enabled = true
+    enabled = false
     publisherId = "ca-pub-3835157681642549"
     autoAds = false
 
